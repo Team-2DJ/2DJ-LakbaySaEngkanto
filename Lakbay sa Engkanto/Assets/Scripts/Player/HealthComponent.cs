@@ -28,13 +28,15 @@ public class HealthComponent : MonoBehaviour
         // Decrement HP based on Damage
         currentHealth -= damage;
 
+        Debug.Log(currentHealth);
+
         // If Current HP is 0 or Less
         if (currentHealth < 0f)
         {
             // Clamp HP to 0
             // Prevents Negative HP
             currentHealth = 0f;
-            
+
             // Call Death
             OnDeath();
         }

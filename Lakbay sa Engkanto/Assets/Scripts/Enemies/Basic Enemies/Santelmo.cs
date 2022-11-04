@@ -23,8 +23,7 @@ public class Santelmo : Enemy
         MovementPattern();
     }
 
-
-    // Santelmo movement pattern, basically moves in a circular pattern based from a center of rotation (rotationCenter)
+    // Santelmo movement pattern,  moves in a circular pattern based from a center of rotation (rotationCenter)
     protected override void MovementPattern()
     {
         posX = rotationCenter.position.x + Mathf.Cos(angle) * rotationRadius;
@@ -33,5 +32,10 @@ public class Santelmo : Enemy
         angle = angle + Time.deltaTime * angularSpeed;
 
         if (angle >= 360f) angle = 0f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamagePlayer(1);
     }
 }
