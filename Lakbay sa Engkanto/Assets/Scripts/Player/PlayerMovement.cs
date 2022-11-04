@@ -59,6 +59,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // Modify Horizontal Input based on Player's Input
         horizontalInput = context.ReadValue<Vector2>().x;
+
+        // Flip Player Upon Movement
+        Flip();
     }
 
     // Player Jump Event
@@ -96,6 +99,24 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, JumpForce);
             currentJumpAmount--;
+        }
+    }
+
+    // Flip Entire GameObject based on
+    // Horizontal Player Input
+    void Flip()
+    {
+        // If Player is Moving Right
+        if (horizontalInput > 0)
+        {
+            // Face Right
+            gameObject.transform.localScale = new Vector3(1, 1f, 1f);
+        }
+        // If Player is Moving Left
+        else if (horizontalInput < 0)
+        {
+            // Face Left
+            gameObject.transform.localScale = new Vector3(-1, 1f, 1f);
         }
     }
     #endregion
