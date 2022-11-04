@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;                                  // Coyote Time Counter
     private int currentJumpAmount;                              // Air Jump Amount Tracker
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +29,11 @@ public class PlayerMovement : MonoBehaviour
         CurrentSpeed = MovementSpeed;
         currentJumpAmount = MultipleJumpAmount;
     }
+    #endregion
 
     void FixedUpdate()
     {
+        // Move the Player based on Input
         playerSetup.Rb.velocity = new Vector2(horizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
 
         // If Player is on the Ground
