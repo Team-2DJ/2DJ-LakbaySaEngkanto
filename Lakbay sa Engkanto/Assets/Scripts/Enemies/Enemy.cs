@@ -1,16 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Enemy : MonoBehaviour
 {
-    // Refers to the movement pattern each Enemy type would follow 
-    // (Implementations will be found per derived class)
+    public UnityEvent<float> ActorHit = new();
+
+    private void Start()
+    {
+        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+    }
+
+    /// <summary>
+    /// Refers to the movement pattern each Enemy type would follow 
+    /// </summary>
     protected abstract void MovementPattern();
 
-    // To be further implemented, used in damaging a Player when it hits an enemy
-    protected void DamagePlayer()
+    /// <summary>
+    /// Used in damaging a Player when it hits an enemy
+    /// </summary>
+    protected void DamagePlayer(float damage)
     {
-        Debug.Log("Player has been hit");
+        ActorHit.Invoke(damage);
+    }
+
+    private void OnDestroy()
+    {
+        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
     }
 }
