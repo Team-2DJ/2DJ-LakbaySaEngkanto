@@ -6,4 +6,5 @@ public abstract class Boss : Enemy
 {
     // Functions to be implemented in the future
 
+    protected abstract void AttackPattern();
 }
