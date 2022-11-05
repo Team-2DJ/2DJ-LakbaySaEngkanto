@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Enemy : MonoBehaviour
+public class GreenCloud : MonoBehaviour
 {
     UnityEvent<float> ActorHit = new();
+    [SerializeField] float damage;
 
     private void Start()
     {
         ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
     }
 
-    /// <summary>
-    /// Refers to the movement pattern each Enemy type would follow 
-    /// </summary>
-    protected abstract void MovementPattern();
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamagePlayer();
+    }
 
-    /// <summary>
-    /// Used in damaging a Player when it hits an enemy
-    /// </summary>
-
-    protected void DamagePlayer(float damage)
+    protected void DamagePlayer()
     {
         ActorHit.Invoke(damage);
     }
