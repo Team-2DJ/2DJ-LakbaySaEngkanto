@@ -110,13 +110,13 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput > 0)
         {
             // Face Right
-            gameObject.transform.localScale = new Vector3(1, 1f, 1f);
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         // If Player is Moving Left
         else if (horizontalInput < 0)
         {
             // Face Left
-            gameObject.transform.localScale = new Vector3(-1, 1f, 1f);
+            gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
     }
     #endregion
