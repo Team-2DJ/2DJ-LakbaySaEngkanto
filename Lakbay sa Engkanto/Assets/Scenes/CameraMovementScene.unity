@@ -1197,5 +1197,9 @@ PrefabInstance:
       propertyPath: FollowPoint
       value: 
       objectReference: {fileID: 1404925845}
+    - target: {fileID: 2445268462930090141, guid: c2c60faf102ecd64aa85c23c1378f47f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2c60faf102ecd64aa85c23c1378f47f, type: 3}
