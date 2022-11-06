@@ -128,4 +128,13 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(GroundCheck.position, 0.4f, GroundMask);
     }
     #endregion
+    public void DividePlayerSpeed(float value)
+    {
+        CurrentSpeed /= value; 
+    }
+
+    public void MultiplyPlayerSpeed(float value)
+    {
+        CurrentSpeed *= value;
+    }
 }
