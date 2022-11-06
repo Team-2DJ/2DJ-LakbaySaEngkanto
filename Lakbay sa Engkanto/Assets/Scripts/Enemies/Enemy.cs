@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void Start()
     {
-        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
     }
 
     /// <summary>
@@ -28,6 +28,6 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
     }
 }
