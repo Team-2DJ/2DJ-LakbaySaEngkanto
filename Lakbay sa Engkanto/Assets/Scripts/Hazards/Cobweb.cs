@@ -27,15 +27,17 @@ public class Cobweb : Hazard
     
 
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        IncreasePlayerSpeed.Invoke(speedModifier);
+        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
+            IncreasePlayerSpeed.Invoke(speedModifier);
     }
 
     
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
         OnActHazard();
     }
 }
