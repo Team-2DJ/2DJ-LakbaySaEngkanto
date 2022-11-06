@@ -17,12 +17,12 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        SingletonManager.Get<GameEvents>().PlayerDamaged += UpdateHealth;
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += UpdateHealth;
     }
 
     void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().PlayerDamaged -= UpdateHealth;
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= UpdateHealth;
     }
 
     // Update Player Health Container

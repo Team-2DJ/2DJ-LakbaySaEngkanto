@@ -22,16 +22,16 @@ public class PlayerMovement : MonoBehaviour
 
     void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().SlowDownPlayer -= DividePlayerSpeed;
-        SingletonManager.Get<GameEvents>().IncreasePlayerSpeed -= MultiplyPlayerSpeed;
+        SingletonManager.Get<GameEvents>().OnSlowDownPlayer -= DividePlayerSpeed;
+        SingletonManager.Get<GameEvents>().OnIncreasePlayerSpeed -= MultiplyPlayerSpeed;
     }
 
     #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().SlowDownPlayer += DividePlayerSpeed;
-        SingletonManager.Get<GameEvents>().IncreasePlayerSpeed += MultiplyPlayerSpeed;
+        SingletonManager.Get<GameEvents>().OnSlowDownPlayer += DividePlayerSpeed;
+        SingletonManager.Get<GameEvents>().OnIncreasePlayerSpeed += MultiplyPlayerSpeed;
 
         // Cache-In Variables
         playerSetup = GetComponent<PlayerSetup>();
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     public void DividePlayerSpeed(float value)
     {
-        CurrentSpeed /= value; 
+        CurrentSpeed /= value;
     }
 
     public void MultiplyPlayerSpeed(float value)

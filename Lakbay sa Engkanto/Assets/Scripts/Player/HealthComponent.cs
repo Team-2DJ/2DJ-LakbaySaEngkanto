@@ -9,7 +9,7 @@ public class HealthComponent : MonoBehaviour
 
     void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().PlayerDamaged -= TakeDamage;
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= TakeDamage;
         Debug.Log("Disable");
     }
 
@@ -17,7 +17,7 @@ public class HealthComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().PlayerDamaged += TakeDamage;
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
         Initialize();
     }
     #endregion

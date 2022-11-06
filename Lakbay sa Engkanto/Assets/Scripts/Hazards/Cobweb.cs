@@ -9,14 +9,14 @@ public class Cobweb : Hazard
 
     public override void OnActHazard()
     {
-        SingletonManager.Get<GameEvents>().SlowDownPlayer?.Invoke(speedModifier);
+        SingletonManager.Get<GameEvents>().SlowDownPlayer(speedModifier);
         Debug.Log("Hazard activated");
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
-            SingletonManager.Get<GameEvents>().IncreasePlayerSpeed?.Invoke(speedModifier);
+            SingletonManager.Get<GameEvents>().IncreasePlayerSpeed(speedModifier);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

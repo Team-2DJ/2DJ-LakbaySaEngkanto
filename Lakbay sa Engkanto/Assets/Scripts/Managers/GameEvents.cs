@@ -6,13 +6,28 @@ using System;
 
 public class GameEvents : MonoBehaviour
 {
-    public Action<float> PlayerDamaged;
+    public event Action<float> OnPlayerDamaged;
 
-    public Action<float> SlowDownPlayer;
-    public Action<float> IncreasePlayerSpeed;
+    public event Action<float> OnSlowDownPlayer;
+    public event Action<float> OnIncreasePlayerSpeed;
 
     void Awake()
     {
         SingletonManager.Register(this);
+    }
+
+    public void PlayerDamaged(float value)
+    {
+        OnPlayerDamaged?.Invoke(value);
+    }
+
+    public void SlowDownPlayer(float value)
+    {
+        OnSlowDownPlayer?.Invoke(value);
+    }
+
+    public void IncreasePlayerSpeed(float value)
+    {
+        OnIncreasePlayerSpeed?.Invoke(value);
     }
 }
