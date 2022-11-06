@@ -51,7 +51,7 @@ public class ChichayMovement : MonoBehaviour
         // If Player Is Moving
         if (horizontalDirection != 0f)
             // Flip Sprite Based on Current Direction the Player is Facing
-            gameObject.transform.localScale = new Vector3(scale.x * horizontalDirection, scale.y, scale.z);
+            transform.localScale = new Vector3(scale.x * horizontalDirection, scale.y, scale.z);
     }
 
     /// <summary>
