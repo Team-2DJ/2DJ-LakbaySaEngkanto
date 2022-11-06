@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    public float DefaultHealth;                                     // Default HP
-
-
-    private float currentHealth;                                    // Current HP
+    [SerializeField] float DefaultHealth;                                     // Default HP
+    public float CurrentHealth { get; private set; }                          // Current HP
 
     #region Initialization Functions
     // Start is called before the first frame update
@@ -19,27 +17,27 @@ public class HealthComponent : MonoBehaviour
 
     void Initialize()
     {
-        currentHealth = DefaultHealth;
+        CurrentHealth = DefaultHealth;
     }
 
     #region HP System
     public void TakeDamage(float damage)
     {
         // Decrement HP based on Damage
-        currentHealth -= damage;
-
-        Debug.Log(currentHealth);
+        CurrentHealth -= damage;
 
         // If Current HP is 0 or Less
-        if (currentHealth < 0f)
+        if (CurrentHealth < 0f)
         {
             // Clamp HP to 0
             // Prevents Negative HP
-            currentHealth = 0f;
+            CurrentHealth = 0f;
 
             // Call Death
             OnDeath();
         }
+
+        Debug.Log(CurrentHealth);
     }
 
     // Executes Death Functionality
