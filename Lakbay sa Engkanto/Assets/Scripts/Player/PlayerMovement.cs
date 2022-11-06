@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerSetup playerSetup;                                      // Player Setup Class Reference
     private float coyoteTimer;                                            // Coyote Time Counter
     private int currentJumpAmount;                                        // Air Jump Amount Tracker
+    private Vector3 scale;                                                // Player Scale Reference
 
     #region Initialization Functions
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         playerSetup = GetComponent<PlayerSetup>();
         CurrentSpeed = MovementSpeed;
         currentJumpAmount = MultipleJumpAmount;
+        scale = transform.localScale;
     }
     #endregion
 
@@ -119,18 +121,10 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Flip()
     {
-        // If Player is Moving Right
-        if (HorizontalInput > 0)
-        {
-            // Face Right
-            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        // If Player is Moving Left
-        else if (HorizontalInput < 0)
-        {
-            // Face Left
-            gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
+        // Whenever The Player Presses the Directional Buttons
+        if (HorizontalInput != 0f)
+            // Flip Player Based on Horizontal Input
+            transform.localScale = new Vector3(scale.x * HorizontalInput, scale.y, scale.z);
     }
     #endregion
 
