@@ -10,7 +10,7 @@ public class GreenCloud : Hazard
 
     private void Start()
     {
-        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,6 +26,6 @@ public class GreenCloud : Hazard
 
     private void OnDestroy()
     {
-        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
     }
 }

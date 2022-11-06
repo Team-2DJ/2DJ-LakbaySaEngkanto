@@ -23,6 +23,13 @@ public class Santelmo : Enemy
         MovementPattern();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
+            DamagePlayer(1);
+    }
+
+    #region EnemyMovement
     // Santelmo movement pattern,  moves in a circular pattern based from a center of rotation (rotationCenter)
     protected override void MovementPattern()
     {
@@ -33,10 +40,5 @@ public class Santelmo : Enemy
 
         if (angle >= 360f) angle = 0f;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
-            DamagePlayer(1);
-    }
+    #endregion
 }

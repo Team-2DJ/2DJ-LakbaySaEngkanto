@@ -14,7 +14,7 @@ public class Stick : MonoBehaviour
 
     void Start()
     {
-        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
 
         rb = this.GetComponent<Rigidbody2D>();
         target = SingletonManager.Get<PlayerManager>().Player.gameObject;
@@ -33,7 +33,7 @@ public class Stick : MonoBehaviour
 
     void OnDestroy()
     {
-        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().TakeDamage);
+        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
     }
 
 }

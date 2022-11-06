@@ -19,7 +19,7 @@ public class ChichayMovement : MonoBehaviour
     private float currentSpeed;                                     // Current Movement Speed
     private States currentState;                                    // Current State
     private Vector3 scale;                                          // Default Scale Reference
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +46,7 @@ public class ChichayMovement : MonoBehaviour
     void Flip()
     {
         // Get Player Horizontal Input Reference from PlayerManager
-        float horizontalDirection = SingletonManager.Get<PlayerManager>().Player.GetComponent<PlayerMovement>().HorizontalInput;
+        float horizontalDirection = SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput;
 
         // If Player Is Moving
         if (horizontalDirection != 0f)
@@ -95,7 +95,7 @@ public class ChichayMovement : MonoBehaviour
                 break;
         }
     }
-    
+
     /// <summary>
     /// Triggers Hurt Animation
     /// </summary>

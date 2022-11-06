@@ -10,13 +10,13 @@ public class Cobweb : Hazard
     [SerializeField] float speedModifier = 5f;
     private void Start()
     {
-        SlowDownPlayer.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<PlayerMovement>().DividePlayerSpeed);
-        IncreasePlayerSpeed.AddListener(SingletonManager.Get<PlayerManager>().Player.GetComponent<PlayerMovement>().MultiplyPlayerSpeed);
+        SlowDownPlayer.AddListener(SingletonManager.Get<PlayerManager>().Player.PlayerMovement.DividePlayerSpeed);
+        IncreasePlayerSpeed.AddListener(SingletonManager.Get<PlayerManager>().Player.PlayerMovement.MultiplyPlayerSpeed);
     }
 
     private void Update()
     {
-        
+
     }
     public override void OnActHazard()
     {
@@ -24,7 +24,7 @@ public class Cobweb : Hazard
         Debug.Log("Hazard activated");
     }
 
-    
+
 
 
     private void OnTriggerExit2D(Collider2D other)
@@ -33,11 +33,11 @@ public class Cobweb : Hazard
             IncreasePlayerSpeed.Invoke(speedModifier);
     }
 
-    
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
-        OnActHazard();
+            OnActHazard();
     }
 }
