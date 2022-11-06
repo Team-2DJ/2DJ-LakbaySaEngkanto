@@ -46,26 +46,19 @@ public class ChichayMovement : MonoBehaviour
 
         Debug.Log(direction);
 
-        // If Moving to the Right
-        if (direction.x > 0f)
+        if (direction.x != 0f)
         {
-            gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            // If Moving to the Right
+            if (direction.x > 0f)
+            {
+                gameObject.transform.localScale = new Vector3(scale.x * (direction.x / direction.x), scale.y, scale.z);
+            }
+            // If Moving to the Left
+            else if (direction.x < 0f)
+            {
+                gameObject.transform.localScale = new Vector3(scale.x * -(direction.x / direction.x), scale.y, scale.z);
+            }
         }
-        // If Moving to the Left
-        else if (direction.x < 0f)
-        {
-            gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        }
-
-
-        /*if (facingRight)
-        {
-            gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
-        }
-        else
-        {
-            gameObject.transform.localScale = new Vector3(-0.75f, 0.75f, 0.75f);
-        }*/
     }
 
     // Follow a Certain Point Near the Player
