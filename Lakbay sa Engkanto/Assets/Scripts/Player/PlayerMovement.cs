@@ -55,7 +55,10 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Player Input Unity Events
-    // Player Movement Event
+    /// <summary>
+    /// Player Movement Event
+    /// </summary>
+    /// <param name="context"></param>
     public void Move(InputAction.CallbackContext context)
     {
         // Modify Horizontal Input based on Player's Input
@@ -65,7 +68,10 @@ public class PlayerMovement : MonoBehaviour
         Flip();
     }
 
-    // Player Jump Event
+    /// <summary>
+    /// Player Jump Event
+    /// </summary>
+    /// <param name="context"></param>
     public void Jump(InputAction.CallbackContext context)
     {
         JumpCut(context);
@@ -74,9 +80,10 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Private Functions
-    // Executes a Mario-Style Jumping Mechanic
-    // The Height of the Jump is Dependent Upon
-    // The Tension of the Player Input
+    /// <summary>
+    /// Executes a Mario-Style Jumping Mechanic Where The Height of the Jump is Dependent Upon The Tension of the Player Input
+    /// </summary>
+    /// <param name="context"></param>
     void JumpCut(InputAction.CallbackContext context)
     {
         // Tap Jump
@@ -94,6 +101,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables Air Jumping A Certain Amount of Times
+    /// </summary>
+    /// <param name="context"></param>
     void MultipleJump(InputAction.CallbackContext context)
     {
         if (context.performed && currentJumpAmount > 0 && coyoteTimer < 0f)
@@ -103,8 +114,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Flip Entire GameObject based on
-    // Horizontal Player Input
+    /// <summary>
+    /// Flip Entire GameObject based on Horizontal Player Input
+    /// </summary>
     void Flip()
     {
         // If Player is Moving Right
@@ -123,7 +135,10 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Conditional Functions
-    // Checks if Player is Currently Stepping on a Ground Layered Platform
+    /// <summary>
+    /// Checks if Player is Currently Stepping on a Ground Layered Platform
+    /// </summary>
+    /// <returns></returns>
     bool IsGrounded()
     {
         return Physics2D.OverlapCircle(GroundCheck.position, 0.4f, GroundMask);

@@ -42,7 +42,9 @@ public class ChichayMovement : MonoBehaviour
     #endregion
 
     #region Private Functions
-    // Flip GameObject Based on Movement Direction
+    /// <summary>
+    /// Flip GameObject Based on Movement Direction
+    /// </summary>
     void Flip()
     {
         // Get Player Horizontal Input Reference from PlayerManager
@@ -54,7 +56,9 @@ public class ChichayMovement : MonoBehaviour
             gameObject.transform.localScale = new Vector3(scale.x * horizontalDirection, scale.y, scale.z);
     }
 
-    // Follow a Certain Point Near the Player
+    /// <summary>
+    /// Follow a Certain Point Near the Player
+    /// </summary>
     void FollowPlayer()
     {
         // If Chichay has Reached the FollowPoint
@@ -76,7 +80,9 @@ public class ChichayMovement : MonoBehaviour
     #endregion
 
     #region Animation Functions
-    // Handles Chichay's Idle and Flying Animations
+    /// <summary>
+    /// Handles Chichay's Idle and Flying Animations
+    /// </summary>
     void MovementAnimations()
     {
         // Animate Chichay based on Current State
@@ -91,14 +97,18 @@ public class ChichayMovement : MonoBehaviour
                 break;
         }
     }
-
-    // Triggers Hurt Animation
+    
+    /// <summary>
+    /// Triggers Hurt Animation
+    /// </summary>
     void OnHurt()
     {
         Animator.SetTrigger("isHurt");
     }
 
-    // Trigers Death Animation
+    /// <summary>
+    /// Trigers Death Animation
+    /// </summary>
     void OnDeath()
     {
         Animator.SetTrigger("isDead");
