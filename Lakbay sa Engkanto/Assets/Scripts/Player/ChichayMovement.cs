@@ -4,83 +4,82 @@ using UnityEngine;
 
 public class ChichayMovement : MonoBehaviour
 {
+    // Chichay State Machine
     enum States
     {
         IDLE,
         FLYING
     };
+
+
+    [SerializeField] Transform FollowPoint;                         // Point Where Chichay Needs to Go to
+    [SerializeField] float MovementSpeed;                           // Default Movement Speed
+    [SerializeField] Animator Animator;                             // Animator Controller Component Reference
+
+    private float currentSpeed;                                     // Current Movement Speed
+    private States currentState;                                    // Current State
+    private Vector3 scale;                                          // Default Scale Reference
     
-    
-    public Transform FollowPoint;
-    public float MovementSpeed;
-    public GameObject Graphic;
-    public Animator Animator;
-
-
-    private States currentState;
-    private Vector2 direction;
-    private Vector3 scale;
-    private bool facingRight;
-
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize Scale Values
         scale.x = gameObject.transform.localScale.x;
         scale.y = gameObject.transform.localScale.y;
         scale.z = gameObject.transform.localScale.z;
+
+        currentSpeed = MovementSpeed;
     }
 
+    #region Update Functions
     // Update is called once per frame
     void Update()
     {
         Flip();
         FollowPlayer();
-        Animation();
+        MovementAnimations();
     }
+    #endregion
 
+    #region Private Functions
     // Flip GameObject Based on Movement Direction
     void Flip()
     {
-        // Calculate Facing Direction
-        direction = (FollowPoint.position - transform.position).normalized;
+        // Get Player Horizontal Input Reference from PlayerManager
+        float horizontalDirection = SingletonManager.Get<PlayerManager>().Player.GetComponent<PlayerMovement>().HorizontalInput;
 
-        Debug.Log(direction);
-
-        if (direction.x != 0f)
-        {
-            // If Moving to the Right
-            if (direction.x > 0f)
-            {
-                gameObject.transform.localScale = new Vector3(scale.x * (direction.x / direction.x), scale.y, scale.z);
-            }
-            // If Moving to the Left
-            else if (direction.x < 0f)
-            {
-                gameObject.transform.localScale = new Vector3(scale.x * -(direction.x / direction.x), scale.y, scale.z);
-            }
-        }
+        // If Player Is Moving
+        if (horizontalDirection != 0f)
+            // Flip Sprite Based on Current Direction the Player is Facing
+            gameObject.transform.localScale = new Vector3(scale.x * horizontalDirection, scale.y, scale.z);
     }
 
     // Follow a Certain Point Near the Player
     void FollowPlayer()
     {
+        // If Chichay has Reached the FollowPoint
         if (Vector2.Distance(transform.position, FollowPoint.position) <= 0f)
         {
             // Set State to Idle
             currentState = States.IDLE;
         }
+        // Otherwise...
         else
         {
             // Set State to Flying
             currentState = States.FLYING;
 
             // Move Towards Target Position
-            transform.position = Vector2.MoveTowards(transform.position, FollowPoint.position, MovementSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, FollowPoint.position, currentSpeed * Time.deltaTime);
         }
     }
+    #endregion
 
-    void Animation()
+    #region Animation Functions
+    // Handles Chichay's Idle and Flying Animations
+    void MovementAnimations()
     {
+        // Animate Chichay based on Current State
         switch (currentState)
         {
             case States.IDLE:
@@ -104,4 +103,5 @@ public class ChichayMovement : MonoBehaviour
     {
         Animator.SetTrigger("isDead");
     }
+    #endregion
 }

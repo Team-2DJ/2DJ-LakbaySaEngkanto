@@ -5,20 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform GroundCheck;                               // Checks if Player is On the Ground
-    public LayerMask GroundMask;                                // Layer in Which that Player Would be Able to Jump
-    public int MultipleJumpAmount;                              // Number of Times the Player can Jump In the Air
-    public float MovementSpeed;                                 // Amount on How Fast can the Player Move
-    public float CoyoteTime;                                    // Time When Player CAn Still Jump When Off Ground
-    public float JumpForce;                                     // Amount of Force the Player Can Jump
-    public float GroundCheckRadius;                             // Radius of the Ground Checker
-    public float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
+    [SerializeField] Transform GroundCheck;                               // Checks if Player is On the Ground
+    [SerializeField] LayerMask GroundMask;                                // Layer in Which that Player Would be Able to Jump
+    [SerializeField] int MultipleJumpAmount;                              // Number of Times the Player can Jump In the Air
+    [SerializeField] float MovementSpeed;                                 // Amount on How Fast can the Player Move
+    [SerializeField] float CoyoteTime;                                    // Time When Player CAn Still Jump When Off Ground
+    [SerializeField] float JumpForce;                                     // Amount of Force the Player Can Jump
+    [SerializeField] float GroundCheckRadius;                             // Radius of the Ground Checker
+    [SerializeField] float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
+    public float HorizontalInput { get; private set; }                    // Checks Player Input
 
-
-    private PlayerSetup playerSetup;                            // Player Setup Class Reference
-    private float horizontalInput;                              // Checks Player Input
-    private float coyoteTimer;                                  // Coyote Time Counter
-    private int currentJumpAmount;                              // Air Jump Amount Tracker
+    private PlayerSetup playerSetup;                                      // Player Setup Class Reference
+    private float coyoteTimer;                                            // Coyote Time Counter
+    private int currentJumpAmount;                                        // Air Jump Amount Tracker
 
     #region Initialization Functions
     // Start is called before the first frame update
@@ -31,10 +30,11 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region Update Functions
     void FixedUpdate()
     {
         // Move the Player based on Input
-        playerSetup.Rb.velocity = new Vector2(horizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
+        playerSetup.Rb.velocity = new Vector2(HorizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
 
         // If Player is on the Ground
         if (IsGrounded())
@@ -52,13 +52,14 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
     }
+    #endregion
 
     #region Player Input Unity Events
     // Player Movement Event
     public void Move(InputAction.CallbackContext context)
     {
         // Modify Horizontal Input based on Player's Input
-        horizontalInput = context.ReadValue<Vector2>().x;
+        HorizontalInput = context.ReadValue<Vector2>().x;
 
         // Flip Player Upon Movement
         Flip();
@@ -107,13 +108,13 @@ public class PlayerMovement : MonoBehaviour
     void Flip()
     {
         // If Player is Moving Right
-        if (horizontalInput > 0)
+        if (HorizontalInput > 0)
         {
             // Face Right
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         // If Player is Moving Left
-        else if (horizontalInput < 0)
+        else if (HorizontalInput < 0)
         {
             // Face Left
             gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
