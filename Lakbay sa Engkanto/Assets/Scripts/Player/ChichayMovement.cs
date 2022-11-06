@@ -24,9 +24,7 @@ public class ChichayMovement : MonoBehaviour
     void Start()
     {
         // Initialize Scale Values
-        scale.x = gameObject.transform.localScale.x;
-        scale.y = gameObject.transform.localScale.y;
-        scale.z = gameObject.transform.localScale.z;
+        scale = transform.localScale;
 
         currentSpeed = MovementSpeed;
     }
