@@ -4,8 +4,9 @@ using UnityEngine;
 
 public abstract class Hazard : MonoBehaviour
 {
+    /// <summary>
+    /// Used to implement Hazard behaviour per derived class
+    /// </summary>
     public abstract void OnActHazard();
-    
-    
 
 }

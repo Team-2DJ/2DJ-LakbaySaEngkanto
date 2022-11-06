@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GreenCloud : MonoBehaviour
+public class GreenCloud : Hazard
 {
     UnityEvent<float> ActorHit = new();
     [SerializeField] float damage;
@@ -15,10 +15,11 @@ public class GreenCloud : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        DamagePlayer();
+        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
+            OnActHazard();
     }
 
-    protected void DamagePlayer()
+    public override void OnActHazard()
     {
         ActorHit.Invoke(damage);
     }
