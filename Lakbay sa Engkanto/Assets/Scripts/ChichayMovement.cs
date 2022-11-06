@@ -13,16 +13,21 @@ public class ChichayMovement : MonoBehaviour
     
     public Transform FollowPoint;
     public float MovementSpeed;
+    public GameObject Graphic;
     public Animator Animator;
+
 
     private States currentState;
     private Vector2 direction;
-    
+    private Vector3 scale;
+    private bool facingRight;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        scale.x = gameObject.transform.localScale.x;
+        scale.y = gameObject.transform.localScale.y;
+        scale.z = gameObject.transform.localScale.z;
     }
 
     // Update is called once per frame
@@ -37,20 +42,30 @@ public class ChichayMovement : MonoBehaviour
     void Flip()
     {
         // Calculate Facing Direction
-        direction = FollowPoint.position - transform.position;
+        direction = (FollowPoint.position - transform.position).normalized;
+
+        Debug.Log(direction);
 
         // If Moving to the Right
-        if (direction.x > 0)
+        if (direction.x > 0f)
         {
-            // Face Right
-            gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+            gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
         // If Moving to the Left
-        else if (direction.x < 0)
+        else if (direction.x < 0f)
         {
-            // Face Left
-            gameObject.transform.localScale = new Vector3(-0.75f, 0.75f, 0.75f);
+            gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
+
+
+        /*if (facingRight)
+        {
+            gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        }
+        else
+        {
+            gameObject.transform.localScale = new Vector3(-0.75f, 0.75f, 0.75f);
+        }*/
     }
 
     // Follow a Certain Point Near the Player
