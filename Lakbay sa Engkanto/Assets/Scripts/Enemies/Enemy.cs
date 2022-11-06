@@ -1,17 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class Enemy : MonoBehaviour
 {
-    UnityEvent<float> ActorHit = new();
-
-    private void Start()
-    {
-        ActorHit.AddListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
-    }
-
     /// <summary>
     /// Refers to the movement pattern each Enemy type would follow 
     /// </summary>
@@ -23,11 +15,6 @@ public abstract class Enemy : MonoBehaviour
 
     protected void DamagePlayer(float damage)
     {
-        ActorHit.Invoke(damage);
-    }
-
-    private void OnDestroy()
-    {
-        ActorHit.RemoveListener(SingletonManager.Get<PlayerManager>().Player.HealthComponent.TakeDamage);
+        SingletonManager.Get<GameEvents>().PlayerDamaged?.Invoke(damage);
     }
 }

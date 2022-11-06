@@ -7,10 +7,17 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] float DefaultHealth;                                     // Default HP
     public float CurrentHealth { get; private set; }                          // Current HP
 
+    void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().PlayerDamaged -= TakeDamage;
+        Debug.Log("Disable");
+    }
+
     #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
+        SingletonManager.Get<GameEvents>().PlayerDamaged += TakeDamage;
         Initialize();
     }
     #endregion

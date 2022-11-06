@@ -20,10 +20,19 @@ public class PlayerMovement : MonoBehaviour
     private int currentJumpAmount;                                        // Air Jump Amount Tracker
     private Vector3 scale;                                                // Player Scale Reference
 
+    void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().SlowDownPlayer -= DividePlayerSpeed;
+        SingletonManager.Get<GameEvents>().IncreasePlayerSpeed -= MultiplyPlayerSpeed;
+    }
+
     #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
+        SingletonManager.Get<GameEvents>().SlowDownPlayer += DividePlayerSpeed;
+        SingletonManager.Get<GameEvents>().IncreasePlayerSpeed += MultiplyPlayerSpeed;
+
         // Cache-In Variables
         playerSetup = GetComponent<PlayerSetup>();
         CurrentSpeed = MovementSpeed;

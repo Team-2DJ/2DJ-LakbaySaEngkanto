@@ -5,35 +5,19 @@ using UnityEngine.Events;
 
 public class Cobweb : Hazard
 {
-    UnityEvent<float> SlowDownPlayer = new();
-    UnityEvent<float> IncreasePlayerSpeed = new();
     [SerializeField] float speedModifier = 5f;
-    private void Start()
-    {
-        SlowDownPlayer.AddListener(SingletonManager.Get<PlayerManager>().Player.PlayerMovement.DividePlayerSpeed);
-        IncreasePlayerSpeed.AddListener(SingletonManager.Get<PlayerManager>().Player.PlayerMovement.MultiplyPlayerSpeed);
-    }
 
-    private void Update()
-    {
-
-    }
     public override void OnActHazard()
     {
-        SlowDownPlayer.Invoke(speedModifier);
+        SingletonManager.Get<GameEvents>().SlowDownPlayer?.Invoke(speedModifier);
         Debug.Log("Hazard activated");
     }
-
-
-
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
-            IncreasePlayerSpeed.Invoke(speedModifier);
+            SingletonManager.Get<GameEvents>().IncreasePlayerSpeed?.Invoke(speedModifier);
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {

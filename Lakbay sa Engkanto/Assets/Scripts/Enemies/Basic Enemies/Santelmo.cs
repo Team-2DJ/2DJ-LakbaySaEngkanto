@@ -26,7 +26,7 @@ public class Santelmo : Enemy
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
-            DamagePlayer(1);
+            DamagePlayer(1f);
     }
 
     #region EnemyMovement

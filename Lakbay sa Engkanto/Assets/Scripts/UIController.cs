@@ -15,30 +15,24 @@ public class UIController : MonoBehaviour
 
     private float playerHp;
 
-    void OnEnable()
+    void Start()
     {
-        
+        SingletonManager.Get<GameEvents>().PlayerDamaged += UpdateHealth;
     }
 
     void OnDisable()
     {
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        UpdateHealth();
+        SingletonManager.Get<GameEvents>().PlayerDamaged -= UpdateHealth;
     }
 
     // Update Player Health Container
-    public void UpdateHealth()
+    public void UpdateHealth(float hp)
     {
-        playerHp = SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().CurrentHealth;
+        hp = SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().CurrentHealth;
 
         for (int i = 0; i < PlayerHearts.Length; i++)
         {
-            if (i < playerHp)
+            if (i < hp)
             {
                 PlayerHearts[i].sprite = FullHeartContainer;
             }
