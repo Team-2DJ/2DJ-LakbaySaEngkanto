@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // Move the Player based on Input
         playerSetup.Rb.velocity = new Vector2(HorizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
-        OnPlayerMove();
-        OnPlayerJump();
+
+        ControlAnimation();
 
         // If Player is on the Ground
         if (IsGrounded())
@@ -57,17 +57,25 @@ public class PlayerMovement : MonoBehaviour
 
             // Reset Current Jump Amount
             currentJumpAmount = MultipleJumpAmount;
-
-            playerSetup.Animator.SetBool("isFalling", false);
         }
         // If Player is No Longer on the Ground
         else
         {
             // Decrement Coyote Timer
             coyoteTimer -= Time.deltaTime;
-
-            //playerSetup.Animator.SetBool("isFalling", true);
         }
+    }
+    #endregion
+
+    #region Animation Callbacks
+    /// <summary>
+    /// Manages Player Animations
+    /// </summary>
+    void ControlAnimation()
+    {
+        playerSetup.Animator.SetFloat("velocityX", Mathf.Abs(HorizontalInput));
+        playerSetup.Animator.SetFloat("velocityY", playerSetup.Rb.velocity.y);
+        playerSetup.Animator.SetBool("isJumping", !IsGrounded());
     }
     #endregion
 
@@ -96,38 +104,6 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region Animation Callbacks
-    /// <summary>
-    /// Checks if Player Anim should be moving or not
-    /// </summary>
-    void OnPlayerMove()
-    {
-        if (HorizontalInput != 0)
-            playerSetup.Animator.SetBool("isMoving", true);
-        else
-            playerSetup.Animator.SetBool("isMoving", false);
-    }
-
-    void OnPlayerJump()
-    {
-        //if (playerSetup.Rb.velocity.y > 0f)
-        
-        if (playerSetup.Rb.velocity.y <= 0f)
-        {
-            playerSetup.Animator.SetBool("isFalling", true);
-            //playerSetup.Animator.SetTrigger("fallTrigger");
-        }
-        else if (playerSetup.Rb.velocity.y > 0f)
-        {
-            playerSetup.Animator.SetBool("isFalling", false);
-        }
-
-
-        //else if (playerSetup.Rb.velocity.y < 0f)
-        //playerSetup.Animator.SetTrigger("isFalling");
-    }
-    #endregion
-
     #region Private Functions
     /// <summary>
     /// Executes a Mario-Style Jumping Mechanic Where The Height of the Jump is Dependent Upon The Tension of the Player Input
@@ -148,8 +124,6 @@ public class PlayerMovement : MonoBehaviour
             playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, playerSetup.Rb.velocity.y / 2f);
             coyoteTimer = 0f;
         }
-
-        playerSetup.Animator.SetTrigger("jumpTrigger");
     }
 
     /// <summary>
@@ -187,6 +161,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(GroundCheck.position, 0.4f, GroundMask);
     }
     #endregion
+
+    #region Public Functions
     public void DividePlayerSpeed(float value)
     {
         CurrentSpeed /= value;
@@ -196,4 +172,5 @@ public class PlayerMovement : MonoBehaviour
     {
         CurrentSpeed *= value;
     }
+    #endregion
 }
