@@ -124,7 +124,7 @@ TextureImporter:
         width: 323
         height: 759
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 375
-        y: 100
+        y: 109
         width: 339
-        height: 745
+        height: 736
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 4, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -162,11 +162,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 770
-        y: 104
+        y: 108
         width: 326
-        height: 753
+        height: 747
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,12 +182,12 @@ TextureImporter:
       name: Sprite_Marianne_Move_3
       rect:
         serializedVersion: 2
-        x: 1136
-        y: 106
-        width: 323
-        height: 759
+        x: 1139
+        y: 108
+        width: 319
+        height: 756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: Sprite_Marianne_Move_4
       rect:
         serializedVersion: 2
-        x: 1486
-        y: 100
-        width: 339
-        height: 745
+        x: 1488
+        y: 107
+        width: 337
+        height: 736
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,7 +229,7 @@ TextureImporter:
         width: 328
         height: 753
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,90 +237,6 @@ TextureImporter:
       bones: []
       spriteID: 2c2e8ce112d7b2f41bd614aa2be0bba9
       internalID: -768008316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Marianne_Move_6
-      rect:
-        serializedVersion: 2
-        x: 1987
-        y: 105
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22ee87f9c677a8448a0e1a213b632791
-      internalID: 225696845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Marianne_Move_7
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 93
-        width: 8
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0aeed903d62084642be8dd2463888d68
-      internalID: -384351063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Marianne_Move_8
-      rect:
-        serializedVersion: 2
-        x: 531
-        y: 98
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab838b89c6b74fb4885efa8bce56ac8e
-      internalID: -203923366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Marianne_Move_9
-      rect:
-        serializedVersion: 2
-        x: 1635
-        y: 92
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef871c06ff4481a4e956e98f74085b3a
-      internalID: -1077164200
       vertices: []
       indices: 
       edges: []
