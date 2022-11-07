@@ -11,7 +11,7 @@ public class PlayerSetup : MonoBehaviour
     public HealthComponent HealthComponent { get; private set; }
     public PlayerMovement PlayerMovement { get; private set; }
 
-    public Animator animator { get; private set; }
+    public Animator Animator;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,6 +20,6 @@ public class PlayerSetup : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         HealthComponent = GetComponent<HealthComponent>();
         PlayerMovement = GetComponent<PlayerMovement>();
-        animator = GetComponent<Animator>();
+        Animator = GetComponentInChildren<Animator>();
     }
 }
