@@ -7,6 +7,9 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] float DefaultHealth;                                     // Default HP
     public float CurrentHealth { get; private set; }                          // Current HP
 
+    [SerializeField] SpriteRenderer PlayerSprite;
+    private PlayerSetup playerSetup;
+
     void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged -= TakeDamage;
@@ -18,6 +21,7 @@ public class HealthComponent : MonoBehaviour
     void Start()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
+        playerSetup = GetComponent<PlayerSetup>();
         Initialize();
     }
     #endregion
@@ -33,6 +37,10 @@ public class HealthComponent : MonoBehaviour
         // Decrement HP based on Damage
         CurrentHealth -= damage;
 
+        StartCoroutine(HurtVFX());
+        StartCoroutine(Invincibility());
+        //GetComponent<PlayerSetup>().Animator.Play("Player_Hurt");
+
         // If Current HP is 0 or Less
         if (CurrentHealth < 0f)
         {
@@ -43,8 +51,33 @@ public class HealthComponent : MonoBehaviour
             // Call Death
             OnDeath();
         }
+        else
+        {
+
+        }
 
         Debug.Log(CurrentHealth);
+    }
+
+    IEnumerator HurtVFX()
+    {
+        playerSetup.Animator.SetBool("isHurt", true);
+        
+
+        yield return new WaitForSeconds(0.2f);
+
+        playerSetup.Animator.SetBool("isHurt", false);
+    }
+
+    IEnumerator Invincibility()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Invincibility");
+        PlayerSprite.color = Color.red;
+
+        yield return new WaitForSeconds(3f);
+
+        gameObject.layer = LayerMask.NameToLayer("Player");
+        PlayerSprite.color = Color.white;
     }
 
     // Executes Death Functionality

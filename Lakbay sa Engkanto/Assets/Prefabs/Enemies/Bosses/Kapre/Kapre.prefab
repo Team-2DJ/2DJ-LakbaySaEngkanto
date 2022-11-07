@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1504681467485057877}
   - component: {fileID: 1504681467485057879}
   - component: {fileID: 5533575951658659114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kapre
   m_TagString: Untagged
   m_Icon: {fileID: 0}

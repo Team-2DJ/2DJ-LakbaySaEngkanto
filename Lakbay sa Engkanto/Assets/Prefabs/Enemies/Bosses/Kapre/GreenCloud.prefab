@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7797181195841914482}
   - component: {fileID: 7797181195841914487}
   - component: {fileID: 8373631392344327963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
