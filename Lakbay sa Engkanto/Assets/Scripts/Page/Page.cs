@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Page : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SingletonManager.Get<GameEvents>().PickupPage();
+        Destroy(this.gameObject);
     }
 }
