@@ -38,6 +38,11 @@ public class Santelmo : Enemy
         transform.position = new Vector2(posX, posY);
         angle = angle + Time.deltaTime * angularSpeed;
 
+        if (posX > rotationRadius)
+            transform.rotation = Quaternion.Euler(0, 180f, 0);
+        else
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+
         if (angle >= 360f) angle = 0f;
     }
     #endregion
