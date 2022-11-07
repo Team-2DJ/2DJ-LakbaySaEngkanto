@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Requires the RigidBody2D and CircleCollider2D to function properly
-[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class Stick : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
