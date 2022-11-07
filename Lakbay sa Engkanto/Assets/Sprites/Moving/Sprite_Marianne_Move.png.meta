@@ -119,10 +119,10 @@ TextureImporter:
       name: Sprite_Marianne_Move_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 366.66666
-        height: 1000
+        x: 23
+        y: 106
+        width: 323
+        height: 759
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,13 +140,13 @@ TextureImporter:
       name: Sprite_Marianne_Move_1
       rect:
         serializedVersion: 2
-        x: 366
-        y: 0
-        width: 366.66666
-        height: 1000
+        x: 375
+        y: 100
+        width: 339
+        height: 745
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 4, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -161,10 +161,10 @@ TextureImporter:
       name: Sprite_Marianne_Move_2
       rect:
         serializedVersion: 2
-        x: 732
-        y: 0
-        width: 366.66666
-        height: 1000
+        x: 770
+        y: 104
+        width: 326
+        height: 753
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: Sprite_Marianne_Move_3
       rect:
         serializedVersion: 2
-        x: 1098
-        y: 0
-        width: 366.66666
-        height: 1000
+        x: 1136
+        y: 106
+        width: 323
+        height: 759
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: Sprite_Marianne_Move_4
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 0
-        width: 366.66666
-        height: 1000
+        x: 1486
+        y: 100
+        width: 339
+        height: 745
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: Sprite_Marianne_Move_5
       rect:
         serializedVersion: 2
-        x: 1830
-        y: 0
-        width: 366.66666
-        height: 1000
+        x: 1848
+        y: 104
+        width: 328
+        height: 753
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,6 +237,90 @@ TextureImporter:
       bones: []
       spriteID: 2c2e8ce112d7b2f41bd614aa2be0bba9
       internalID: -768008316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Marianne_Move_6
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 105
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ee87f9c677a8448a0e1a213b632791
+      internalID: 225696845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Marianne_Move_7
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 93
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aeed903d62084642be8dd2463888d68
+      internalID: -384351063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Marianne_Move_8
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 98
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab838b89c6b74fb4885efa8bce56ac8e
+      internalID: -203923366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Marianne_Move_9
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 92
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef871c06ff4481a4e956e98f74085b3a
+      internalID: -1077164200
       vertices: []
       indices: 
       edges: []
@@ -254,10 +338,14 @@ TextureImporter:
     nameFileIdTable:
       Sprite_Marianne_Move_2: -992701611
       Sprite_Marianne_Move_4: -1922467850
+      Sprite_Marianne_Move_9: -1077164200
       Sprite_Marianne_Move_1: -397431302
       Sprite_Marianne_Move_0: 2117067001
+      Sprite_Marianne_Move_6: 225696845
       Sprite_Marianne_Move_5: -768008316
       Sprite_Marianne_Move_3: -331991334
+      Sprite_Marianne_Move_7: -384351063
+      Sprite_Marianne_Move_8: -203923366
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
