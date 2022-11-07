@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // Move the Player based on Input
         playerSetup.Rb.velocity = new Vector2(HorizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
+        OnPlayerMove();
+        OnPlayerJump();
 
         // If Player is on the Ground
         if (IsGrounded())
@@ -87,6 +89,27 @@ public class PlayerMovement : MonoBehaviour
     {
         JumpCut(context);
         MultipleJump(context);
+    }
+    #endregion
+
+    #region Animation Callbacks
+    /// <summary>
+    /// Checks if Player Anim should be moving or not
+    /// </summary>
+    void OnPlayerMove()
+    {
+        if (HorizontalInput != 0)
+            playerSetup.animator.SetBool("isMoving", true);
+        else
+            playerSetup.animator.SetBool("isMoving", false);
+    }
+
+    void OnPlayerJump()
+    {
+        if (playerSetup.Rb.velocity.y > 0f)
+            playerSetup.animator.SetTrigger("isJumping");
+        else if (playerSetup.Rb.velocity.y < -0.1f)
+            playerSetup.animator.SetTrigger("isFalling");
     }
     #endregion
 
