@@ -13,6 +13,8 @@ public class GameEvents : MonoBehaviour
     public event Action<float> OnSlowDownPlayer;
     public event Action<float> OnIncreasePlayerSpeed;
 
+    public event Action OnPlayerCollectItem;
+
     void Awake()
     {
         SingletonManager.Register(this);
@@ -31,5 +33,10 @@ public class GameEvents : MonoBehaviour
     public void IncreasePlayerSpeed(float value)
     {
         OnIncreasePlayerSpeed?.Invoke(value);
+    }
+
+    public void PlayerCollectItem()
+    {
+        OnPlayerCollectItem?.Invoke();
     }
 }
