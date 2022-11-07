@@ -70,9 +70,9 @@ public class HealthComponent : MonoBehaviour
     }
 
     IEnumerator Invincibility()
-    {
+    {   
         gameObject.layer = LayerMask.NameToLayer("Invincibility");
-        PlayerSprite.color = Color.red;
+        PlayerSprite.color = new Color(1, 0, 0, 0.75f);
 
         yield return new WaitForSeconds(3f);
 
