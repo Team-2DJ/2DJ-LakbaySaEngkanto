@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1339825824698532265}
   - component: {fileID: 1339825824698532270}
   - component: {fileID: 5166932919806761786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultHealth: 5
+  PlayerSprite: {fileID: 7965120496834044372}
 --- !u!114 &5166932919806761786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339825825755755626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339825825918168915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -321,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339825825956997644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChichayFollowPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -354,7 +355,7 @@ GameObject:
   - component: {fileID: 2834092331255434822}
   - component: {fileID: 7965120496834044372}
   - component: {fileID: 1765196721149191467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
