@@ -9,6 +9,8 @@ using System;
 public class GameEvents : MonoBehaviour
 {
     public event Action<float> OnPlayerDamaged;
+    public event Action OnUpdateUI;
+
 
     public event Action<float> OnSlowDownPlayer;
     public event Action<float> OnIncreasePlayerSpeed;
@@ -24,6 +26,11 @@ public class GameEvents : MonoBehaviour
     public void PlayerDamaged(float value)
     {
         OnPlayerDamaged?.Invoke(value);
+    }
+
+    public void UpdateUI()
+    {
+        OnUpdateUI?.Invoke();
     }
 
     public void SlowDownPlayer(float value)

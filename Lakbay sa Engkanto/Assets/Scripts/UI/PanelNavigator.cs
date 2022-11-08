@@ -38,6 +38,7 @@ public class PanelNavigator : MonoBehaviour
     public void OnReturnButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        Time.timeScale = 1f;
     }
 
     // Previous Button
