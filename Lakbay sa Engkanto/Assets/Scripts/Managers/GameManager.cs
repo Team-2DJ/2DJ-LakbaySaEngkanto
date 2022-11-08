@@ -10,4 +10,9 @@ public class GameManager : MonoBehaviour
     {
         SingletonManager.Register(this);
     }
+
+    private void Start()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+    }
 }

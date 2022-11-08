@@ -11,7 +11,6 @@ public class ChichayMovement : MonoBehaviour
         FLYING
     };
 
-
     [SerializeField] Transform FollowPoint;                         // Point Where Chichay Needs to Go to
     [SerializeField] float MovementSpeed;                           // Default Movement Speed
     [SerializeField] Animator Animator;                             // Animator Controller Component Reference

@@ -7,7 +7,7 @@ using TMPro;
 /// <summary>
 /// Controls In-Game UI
 /// </summary>
-public class UIController : MonoBehaviour
+public class GameUIController : MonoBehaviour
 {
     [SerializeField] Image[] PlayerHearts;
     [SerializeField] Sprite FullHeartContainer;
@@ -17,24 +17,22 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += UpdateHealth;
+        SingletonManager.Get<GameEvents>().OnUpdateUI += UpdateHealth;
     }
 
     void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= UpdateHealth;
+        SingletonManager.Get<GameEvents>().OnUpdateUI -= UpdateHealth;
     }
 
     // Update Player Health Container
-    public void UpdateHealth(float hp)
+    public void UpdateHealth()
     {
-        Debug.Log("Update HP");
-
-        hp = SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().CurrentHealth;
+        playerHp = SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().CurrentHealth;
 
         for (int i = 0; i < PlayerHearts.Length; i++)
         {
-            if (i < hp)
+            if (i < playerHp)
             {
                 PlayerHearts[i].sprite = FullHeartContainer;
             }
@@ -47,6 +45,7 @@ public class UIController : MonoBehaviour
 
     public void OnJournalButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        SingletonManager.Get<PanelManager>().ActivatePanel("journal-panel");
+        Time.timeScale = 0f;
     }
 }
