@@ -44,4 +44,9 @@ public class UIController : MonoBehaviour
             }
         }
     }
+
+    public void OnJournalButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+    }
 }
