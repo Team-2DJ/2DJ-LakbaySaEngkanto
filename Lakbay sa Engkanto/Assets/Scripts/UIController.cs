@@ -28,6 +28,8 @@ public class UIController : MonoBehaviour
     // Update Player Health Container
     public void UpdateHealth(float hp)
     {
+        Debug.Log("Update HP");
+
         hp = SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().CurrentHealth;
 
         for (int i = 0; i < PlayerHearts.Length; i++)
