@@ -26,6 +26,7 @@ public class ChichayMovement : MonoBehaviour
         // Initialize Scale Values
         scale = transform.localScale;
 
+        // Initialize Current Speed
         currentSpeed = MovementSpeed;
     }
 
@@ -59,8 +60,8 @@ public class ChichayMovement : MonoBehaviour
     /// </summary>
     void FollowPlayer()
     {
-        // If Chichay has Reached the FollowPoint
-        if (Vector2.Distance(transform.position, FollowPoint.position) <= 0f)
+        // If Chichay Reaches the FollowPoint
+        if (Vector2.Distance(transform.position, FollowPoint.position) < 0.01f)
         {
             // Set State to Idle
             currentState = States.IDLE;
