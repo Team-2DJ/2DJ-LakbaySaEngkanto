@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8014961342556294335}
   - component: {fileID: 8014961342556294272}
   - component: {fileID: 8014961342556294273}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cobweb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
