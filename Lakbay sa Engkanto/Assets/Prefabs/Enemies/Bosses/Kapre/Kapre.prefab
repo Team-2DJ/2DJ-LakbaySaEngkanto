@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stick: {fileID: 7168514377440489080, guid: 02445efc3790b5347936e761500d4d7a, type: 3}
   fireRate: 1
+  timeBetweenStates: 10
 --- !u!95 &5533575951658659114
 Animator:
   serializedVersion: 4
