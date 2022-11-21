@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Santelmo : Enemy
@@ -71,7 +72,7 @@ public class Santelmo : Enemy
         else
             transform.localScale = new Vector3(scale.x * 1f, scale.y, scale.z);
     }
-
+    
     void OnDrawGizmos()
     {
         if (rotationCenter != null)
