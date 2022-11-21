@@ -18,6 +18,8 @@ public class GameEvents : MonoBehaviour
 
     public event Action OnPlayerCollectItem;
 
+    public event Action OnPlayerAnswer;
+
     void Awake()
     {
         SingletonManager.Register(this);
@@ -51,5 +53,10 @@ public class GameEvents : MonoBehaviour
     public void PickupPage()
     {
         OnPickupPage?.Invoke();
+    }
+
+    public void PlayerAnswer()
+    {
+        OnPlayerAnswer?.Invoke();
     }
 }

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    
     private void Start()
     {
         SingletonManager.Get<GameEvents>().OnPickupPage += OpenDoor;
     }
-    
+
 
     private void OpenDoor()
     {
