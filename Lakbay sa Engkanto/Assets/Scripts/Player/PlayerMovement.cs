@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -158,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(GroundCheck.position, 0.4f, GroundMask);
+        return Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundMask);
     }
     #endregion
 
@@ -173,4 +174,11 @@ public class PlayerMovement : MonoBehaviour
         CurrentSpeed *= value;
     }
     #endregion
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy)]
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRadius);
+    }
 }

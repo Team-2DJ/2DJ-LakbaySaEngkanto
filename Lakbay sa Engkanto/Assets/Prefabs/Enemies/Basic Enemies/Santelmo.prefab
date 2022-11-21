@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationRadius: 2.5
   angularSpeed: 2.5
+  isClockwise: 0
 --- !u!58 &239741110004743149
 CircleCollider2D:
   m_ObjectHideFlags: 0
