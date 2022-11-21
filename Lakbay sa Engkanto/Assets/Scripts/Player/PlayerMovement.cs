@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float GroundCheckRadius;                             // Radius of the Ground Checker
     [SerializeField] float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
     public float HorizontalInput { get; set; }                            // Checks Player Input
+    public bool IsTesting;                                                // For Debugging Purposes
+
 
     private PlayerSetup playerSetup;                                      // Player Setup Class Reference
     private float coyoteTimer;                                            // Coyote Time Counter
@@ -43,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
     #region Update Functions
     void Update()
     {
+        if (IsTesting)
+            HorizontalInput = Input.GetAxisRaw("Horizontal");
+        
         ControlAnimation();
         GroundChecking();
         Flip();
