@@ -5,7 +5,8 @@ using UnityEngine;
 public class MangoTree : MonoBehaviour
 {
     private Animator animator;
-    
+    [SerializeField] string id;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,12 @@ public class MangoTree : MonoBehaviour
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= GrowMangoTree;
     }
 
-    void GrowMangoTree()
+    void GrowMangoTree(string id)
     {
-        animator.SetTrigger("isGrowing");
-        Debug.Log("Tree is Growing");
+        if (id == this.id)
+        {
+            animator.SetTrigger("isGrowing");
+            Debug.Log("Tree is Growing");
+        }
     }
 }

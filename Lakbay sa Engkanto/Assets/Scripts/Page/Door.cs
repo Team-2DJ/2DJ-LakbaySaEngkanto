@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    
+    [SerializeField] private string id;
     private void Start()
     {
-        SingletonManager.Get<GameEvents>().OnPickupPage += OpenDoor;
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += OpenDoor;
     }
-    
 
-    private void OpenDoor()
+
+    private void OpenDoor(string id)
     {
-        Destroy(this.gameObject);
+        if (id == this.id)
+            Destroy(this.gameObject);
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPickupPage -= OpenDoor;
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= OpenDoor;
     }
 }
