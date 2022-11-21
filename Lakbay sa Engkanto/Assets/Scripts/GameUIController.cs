@@ -12,21 +12,23 @@ public class GameUIController : MonoBehaviour
     [SerializeField] Image[] PlayerHearts;
     [SerializeField] Sprite FullHeartContainer;
     [SerializeField] Sprite EmptyHeartContainer;
-    [SerializeField] GameObject JournalButtonReference; 
+    [SerializeField] GameObject JournalButtonReference;
+    [SerializeField] string id;
+
 
     private float playerHp;
 
     void Start()
     {
         SingletonManager.Get<GameEvents>().OnUpdateUI += UpdateHealth;
-        SingletonManager.Get<GameEvents>().OnPickupPage += JournalButtonActivate;
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += JournalButtonActivate;
         JournalButtonReference.SetActive(false);
     }
 
     void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnUpdateUI -= UpdateHealth;
-        SingletonManager.Get<GameEvents>().OnPickupPage -= JournalButtonActivate;
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= JournalButtonActivate;
     }
 
     // Update Player Health Container
@@ -65,8 +67,9 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void JournalButtonActivate()
+    public void JournalButtonActivate(string id)
     {
-        JournalButtonReference.SetActive(true);
+        if (id == this.id)
+            JournalButtonReference.SetActive(true);
     }
 }
