@@ -11,14 +11,11 @@ public class GameEvents : MonoBehaviour
     public event Action<float> OnPlayerDamaged;
     public event Action OnUpdateUI;
 
-
     public event Action<float> OnSlowDownPlayer;
     public event Action<float> OnIncreasePlayerSpeed;
     public event Action OnPickupPage;
 
-    public event Action OnPlayerCollectItem;
-
-    public event Action OnPlayerAnswer;
+    public event Action<string> OnPlayerCollectItem;
 
     void Awake()
     {
@@ -45,18 +42,8 @@ public class GameEvents : MonoBehaviour
         OnIncreasePlayerSpeed?.Invoke(value);
     }
 
-    public void PlayerCollectItem()
+    public void PlayerCollectItem(string id)
     {
-        OnPlayerCollectItem?.Invoke();
-    }
-
-    public void PickupPage()
-    {
-        OnPickupPage?.Invoke();
-    }
-
-    public void PlayerAnswer()
-    {
-        OnPlayerAnswer?.Invoke();
+        OnPlayerCollectItem?.Invoke(id);
     }
 }
