@@ -53,6 +53,18 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void OnPauseButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("pause-panel");
+        Time.timeScale = 0f;
+    }
+
+    public void OnResumeButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        Time.timeScale = 1f;
+    }
+
     public void JournalButtonActivate()
     {
         JournalButtonReference.SetActive(true);
