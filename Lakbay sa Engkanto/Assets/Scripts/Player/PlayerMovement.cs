@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,11 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask GroundMask;                                // Layer in Which that Player Would be Able to Jump
     [SerializeField] int MultipleJumpAmount;                              // Number of Times the Player can Jump In the Air
     [SerializeField] float MovementSpeed;                                 // Amount on How Fast can the Player Move
-    [SerializeField] float CoyoteTime;                                    // Time When Player CAn Still Jump When Off Ground
+    [SerializeField] float CoyoteTime;                                    // Time When Player Can Still Jump When Off Ground
     [SerializeField] float JumpForce;                                     // Amount of Force the Player Can Jump
     [SerializeField] float GroundCheckRadius;                             // Radius of the Ground Checker
     [SerializeField] float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
-    public float HorizontalInput { get; private set; }                    // Checks Player Input
+    public float HorizontalInput { get; set; }                            // Checks Player Input
 
     private PlayerSetup playerSetup;                                      // Player Setup Class Reference
     private float coyoteTimer;                                            // Coyote Time Counter
@@ -43,13 +41,72 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Update Functions
+    void Update()
+    {
+        ControlAnimation();
+        GroundChecking();
+        Flip();
+    }
+
     void FixedUpdate()
     {
         // Move the Player based on Input
         playerSetup.Rb.velocity = new Vector2(HorizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
+    }
+    #endregion
 
-        ControlAnimation();
+    #region Animation Callbacks
+    /// <summary>
+    /// Manages Player Animations
+    /// </summary>
+    void ControlAnimation()
+    {
+        playerSetup.Animator.SetFloat("velocityX", Mathf.Abs(HorizontalInput));
+        playerSetup.Animator.SetFloat("velocityY", playerSetup.Rb.velocity.y);
+        playerSetup.Animator.SetBool("isJumping", !IsGrounded());
+    }
+    #endregion
 
+    #region Jumping Mechanics
+    public void Jump(bool value)
+    {        
+        JumpCut(value);
+        MultipleJump(value);
+    }
+
+    void JumpCut(bool value)
+    {
+        // Tap Jump
+        if (value && coyoteTimer > 0f)
+        {
+            playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, JumpForce);
+            coyoteTimer = 0f;
+        }
+
+        // Stop Jump Upon Button Release
+        if (!value && playerSetup.Rb.velocity.y > 0f)
+        {
+            playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, playerSetup.Rb.velocity.y / 2f);
+            coyoteTimer = 0f;
+        }
+    }
+
+    /// <summary>
+    /// Enables Multiple Jumping in Mid-Air
+    /// </summary>
+    /// <param name="value"></param>
+    void MultipleJump(bool value)
+    {
+        if (value && currentJumpAmount > 0 && coyoteTimer < 0f)
+        {
+            playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, JumpForce);
+            currentJumpAmount--;
+        }
+    }
+    #endregion
+
+    void GroundChecking()
+    {
         // If Player is on the Ground
         if (IsGrounded())
         {
@@ -66,79 +123,6 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
     }
-    #endregion
-
-    #region Animation Callbacks
-    /// <summary>
-    /// Manages Player Animations
-    /// </summary>
-    void ControlAnimation()
-    {
-        playerSetup.Animator.SetFloat("velocityX", Mathf.Abs(HorizontalInput));
-        playerSetup.Animator.SetFloat("velocityY", playerSetup.Rb.velocity.y);
-        playerSetup.Animator.SetBool("isJumping", !IsGrounded());
-    }
-    #endregion
-
-    #region Player Input Unity Events
-    /// <summary>
-    /// Player Movement Event
-    /// </summary>
-    /// <param name="context"></param>
-    public void Move(InputAction.CallbackContext context)
-    {
-        // Modify Horizontal Input based on Player's Input
-        HorizontalInput = context.ReadValue<Vector2>().x;
-
-        // Flip Player Upon Movement
-        Flip();
-    }
-
-    /// <summary>
-    /// Player Jump Event
-    /// </summary>
-    /// <param name="context"></param>
-    public void Jump(InputAction.CallbackContext context)
-    {
-        JumpCut(context);
-        MultipleJump(context);
-    }
-    #endregion
-
-    #region Private Functions
-    /// <summary>
-    /// Executes a Mario-Style Jumping Mechanic Where The Height of the Jump is Dependent Upon The Tension of the Player Input
-    /// </summary>
-    /// <param name="context"></param>
-    void JumpCut(InputAction.CallbackContext context)
-    {
-        // Tap Jump
-        if (context.performed && coyoteTimer > 0f)
-        {
-            playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, JumpForce);
-            coyoteTimer = 0f;
-        }
-
-        // Stop Jump Upon Button Release
-        if (context.canceled && playerSetup.Rb.velocity.y > 0f)
-        {
-            playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, playerSetup.Rb.velocity.y / 2f);
-            coyoteTimer = 0f;
-        }
-    }
-
-    /// <summary>
-    /// Enables Air Jumping A Certain Amount of Times
-    /// </summary>
-    /// <param name="context"></param>
-    void MultipleJump(InputAction.CallbackContext context)
-    {
-        if (context.performed && currentJumpAmount > 0 && coyoteTimer < 0f)
-        {
-            playerSetup.Rb.velocity = new Vector2(playerSetup.Rb.velocity.x, JumpForce);
-            currentJumpAmount--;
-        }
-    }
 
     /// <summary>
     /// Flip Entire GameObject based on Horizontal Player Input
@@ -150,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
             // Flip Player Based on Horizontal Input
             transform.localScale = new Vector3(scale.x * HorizontalInput, scale.y, scale.z);
     }
-    #endregion
+
 
     #region Conditional Functions
     /// <summary>
@@ -174,11 +158,4 @@ public class PlayerMovement : MonoBehaviour
         CurrentSpeed *= value;
     }
     #endregion
-
-    [DrawGizmo(GizmoType.InSelectionHierarchy)]
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRadius);
-    }
 }

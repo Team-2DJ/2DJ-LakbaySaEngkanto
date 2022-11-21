@@ -72,14 +72,4 @@ public class Santelmo : Enemy
         else
             transform.localScale = new Vector3(scale.x * 1f, scale.y, scale.z);
     }
-    
-    void OnDrawGizmos()
-    {
-        if (rotationCenter != null)
-        {
-            // Draws a blue line from this transform to the target
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, rotationCenter.position);
-        }
-    }
 }
