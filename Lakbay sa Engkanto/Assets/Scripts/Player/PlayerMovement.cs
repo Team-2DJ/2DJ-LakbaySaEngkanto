@@ -49,12 +49,12 @@ public class PlayerMovement : MonoBehaviour
         {
             HorizontalInput = Input.GetAxisRaw("Horizontal");
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump(true);
             }
 
-            if (Input.GetKeyUp(KeyCode.W))
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                 Jump(false);
             }
