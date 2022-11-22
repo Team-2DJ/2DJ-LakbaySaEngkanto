@@ -13,18 +13,9 @@ public class QuestionsManager : MonoBehaviour
         public Sprite Answer;
     }
 
-    
-
-    [Header("Sprites")]
-    [SerializeField] Sprite rightAnswer;
-    [SerializeField] List<Sprite> WrongAnswers = new();
-
-
-    // Drake's Variables
     [SerializeField] RidddleItems[] Riddles;
     [SerializeField] TextMeshProUGUI QuestionText;
     [SerializeField] AnswerItem[] MultipleChoiceAnswers;
-
 
     void Start()
     {
