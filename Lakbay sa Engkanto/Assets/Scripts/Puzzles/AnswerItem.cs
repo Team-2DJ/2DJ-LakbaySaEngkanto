@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class AnswerItem : MonoBehaviour
 {
     public bool isTrue { get; set; }
     public string id;
+
+    private Image sprite;
+    private BoxCollider2D boxCollider2D;
+
+    private void Awake()
+    {
+        sprite = GetComponent<Image>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,7 +28,8 @@ public class AnswerItem : MonoBehaviour
                 SingletonManager.Get<GameEvents>().PlayerDamaged(1);
             }
 
-            Destroy(this.gameObject);
+            sprite.color = new Color(1, 1, 1, 0);
+            boxCollider2D.enabled = false;
         }
     }
 }
