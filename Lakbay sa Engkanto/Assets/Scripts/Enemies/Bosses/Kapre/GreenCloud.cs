@@ -15,6 +15,5 @@ public class GreenCloud : Hazard
     public override void OnActHazard()
     {
         SingletonManager.Get<GameEvents>().PlayerDamaged(damage);
-        SingletonManager.Get<GameEvents>().UpdateUI();
     }
 }
