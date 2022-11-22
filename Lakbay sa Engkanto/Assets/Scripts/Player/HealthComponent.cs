@@ -38,22 +38,20 @@ public class HealthComponent : MonoBehaviour
         CurrentHealth -= damage;
 
         StartCoroutine(HurtVFX());
-        StartCoroutine(Invincibility());
-        //GetComponent<PlayerSetup>().Animator.Play("Player_Hurt");
 
         // If Current HP is 0 or Less
-        if (CurrentHealth < 0f)
+        if (CurrentHealth <= 0f)
         {
             // Clamp HP to 0
             // Prevents Negative HP
             CurrentHealth = 0f;
 
             // Call Death
-            OnDeath();
+            StartCoroutine(OnDeath());
         }
         else
         {
-
+            StartCoroutine(Invincibility());
         }
 
         Debug.Log(CurrentHealth);
@@ -63,7 +61,6 @@ public class HealthComponent : MonoBehaviour
     {
         playerSetup.Animator.SetBool("isHurt", true);
         
-
         yield return new WaitForSeconds(0.2f);
 
         playerSetup.Animator.SetBool("isHurt", false);
@@ -81,9 +78,23 @@ public class HealthComponent : MonoBehaviour
     }
 
     // Executes Death Functionality
-    public void OnDeath()
+    IEnumerator OnDeath()
     {
-        // Insert Death VFX Here
+        // Disable Movement
+        playerSetup.PlayerMovement.enabled = false;
+
+        // Set Rigidbody2D Type to Static to Prevent Further Movement
+        playerSetup.Rb.bodyType = RigidbodyType2D.Static;
+
+        // Death VFX
+        playerSetup.Animator.SetBool("isHurt", true);
+        playerSetup.Animator.SetTrigger("isDead");
+
+        // Put Player to Death Layer to Prevent Collision with
+        // Other Objects
+        gameObject.layer = LayerMask.NameToLayer("Death");
+
+        yield return new WaitForSeconds(2.0f);
     }
     #endregion
 }
