@@ -719,8 +719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532add7d62dba4c419120bb77d69ac0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightAnswer: {fileID: -77259467, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
-  WrongAnswers: []
   Riddles: []
   QuestionText: {fileID: 0}
   MultipleChoiceAnswers: []
@@ -1025,7 +1023,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_TargetDisplay: 0
 --- !u!224 &844388072
 RectTransform:
@@ -1060,13 +1058,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532add7d62dba4c419120bb77d69ac0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightAnswer: {fileID: 0}
-  WrongAnswers: []
   Riddles:
-  - Question: 
-    Answer: {fileID: 0}
-  QuestionText: {fileID: 0}
-  MultipleChoiceAnswers: []
+  - Question: Isang Prinsesa Punong-puno ng Mata
+    Answer: {fileID: 1401410483, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+  - Question: Heto na si Kaka, bubuka-bukaka
+    Answer: {fileID: -1897596360, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+  - Question: "Limang puno ng niyog, isa\u2019y matayog"
+    Answer: {fileID: -77259467, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+  - Question: Isang balong malalim, punong-puno ng patalim
+    Answer: {fileID: -227135093, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+  QuestionText: {fileID: 503632394}
+  MultipleChoiceAnswers:
+  - {fileID: 1073085938}
+  - {fileID: 1422463189}
+  - {fileID: 1566724986}
+  - {fileID: 318878268}
 --- !u!4 &982346581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1339825824698532260, guid: 617478009ff707845bdfba2e193865fe, type: 3}
