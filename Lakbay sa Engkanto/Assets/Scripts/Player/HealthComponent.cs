@@ -88,13 +88,15 @@ public class HealthComponent : MonoBehaviour
 
         // Death VFX
         playerSetup.Animator.SetBool("isHurt", true);
-        playerSetup.Animator.SetTrigger("isDead");
+        playerSetup.Animator.SetBool("isDead", true);
 
         // Put Player to Death Layer to Prevent Collision with
         // Other Objects
         gameObject.layer = LayerMask.NameToLayer("Death");
 
         yield return new WaitForSeconds(2.0f);
+
+        SingletonManager.Get<GameManager>().RestartGame();
     }
     #endregion
 }
