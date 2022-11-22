@@ -46,7 +46,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (IsTesting)
+        {
             HorizontalInput = Input.GetAxisRaw("Horizontal");
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Jump(true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                Jump(false);
+            }
+        }
+            
         
         ControlAnimation();
         GroundChecking();
