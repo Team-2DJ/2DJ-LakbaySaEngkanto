@@ -24,7 +24,6 @@ public class Stick : MonoBehaviour
         if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
         {
             SingletonManager.Get<GameEvents>().PlayerDamaged(1f);
-            SingletonManager.Get<GameEvents>().UpdateUI();
         }
     }
 }

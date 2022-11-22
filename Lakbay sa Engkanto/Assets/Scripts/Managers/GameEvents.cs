@@ -25,10 +25,6 @@ public class GameEvents : MonoBehaviour
     public void PlayerDamaged(float value)
     {
         OnPlayerDamaged?.Invoke(value);
-    }
-
-    public void UpdateUI()
-    {
         OnUpdateUI?.Invoke();
     }
 

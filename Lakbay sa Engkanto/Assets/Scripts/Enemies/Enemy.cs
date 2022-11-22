@@ -16,6 +16,5 @@ public abstract class Enemy : MonoBehaviour
     protected void DamagePlayer(float damage)
     {
         SingletonManager.Get<GameEvents>().PlayerDamaged(damage);
-        SingletonManager.Get<GameEvents>().UpdateUI();
     }
 }
