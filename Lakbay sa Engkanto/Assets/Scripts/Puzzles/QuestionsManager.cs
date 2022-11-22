@@ -1,14 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class QuestionsManager : MonoBehaviour
 {
-    [SerializeField] AnswerItem[] answers;
+    [System.Serializable]
+    struct RidddleItems
+    {
+        public string Question;
+        public Sprite Answer;
+    }
+
+    
 
     [Header("Sprites")]
     [SerializeField] Sprite rightAnswer;
-    [SerializeField] List<Sprite> wrongAnswer = new();
+    [SerializeField] List<Sprite> WrongAnswers = new();
+
+
+    // Drake's Variables
+    [SerializeField] RidddleItems[] Riddles;
+    [SerializeField] TextMeshProUGUI QuestionText;
+    [SerializeField] AnswerItem[] MultipleChoiceAnswers;
+
 
     void Start()
     {
@@ -17,7 +33,20 @@ public class QuestionsManager : MonoBehaviour
 
     void RandomizeQuestions()
     {
-        var correctAnswer = answers[Random.Range(0, answers.Length)];
+        int randomRiddle = Random.Range(0, Riddles.Length);
+
+        Debug.Log(randomRiddle);
+
+        QuestionText.text = Riddles[randomRiddle].Question;
+
+        MultipleChoiceAnswers[0].GetComponent<Image>().sprite = Riddles[randomRiddle].Answer;
+
+        foreach (var answer in MultipleChoiceAnswers)
+        {
+
+        }
+
+        /*var correctAnswer = answers[Random.Range(0, answers.Length)];
         correctAnswer.isTrue = true;
         correctAnswer.GetComponent<SpriteRenderer>().sprite = rightAnswer;
 
@@ -29,6 +58,6 @@ public class QuestionsManager : MonoBehaviour
             int index = Random.Range(0, wrongAnswer.Count);
             answer.GetComponent<SpriteRenderer>().sprite = wrongAnswer[index];
             wrongAnswer.RemoveAt(index);
-        }
+        }*/
     }
 }
