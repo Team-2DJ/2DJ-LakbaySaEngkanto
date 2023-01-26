@@ -9,11 +9,11 @@ using TMPro;
 /// </summary>
 public class GameUIController : MonoBehaviour
 {
-    [SerializeField] Image[] PlayerHearts;
-    [SerializeField] Sprite FullHeartContainer;
-    [SerializeField] Sprite EmptyHeartContainer;
-    [SerializeField] GameObject JournalButtonReference;
-    [SerializeField] string id;
+    [SerializeField] private Image[] PlayerHearts;
+    [SerializeField] private Sprite FullHeartContainer;
+    [SerializeField] private Sprite EmptyHeartContainer;
+    [SerializeField] private GameObject JournalButtonReference;
+    [SerializeField] private string id;
 
 
     private float playerHp;

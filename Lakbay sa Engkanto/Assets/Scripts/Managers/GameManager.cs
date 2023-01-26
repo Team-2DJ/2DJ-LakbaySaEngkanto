@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    List<GameObject> PagesCollected = new List<GameObject>();
+    private List<GameObject> PagesCollected = new List<GameObject>();
 
     private void Awake()
     {

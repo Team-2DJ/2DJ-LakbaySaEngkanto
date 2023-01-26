@@ -3,8 +3,8 @@ using UnityEngine;
 public class ParallaxBG : MonoBehaviour
 {
     private float length, startPosition;
-    [SerializeField] new Camera camera;
-    [SerializeField] float parallaxEffect;
+    [SerializeField] private new Camera camera;
+    [SerializeField] private float parallaxEffect;
 
     void Start()
     {

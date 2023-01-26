@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private string id;
+
     private void Start()
     {
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem += OpenDoor;
