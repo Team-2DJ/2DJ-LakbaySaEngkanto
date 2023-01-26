@@ -6,13 +6,13 @@ using UnityEngine;
 public class Santelmo : Enemy
 {
     [Header("AI Setup")]
-    Transform rotationCenter;
-    [SerializeField] float rotationRadius = 5f;
-    [SerializeField] float angularSpeed = 5f;
+    private Transform rotationCenter;
+    [SerializeField] private float rotationRadius = 5f;
+    [SerializeField] private float angularSpeed = 5f;
 
-    float posX, posY, angle = 0f;
-    Vector3 pos, velocity, scale;
-    [SerializeField] bool isClockwise;
+    private float posX, posY, angle = 0f;
+    private Vector3 pos, velocity, scale;
+    [SerializeField] private bool isClockwise;
 
     void Awake()
     {
@@ -52,7 +52,7 @@ public class Santelmo : Enemy
         transform.position = new Vector2(posX, posY);
         angle = angle + Time.deltaTime * angularSpeed;
 
-        if (angle >= 360f) 
+        if (angle >= 360f)
             angle = 0f;
     }
     #endregion

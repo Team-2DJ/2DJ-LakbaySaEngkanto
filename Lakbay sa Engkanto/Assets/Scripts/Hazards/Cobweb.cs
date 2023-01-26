@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Cobweb : Hazard
 {
-    [SerializeField] float speedModifier = 5f;
+    [SerializeField] private float speedModifier = 5f;
 
     public override void OnActHazard()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    List<GameObject> PagesCollected = new List<GameObject>();
+    private List<GameObject> PagesCollected = new List<GameObject>();
 
     /// <summary>
     /// Accepts a page object, adds the gameObject of page into the player's inventory
