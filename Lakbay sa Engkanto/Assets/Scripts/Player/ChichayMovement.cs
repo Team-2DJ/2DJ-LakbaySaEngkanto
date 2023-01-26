@@ -11,13 +11,13 @@ public class ChichayMovement : MonoBehaviour
         FLYING
     };
 
-    [SerializeField] Transform FollowPoint;                         // Point Where Chichay Needs to Go to
-    [SerializeField] float MovementSpeed;                           // Default Movement Speed
-    [SerializeField] Animator Animator;                             // Animator Controller Component Reference
+    [SerializeField] private Transform FollowPoint;                         // Point Where Chichay Needs to Go to
+    [SerializeField] private float MovementSpeed;                           // Default Movement Speed
+    [SerializeField] private Animator Animator;                             // Animator Controller Component Reference
 
-    private float currentSpeed;                                     // Current Movement Speed
-    private States currentState;                                    // Current State
-    private Vector3 scale;                                          // Default Scale Reference
+    private float currentSpeed;                                             // Current Movement Speed
+    private States currentState;                                            // Current State
+    private Vector3 scale;                                                  // Default Scale Reference
 
     // Start is called before the first frame update
     void Start()

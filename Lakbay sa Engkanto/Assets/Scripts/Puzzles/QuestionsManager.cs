@@ -13,9 +13,9 @@ public class QuestionsManager : MonoBehaviour
         public Sprite Answer;
     }
 
-    [SerializeField] List<RidddleItems> Riddles;
-    [SerializeField] TextMeshProUGUI QuestionText;
-    [SerializeField] AnswerItem[] MultipleChoiceAnswers;
+    [SerializeField] private List<RidddleItems> Riddles;
+    [SerializeField] private TextMeshProUGUI QuestionText;
+    [SerializeField] private AnswerItem[] MultipleChoiceAnswers;
 
     void Start()
     {

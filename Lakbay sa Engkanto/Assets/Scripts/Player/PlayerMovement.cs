@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Transform GroundCheck;                               // Checks if Player is On the Ground
-    [SerializeField] LayerMask GroundMask;                                // Layer in Which that Player Would be Able to Jump
-    [SerializeField] int MultipleJumpAmount;                              // Number of Times the Player can Jump In the Air
-    [SerializeField] float MovementSpeed;                                 // Amount on How Fast can the Player Move
-    [SerializeField] float CoyoteTime;                                    // Time When Player Can Still Jump When Off Ground
-    [SerializeField] float JumpForce;                                     // Amount of Force the Player Can Jump
-    [SerializeField] float GroundCheckRadius;                             // Radius of the Ground Checker
-    [SerializeField] float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
-    public float HorizontalInput { get; set; }                            // Checks Player Input
-    public bool IsTesting;                                                // For Debugging Purposes
+    [SerializeField] private Transform GroundCheck;                               // Checks if Player is On the Ground
+    [SerializeField] private LayerMask GroundMask;                                // Layer in Which that Player Would be Able to Jump
+    [SerializeField] private int MultipleJumpAmount;                              // Number of Times the Player can Jump In the Air
+    [SerializeField] private float MovementSpeed;                                 // Amount on How Fast can the Player Move
+    [SerializeField] private float CoyoteTime;                                    // Time When Player Can Still Jump When Off Ground
+    [SerializeField] private float JumpForce;                                     // Amount of Force the Player Can Jump
+    [SerializeField] private float GroundCheckRadius;                             // Radius of the Ground Checker
+    [SerializeField] private float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
+    public float HorizontalInput { get; set; }                                    // Checks Player Input
+    public bool IsTesting;                                                        // For Debugging Purposes
 
 
-    private PlayerSetup playerSetup;                                      // Player Setup Class Reference
-    private float coyoteTimer;                                            // Coyote Time Counter
-    private int currentJumpAmount;                                        // Air Jump Amount Tracker
-    private Vector3 scale;                                                // Player Scale Reference
+    private PlayerSetup playerSetup;                                              // Player Setup Class Reference
+    private float coyoteTimer;                                                    // Coyote Time Counter
+    private int currentJumpAmount;                                                // Air Jump Amount Tracker
+    private Vector3 scale;                                                        // Player Scale Reference
 
     void OnDisable()
     {
@@ -59,8 +59,8 @@ public class PlayerMovement : MonoBehaviour
                 Jump(false);
             }
         }
-            
-        
+
+
         ControlAnimation();
         GroundChecking();
         Flip();
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region Jumping Mechanics
     public void Jump(bool value)
-    {        
+    {
         JumpCut(value);
         MultipleJump(value);
     }

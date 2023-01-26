@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    [SerializeField] float DefaultHealth;                                     // Default HP
+    [SerializeField] private float DefaultHealth;                             // Default HP
     public float CurrentHealth { get; private set; }                          // Current HP
 
-    [SerializeField] SpriteRenderer PlayerSprite;
+    [SerializeField] private SpriteRenderer PlayerSprite;
     private PlayerSetup playerSetup;
 
     void OnDisable()
@@ -60,14 +60,14 @@ public class HealthComponent : MonoBehaviour
     IEnumerator HurtVFX()
     {
         playerSetup.Animator.SetBool("isHurt", true);
-        
+
         yield return new WaitForSeconds(0.2f);
 
         playerSetup.Animator.SetBool("isHurt", false);
     }
 
     IEnumerator Invincibility()
-    {   
+    {
         gameObject.layer = LayerMask.NameToLayer("Invincibility");
         PlayerSprite.color = new Color(1, 0, 0, 0.75f);
 

@@ -13,7 +13,6 @@ public class GameEvents : MonoBehaviour
 
     public event Action<float> OnSlowDownPlayer;
     public event Action<float> OnIncreasePlayerSpeed;
-    public event Action OnPickupPage;
 
     public event Action<string> OnPlayerCollectItem;
 

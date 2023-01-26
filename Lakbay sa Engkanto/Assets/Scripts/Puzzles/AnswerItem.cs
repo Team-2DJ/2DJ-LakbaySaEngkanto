@@ -6,7 +6,7 @@ using UnityEngine;
 public class AnswerItem : MonoBehaviour
 {
     [SerializeField] Animator Animator;
-    
+
     public bool isTrue { get; set; }
     public string id;
 
