@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnLevelSelected(int level)
     {
-        SingletonManager.Get<PlayerData>().LevelIndex = level;
+        SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex = level;
 
         SingletonManager.Get<SceneLoader>().LoadScene("GameScene");
     }

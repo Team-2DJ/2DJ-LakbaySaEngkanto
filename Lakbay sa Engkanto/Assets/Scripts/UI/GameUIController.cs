@@ -20,9 +20,14 @@ public class GameUIController : MonoBehaviour
 
     void Start()
     {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+        
         SingletonManager.Get<GameEvents>().OnUpdateUI += UpdateHealth;
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem += JournalButtonActivate;
         JournalButtonReference.SetActive(false);
+        
+        // To be Removed
+        JournalButtonReference.SetActive(true);
     }
 
     void OnDisable()
@@ -49,22 +54,29 @@ public class GameUIController : MonoBehaviour
         }
     }
 
+    // TO BE FIXED!!!
     public void OnJournalButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("journal-panel");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Journal Panel");
         Time.timeScale = 0f;
     }
 
     public void OnPauseButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("pause-panel");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Pause Panel");
         Time.timeScale = 0f;
     }
 
     public void OnResumeButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         Time.timeScale = 1f;
+    }
+
+    public void OnMainMenuButtonClicked()
+    {
+        Time.timeScale = 1f;
+        SingletonManager.Get<SceneLoader>().LoadScene("MainMenuScene");
     }
 
     public void JournalButtonActivate(string id)

@@ -14,14 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        LoadLevel();
-    }
-
-    private void LoadLevel()
-    {
-        string levelToLoad = "Level" + SingletonManager.Get<PlayerData>().LevelIndex.ToString();
-        
-        SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive);
+        SingletonManager.Get<AdditionalSceneLoader>().LoadLevel();
     }
 
     public void RestartGame()

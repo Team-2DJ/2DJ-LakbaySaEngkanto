@@ -41,10 +41,8 @@ public class SceneLoader : MonoBehaviour
 
         // Unload Current Scene if There are Any
         if (currentSceneId != null)
-        {
             yield return SceneManager.UnloadSceneAsync(currentSceneId);
-        }
-            
+
         // Unload Unused Assets
         Resources.UnloadUnusedAssets();
         yield return null;
