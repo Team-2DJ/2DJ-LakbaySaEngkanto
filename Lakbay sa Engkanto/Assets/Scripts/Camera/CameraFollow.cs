@@ -8,9 +8,18 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject roomLoader;
 
+    private Collider2D playerCollider;
+
+    private void Start()
+    {
+        playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
+
+        roomLoader.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>() && !other.isTrigger)
+        if (other == playerCollider && !other.isTrigger)
         {
             StopAllCoroutines();
             virtualCamera.gameObject.SetActive(true);
@@ -20,7 +29,7 @@ public class CameraFollow : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>() && !other.isTrigger)
+        if (other == playerCollider && !other.isTrigger)
         {
             virtualCamera.gameObject.SetActive(false);
             StartCoroutine(UnloadRoom());
