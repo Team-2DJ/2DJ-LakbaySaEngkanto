@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5883156059695627042}
   - component: {fileID: 5883156059695627043}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5883156059805258088}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoomLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5883156059924220142}
   - component: {fileID: 5883156059924220136}
   - component: {fileID: 5883156059924220143}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 5883156060017886537}
   - component: {fileID: 5883156060017886536}
   - component: {fileID: 5883156060017886542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 5883156060334800175}
   - component: {fileID: 5883156060334800173}
   - component: {fileID: 5883156060334800172}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 5883156061131070097}
   - component: {fileID: 5883156061131070103}
   - component: {fileID: 5883156061131070102}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
