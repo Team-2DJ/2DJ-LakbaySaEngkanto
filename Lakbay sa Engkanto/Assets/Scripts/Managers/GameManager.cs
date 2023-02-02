@@ -14,11 +14,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        LoadLevel();
+    }
+
+    private void LoadLevel()
+    {
+        string levelToLoad = "Level" + SingletonManager.Get<PlayerData>().LevelIndex.ToString();
+        
+        SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive);
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level1");
+        SingletonManager.Get<SceneLoader>().LoadScene("GameScene");
     }
 }

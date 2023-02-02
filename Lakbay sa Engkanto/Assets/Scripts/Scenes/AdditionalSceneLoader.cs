@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class AdditionalSceneLoader : MonoBehaviour
 {
     public string[] AdditionScenes;
-
+    
     private void Awake()
     {
         SingletonManager.Register(this);
     }
+
+    
 
     private void Start()
     {

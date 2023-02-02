@@ -24,8 +24,8 @@ public class SceneLoader : MonoBehaviour
     }
 
     private IEnumerator LoadSceneSequence(string sceneId)
-    {        
-        if (!string.IsNullOrEmpty(currentSceneId))
+    {
+        /*if (!string.IsNullOrEmpty(currentSceneId))
         {
             AdditionalSceneLoader additionalScene = SingletonManager.Get<AdditionalSceneLoader>();
 
@@ -34,16 +34,29 @@ public class SceneLoader : MonoBehaviour
                 yield return additionalScene.UnloadScenes();
             }
 
+            Debug.Log("Unloading " + currentSceneId);
             yield return SceneManager.UnloadSceneAsync(currentSceneId);
             currentSceneId = string.Empty;
-        }
+        }*/
 
+        // Unload Current Scene if There are Any
+        if (currentSceneId != null)
+        {
+            yield return SceneManager.UnloadSceneAsync(currentSceneId);
+        }
+            
+        // Unload Unused Assets
         Resources.UnloadUnusedAssets();
-        yield return null; 
+        yield return null;
+
+        // Garbage Collection
         GC.Collect();
         yield return null;
 
+        // Load the Scene
         yield return SceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Additive);
+        
+        // Set Loaded Scene to Current Scene
         currentSceneId = sceneId;
     }
 
