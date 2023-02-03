@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour
     {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
 
+        virtualCamera.gameObject.SetActive(false);
         roomLoader.SetActive(false);
     }
 
