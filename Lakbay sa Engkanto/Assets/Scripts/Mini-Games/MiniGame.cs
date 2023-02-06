@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class MiniGame : MonoBehaviour
+public abstract class MiniGame : MonoBehaviour
 {
     // On Start (On Collision)
     // Close the doors
@@ -12,28 +13,25 @@ public class MiniGame : MonoBehaviour
     // On Win
     // Open the Doors
 
-    public Collider2D PlayerCollider;
+    public Collider2D PlayerCollider { get; set; }
 
     private void OnDisable()
     {
         StopAllCoroutines();
     }
 
-    public Coroutine MiniGameStarter()
+    // Start is called before the first frame update
+    void Start()
     {
-        return StartCoroutine(StartCountdown());
+        PlayerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
     }
 
-    IEnumerator StartCountdown()
+    protected IEnumerator StartMiniGame(Action miniGame)
     {
         yield return new WaitForSeconds(3f);
 
-        Debug.Log("BUGTONG START");
-        InitMiniGame();
-    }
+        miniGame?.Invoke();
 
-    public virtual void InitMiniGame()
-    {
-
+        // Return the Function Call
     }
 }

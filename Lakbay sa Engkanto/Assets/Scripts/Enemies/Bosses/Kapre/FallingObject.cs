@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    [SerializeField] private float minFallSpeed;                        // Minimum Fall Speed
-    [SerializeField] private float maxFallSpeed;                        // Maximum Fall Speed
-    
-    private float fallSpeed;                                            // Default Fall Speed
+    [SerializeField] private float minFallSpeed = 5f;                        // Minimum Fall Speed
+    [SerializeField] private float maxFallSpeed = 6f;                        // Maximum Fall Speed
 
-    private void Start()
+    private float fallSpeed;                                                 // Default Fall Speed
+
+    private void OnEnable()
     {
-        // Randomize Default Fall Speed Value based on Min and Max Fall Speed
         fallSpeed = Random.Range(minFallSpeed, maxFallSpeed);
     }
-
 
     // Update is called once per frame
     private void Update()

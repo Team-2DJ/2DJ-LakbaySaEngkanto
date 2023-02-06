@@ -34,16 +34,16 @@ public class RiddlesMiniGame : MiniGame
         
     }
 
-    public override void InitMiniGame()
+    /*protected override void InitMiniGame()
     {
         RandomizeQuestions();
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == PlayerCollider)
         {
-            MiniGameStarter();
+            //MiniGameStarter();
         }
     }
 
