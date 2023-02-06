@@ -11,10 +11,10 @@ public class GameEvents : MonoBehaviour
     public event Action<float> OnPlayerDamaged;
     public event Action OnUpdateUI;
 
-    public event Action<float> OnSlowDownPlayer;
-    public event Action<float> OnIncreasePlayerSpeed;
-
     public event Action<string> OnPlayerCollectItem;
+
+    public event Action OnOpenDoors;
+    public event Action OnCloseDoors;
 
     void Awake()
     {
@@ -27,18 +27,18 @@ public class GameEvents : MonoBehaviour
         OnUpdateUI?.Invoke();
     }
 
-    public void SlowDownPlayer(float value)
-    {
-        OnSlowDownPlayer?.Invoke(value);
-    }
-
-    public void IncreasePlayerSpeed(float value)
-    {
-        OnIncreasePlayerSpeed?.Invoke(value);
-    }
-
     public void PlayerCollectItem(string id)
     {
         OnPlayerCollectItem?.Invoke(id);
+    }
+
+    public void OpenDoors()
+    {
+        OnOpenDoors?.Invoke();
+    }
+
+    public void CloseDoors()
+    {
+        OnCloseDoors?.Invoke();
     }
 }
