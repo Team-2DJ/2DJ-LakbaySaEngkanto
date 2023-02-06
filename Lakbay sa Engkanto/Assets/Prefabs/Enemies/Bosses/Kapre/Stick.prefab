@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7168514377440489081}
   - component: {fileID: 7168514377440489087}
   - component: {fileID: 595790919315824948}
-  - component: {fileID: 6332249204190233315}
+  - component: {fileID: -6170499534833464396}
   m_Layer: 8
   m_Name: Stick
   m_TagString: Untagged
@@ -125,7 +125,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.179726, y: 1.5994098}
   m_EdgeRadius: 0
---- !u!114 &6332249204190233315
+--- !u!114 &-6170499534833464396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646f140ed2d9161498ab3b3fc42a2f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 5
+  minFallSpeed: 5
+  maxFallSpeed: 8

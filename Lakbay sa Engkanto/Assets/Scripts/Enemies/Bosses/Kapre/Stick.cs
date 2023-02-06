@@ -18,6 +18,7 @@ public class Stick : MonoBehaviour
         if (other == playerCollider)
         {
             SingletonManager.Get<GameEvents>().PlayerDamaged(1f);
+            
         }
 
         Destroy(this.gameObject);

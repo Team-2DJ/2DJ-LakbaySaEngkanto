@@ -19,6 +19,8 @@ public class MangoSeed : MonoBehaviour
         if (other == playerCollider)
         {
             //SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+
+            
         }
 
         Destroy(this.gameObject);
