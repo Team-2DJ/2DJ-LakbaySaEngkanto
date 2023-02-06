@@ -21,19 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
 
-    void OnDisable()
-    {
-        SingletonManager.Get<GameEvents>().OnSlowDownPlayer -= DividePlayerSpeed;
-        SingletonManager.Get<GameEvents>().OnIncreasePlayerSpeed -= MultiplyPlayerSpeed;
-    }
-
     #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnSlowDownPlayer += DividePlayerSpeed;
-        SingletonManager.Get<GameEvents>().OnIncreasePlayerSpeed += MultiplyPlayerSpeed;
-
         // Cache-In Variables
         playerSetup = GetComponent<PlayerSetup>();
         CurrentSpeed = MovementSpeed;
@@ -162,18 +153,6 @@ public class PlayerMovement : MonoBehaviour
     bool IsGrounded()
     {
         return Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundMask);
-    }
-    #endregion
-
-    #region Public Functions
-    public void DividePlayerSpeed(float value)
-    {
-        CurrentSpeed /= value;
-    }
-
-    public void MultiplyPlayerSpeed(float value)
-    {
-        CurrentSpeed *= value;
     }
     #endregion
 }
