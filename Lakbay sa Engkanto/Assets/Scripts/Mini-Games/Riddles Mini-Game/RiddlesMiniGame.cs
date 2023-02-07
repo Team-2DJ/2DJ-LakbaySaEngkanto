@@ -34,17 +34,10 @@ public class RiddlesMiniGame : MiniGame
         
     }
 
-    /*protected override void InitMiniGame()
-    {
-        RandomizeQuestions();
-    }*/
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == PlayerCollider)
-        {
-            //MiniGameStarter();
-        }
+            StartCoroutine(base.StartMiniGame(RandomizeQuestions));
     }
 
     private void RandomizeQuestions()
