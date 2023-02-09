@@ -9,6 +9,7 @@ public class ChichayMovement : MonoBehaviour
     {
         IDLE,
         FLYING
+
     };
 
     [SerializeField] private Transform FollowPoint;                         // Point Where Chichay Needs to Go to
@@ -18,6 +19,17 @@ public class ChichayMovement : MonoBehaviour
     private float currentSpeed;                                             // Current Movement Speed
     private States currentState;                                            // Current State
     private Vector3 scale;                                                  // Default Scale Reference
+
+
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= x => OnHurt();
+    }
 
     // Start is called before the first frame update
     void Start()
