@@ -635,17 +635,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6303546915699287883, guid: 158072b52e1a4b842a6567c212ccb55d, type: 3}
   m_PrefabInstance: {fileID: 1477695559}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1065644507 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-  m_PrefabInstance: {fileID: 3039477596605988899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1260478162
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,17 +799,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1370661162 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-  m_PrefabInstance: {fileID: 3039477596605988899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1392046718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5883156059805258088, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
@@ -1022,17 +1000,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01b36b99595f291438e82345191a2b3e, type: 3}
---- !u!114 &1520831370 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-  m_PrefabInstance: {fileID: 3039477596605988899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1533457413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1418,17 +1385,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02445efc3790b5347936e761500d4d7a, type: 3}
---- !u!114 &1788703962 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-  m_PrefabInstance: {fileID: 3039477596605988899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1862169228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1566,82 +1522,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewRiddlesMiniGame
       objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721351, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: id
-      value: RiddlesMiniGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: rightID
-      value: RightRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: wrongID
-      value: WrongRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: correctID
-      value: CorrectRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[0].Answer
-      value: 
-      objectReference: {fileID: 1401410483, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[1].Answer
-      value: 
-      objectReference: {fileID: -1897596360, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[2].Answer
-      value: 
-      objectReference: {fileID: -77259467, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[3].Answer
-      value: 
-      objectReference: {fileID: -227135093, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[0].Question
-      value: Isang Prinsesa Punong-puno ng Mata
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[1].Question
-      value: Heto na si Kaka, bubuka-bukaka
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[2].Question
-      value: Limang puno ng niyog, isa'y matayog
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: riddles.Array.data[3].Question
-      value: Isang balong malamim, punong-puno ng patalim
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: multipleChoiceAnswers.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: multipleChoiceAnswers.Array.data[0]
-      value: 
-      objectReference: {fileID: 1065644507}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: multipleChoiceAnswers.Array.data[1]
-      value: 
-      objectReference: {fileID: 1370661162}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: multipleChoiceAnswers.Array.data[2]
-      value: 
-      objectReference: {fileID: 1520831370}
-    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: multipleChoiceAnswers.Array.data[3]
-      value: 
-      objectReference: {fileID: 1788703962}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1724,142 +1604,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093838, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093838, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093838, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093838, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: id
-      value: RiddlesMiniGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: rightID
-      value: RightRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: wrongID
-      value: WrongRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: correctID
-      value: CorrectRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865112, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865112, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865112, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865112, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: id
-      value: RiddlesMiniGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: rightID
-      value: RightRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: wrongID
-      value: WrongRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: correctID
-      value: CorrectRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597227074585, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597455455162, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: id
-      value: RiddlesMiniGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: rightID
-      value: RightRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: wrongID
-      value: WrongRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: correctID
-      value: CorrectRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061495, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061495, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061495, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597483061495, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: id
-      value: RiddlesMiniGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: rightID
-      value: RightRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: wrongID
-      value: WrongRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: correctID
-      value: CorrectRiddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227226, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227226, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227226, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039477597623227226, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

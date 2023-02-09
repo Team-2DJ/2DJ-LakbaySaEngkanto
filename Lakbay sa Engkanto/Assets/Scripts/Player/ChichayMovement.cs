@@ -8,8 +8,7 @@ public class ChichayMovement : MonoBehaviour
     enum States
     {
         IDLE,
-        FLYING
-
+        FLYING,
     };
 
     [SerializeField] private Transform FollowPoint;                         // Point Where Chichay Needs to Go to
@@ -19,6 +18,8 @@ public class ChichayMovement : MonoBehaviour
     private float currentSpeed;                                             // Current Movement Speed
     private States currentState;                                            // Current State
     private Vector3 scale;                                                  // Default Scale Reference
+
+    private PlayerSetup player;
 
     private void OnDisable()
     {
@@ -35,6 +36,8 @@ public class ChichayMovement : MonoBehaviour
 
         // Initialize Current Speed
         currentSpeed = MovementSpeed;
+
+        player = SingletonManager.Get<PlayerManager>().Player;
     }
 
     #region Update Functions
@@ -66,7 +69,7 @@ public class ChichayMovement : MonoBehaviour
     /// Follow a Certain Point Near the Player
     /// </summary>
     void FollowPlayer()
-    {
+    { 
         // If Chichay Reaches the FollowPoint
         if (Vector2.Distance(transform.position, FollowPoint.position) < 0.01f)
         {
@@ -109,15 +112,25 @@ public class ChichayMovement : MonoBehaviour
     /// </summary>
     void OnHurt()
     {
-        Animator.SetTrigger("isHurt");
+        StartCoroutine(ChichayHurt());
     }
 
-    /// <summary>
-    /// Trigers Death Animation
-    /// </summary>
-    void OnDeath()
+    IEnumerator ChichayHurt()
     {
-        Animator.SetTrigger("isDead");
+        // Enable Hurt Animation
+        Animator.SetBool("isHurt", true);
+
+        yield return new WaitForSeconds(0.75f);
+
+        // Disable Hurt Animation
+        Animator.SetBool("isHurt", false);
+
+        // Check if Player is Still Alive
+        if (!player.GetComponent<HealthComponent>().IsAlive)
+        {
+            // Trigger Death Animation
+            Animator.SetTrigger("isDead");
+        }
     }
     #endregion
 }

@@ -36,22 +36,9 @@ public class PlayerMovement : MonoBehaviour
     #region Update Functions
     void Update()
     {
-        if (IsTesting)
-        {
-            HorizontalInput = Input.GetAxisRaw("Horizontal");
+        
 
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                Jump(true);
-            }
-
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                Jump(false);
-            }
-        }
-
-
+        TestingMode();
         ControlAnimation();
         GroundChecking();
         Flip();
@@ -113,6 +100,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     #endregion
+
+    /// <summary>
+    /// Keyboard Control Scheme for Testing Purposes
+    /// </summary>
+    void TestingMode()
+    {
+        if (IsTesting)
+        {
+            // Horizontal Movement based on Current Input
+            HorizontalInput = Input.GetAxisRaw("Horizontal");
+
+            // Press W to Jump
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                Jump(true);
+
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+                Jump(false);
+        }
+    }
 
     void GroundChecking()
     {

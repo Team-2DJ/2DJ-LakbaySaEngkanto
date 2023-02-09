@@ -6,9 +6,11 @@ public class HealthComponent : MonoBehaviour
 {
     [SerializeField] private float DefaultHealth;                             // Default HP
     public float CurrentHealth { get; private set; }                          // Current HP
+    public bool IsAlive { get; private set; }                                 // Life Condition Indicator
 
     [SerializeField] private SpriteRenderer PlayerSprite;
     private PlayerSetup playerSetup;
+    
 
     void OnDisable()
     {
@@ -29,6 +31,7 @@ public class HealthComponent : MonoBehaviour
     void Initialize()
     {
         CurrentHealth = DefaultHealth;
+        IsAlive = true;
     }
 
     #region HP System
@@ -80,6 +83,9 @@ public class HealthComponent : MonoBehaviour
     // Executes Death Functionality
     IEnumerator OnDeath()
     {
+        // Indicate Player Death in Bool
+        IsAlive = false;
+        
         // Disable Movement
         playerSetup.PlayerMovement.enabled = false;
 
