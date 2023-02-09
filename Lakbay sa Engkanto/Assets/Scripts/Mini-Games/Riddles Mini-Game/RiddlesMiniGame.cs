@@ -32,6 +32,11 @@ public class RiddlesMiniGame : MiniGame
     private int correctAnswerScore;
     [SerializeField] private int totalScore;
 
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= CheckAnswer;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +69,8 @@ public class RiddlesMiniGame : MiniGame
     {
         CreateRiddles();
 
-        // Indicates that the Mini game has started; 
+        // Indicates that the Mini game has started;
+        Animator.SetBool("hasStarted", true);
         hasStarted = true;
 
         // Chooses the correct Riddle based on the elements found within the array
@@ -128,7 +134,7 @@ public class RiddlesMiniGame : MiniGame
                 //SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
 
                 Debug.Log("YOU WIN!!!");
-                Animator.SetTrigger("isComplete");
+                Animator.SetBool("isComplete", true);
 
                 hasEnded = true;
                 hasStarted = false;
@@ -143,10 +149,5 @@ public class RiddlesMiniGame : MiniGame
 
         hasStarted = false;
         RandomizeQuestions();
-    }
-
-    private void OnDisable()
-    {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= CheckAnswer;
     }
 }
