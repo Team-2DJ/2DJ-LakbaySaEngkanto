@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5883156059695627042, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5883156059805258090, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -138,13 +142,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5883156059924220139, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5883156059924220142, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5883156059924220142, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.25
+      value: 26.86
       objectReference: {fileID: 0}
     - target: {fileID: 5883156059924220142, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.y
@@ -188,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 982346581}
     - target: {fileID: 5883156060017886537, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.95
+      value: -25.350002
       objectReference: {fileID: 0}
     - target: {fileID: 5883156060017886537, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.y
@@ -504,7 +512,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774023972
 GameObject:
@@ -627,6 +635,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6303546915699287883, guid: 158072b52e1a4b842a6567c212ccb55d, type: 3}
   m_PrefabInstance: {fileID: 1477695559}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1065644507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+  m_PrefabInstance: {fileID: 3039477596605988899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260478162
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363015484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.583326, y: 2.25, z: -10}
+  m_LocalPosition: {x: 26.193327, y: 2.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -791,6 +810,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1370661162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+  m_PrefabInstance: {fileID: 3039477596605988899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1392046718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5883156059805258088, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
@@ -809,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1339825824698532260, guid: 617478009ff707845bdfba2e193865fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 1339825824698532260, guid: 617478009ff707845bdfba2e193865fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -992,6 +1022,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01b36b99595f291438e82345191a2b3e, type: 3}
+--- !u!114 &1520831370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+  m_PrefabInstance: {fileID: 3039477596605988899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1533457413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1377,6 +1418,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02445efc3790b5347936e761500d4d7a, type: 3}
+--- !u!114 &1788703962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+  m_PrefabInstance: {fileID: 3039477596605988899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d813a725085a8444b35aa77440c9511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1862169228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1447,7 +1499,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 18835155}
     m_Modifications:
     - target: {fileID: 12622092004666080, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_Name
@@ -1459,11 +1511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.0599995
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1479,15 +1531,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 12622092004666087, guid: be186cb9c75b0ab4ead7998fa9fa7b14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1508,7 +1560,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1392046718}
     m_Modifications:
     - target: {fileID: 3039477595828721351, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_Name
@@ -1518,6 +1570,78 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: id
+      value: RiddlesMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: rightID
+      value: RightRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: wrongID
+      value: WrongRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: correctID
+      value: CorrectRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[0].Answer
+      value: 
+      objectReference: {fileID: 1401410483, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[1].Answer
+      value: 
+      objectReference: {fileID: -1897596360, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[2].Answer
+      value: 
+      objectReference: {fileID: -77259467, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[3].Answer
+      value: 
+      objectReference: {fileID: -227135093, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[0].Question
+      value: Isang Prinsesa Punong-puno ng Mata
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[1].Question
+      value: Heto na si Kaka, bubuka-bukaka
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[2].Question
+      value: Limang puno ng niyog, isa'y matayog
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: riddles.Array.data[3].Question
+      value: Isang balong malamim, punong-puno ng patalim
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: multipleChoiceAnswers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: multipleChoiceAnswers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1065644507}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: multipleChoiceAnswers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1370661162}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: multipleChoiceAnswers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1520831370}
+    - target: {fileID: 3039477595828721352, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: multipleChoiceAnswers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1788703962}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1528,7 +1652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1572,19 +1696,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.3271
+      value: -0.32710075
       objectReference: {fileID: 0}
     - target: {fileID: 3039477595828721355, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1618,6 +1742,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: id
+      value: RiddlesMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: rightID
+      value: RightRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: wrongID
+      value: WrongRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596053093841, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: correctID
+      value: CorrectRiddle
+      objectReference: {fileID: 0}
     - target: {fileID: 3039477596387865112, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1633,6 +1773,22 @@ PrefabInstance:
     - target: {fileID: 3039477596387865112, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: id
+      value: RiddlesMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: rightID
+      value: RightRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: wrongID
+      value: WrongRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477596387865119, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: correctID
+      value: CorrectRiddle
       objectReference: {fileID: 0}
     - target: {fileID: 3039477597227074585, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_IsActive
@@ -1642,6 +1798,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: id
+      value: RiddlesMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: rightID
+      value: RightRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: wrongID
+      value: WrongRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597483061494, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: correctID
+      value: CorrectRiddle
+      objectReference: {fileID: 0}
     - target: {fileID: 3039477597483061495, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1657,6 +1829,22 @@ PrefabInstance:
     - target: {fileID: 3039477597483061495, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: id
+      value: RiddlesMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: rightID
+      value: RightRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: wrongID
+      value: WrongRiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039477597623227225, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
+      propertyPath: correctID
+      value: CorrectRiddle
       objectReference: {fileID: 0}
     - target: {fileID: 3039477597623227226, guid: ab6b47aa0c038eb448c674b2a5446d9c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1683,6 +1871,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5883156059695627042, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5883156059924220139, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_Name
       value: Room
@@ -1693,7 +1885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5883156059924220142, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5883156059924220142, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1741,7 +1933,7 @@ PrefabInstance:
       objectReference: {fileID: 982346581}
     - target: {fileID: 5883156060017886537, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7000008
+      value: 1.5099992
       objectReference: {fileID: 0}
     - target: {fileID: 5883156060017886537, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
       propertyPath: m_LocalPosition.y

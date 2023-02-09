@@ -20,12 +20,6 @@ public class ChichayMovement : MonoBehaviour
     private States currentState;                                            // Current State
     private Vector3 scale;                                                  // Default Scale Reference
 
-
-    private void OnEnable()
-    {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
-    }
-
     private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged -= x => OnHurt();
@@ -34,6 +28,8 @@ public class ChichayMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
+
         // Initialize Scale Values
         scale = transform.localScale;
 

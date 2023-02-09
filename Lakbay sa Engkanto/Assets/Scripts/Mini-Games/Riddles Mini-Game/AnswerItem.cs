@@ -6,9 +6,9 @@ using UnityEngine;
 public class AnswerItem : MonoBehaviour
 {
     public bool isTrue { get; set; }
-    public string id;
+    [SerializeField] private string correctID;
+    [SerializeField] private string wrongID;
 
-    [SerializeField] private RiddlesMiniGame riddlesMiniGame;
     private Collider2D playerCollider;
 
     private void Start()
@@ -22,13 +22,13 @@ public class AnswerItem : MonoBehaviour
         {
             if (isTrue)
             {
-                riddlesMiniGame.Animator.SetTrigger("isCorrect");
-                riddlesMiniGame.CorrectAnswer();
+                // If is true, invoke the event
+                SingletonManager.Get<GameEvents>().PlayerCollectItem(correctID);
             }
             else
             {
+                SingletonManager.Get<GameEvents>().PlayerCollectItem(wrongID);
                 SingletonManager.Get<GameEvents>().PlayerDamaged(1);
-                riddlesMiniGame.Animator.SetTrigger("isWrong");
             }
         }
     }
