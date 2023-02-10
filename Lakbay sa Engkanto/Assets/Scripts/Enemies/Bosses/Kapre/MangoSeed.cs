@@ -8,5 +8,6 @@ public class MangoSeed : Item
     protected override void ItemCollected()
     {
         // SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+        Debug.Log("+1 point");
     }
 }

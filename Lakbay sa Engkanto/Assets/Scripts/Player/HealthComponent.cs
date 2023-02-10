@@ -57,7 +57,7 @@ public class HealthComponent : MonoBehaviour
             StartCoroutine(Invincibility());
         }
 
-        Debug.Log(CurrentHealth);
+        Debug.Log("Current Player HP: " + CurrentHealth);
     }
 
     IEnumerator HurtVFX()

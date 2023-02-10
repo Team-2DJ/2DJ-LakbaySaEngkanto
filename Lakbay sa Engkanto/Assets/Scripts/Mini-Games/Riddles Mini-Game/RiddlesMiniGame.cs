@@ -7,7 +7,7 @@ using TMPro;
 public class RiddlesMiniGame : MiniGame
 {
     [System.Serializable]
-    struct RidddleItems
+    struct RiddleItems
     {
         public string Question;
         public Sprite Answer;
@@ -19,12 +19,14 @@ public class RiddlesMiniGame : MiniGame
 
 
     [Header("Mini Game Setup")]
-    [SerializeField] private List<RidddleItems> riddles;
+    [SerializeField] private List<RiddleItems> riddles;
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private AnswerItem[] multipleChoiceAnswers;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
+    private int currentRiddleIndex;
     private Animator Animator;
-    private List<RidddleItems> riddlesInPlay = new List<RidddleItems>();
+    private List<RiddleItems> riddlesInPlay = new List<RiddleItems>();
     private bool hasStarted;
     private bool hasEnded;
 
@@ -73,8 +75,23 @@ public class RiddlesMiniGame : MiniGame
         Animator.SetBool("hasStarted", true);
         hasStarted = true;
 
+        // Set Indication for the Score
+        scoreText.text = correctAnswerScore.ToString() + " / " + totalScore.ToString();
+
+        // Initialize Random Number
+        int randomIndex = Random.Range(0, riddlesInPlay.Count);
+
+        // Keep on Randomizing until randomIndex Value is Different from the Previous Value
+        while (randomIndex == currentRiddleIndex)
+        {
+            randomIndex = Random.Range(0, riddlesInPlay.Count);
+        }
+
         // Chooses the correct Riddle based on the elements found within the array
-        RidddleItems correctRiddle = riddlesInPlay[Random.Range(0, riddlesInPlay.Count)];
+        RiddleItems correctRiddle = riddlesInPlay[randomIndex];
+
+        // Set Current Riddle Index to the Chosen Random Number Index
+        currentRiddleIndex = randomIndex;
 
         // Changes the Question text based on the correct riddle picked by the system 
         // and deletes it from the array afterwards
@@ -111,8 +128,8 @@ public class RiddlesMiniGame : MiniGame
     /// </Summary>
     private void CreateRiddles()
     {
-        foreach (RidddleItems ridddleItems in riddles)
-            riddlesInPlay.Add(ridddleItems);
+        foreach (RiddleItems RiddleItems in riddles)
+            riddlesInPlay.Add(RiddleItems);
 
         foreach (AnswerItem answer in multipleChoiceAnswers)
             answer.isTrue = false;
@@ -131,9 +148,8 @@ public class RiddlesMiniGame : MiniGame
             if (correctAnswerScore >= totalScore)
             {
                 // Give Journal Page as Award
-                //SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+                StartCoroutine(base.EndMiniGame());
 
-                Debug.Log("YOU WIN!!!");
                 Animator.SetBool("isComplete", true);
 
                 hasEnded = true;

@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
     #region Update Functions
     void Update()
     {
-        
-
         TestingMode();
         ControlAnimation();
         GroundChecking();
