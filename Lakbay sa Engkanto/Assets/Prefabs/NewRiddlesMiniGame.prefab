@@ -226,7 +226,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3039477595828721350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
     Answer: {fileID: -1897596360, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
   - Question: Limang puno ng niyog, isa'y matayog
     Answer: {fileID: -77259467, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
-  - Question: Isang balong malalim, punong-puno ng patalim
+  - Question: Isang balong malamim, punong-puno ng patalim
     Answer: {fileID: -227135093, guid: 3349d1a4a3a0a844ab7133f90e7866b5, type: 3}
   questionText: {fileID: 3039477596572193321}
   multipleChoiceAnswers:

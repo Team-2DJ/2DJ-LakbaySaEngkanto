@@ -154,6 +154,7 @@ public class RiddlesMiniGame : MiniGame
                 // Give Journal Page as Award
                 StartCoroutine(EndMiniGame());
 
+                Debug.Log("YOU WIN!!!");
                 Animator.SetBool("isComplete", true);
 
                 hasEnded = true;
