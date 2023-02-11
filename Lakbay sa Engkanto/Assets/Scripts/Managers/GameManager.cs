@@ -17,6 +17,14 @@ public class GameManager : MonoBehaviour
         SingletonManager.Get<AdditionalSceneLoader>().LoadLevel();
     }
 
+    public void EndGame()
+    {
+        // Reset Player Spawn point Coordinates
+        SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = new Vector2(0f, 0f);
+
+        // Load Next Level
+    }
+
     public void RestartGame()
     {
         SingletonManager.Get<SceneLoader>().LoadScene("GameScene");

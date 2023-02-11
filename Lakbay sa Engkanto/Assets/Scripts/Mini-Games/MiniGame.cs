@@ -26,11 +26,6 @@ public abstract class MiniGame : MonoBehaviour
         PlayerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
     }
 
-    protected void OnGameFinished()
-    {
-
-    }
-
     protected IEnumerator StartMiniGame(Action miniGame)
     {
         yield return new WaitForSeconds(3f);

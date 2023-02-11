@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
 
     public PlayerData PlayerData;                        // Player Data Class Reference
 
+    public Vector2 PlayerSpawnPoint { get; set; }
+
     #region Singleton
     void Awake()
     {

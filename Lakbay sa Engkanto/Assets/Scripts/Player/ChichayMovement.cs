@@ -120,6 +120,7 @@ public class ChichayMovement : MonoBehaviour
         // Enable Hurt Animation
         Animator.SetBool("isHurt", true);
 
+        // Exit Time Delay
         yield return new WaitForSeconds(0.75f);
 
         // Disable Hurt Animation
