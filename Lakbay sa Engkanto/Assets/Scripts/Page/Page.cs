@@ -5,9 +5,11 @@ using UnityEngine;
 public class Page : Item
 {
     Collider2D pageCollider;
-    
-    private void OnEnable()
+
+    protected override void Start()
     {
+        base.Start();
+        
         pageCollider = GetComponent<Collider2D>();
         pageCollider.enabled = false;
         Debug.Log("false collider");

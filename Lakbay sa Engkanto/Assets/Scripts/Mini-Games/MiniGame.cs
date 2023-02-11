@@ -13,20 +13,7 @@ public abstract class MiniGame : MonoBehaviour
     // On Win
     // Open the Doors
 
-    public enum MiniGameType
-    {
-        JOURNAL_PAGE,
-        BOSS
-    }
-
     public Collider2D PlayerCollider { get; set; }
-
-    [SerializeField] private MiniGameType type;
-    [SerializeField] private float endDelay;
-
-    // TO BE REMOVED
-    [SerializeField] GameObject journalPage;
-    [SerializeField] Transform journalPageSpawn;
 
     private void OnDisable()
     {
@@ -48,24 +35,5 @@ public abstract class MiniGame : MonoBehaviour
 
         // Return the Function Call
         miniGame?.Invoke();
-    }
-
-    protected IEnumerator EndMiniGame()
-    {
-        yield return new WaitForSeconds(endDelay);
-
-        if (type == MiniGameType.JOURNAL_PAGE)
-        {
-            // Spawn Journal Page
-            Debug.Log("Here's your journal page");
-
-            Instantiate(journalPage, journalPageSpawn.position, Quaternion.identity);
-
-            // Open the Doors
-        }
-        else
-        {
-            // End Game (Level Complete!!!)
-        }
     }
 }

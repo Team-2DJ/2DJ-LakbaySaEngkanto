@@ -9,7 +9,7 @@ public abstract class Item : MonoBehaviour
     private Collider2D playerCollider;
     [SerializeField] private bool isPoolable;
 
-    private void Start()
+    protected virtual void Start()
     {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
     }

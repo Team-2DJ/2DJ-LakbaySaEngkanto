@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,6 +30,9 @@ public class RiddlesMiniGame : MiniGame
     private List<RiddleItems> riddlesInPlay = new List<RiddleItems>();
     private bool hasStarted;
     private bool hasEnded;
+
+    [SerializeField] GameObject journalPage;
+    [SerializeField] Transform journalPageSpawn;
 
     [Header("Win Conditions")]
     private int correctAnswerScore;
@@ -148,7 +152,7 @@ public class RiddlesMiniGame : MiniGame
             if (correctAnswerScore >= totalScore)
             {
                 // Give Journal Page as Award
-                StartCoroutine(base.EndMiniGame());
+                StartCoroutine(EndMiniGame());
 
                 Animator.SetBool("isComplete", true);
 
@@ -165,5 +169,19 @@ public class RiddlesMiniGame : MiniGame
 
         hasStarted = false;
         RandomizeQuestions();
+
+        
+    }
+
+    IEnumerator EndMiniGame()
+    {
+        yield return new WaitForSeconds(3f);
+
+        // Spawn Journal Page
+        Debug.Log("Here's your journal page");
+
+        Instantiate(journalPage, journalPageSpawn.position, Quaternion.identity);
+
+        // Open the Doors
     }
 }

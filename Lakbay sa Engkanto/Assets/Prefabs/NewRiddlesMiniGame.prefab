@@ -276,10 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d497e08ed9c4a409846f21b45825e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  endDelay: 3
-  journalPage: {fileID: 1593531144580507402, guid: a2bbe4cabd3809245a588c2a486df59d, type: 3}
-  journalPageSpawn: {fileID: 7828774162283137317}
   correctID: CorrectRiddle
   wrongID: WrongRiddle
   riddles:
@@ -298,6 +294,8 @@ MonoBehaviour:
   - {fileID: 3039477597623227225}
   - {fileID: 3039477596387865119}
   scoreText: {fileID: 884823131452720790}
+  journalPage: {fileID: 1593531144580507402, guid: a2bbe4cabd3809245a588c2a486df59d, type: 3}
+  journalPageSpawn: {fileID: 7828774162283137317}
   totalScore: 3
 --- !u!61 &844388076
 BoxCollider2D:

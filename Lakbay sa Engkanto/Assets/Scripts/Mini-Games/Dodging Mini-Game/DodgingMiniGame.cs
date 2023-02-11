@@ -31,7 +31,6 @@ public class DodgingMiniGame : MiniGame
             float xBounds = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
             Vector2 position = new Vector2(xBounds, spawnArea.transform.position.y);
 
-            //GameObject go = Instantiate(fallingItems[randomNumber], position, Quaternion.identity);
             SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomNumber], position, Quaternion.identity);
 
             yield return new WaitForSeconds(1f);
