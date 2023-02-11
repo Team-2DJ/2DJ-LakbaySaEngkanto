@@ -1979,7 +1979,7 @@ MonoBehaviour:
   FullHeartContainer: {fileID: -49872114, guid: 3be2980717355384fac6269620e218ee, type: 3}
   EmptyHeartContainer: {fileID: -247582981, guid: af0c7ad475287ef47bf1eb3ff6402d49, type: 3}
   JournalButtonReference: {fileID: 1134161733}
-  id: 
+  id: JournalPage
 --- !u!4 &987506050
 Transform:
   m_ObjectHideFlags: 0

@@ -44,10 +44,11 @@ public class RiddlesMiniGame : MiniGame
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+        
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem += CheckAnswer;
-        PlayerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
         Animator = GetComponent<Animator>();
         correctAnswerScore = 0;
     }
@@ -170,8 +171,6 @@ public class RiddlesMiniGame : MiniGame
 
         hasStarted = false;
         RandomizeQuestions();
-
-        
     }
 
     IEnumerator EndMiniGame()

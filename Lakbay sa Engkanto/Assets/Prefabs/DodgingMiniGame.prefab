@@ -216,3 +216,5 @@ MonoBehaviour:
   - Seed
   spawnArea: {fileID: 12622091538806082}
   destructorCollider: {fileID: 12622091391291765}
+  id: Seed
+  winningScore: 10

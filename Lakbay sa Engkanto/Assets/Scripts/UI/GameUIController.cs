@@ -77,7 +77,9 @@ public class GameUIController : MonoBehaviour
 
     public void JournalButtonActivate(string id)
     {
-        if (id == this.id)
-            JournalButtonReference.SetActive(true);
+        if (id != this.id)
+            return;
+        
+        JournalButtonReference.SetActive(true);
     }
 }
