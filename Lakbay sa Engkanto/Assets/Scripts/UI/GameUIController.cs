@@ -27,7 +27,7 @@ public class GameUIController : MonoBehaviour
         JournalButtonReference.SetActive(false);
         
         // To be Removed
-        JournalButtonReference.SetActive(true);
+        //JournalButtonReference.SetActive(true);
     }
 
     void OnDisable()
@@ -44,13 +44,9 @@ public class GameUIController : MonoBehaviour
         for (int i = 0; i < PlayerHearts.Length; i++)
         {
             if (i < playerHp)
-            {
                 PlayerHearts[i].sprite = FullHeartContainer;
-            }
             else
-            {
                 PlayerHearts[i].sprite = EmptyHeartContainer;
-            }
         }
     }
 

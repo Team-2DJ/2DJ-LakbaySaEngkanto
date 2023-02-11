@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingItems:
-  - {fileID: 2726192036830726963, guid: 01b36b99595f291438e82345191a2b3e, type: 3}
-  - {fileID: 7168514377440489080, guid: 02445efc3790b5347936e761500d4d7a, type: 3}
+  - Stick
+  - Seed
   spawnArea: {fileID: 12622091538806082}
   destructorCollider: {fileID: 12622091391291765}

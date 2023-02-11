@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DodgingMiniGame : MiniGame
 {
-    [SerializeField] GameObject[] fallingItems;
+    [SerializeField] string[] fallingItems;
     [SerializeField] Collider2D spawnArea;
     [SerializeField] Collider2D destructorCollider;
 
@@ -28,10 +28,10 @@ public class DodgingMiniGame : MiniGame
         while (isSpawning)
         {
             int randomNumber = Random.Range(0, fallingItems.Length);
-            float xBounds = Random.Range(-spawnArea.bounds.extents.x, spawnArea.bounds.extents.x);
+            float xBounds = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
             Vector2 position = new Vector2(xBounds, spawnArea.transform.position.y);
 
-            GameObject go = Instantiate(fallingItems[randomNumber], position, Quaternion.identity);
+            SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomNumber], position, Quaternion.identity);
 
             yield return new WaitForSeconds(1f);
         }

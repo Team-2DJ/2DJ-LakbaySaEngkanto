@@ -35,8 +35,10 @@ public abstract class MiniGame : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        miniGame?.Invoke();
+        // Close the Doors
+        SingletonManager.Get<GameEvents>().CloseDoors();
 
         // Return the Function Call
+        miniGame?.Invoke();
     }
 }

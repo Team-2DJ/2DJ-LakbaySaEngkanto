@@ -7,8 +7,9 @@ public abstract class Item : MonoBehaviour
     [SerializeField] protected string id;
 
     private Collider2D playerCollider;
+    [SerializeField] private bool isPoolable;
 
-    private void Start()
+    protected virtual void Start()
     {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
     }
@@ -20,7 +21,10 @@ public abstract class Item : MonoBehaviour
         if (other == playerCollider)
             ItemCollected();
 
-        Destroy(this.gameObject);
+        if (isPoolable)
+            SingletonManager.Get<ObjectPooler>().ReturnToPool(this.gameObject);
+        else
+            Destroy(this.gameObject);
     }
 
 }
