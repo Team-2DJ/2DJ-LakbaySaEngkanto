@@ -33,5 +33,9 @@ public class PlayerSetup : MonoBehaviour
         HealthComponent = GetComponent<HealthComponent>();
         PlayerMovement = GetComponent<PlayerMovement>();
         Animator = GetComponentInChildren<Animator>();
+
+        // Set Position
+        if (SingletonManager.Get<PlayerManager>().PlayerSpawnPoint != new Vector2(0f, 0f))
+            transform.position = SingletonManager.Get<PlayerManager>().PlayerSpawnPoint;
     }
 }

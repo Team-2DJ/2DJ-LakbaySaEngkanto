@@ -29,7 +29,7 @@ public class Kapre : Boss
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
+        /*switch (currentState)
         {
             case EnemyState.Idle:
                 StartCoroutine(ChangeCurrentState());
@@ -39,7 +39,7 @@ public class Kapre : Boss
                 AttackPattern();
                 StartCoroutine(ChangeCurrentState());
                 break;
-        }
+        }*/
     }
 
     protected override void AttackPattern()

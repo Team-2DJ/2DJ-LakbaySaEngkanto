@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     {
         // Activate Main Menu
         SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+
+        // Reset Player Spawn Point
+        SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = new Vector2(0f, 0f);
     }
 
     public void Play()

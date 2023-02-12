@@ -21,14 +21,9 @@ public abstract class MiniGame : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         PlayerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
-    }
-
-    protected void OnGameFinished()
-    {
-
     }
 
     protected IEnumerator StartMiniGame(Action miniGame)
