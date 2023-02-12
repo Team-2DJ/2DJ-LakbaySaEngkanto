@@ -28,17 +28,6 @@ public class HealthComponent : MonoBehaviour
     }
     #endregion
 
-    // TO BE REMOVED!!!!
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SingletonManager.Get<GameEvents>().PlayerDamaged(1f);
-
-            //SingletonManager.Get<GameManager>().EndGame();
-        }
-    }
-
     void Initialize()
     {
         CurrentHealth = DefaultHealth;

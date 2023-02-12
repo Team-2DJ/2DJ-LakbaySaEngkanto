@@ -28,6 +28,7 @@ public class RiddlesMiniGame : MiniGame
     private int currentRiddleIndex;
     private Animator Animator;
     private List<RiddleItems> riddlesInPlay = new List<RiddleItems>();
+
     private bool hasStarted;
     private bool hasEnded;
 
