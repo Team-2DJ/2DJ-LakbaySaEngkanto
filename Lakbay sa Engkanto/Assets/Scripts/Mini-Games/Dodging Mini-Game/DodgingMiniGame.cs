@@ -45,12 +45,16 @@ public class DodgingMiniGame : MiniGame
 
         while (isSpawning)
         {
-            int randomNumber = Random.Range(0, fallingItems.Length);
-            float xBounds = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
-            Vector2 position = new Vector2(xBounds, spawnArea.transform.position.y);
+            for (int i = 0; i < 3; i++)
+            {
+                int randomIndex = Random.Range(0, fallingItems.Length);
+                float xBounds = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
+                Vector2 randomPosition = new Vector2(xBounds, spawnArea.transform.position.y);
+                Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
-            SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomNumber], position, Quaternion.identity);
-
+                SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomIndex], randomPosition, randomRotation);
+            }
+            
             yield return new WaitForSeconds(1f);
         }
     }
