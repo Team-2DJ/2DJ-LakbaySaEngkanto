@@ -181,7 +181,8 @@ public class RiddlesMiniGame : MiniGame
         // Spawn Journal Page
         Debug.Log("Here's your journal page");
 
-        Instantiate(journalPage, journalPageSpawn.position, Quaternion.identity);
+        GameObject go = Instantiate(journalPage, journalPageSpawn.position, Quaternion.identity);
+        go.transform.SetParent(journalPageSpawn);
 
         // Open the Doors
     }
