@@ -10,21 +10,22 @@ public class MangoTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += GrowMangoTree;
+        SingletonManager.Get<GameEvents>().OnScoreChanged += GrowMangoTree;
         animator = GetComponent<Animator>();
     }
 
     void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= GrowMangoTree;
+        SingletonManager.Get<GameEvents>().OnScoreChanged -= GrowMangoTree;
     }
 
-    void GrowMangoTree(string id)
+
+    // Set Mango Tree Animation based on Current Score and Winning Score Ratio
+    void GrowMangoTree(string id, int currentScore, int winningScore)
     {
-        if (id == this.id)
-        {
-            animator.SetTrigger("isGrowing");
-            Debug.Log("Tree is Growing");
-        }
+        if (id != this.id)
+            return;
+
+        animator.SetFloat("growth", (float)currentScore / (float)winningScore);
     }
 }

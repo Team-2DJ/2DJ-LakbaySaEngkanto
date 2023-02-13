@@ -8,7 +8,6 @@ public class DodgingMiniGame : MiniGame
     [SerializeField] Collider2D spawnArea;
     [SerializeField] Collider2D destructorCollider;
     [SerializeField] private string id;
-    [SerializeField] Animator mangoTreeAnimator;
 
 
     [SerializeField] private int spawnAmount = 2;
@@ -56,11 +55,11 @@ public class DodgingMiniGame : MiniGame
             {
                 // Randomize Object Index
                 int randomIndex = Random.Range(0, fallingItems.Length);
-                
+
                 // Randomize X Position
                 float xBounds = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
                 Vector2 randomPosition = new Vector2(xBounds, spawnArea.transform.position.y);
-                
+
                 // Randomize Rotation
                 Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
@@ -68,7 +67,7 @@ public class DodgingMiniGame : MiniGame
                 GameObject go = SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomIndex], randomPosition, randomRotation);
                 go.transform.SetParent(spawnArea.transform);
             }
-            
+
             yield return new WaitForSeconds(1f);
         }
     }
@@ -81,8 +80,7 @@ public class DodgingMiniGame : MiniGame
         // Increment Score
         currentScore++;
 
-        // Set Mango Tree Animation based on Current Score and Winning Score Ratio
-        mangoTreeAnimator.SetFloat("growth", (float)currentScore / (float)winningScore);
+        SingletonManager.Get<GameEvents>().ScoreChanged(id, currentScore, winningScore);
 
         Debug.Log("Current Score: " + currentScore);
 
@@ -99,7 +97,7 @@ public class DodgingMiniGame : MiniGame
     IEnumerator EndMiniGame()
     {
         // Trigger Tree Animation
-        
+
         yield return new WaitForSeconds(3f);
 
         // Declare End of Game

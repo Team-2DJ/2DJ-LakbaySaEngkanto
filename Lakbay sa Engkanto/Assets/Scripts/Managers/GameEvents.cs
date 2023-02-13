@@ -13,6 +13,8 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string> OnPlayerCollectItem;
 
+    public event Action<string, int, int> OnScoreChanged;
+
     public event Action OnOpenDoors;
     public event Action OnCloseDoors;
 
@@ -30,6 +32,11 @@ public class GameEvents : MonoBehaviour
     public void PlayerCollectItem(string id)
     {
         OnPlayerCollectItem?.Invoke(id);
+    }
+
+    public void ScoreChanged(string id, int currentPoints, int winningPoints)
+    {
+        OnScoreChanged?.Invoke(id, currentPoints, winningPoints);
     }
 
     public void OpenDoors()
