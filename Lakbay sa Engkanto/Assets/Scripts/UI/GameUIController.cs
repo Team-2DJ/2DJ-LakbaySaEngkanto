@@ -15,7 +15,6 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject JournalButtonReference;
     [SerializeField] private string id;
 
-
     private float playerHp;
 
     void Start()
@@ -25,9 +24,6 @@ public class GameUIController : MonoBehaviour
         SingletonManager.Get<GameEvents>().OnUpdateUI += UpdateHealth;
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem += JournalButtonActivate;
         JournalButtonReference.SetActive(false);
-        
-        // To be Removed
-        //JournalButtonReference.SetActive(true);
     }
 
     void OnDisable()

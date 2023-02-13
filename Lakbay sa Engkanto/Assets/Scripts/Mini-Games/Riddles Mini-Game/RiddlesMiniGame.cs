@@ -28,6 +28,7 @@ public class RiddlesMiniGame : MiniGame
     private int currentRiddleIndex;
     private Animator Animator;
     private List<RiddleItems> riddlesInPlay = new List<RiddleItems>();
+
     private bool hasStarted;
     private bool hasEnded;
 
@@ -180,7 +181,8 @@ public class RiddlesMiniGame : MiniGame
         // Spawn Journal Page
         Debug.Log("Here's your journal page");
 
-        Instantiate(journalPage, journalPageSpawn.position, Quaternion.identity);
+        GameObject go = Instantiate(journalPage, journalPageSpawn.position, Quaternion.identity);
+        go.transform.SetParent(journalPageSpawn);
 
         // Open the Doors
     }
