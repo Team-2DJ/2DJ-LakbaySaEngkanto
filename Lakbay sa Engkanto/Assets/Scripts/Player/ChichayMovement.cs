@@ -21,6 +21,11 @@ public class ChichayMovement : MonoBehaviour
 
     private PlayerSetup player;
 
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
+    }
+
     private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged -= x => OnHurt();
@@ -29,7 +34,6 @@ public class ChichayMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
 
         // Initialize Scale Values
         scale = transform.localScale;
@@ -69,7 +73,7 @@ public class ChichayMovement : MonoBehaviour
     /// Follow a Certain Point Near the Player
     /// </summary>
     void FollowPlayer()
-    { 
+    {
         // If Chichay Reaches the FollowPoint
         if (Vector2.Distance(transform.position, FollowPoint.position) < 0.01f)
         {

@@ -10,9 +10,13 @@ public class HealthComponent : MonoBehaviour
 
     [SerializeField] private SpriteRenderer PlayerSprite;
     private PlayerSetup playerSetup;
-    
 
-    void OnDisable()
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
+    }
+
+    private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged -= TakeDamage;
         Debug.Log("Disable");
@@ -22,7 +26,6 @@ public class HealthComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
         playerSetup = GetComponent<PlayerSetup>();
         Initialize();
     }
@@ -85,7 +88,7 @@ public class HealthComponent : MonoBehaviour
     {
         // Indicate Player Death in Bool
         IsAlive = false;
-        
+
         // Disable Movement
         playerSetup.PlayerMovement.enabled = false;
 

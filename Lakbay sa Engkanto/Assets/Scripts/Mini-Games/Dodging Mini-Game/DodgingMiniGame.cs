@@ -19,7 +19,12 @@ public class DodgingMiniGame : MiniGame
     private bool isSpawning;
     private bool hasEnded;
 
-    void OnDisable()
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += SeedCollected;
+    }
+
+    private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= SeedCollected;
     }
@@ -28,7 +33,6 @@ public class DodgingMiniGame : MiniGame
     {
         base.Start();
 
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += SeedCollected;
         currentScore = 0;
     }
 

@@ -17,19 +17,22 @@ public class GameUIController : MonoBehaviour
 
     private float playerHp;
 
-    void Start()
+    private void OnEnable()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
-        
         SingletonManager.Get<GameEvents>().OnUpdateUI += UpdateHealth;
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem += JournalButtonActivate;
-        JournalButtonReference.SetActive(false);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnUpdateUI -= UpdateHealth;
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= JournalButtonActivate;
+    }
+
+    void Start()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+        JournalButtonReference.SetActive(false);
     }
 
     // Update Player Health Container
@@ -75,7 +78,7 @@ public class GameUIController : MonoBehaviour
     {
         if (id != this.id)
             return;
-        
+
         JournalButtonReference.SetActive(true);
     }
 }
