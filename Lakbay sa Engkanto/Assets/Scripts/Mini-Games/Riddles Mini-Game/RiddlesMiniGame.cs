@@ -39,6 +39,11 @@ public class RiddlesMiniGame : MiniGame
     private int correctAnswerScore;
     [SerializeField] private int totalScore;
 
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += CheckAnswer;
+    }
+
     private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= CheckAnswer;
@@ -48,8 +53,7 @@ public class RiddlesMiniGame : MiniGame
     protected override void Start()
     {
         base.Start();
-        
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += CheckAnswer;
+
         Animator = GetComponent<Animator>();
         correctAnswerScore = 0;
     }

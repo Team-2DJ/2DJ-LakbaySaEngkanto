@@ -7,16 +7,20 @@ public class MangoTree : MonoBehaviour
     private Animator animator;
     [SerializeField] string id;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         SingletonManager.Get<GameEvents>().OnScoreChanged += GrowMangoTree;
-        animator = GetComponent<Animator>();
     }
 
     void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnScoreChanged -= GrowMangoTree;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
 
