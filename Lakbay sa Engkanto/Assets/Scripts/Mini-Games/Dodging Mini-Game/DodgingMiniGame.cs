@@ -6,9 +6,7 @@ public class DodgingMiniGame : MiniGame
 {
     [SerializeField] string[] fallingItems;
     [SerializeField] Collider2D spawnArea;
-    [SerializeField] Collider2D destructorCollider;
     [SerializeField] private string id;
-
 
     [SerializeField] private int spawnAmount = 2;
 
@@ -27,6 +25,7 @@ public class DodgingMiniGame : MiniGame
     private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= SeedCollected;
+        isSpawning = false;
     }
 
     protected override void Start()
@@ -38,8 +37,13 @@ public class DodgingMiniGame : MiniGame
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other == PlayerCollider && !isSpawning && !hasEnded)
+        if (other == PlayerCollider)
+        {
+            if (hasEnded) return;
+            if (isSpawning) return;
+
             StartCoroutine(base.StartMiniGame(StartDodging));
+        }
     }
 
     void StartDodging()
