@@ -43,8 +43,6 @@ public class HealthComponent : MonoBehaviour
         // Decrement HP based on Damage
         CurrentHealth -= damage;
 
-        StartCoroutine(HurtVFX());
-
         // If Current HP is 0 or Less
         if (CurrentHealth <= 0f)
         {
@@ -57,6 +55,7 @@ public class HealthComponent : MonoBehaviour
         }
         else
         {
+            StartCoroutine(HurtVFX());
             StartCoroutine(Invincibility());
         }
 
@@ -96,7 +95,7 @@ public class HealthComponent : MonoBehaviour
         playerSetup.Rb.bodyType = RigidbodyType2D.Static;
 
         // Death VFX
-        playerSetup.Animator.SetBool("isHurt", true);
+        //playerSetup.Animator.SetBool("isHurt", true);
         playerSetup.Animator.SetBool("isDead", true);
 
         // Put Player to Death Layer to Prevent Collision with
