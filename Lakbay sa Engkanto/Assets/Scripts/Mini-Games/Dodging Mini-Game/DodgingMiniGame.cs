@@ -97,7 +97,7 @@ public class DodgingMiniGame : MiniGame
         {
             isSpawning = false;
             hasEnded = true;
-            Debug.Log("You have engough seeds. Grow the Tree!!!");
+            Debug.Log("You have enough seeds. Grow the Tree!!!");
             StartCoroutine(EndMiniGame());
         }
     }

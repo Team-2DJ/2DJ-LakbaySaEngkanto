@@ -71,7 +71,10 @@ public class GameUIController : MonoBehaviour
     public void OnMainMenuButtonClicked()
     {
         Time.timeScale = 1f;
-        SingletonManager.Get<SceneLoader>().LoadScene("MainMenuScene");
+
+        string[] scenes = { "MainMenuScene" };
+
+        SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
 
     public void JournalButtonActivate(string id)
