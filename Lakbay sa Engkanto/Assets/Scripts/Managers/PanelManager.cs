@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 /// <summary>
 /// Manages UI Panels
@@ -16,7 +17,9 @@ public class PanelManager : MonoBehaviour
     }
 
     [Header("References")]
-    public PanelData[] Panels;
+    [SerializeField] private PanelData[] panels;
+
+    private string currentPanelId;
 
     #region Singleton
     void Awake()
@@ -26,15 +29,24 @@ public class PanelManager : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Activates Selected Panel Based in ID Input
+    /// Activates Selected Panel Based on ID Input
     /// </summary>
     /// <param name="id"></param>
-    public void ActivatePanel(string id)
+    public void ActivatePanel(string id, float transitionDuration)
     {
         // Enable Chosen Panel and disable the rest
-        for (int i = 0; i < Panels.Length; i++)
+        for (int i = 0; i < panels.Length; i++)
         {
-            Panels[i].PanelObject.SetActive(Panels[i].Id == id);
+            panels[i].PanelObject.SetActive(panels[i].Id == id);
+
+            if (panels[i].Id == id)
+            {
+                CanvasGroup canvas = panels[i].PanelObject.GetComponent<CanvasGroup>();
+
+                // Trigger Fade-In Animation
+                canvas.alpha = 0f;
+                canvas.DOFade(1, transitionDuration);
+            }
         }
     }
 }

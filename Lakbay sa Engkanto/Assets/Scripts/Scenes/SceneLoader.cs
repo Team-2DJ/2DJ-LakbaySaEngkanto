@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField] private string[] firstSceneIds;
-    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private LoadingScreen loadingScreen;
 
     private string[] currentSceneIds;
 
@@ -22,16 +22,14 @@ public class SceneLoader : MonoBehaviour
     #endregion
 
     private void Start()
-    {
-        loadingScreen.SetActive(false);
-        
+    {        
         LoadScene(firstSceneIds);
     }
 
     private IEnumerator LoadSceneSequence(string[] sceneIds)
     {
         // Activate Loading Screen
-        loadingScreen.SetActive(true);
+        loadingScreen.StartLoading();
         
         // Unload Current Scene if There are Any
         if (currentSceneIds != null)
@@ -53,7 +51,7 @@ public class SceneLoader : MonoBehaviour
             yield return SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive);
 
         // Deactivate Loading Screen
-        loadingScreen.SetActive(false);
+        loadingScreen.EndLoading();
 
         // Set Loaded Scene to Current Scene
         currentSceneIds = sceneIds;

@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         // Activate Main Menu
-        SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu", 0f);
 
         // Reset Player Spawn Point
         SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = new Vector2(0f, 0f);
@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Level Selection");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Level Selection", 1f);
     }
 
     public void OnLevelSelected(int level)

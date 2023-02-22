@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b01195bc8ec5749bc3845c597e68c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panels:
+  panels:
   - Id: Main Menu
     PanelObject: {fileID: 1083569233}
   - Id: Level Selection
@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 698914169}
   - component: {fileID: 698914171}
   - component: {fileID: 698914170}
+  - component: {fileID: 698914172}
   m_Layer: 5
   m_Name: LevelSelectionPanel
   m_TagString: Untagged
@@ -481,7 +482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -499,6 +500,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698914168}
   m_CullTransparentMesh: 1
+--- !u!225 &698914172
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698914168}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1046638909
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +658,7 @@ GameObject:
   - component: {fileID: 1083569234}
   - component: {fileID: 1083569236}
   - component: {fileID: 1083569235}
+  - component: {fileID: 1083569237}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -694,7 +708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -712,6 +726,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083569233}
   m_CullTransparentMesh: 1
+--- !u!225 &1083569237
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083569233}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1258722425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1246,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
