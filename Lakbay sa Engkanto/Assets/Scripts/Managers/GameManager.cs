@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SingletonManager.Get<AdditionalSceneLoader>().LoadLevel();
+        
     }
 
     public void EndGame()
@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SingletonManager.Get<SceneLoader>().LoadScene("GameScene");
+        string[] scenes = { "GameScene", "Level" + SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex.ToString(), "GameUIScene" };
+        
+        SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
 }

@@ -11,6 +11,8 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private SpriteRenderer PlayerSprite;
     private PlayerSetup playerSetup;
 
+    private bool isHurt;
+
     private void OnEnable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
@@ -65,18 +67,30 @@ public class HealthComponent : MonoBehaviour
     IEnumerator HurtVFX()
     {
         playerSetup.Animator.SetBool("isHurt", true);
+        isHurt = true;
 
         yield return new WaitForSeconds(0.2f);
 
         playerSetup.Animator.SetBool("isHurt", false);
+
+        yield return new WaitForSeconds(3f);
+
+        isHurt = false;
     }
 
     IEnumerator Invincibility()
     {
         gameObject.layer = LayerMask.NameToLayer("Invincibility");
-        PlayerSprite.color = new Color(1, 0, 0, 0.75f);
+        float flickerDuration = 0.03f;
 
-        yield return new WaitForSeconds(3f);
+        while (isHurt)
+        {
+            PlayerSprite.color = new Color(1, 1, 1, 0.75f);
+            yield return new WaitForSeconds(flickerDuration);
+
+            PlayerSprite.color = new Color(1, 1, 1, 0f);
+            yield return new WaitForSeconds(flickerDuration);
+        }
 
         gameObject.layer = LayerMask.NameToLayer("Player");
         PlayerSprite.color = Color.white;
@@ -103,6 +117,7 @@ public class HealthComponent : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
+        // Restart Game
         SingletonManager.Get<GameManager>().RestartGame();
     }
     #endregion

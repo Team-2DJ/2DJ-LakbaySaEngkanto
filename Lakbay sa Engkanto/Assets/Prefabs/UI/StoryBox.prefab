@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1248358368856448196}
   - component: {fileID: 1248358368856448194}
   - component: {fileID: 1248358368856448197}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: INTRO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 1248358370161345943}
   - component: {fileID: 1248358370161345942}
   - component: {fileID: 1248358370161345641}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 1248358370533616356}
   - component: {fileID: 1248358370533616354}
   - component: {fileID: 1248358370533616357}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1248358370662186790}
   - component: {fileID: 1248358370662186809}
   - component: {fileID: 1248358370662186808}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StoryBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// THIS SCRIPT IS TO BE DELETED!!!!
+/// </summary>
 public class AdditionalSceneLoader : MonoBehaviour
 {
     private void OnEnable()
