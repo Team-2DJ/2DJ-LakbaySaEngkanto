@@ -64,7 +64,7 @@ public class GameUIController : MonoBehaviour
 
     public void OnResumeButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 1f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
         Time.timeScale = 1f;
     }
 

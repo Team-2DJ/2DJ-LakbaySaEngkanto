@@ -9,7 +9,7 @@ using System;
 public class SceneLoader : MonoBehaviour
 {
     [Header("Configuration")]
-    [SerializeField] private string[] firstSceneIds;
+    [SerializeField] private string firstSceneId;
     [SerializeField] private LoadingScreen loadingScreen;
 
     private string[] currentSceneIds;
@@ -22,8 +22,10 @@ public class SceneLoader : MonoBehaviour
     #endregion
 
     private void Start()
-    {        
-        LoadScene(firstSceneIds);
+    {
+        string[] scenes = { firstSceneId };
+        
+        LoadScene(scenes);
     }
 
     private IEnumerator LoadSceneSequence(string[] sceneIds)

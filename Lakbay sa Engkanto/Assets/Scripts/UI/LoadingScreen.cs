@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class LoadingScreen : MonoBehaviour
 {
@@ -29,6 +30,6 @@ public class LoadingScreen : MonoBehaviour
 
         // Trigger Fade-Out Animation
         transitionPanelGroup.alpha = 1f;
-        transitionPanelGroup.DOFade(0, 1f).OnComplete(() => transitionPanel.SetActive(false));
+        transitionPanelGroup.DOFade(0, 0.5f).OnComplete(() => transitionPanel.SetActive(false));
     }
 }
