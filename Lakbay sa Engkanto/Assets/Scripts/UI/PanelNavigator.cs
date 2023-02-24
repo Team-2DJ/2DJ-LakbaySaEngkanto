@@ -37,7 +37,7 @@ public class PanelNavigator : MonoBehaviour
     // Return Button
     public void OnReturnButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 1f);
         Time.timeScale = 1f;
     }
 

@@ -6,11 +6,19 @@ public class HealthComponent : MonoBehaviour
 {
     [SerializeField] private float DefaultHealth;                             // Default HP
     public float CurrentHealth { get; private set; }                          // Current HP
+    public bool IsAlive { get; private set; }                                 // Life Condition Indicator
 
     [SerializeField] private SpriteRenderer PlayerSprite;
     private PlayerSetup playerSetup;
 
-    void OnDisable()
+    private bool isHurt;
+
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
+    }
+
+    private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnPlayerDamaged -= TakeDamage;
         Debug.Log("Disable");
@@ -20,7 +28,6 @@ public class HealthComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
         playerSetup = GetComponent<PlayerSetup>();
         Initialize();
     }
@@ -29,6 +36,7 @@ public class HealthComponent : MonoBehaviour
     void Initialize()
     {
         CurrentHealth = DefaultHealth;
+        IsAlive = true;
     }
 
     #region HP System
@@ -36,8 +44,6 @@ public class HealthComponent : MonoBehaviour
     {
         // Decrement HP based on Damage
         CurrentHealth -= damage;
-
-        StartCoroutine(HurtVFX());
 
         // If Current HP is 0 or Less
         if (CurrentHealth <= 0f)
@@ -51,27 +57,40 @@ public class HealthComponent : MonoBehaviour
         }
         else
         {
+            StartCoroutine(HurtVFX());
             StartCoroutine(Invincibility());
         }
 
-        Debug.Log(CurrentHealth);
+        Debug.Log("Current Player HP: " + CurrentHealth);
     }
 
     IEnumerator HurtVFX()
     {
         playerSetup.Animator.SetBool("isHurt", true);
+        isHurt = true;
 
         yield return new WaitForSeconds(0.2f);
 
         playerSetup.Animator.SetBool("isHurt", false);
+
+        yield return new WaitForSeconds(3f);
+
+        isHurt = false;
     }
 
     IEnumerator Invincibility()
     {
         gameObject.layer = LayerMask.NameToLayer("Invincibility");
-        PlayerSprite.color = new Color(1, 0, 0, 0.75f);
+        float flickerDuration = 0.03f;
 
-        yield return new WaitForSeconds(3f);
+        while (isHurt)
+        {
+            PlayerSprite.color = new Color(1, 1, 1, 0.75f);
+            yield return new WaitForSeconds(flickerDuration);
+
+            PlayerSprite.color = new Color(1, 1, 1, 0f);
+            yield return new WaitForSeconds(flickerDuration);
+        }
 
         gameObject.layer = LayerMask.NameToLayer("Player");
         PlayerSprite.color = Color.white;
@@ -80,6 +99,9 @@ public class HealthComponent : MonoBehaviour
     // Executes Death Functionality
     IEnumerator OnDeath()
     {
+        // Indicate Player Death in Bool
+        IsAlive = false;
+
         // Disable Movement
         playerSetup.PlayerMovement.enabled = false;
 
@@ -87,7 +109,6 @@ public class HealthComponent : MonoBehaviour
         playerSetup.Rb.bodyType = RigidbodyType2D.Static;
 
         // Death VFX
-        playerSetup.Animator.SetBool("isHurt", true);
         playerSetup.Animator.SetBool("isDead", true);
 
         // Put Player to Death Layer to Prevent Collision with
@@ -96,6 +117,7 @@ public class HealthComponent : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
+        // Restart Game
         SingletonManager.Get<GameManager>().RestartGame();
     }
     #endregion

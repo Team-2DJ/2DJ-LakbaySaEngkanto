@@ -21,19 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
 
-    void OnDisable()
-    {
-        SingletonManager.Get<GameEvents>().OnSlowDownPlayer -= DividePlayerSpeed;
-        SingletonManager.Get<GameEvents>().OnIncreasePlayerSpeed -= MultiplyPlayerSpeed;
-    }
-
     #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
-        SingletonManager.Get<GameEvents>().OnSlowDownPlayer += DividePlayerSpeed;
-        SingletonManager.Get<GameEvents>().OnIncreasePlayerSpeed += MultiplyPlayerSpeed;
-
         // Cache-In Variables
         playerSetup = GetComponent<PlayerSetup>();
         CurrentSpeed = MovementSpeed;
@@ -45,22 +36,7 @@ public class PlayerMovement : MonoBehaviour
     #region Update Functions
     void Update()
     {
-        if (IsTesting)
-        {
-            HorizontalInput = Input.GetAxisRaw("Horizontal");
-
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                Jump(true);
-            }
-
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                Jump(false);
-            }
-        }
-
-
+        TestingMode();
         ControlAnimation();
         GroundChecking();
         Flip();
@@ -123,6 +99,25 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// Keyboard Control Scheme for Testing Purposes
+    /// </summary>
+    void TestingMode()
+    {
+        if (IsTesting)
+        {
+            // Horizontal Movement based on Current Input
+            HorizontalInput = Input.GetAxisRaw("Horizontal");
+
+            // Press W to Jump
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                Jump(true);
+
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+                Jump(false);
+        }
+    }
+
     void GroundChecking()
     {
         // If Player is on the Ground
@@ -162,18 +157,6 @@ public class PlayerMovement : MonoBehaviour
     bool IsGrounded()
     {
         return Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundMask);
-    }
-    #endregion
-
-    #region Public Functions
-    public void DividePlayerSpeed(float value)
-    {
-        CurrentSpeed /= value;
-    }
-
-    public void MultiplyPlayerSpeed(float value)
-    {
-        CurrentSpeed *= value;
     }
     #endregion
 }

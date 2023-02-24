@@ -2,15 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Page : MonoBehaviour
+public class Page : Item
 {
-    [SerializeField] private string id;
-    private void OnTriggerEnter2D(Collider2D collision)
+    Collider2D pageCollider;
+
+    protected override void Start()
     {
-        if (collision == SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>())
-        {
-            SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
-            Destroy(this.gameObject);
-        }
+        base.Start();
+        
+        pageCollider = GetComponent<Collider2D>();
+        pageCollider.enabled = false;
+        Debug.Log("false collider");
+
+        StartCoroutine(EnableCollider());
+    }
+
+    protected override void ItemCollected()
+    {
+        SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+    }
+
+    IEnumerator EnableCollider()
+    {
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("true collider");
+        pageCollider.enabled = true;
     }
 }

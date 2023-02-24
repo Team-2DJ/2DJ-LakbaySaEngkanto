@@ -14,11 +14,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("game-panel");
+        
+    }
+
+    public void EndGame()
+    {
+        // Reset Player Spawn point Coordinates
+        SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = new Vector2(0f, 0f);
+
+        // Load Next Level
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level1");
+        string[] scenes = { "GameScene", "Level" + SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex.ToString(), "GameUIScene" };
+        
+        SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
 }
