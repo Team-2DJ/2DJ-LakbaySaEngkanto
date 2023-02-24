@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Initializes All Player Properties
-[RequireComponent(typeof(HealthComponent), (typeof(PlayerInventory)), typeof(PlayerMovement))]
+[RequireComponent(typeof(HealthComponent), typeof(PlayerMovement))]
 public class PlayerSetup : MonoBehaviour
 {
     public Rigidbody2D Rb { get; private set; }                                             // Rigidbody2D Component Reference
