@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1339825824698532264}
   - component: {fileID: 1339825824698532265}
   - component: {fileID: 1339825824698532270}
-  - component: {fileID: 5166932919806761786}
   - component: {fileID: 1954673214}
   m_Layer: 6
   m_Name: Player
@@ -110,18 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultHealth: 5
   PlayerSprite: {fileID: 7965120496834044372}
---- !u!114 &5166932919806761786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339825824698532271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d874cdd130904e14693791cb5ab9081e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &1954673214
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
