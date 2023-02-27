@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private GameObject musicHolder;                        // Holds All Musics/BGM's
     [SerializeField] private GameObject soundHolder;                        // Holds All SFX
 
+    private Dictionary<string, AudioData> audioDictionary = new Dictionary<string, AudioData>();
+
     #region Singleton
     void Awake()
     {
@@ -23,7 +25,10 @@ public class AudioManager : MonoBehaviour
 
         foreach (AudioData audioData in audioCollections)
         {
-            switch (audioData.Type)
+
+            audioDictionary.Add(audioData.GetId(), audioData);
+
+            switch (audioData.GetAudioType())
             {
                 case AudioData.AudioType.BGM:
                     audioData.Initialize(musicHolder);
@@ -45,6 +50,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="id"></param>
     public void Play(string id)
     {
+        /* TO BE DELETED ONCE APPROVED
         // Find Audio in Audio Collections
         foreach (AudioData audioData in audioCollections)
         {
@@ -55,10 +61,18 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
+        */
 
         // Audio Not Found
-        Debug.LogWarning("Audio " + id + " cannot be found!");
-        return;
+        if (!audioDictionary.ContainsKey(id))
+        {
+            Debug.LogWarning("Audio " + id + " cannot be found!");
+            return;
+        }
+
+        // Finds the key (ID) inside the audioDictionary
+        // Afterwards, plays the audio. 
+        audioDictionary[id].Source.Play();
     }
 
     /// <summary>
@@ -67,6 +81,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="id"></param>
     public void Stop(string id)
     {
+        /* TO BE DELETED ONCE APPROVED
         // Find Audio in Audio Collections
         foreach (AudioData audioData in audioCollections)
         {
@@ -77,10 +92,19 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
+        */
 
         // Audio Not Found
-        Debug.LogWarning("Audio " + id + " cannot be found!");
-        return;
+        if (!audioDictionary.ContainsKey(id))
+        {
+            Debug.LogWarning("Audio " + id + " cannot be found!");
+            return;
+        }
+
+
+        // Finds the key (ID) inside the audioDictionary
+        // Afterwards, stops the audio. 
+        audioDictionary[id].Source.Stop();
     }
 
     /// <summary>
@@ -90,6 +114,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="amount"></param>
     public void ModifyPitch(string id, float amount)
     {
+        /* TO BE DELETED ONCE APPROVED
         // Find Audio in Audio Collections
         foreach (AudioData audioData in audioCollections)
         {
@@ -100,10 +125,19 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
+        */
 
         // Audio Not Found
-        Debug.LogWarning("Audio " + id + " cannot be found!");
-        return;
+        if (!audioDictionary.ContainsKey(id))
+        {
+            Debug.LogWarning("Audio " + id + " cannot be found!");
+            return;
+        }
+
+        // Finds the key (ID) inside the audioDictionary
+        // Afterwards, adjusts the pitch based on the amount. 
+        audioDictionary[id].Source.pitch = amount;
+
     }
     #endregion
 }
