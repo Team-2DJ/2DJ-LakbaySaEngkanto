@@ -8,8 +8,11 @@ using System;
 /// </summary>
 public class GameEvents : MonoBehaviour
 {
-    public event Action<float> OnPlayerDamaged;
-    public event Action OnUpdateUI;
+    public event Action<float> OnPlayerDamaged;                                             // Called When Player Takes Damage
+    public event Action OnUpdateUI;                                                         // Called to Update Game UI
+
+    public event Action OnDialogueStart;
+    public event Action OnDialogueEnd;
 
     public event Action<string> OnPlayerCollectItem;
 
@@ -27,6 +30,16 @@ public class GameEvents : MonoBehaviour
     {
         OnPlayerDamaged?.Invoke(value);
         OnUpdateUI?.Invoke();
+    }
+
+    public void DialogueStart()
+    {
+        OnDialogueStart?.Invoke();
+    }
+
+    public void DialogueEnd()
+    {
+        OnDialogueEnd?.Invoke();
     }
 
     public void PlayerCollectItem(string id)
