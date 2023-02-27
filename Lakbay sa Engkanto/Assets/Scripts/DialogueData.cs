@@ -6,9 +6,9 @@ using UnityEngine.UI;
 [System.Serializable]
 public class DialogueData
 {
-    public Sprite CharacterImage;
-    public string Name;
+    public Sprite CharacterImage;               // Image of the Character Soeaking
+    public string Name;                         // Character's Name
 
     [TextArea(3, 10)]
-    public string[] Sentences;
+    public string[] Sentences;                  // Character's Sentences
 }

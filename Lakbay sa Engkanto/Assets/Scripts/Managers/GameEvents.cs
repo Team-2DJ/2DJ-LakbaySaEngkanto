@@ -8,8 +8,8 @@ using System;
 /// </summary>
 public class GameEvents : MonoBehaviour
 {
-    public event Action<float> OnPlayerDamaged;
-    public event Action OnUpdateUI;
+    public event Action<float> OnPlayerDamaged;                                             // Called When Player Takes Damage
+    public event Action OnUpdateUI;                                                         // Called to Update Game UI
 
     public event Action<string> OnPlayerCollectItem;
 

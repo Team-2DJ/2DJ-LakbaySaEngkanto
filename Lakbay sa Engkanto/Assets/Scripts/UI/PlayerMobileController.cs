@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class PlayerMobileController : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput = 0f;
+    }
+
     public void Move(float value)
     {
-        SingletonManager.Get<PlayerManager>().Player.GetComponent<PlayerMovement>().HorizontalInput = value;
+        if (!SingletonManager.Get<PlayerManager>().Player.PlayerMovement.CanMove)
+            return;
+
+        SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput = value;
     }
 
     public void Jump(bool value)
     {
-        SingletonManager.Get<PlayerManager>().Player.GetComponent<PlayerMovement>().Jump(value);
+        if (!SingletonManager.Get<PlayerManager>().Player.PlayerMovement.CanMove)
+            return;
+
+        SingletonManager.Get<PlayerManager>().Player.PlayerMovement.Jump(value);
     }
 }
