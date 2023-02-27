@@ -12,16 +12,16 @@ public class AudioData : ScriptableObject
         SFX
     };
 
-    public string Id;                                                       // Audio ID
-    public AudioClip Clip;                                                  // Audio Clip
-    public AudioType Type;                                                  // Type of Audio
+    [SerializeField] private string id;                                     // Audio ID
+    [SerializeField] private AudioClip clip;                                // Audio Clip
+    [SerializeField] AudioType type;                                        // Type of Audio
 
-    [Range(0, 256)] public int Priority;                                    // Audio Priority
-    [Range(0f, 1f)] public float Volume;                                    // Audio Volume
-    [Range(0f, 3f)] public float Pitch;                                     // Audio Pitch
-    public bool PlayOnAwake;                                                // Checks if Audio Should Play On Start-up
-    public bool Loop;                                                       // Check if Audio Should Play On Repeat
-    [Range(0f, 3f)] public float SpatialBlend;                              // Audio Spatial Blend
+    [Range(0, 256)][SerializeField] private int priority;                   // Audio Priority
+    [Range(0f, 1f)][SerializeField] private float volume;                   // Audio Volume
+    [Range(0f, 3f)][SerializeField] private float pitch;                    // Audio Pitch
+    [SerializeField] private bool playOnAwake;                              // Checks if Audio Should Play On Start-up
+    [SerializeField] private bool loop;                                     // Check if Audio Should Play On Repeat
+    [Range(0f, 3f)][SerializeField] private float spatialBlend;             // Audio Spatial Blend
 
     public AudioSource Source { get; private set; }                         // Audio Source Component
 
@@ -32,12 +32,15 @@ public class AudioData : ScriptableObject
     public void Initialize(GameObject audioSourceContainer)
     {
         Source = audioSourceContainer.AddComponent<AudioSource>();
-        Source.clip = Clip;
-        Source.priority = Priority;
-        Source.volume = Volume;
-        Source.pitch = Pitch;
-        Source.playOnAwake = PlayOnAwake;
-        Source.loop = Loop;
-        Source.spatialBlend = SpatialBlend;
+        Source.clip = clip;
+        Source.priority = priority;
+        Source.volume = volume;
+        Source.pitch = pitch;
+        Source.playOnAwake = playOnAwake;
+        Source.loop = loop;
+        Source.spatialBlend = spatialBlend;
     }
+
+    public string GetId() { return id; }
+    public AudioType GetAudioType() { return type; }
 }
