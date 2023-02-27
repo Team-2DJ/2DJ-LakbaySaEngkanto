@@ -19,7 +19,19 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;                                                    // Coyote Time Counter
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
-    public bool CanMove { get; set; }
+    private bool canMove;
+
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnDialogueStart += () => canMove = false;
+        SingletonManager.Get<GameEvents>().OnDialogueEnd += () => canMove = true;
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnDialogueStart -= () => canMove = false;
+        SingletonManager.Get<GameEvents>().OnDialogueEnd -= () => canMove = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +41,12 @@ public class PlayerMovement : MonoBehaviour
         CurrentSpeed = MovementSpeed;
         currentJumpAmount = MultipleJumpAmount;
         scale = transform.localScale;
-        CanMove = true;
+        canMove = true;
     }
 
     void Update()
     {
-        if (!CanMove)
+        if (!canMove)
         {
             playerSetup.Animator.SetFloat("velocityX", 0f);
             playerSetup.Animator.SetFloat("velocityY", playerSetup.Rb.velocity.y);
@@ -50,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!CanMove)
+        if (!canMove)
         {
             playerSetup.Rb.velocity = new Vector2(0f, playerSetup.Rb.velocity.y);
             return;

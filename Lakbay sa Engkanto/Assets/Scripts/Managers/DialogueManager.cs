@@ -74,8 +74,8 @@ public class DialogueManager : MonoBehaviour
         if (currentDialogueIndex >= dialogueData.Length - 1)
         {
             // Enable Player Movement
-            SingletonManager.Get<PlayerManager>().Player.PlayerMovement.CanMove = true;
-            
+            SingletonManager.Get<GameEvents>().DialogueEnd();
+
             // Re-Open Game Panel
             SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
             return;

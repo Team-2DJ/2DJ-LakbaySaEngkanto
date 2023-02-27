@@ -11,17 +11,11 @@ public class PlayerMobileController : MonoBehaviour
 
     public void Move(float value)
     {
-        if (!SingletonManager.Get<PlayerManager>().Player.PlayerMovement.CanMove)
-            return;
-
         SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput = value;
     }
 
     public void Jump(bool value)
     {
-        if (!SingletonManager.Get<PlayerManager>().Player.PlayerMovement.CanMove)
-            return;
-
         SingletonManager.Get<PlayerManager>().Player.PlayerMovement.Jump(value);
     }
 }

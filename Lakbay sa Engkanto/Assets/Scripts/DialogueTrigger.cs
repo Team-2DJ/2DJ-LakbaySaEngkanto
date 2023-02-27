@@ -27,7 +27,7 @@ public class DialogueTrigger : MonoBehaviour
                 return;
             
             // Disable Player Movement
-            SingletonManager.Get<PlayerManager>().Player.PlayerMovement.CanMove = false;
+            SingletonManager.Get<GameEvents>().DialogueStart();
 
             // Activate Dialogue Panel
             SingletonManager.Get<PanelManager>().ActivatePanel("Dialogue Panel", 0f);
