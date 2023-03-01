@@ -11,7 +11,6 @@ public class Page : Item
 
         pageCollider = GetComponent<Collider2D>();
         pageCollider.enabled = false;
-        Debug.Log("false collider");
 
         StartCoroutine(EnableCollider());
     }
@@ -25,7 +24,6 @@ public class Page : Item
     {
         yield return new WaitForSeconds(1f);
 
-        Debug.Log("true collider");
         pageCollider.enabled = true;
     }
 }
