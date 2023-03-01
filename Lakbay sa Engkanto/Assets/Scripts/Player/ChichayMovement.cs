@@ -23,12 +23,12 @@ public class ChichayMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged += OnHurt;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= x => OnHurt();
+        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= OnHurt;
     }
 
     // Start is called before the first frame update
@@ -42,6 +42,7 @@ public class ChichayMovement : MonoBehaviour
         currentSpeed = MovementSpeed;
 
         player = SingletonManager.Get<PlayerManager>().Player;
+
     }
 
     #region Update Functions
@@ -114,7 +115,7 @@ public class ChichayMovement : MonoBehaviour
     /// <summary>
     /// Triggers Hurt Animation
     /// </summary>
-    void OnHurt()
+    void OnHurt(float value)
     {
         StartCoroutine(ChichayHurt());
     }
