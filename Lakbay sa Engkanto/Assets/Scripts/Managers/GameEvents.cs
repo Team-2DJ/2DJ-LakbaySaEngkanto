@@ -23,7 +23,16 @@ public class GameEvents : MonoBehaviour
 
     void Awake()
     {
-        SingletonManager.Register(this);
+        if (SingletonManager.Contains<GameEvents>())
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            SingletonManager.Register(this);
+            DontDestroyOnLoad(this.gameObject);
+        }
+
     }
 
     public void PlayerDamaged(float value)

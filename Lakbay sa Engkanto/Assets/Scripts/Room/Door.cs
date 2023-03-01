@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private string id;
+    [SerializeField] private int itemsLeft;
 
     private void OnEnable()
     {
@@ -18,7 +19,10 @@ public class Door : MonoBehaviour
 
     private void OpenDoor(string id)
     {
-        if (id == this.id)
+        if (id != this.id)
+            return;
+
+        if (--itemsLeft <= 0)
             Destroy(this.gameObject);
     }
 }
