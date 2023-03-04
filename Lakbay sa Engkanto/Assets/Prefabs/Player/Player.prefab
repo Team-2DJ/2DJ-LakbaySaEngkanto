@@ -76,7 +76,7 @@ MonoBehaviour:
   GroundMask:
     serializedVersion: 2
     m_Bits: 8
-  MultipleJumpAmount: 1
+  MultipleJumpAmount: 0
   MovementSpeed: 7.5
   CoyoteTime: 0.2
   JumpForce: 26
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d13e62a5f197d14e9c2608c6e86ab95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultHealth: 5
+  DefaultHealth: 1
   PlayerSprite: {fileID: 7965120496834044372}
 --- !u!70 &1954673214
 CapsuleCollider2D:
