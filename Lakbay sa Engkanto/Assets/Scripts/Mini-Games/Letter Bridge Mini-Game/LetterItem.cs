@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class LetterItem : MonoBehaviour
+{
+    public bool IsCorrect { get; private set; }
+    public TextMeshProUGUI LetterText;
+
+    private GameObject player;
+
+    private string alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = SingletonManager.Get<PlayerManager>().Player.gameObject;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (IsCorrect)
+            return;
+        
+        if (other.gameObject == player)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetChance(int value, string word)
+    {
+        int chance = Random.Range(0, 100);
+
+        // Check if chance is within probability Value
+        if (chance < value)
+        {
+            IsCorrect = true;
+
+            SetText(word);
+        }
+        else
+        {
+            IsCorrect = false;
+            
+            // Remove all letters in the alphabet that are associated with the word
+            foreach(char l in word)
+                alphabet = alphabet.Replace(l.ToString(), "");
+
+            SetText(alphabet);
+        }
+    }
+
+    void SetText(string value)
+    {
+        char letter = value[Random.Range(0, value.Length)];
+
+        LetterText.text = letter.ToString();
+    }
+}
