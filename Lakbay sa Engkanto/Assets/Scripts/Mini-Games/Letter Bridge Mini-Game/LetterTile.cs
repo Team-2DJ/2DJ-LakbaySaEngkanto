@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LetterItem : MonoBehaviour
+public class LetterTile : MonoBehaviour
 {
     public bool IsCorrect { get; private set; }
     public TextMeshProUGUI LetterText;

@@ -1040,7 +1040,7 @@ MonoBehaviour:
   rows: 39
   spacing: 2
   probability: 25
-  guaranteedIndex: 2
+  defaultPityAmount: 2
 --- !u!4 &1723576830
 Transform:
   m_ObjectHideFlags: 0
