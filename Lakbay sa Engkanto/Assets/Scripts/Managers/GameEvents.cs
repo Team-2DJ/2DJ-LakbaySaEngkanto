@@ -14,7 +14,7 @@ public class GameEvents : MonoBehaviour
     public event Action OnDialogueStart;
     public event Action OnDialogueEnd;
 
-    public event Action<string> OnPlayerCollectItem;
+    public event Action<string> OnPlayerCollectItem, OnPlayerPlacedItem;
 
     public event Action<string, int, int> OnScoreChanged;
 
@@ -55,6 +55,11 @@ public class GameEvents : MonoBehaviour
     public void PlayerCollectItem(string id)
     {
         OnPlayerCollectItem?.Invoke(id);
+    }
+
+    public void PlayerPlacedItem(string id)
+    {
+        OnPlayerPlacedItem?.Invoke(id);
     }
 
     public void ScoreChanged(string id, int currentPoints, int winningPoints)

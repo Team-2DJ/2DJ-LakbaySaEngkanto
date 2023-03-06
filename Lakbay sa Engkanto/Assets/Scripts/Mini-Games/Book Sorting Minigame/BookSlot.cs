@@ -6,19 +6,29 @@ public class BookSlot : MonoBehaviour, IDropHandler
     [SerializeField] string bookTitle;
     public bool IsRight { get; private set; }
 
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerPlacedItem += CheckAnswer;
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnPlayerPlacedItem -= CheckAnswer;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
-            if (eventData.pointerDrag.GetComponent<BookPiece>().GetBookTitle() == bookTitle)
-            {
-                IsRight = true;
-
-                Debug.Log(IsRight);
-            }
-
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition
             = GetComponent<RectTransform>().anchoredPosition;
         }
+    }
+
+    private void CheckAnswer(string bookTitle)
+    {
+        if (bookTitle != this.bookTitle) return;
+
+        IsRight = true;
     }
 }

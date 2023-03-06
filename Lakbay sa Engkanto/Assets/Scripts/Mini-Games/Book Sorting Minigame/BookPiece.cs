@@ -6,14 +6,11 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     [SerializeField] Canvas canvas;
     [SerializeField] string bookTitle;
 
-    public string GetBookTitle()
-    {
-        return bookTitle;
-    }
-
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 originalPosition;
+
+    private bool Dropped;
 
     private void Awake()
     {
@@ -22,7 +19,6 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         originalPosition = (Vector2)rectTransform.anchoredPosition;
 
-        Debug.Log(originalPosition);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -41,7 +37,13 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
-        if (eventData == null)
+        Dropped = eventData.pointerEnter?.GetComponent<BookSlot>();
+
+        if (!Dropped)
             rectTransform.anchoredPosition = originalPosition;
+        else
+        {
+            SingletonManager.Get<GameEvents>().PlayerPlacedItem(bookTitle);
+        }
     }
 }
