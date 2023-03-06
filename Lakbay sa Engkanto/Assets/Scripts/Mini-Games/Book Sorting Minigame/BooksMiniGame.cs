@@ -3,18 +3,18 @@ using System.Linq;
 
 public class BooksMiniGame : MonoBehaviour
 {
+    [SerializeField] string id;
     [SerializeField] private BookSlot[] bookSlots;
 
-
-    private bool Checker()
+    public void CheckOrder()
     {
         if (bookSlots.All(bookSlot => bookSlot.IsRight))
         {
-            return true;
+            SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
         }
         else
         {
-            return false;
+            Debug.Log("RESETEVERYTHING");
         }
     }
 }

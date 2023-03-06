@@ -39,6 +39,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         Dropped = eventData.pointerEnter?.GetComponent<BookSlot>();
 
+
         if (!Dropped)
             rectTransform.anchoredPosition = originalPosition;
         else
