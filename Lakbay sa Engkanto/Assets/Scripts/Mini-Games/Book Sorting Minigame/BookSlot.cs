@@ -4,16 +4,17 @@ using UnityEngine.EventSystems;
 public class BookSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] string bookTitle;
-    bool isRight;
+    public bool IsRight { get; private set; }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
             if (eventData.pointerDrag.GetComponent<BookPiece>().GetBookTitle() == bookTitle)
             {
-                isRight = true;
+                IsRight = true;
 
-                Debug.Log(isRight);
+                Debug.Log(IsRight);
             }
 
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition
