@@ -9,12 +9,12 @@ public class Door : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += OpenDoor;
+        SingletonManager.Get<GameEvents>().OnOpenDoor += OpenDoor;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= OpenDoor;
+        SingletonManager.Get<GameEvents>().OnOpenDoor -= OpenDoor;
     }
 
     private void OpenDoor(string id)

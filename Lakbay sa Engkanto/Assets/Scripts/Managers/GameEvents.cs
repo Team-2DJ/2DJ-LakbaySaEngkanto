@@ -14,12 +14,13 @@ public class GameEvents : MonoBehaviour
     public event Action OnDialogueStart;
     public event Action OnDialogueEnd;
 
-    public event Action<string> OnPlayerCollectItem;
+    public event Action<string> OnPlayerCollectItem, OnPlayerPlacedItem;
+
+    public event Action<String> OnOpenDoor, OnCloseDoor;
+
+    public event Action<bool> OnSetCondition;
 
     public event Action<string, int, int> OnScoreChanged;
-
-    public event Action OnOpenDoors;
-    public event Action OnCloseDoors;
 
     // Letter Bridge Mini-Game Events
     public event Action<float> OnSetLetterProbability;
@@ -60,19 +61,29 @@ public class GameEvents : MonoBehaviour
         OnPlayerCollectItem?.Invoke(id);
     }
 
+    public void PlayerPlacedItem(string id)
+    {
+        OnPlayerPlacedItem?.Invoke(id);
+    }
+
+    public void SetCondition(bool condition)
+    {
+        OnSetCondition?.Invoke(condition);
+    }
+
     public void ScoreChanged(string id, int currentPoints, int winningPoints)
     {
         OnScoreChanged?.Invoke(id, currentPoints, winningPoints);
     }
 
-    public void OpenDoors()
+    public void OpenDoor(string id)
     {
-        OnOpenDoors?.Invoke();
+        OnOpenDoor?.Invoke(id);
     }
 
-    public void CloseDoors()
+    public void CloseDoor(string id)
     {
-        OnCloseDoors?.Invoke();
+        OnCloseDoor?.Invoke(id);
     }
 
     public void SetLetterProbability(float chance)
