@@ -6,7 +6,7 @@ using TMPro;
 public class LetterTile : MonoBehaviour
 {
     public bool IsCorrect { get; private set; }
-    public TextMeshProUGUI LetterText;
+    [SerializeField] private TextMeshProUGUI letterText;
 
     private GameObject player;
 
@@ -38,14 +38,18 @@ public class LetterTile : MonoBehaviour
         {
             IsCorrect = true;
 
+            gameObject.layer = LayerMask.NameToLayer("Ground");
+
             SetText(word);
         }
         else
         {
             IsCorrect = false;
-            
+
+            gameObject.layer = LayerMask.NameToLayer("Default");
+
             // Remove all letters in the alphabet that are associated with the word
-            foreach(char l in word)
+            foreach (char l in word)
                 alphabet = alphabet.Replace(l.ToString(), "");
 
             SetText(alphabet);
@@ -56,6 +60,6 @@ public class LetterTile : MonoBehaviour
     {
         char letter = value[Random.Range(0, value.Length)];
 
-        LetterText.text = letter.ToString();
+        letterText.text = letter.ToString();
     }
 }
