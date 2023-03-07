@@ -10,7 +10,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
     private Vector2 originalPosition;                                       // This objects OriginalPosition
 
-    private bool Dropped;                                                   // Dropped Boolean
+    private bool hasBeenDropped;                                            // Dropped Boolean
 
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         SingletonManager.Get<GameEvents>().OnSetCondition -= ResetBookPiece;
     }
 
-    private void Awake()
+    private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -69,12 +69,12 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         canvasGroup.blocksRaycasts = true;
 
         // Sets the Dropped boolean if target object is a BookSlot.
-        Dropped = eventData.pointerEnter?.GetComponent<BookSlot>();
+        hasBeenDropped = eventData.pointerEnter?.GetComponent<BookSlot>();
 
         // If the object is not dropped, bring it back to its original position
         // else, call PlayerPlacedItem from GameEvents, using this bookTitle as its parameter. 
 
-        if (!Dropped)
+        if (!hasBeenDropped)
             rectTransform.anchoredPosition = originalPosition;
         else
         {
@@ -91,7 +91,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         if (!reset) return;
 
         rectTransform.anchoredPosition = originalPosition;
-        Dropped = false;
+        hasBeenDropped = false;
     }
 
 }

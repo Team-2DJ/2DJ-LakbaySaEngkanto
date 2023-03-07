@@ -11,7 +11,7 @@ public class BooksMiniGame : MonoBehaviour
     /// </summary>
     public void CheckOrder()
     {
-        // if all bookSlot in the bookSlots array has the right books, 
+        // if all bookSlot in the bookSlots array have the right books, 
         // then call true, else if false 
         if (bookSlots.All(bookSlot => bookSlot.IsRight))
         {
