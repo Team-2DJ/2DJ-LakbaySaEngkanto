@@ -429,7 +429,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 428915406}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312071554
 GameObject:
@@ -633,7 +633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 641388344}
-  id: RedBook
   bookTitle: RedTide
 --- !u!225 &353072530
 CanvasGroup:
@@ -675,8 +674,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 909038810}
   - {fileID: 223035303}
+  - {fileID: 1761068442}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -812,7 +811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158a4c9b1f04cce41a09efdf5740c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: RedBook
   bookTitle: RedTide
 --- !u!225 &446959571
 CanvasGroup:
@@ -984,7 +982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158a4c9b1f04cce41a09efdf5740c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: BlueBook
   bookTitle: BlueBalled
 --- !u!225 &465439424
 CanvasGroup:
@@ -1340,7 +1337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158a4c9b1f04cce41a09efdf5740c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: GreenBook
   bookTitle: GreenMinded
 --- !u!225 &836378940
 CanvasGroup:
@@ -1526,50 +1522,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857465802}
   m_CullTransparentMesh: 1
---- !u!1 &909038808
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 909038810}
-  - component: {fileID: 909038809}
-  m_Layer: 0
-  m_Name: GameEvents
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &909038809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909038808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3f978c5c377bd4e947afaed7a9de75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &909038810
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909038808}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -621.486, y: -670.7805, z: 15.85986}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 428915406}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &982346581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1339825824698532260, guid: 617478009ff707845bdfba2e193865fe, type: 3}
@@ -1697,7 +1649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 641388344}
-  id: GreenBook
   bookTitle: GreenMinded
 --- !u!114 &1194994735
 MonoBehaviour:
@@ -2284,6 +2235,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6303546915699287883, guid: 0027003dae349ea4a8e1158423304eb3, type: 3}
   m_PrefabInstance: {fileID: 1734976477}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1761068441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761068442}
+  - component: {fileID: 1761068443}
+  m_Layer: 0
+  m_Name: GameEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761068442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761068441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 428915406}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1761068443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761068441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3f978c5c377bd4e947afaed7a9de75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1778332100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2483,7 +2478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 641388344}
-  id: BlueBook
   bookTitle: BlueBalled
 --- !u!114 &2084228761
 MonoBehaviour:

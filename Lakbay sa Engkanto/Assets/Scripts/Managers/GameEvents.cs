@@ -16,10 +16,11 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string> OnPlayerCollectItem, OnPlayerPlacedItem;
 
-    public event Action<string, int, int> OnScoreChanged;
+    public event Action<String> OnOpenDoor, OnCloseDoor;
 
-    public event Action OnOpenDoors;
-    public event Action OnCloseDoors;
+    public event Action<bool> OnSetCondition;
+
+    public event Action<string, int, int> OnScoreChanged;
 
     void Awake()
     {
@@ -62,18 +63,23 @@ public class GameEvents : MonoBehaviour
         OnPlayerPlacedItem?.Invoke(id);
     }
 
+    public void SetCondition(bool condition)
+    {
+        OnSetCondition?.Invoke(condition);
+    }
+
     public void ScoreChanged(string id, int currentPoints, int winningPoints)
     {
         OnScoreChanged?.Invoke(id, currentPoints, winningPoints);
     }
 
-    public void OpenDoors()
+    public void OpenDoor(string id)
     {
-        OnOpenDoors?.Invoke();
+        OnOpenDoor?.Invoke(id);
     }
 
-    public void CloseDoors()
+    public void CloseDoor(string id)
     {
-        OnCloseDoors?.Invoke();
+        OnCloseDoor?.Invoke(id);
     }
 }

@@ -3,18 +3,28 @@ using System.Linq;
 
 public class BooksMiniGame : MonoBehaviour
 {
-    [SerializeField] string id;
-    [SerializeField] private BookSlot[] bookSlots;
+    [SerializeField] string id;                                     // Object ID 
+    [SerializeField] private BookSlot[] bookSlots;                  // BookSlots Array
 
+    /// <summary>
+    /// Checks bookslot order whether they are correct or not. 
+    /// </summary>
     public void CheckOrder()
     {
+        // if all bookSlot in the bookSlots array has the right books, 
+        // then call true, else if false 
         if (bookSlots.All(bookSlot => bookSlot.IsRight))
         {
-            SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+            // Open the Door corresponding to this GameObjects ID.
+            SingletonManager.Get<GameEvents>().OpenDoor(id);
+
+            // Invoke a false boolean that listeners will receive.
+            SingletonManager.Get<GameEvents>().SetCondition(false);
         }
         else
         {
-            Debug.Log("RESETEVERYTHING");
+            // Invoke a true boolean that listeners will receive. 
+            SingletonManager.Get<GameEvents>().SetCondition(true);
         }
     }
 }
