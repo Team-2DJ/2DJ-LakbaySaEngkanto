@@ -22,6 +22,9 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string, int, int> OnScoreChanged;
 
+    // Letter Bridge Mini-Game Events
+    public event Action<float> OnSetLetterProbability;
+
     void Awake()
     {
         /*if (SingletonManager.Contains<GameEvents>())
@@ -81,5 +84,10 @@ public class GameEvents : MonoBehaviour
     public void CloseDoor(string id)
     {
         OnCloseDoor?.Invoke(id);
+    }
+
+    public void SetLetterProbability(float chance)
+    {
+        OnSetLetterProbability?.Invoke(chance);
     }
 }
