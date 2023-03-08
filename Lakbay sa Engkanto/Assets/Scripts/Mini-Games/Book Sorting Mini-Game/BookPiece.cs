@@ -3,7 +3,11 @@ using UnityEngine.EventSystems;
 
 public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    [Header("Object Setup")]
     [SerializeField] private Canvas canvas;                                 // Canvas Reference
+    [SerializeField] private string id;                                     // Object ID
+
+    [Header("Gameplay Settings")]
     [SerializeField] private string bookTitle;                              // Title of the Book
 
     private RectTransform rectTransform;                                    // This objects rectTransform
@@ -86,8 +90,9 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     /// Resets the BookPiece back to its initial values
     /// </summary>
     /// <param name="reset">conditional</param>
-    private void ResetBookPiece(bool reset)
+    private void ResetBookPiece(string id, bool reset)
     {
+        if (id != this.id) return;
         if (!reset) return;
 
         rectTransform.anchoredPosition = originalPosition;

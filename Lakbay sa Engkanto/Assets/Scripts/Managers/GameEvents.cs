@@ -14,11 +14,13 @@ public class GameEvents : MonoBehaviour
     public event Action OnDialogueStart;
     public event Action OnDialogueEnd;
 
-    public event Action<string> OnPlayerCollectItem, OnPlayerPlacedItem;
+    public event Action<string> OnPlayerCollectItem, OnPlayerPlacedItem;                    // Called by player when collecting or placing an item
 
-    public event Action<String> OnOpenDoor, OnCloseDoor;
+    public event Action<string> OnOpenDoor, OnCloseDoor;                                    // Called by Door Events
 
-    public event Action<bool> OnSetCondition;
+    public event Action<string, bool> OnSetCondition;                                       // An event that sets a boolean to those that will use it 
+
+    public event Action<Action> OnAddActionListener, OnRemoveActionListener;                // Used to add listners to those who need it
 
     public event Action<string, int, int> OnScoreChanged;
 
@@ -43,6 +45,11 @@ public class GameEvents : MonoBehaviour
     public void PlayerDamaged(float value)
     {
         OnPlayerDamaged?.Invoke(value);
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
         OnUpdateUI?.Invoke();
     }
 
@@ -66,9 +73,19 @@ public class GameEvents : MonoBehaviour
         OnPlayerPlacedItem?.Invoke(id);
     }
 
-    public void SetCondition(bool condition)
+    public void SetCondition(string id, bool condition)
     {
-        OnSetCondition?.Invoke(condition);
+        OnSetCondition?.Invoke(id, condition);
+    }
+
+    public void AddActionListener(Action action)
+    {
+        OnAddActionListener.Invoke(action);
+    }
+
+    public void RemoveActionListener(Action action)
+    {
+        OnRemoveActionListener.Invoke(action);
     }
 
     public void ScoreChanged(string id, int currentPoints, int winningPoints)

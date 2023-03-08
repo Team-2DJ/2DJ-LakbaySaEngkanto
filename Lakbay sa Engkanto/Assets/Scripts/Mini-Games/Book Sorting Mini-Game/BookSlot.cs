@@ -3,7 +3,12 @@ using UnityEngine.EventSystems;
 
 public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
 {
+    [Header("Object Setup")]
+    [SerializeField] string id;
+
+    [Header("Gameplay Settings")]
     [SerializeField] string bookTitle;
+
     private bool isOccupied;
     public bool IsRight { get; private set; }
     private RectTransform rectTransform;
@@ -52,7 +57,7 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     {
         if (eventData.pointerDrag != null)
         {
-            ResetBookSlot(true);
+            ResetBookSlot(id, true);
         }
     }
 
@@ -75,8 +80,9 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     /// Resets the BookSlot back to its initial values
     /// </summary>
     /// <param name="reset">conditional</param>
-    private void ResetBookSlot(bool reset)
+    private void ResetBookSlot(string id, bool reset)
     {
+        if (id != this.id) return;
         if (!reset) return;
 
         isOccupied = false;
