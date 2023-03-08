@@ -22,7 +22,7 @@ public class PressurePlate : MonoBehaviour
         if (isPressed) return;
 
         // Add Listener to the Interactable button using OnPressed as a parameter
-        SingletonManager.Get<GameEvents>().AddActionListener(OnPressed);
+        SingletonManager.Get<UIEvents>().AddButtonListener(OnPressed);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -31,7 +31,7 @@ public class PressurePlate : MonoBehaviour
         if (isPressed) return;
 
         // Remove Listener to the Interactable button using OnPressed as a parameter
-        SingletonManager.Get<GameEvents>().RemoveActionListener(OnPressed);
+        SingletonManager.Get<UIEvents>().RemoveButtonListener(OnPressed);
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public class PressurePlate : MonoBehaviour
                 isPressed = true;
                 break;
             case Type.INCORRECT:
-                SingletonManager.Get<GameEvents>().PlayerDamaged(1f);
+                SingletonManager.Get<PlayerEvents>().PlayerDamaged(1f);
                 isPressed = true;
                 break;
         }

@@ -82,7 +82,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             rectTransform.anchoredPosition = originalPosition;
         else
         {
-            SingletonManager.Get<GameEvents>().PlayerPlacedItem(bookTitle);
+            SingletonManager.Get<PlayerEvents>().PlayerPlacedItem(bookTitle);
         }
     }
 

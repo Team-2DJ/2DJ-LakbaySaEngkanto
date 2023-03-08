@@ -23,18 +23,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnDialogueStart += () => canMove = false;
-        SingletonManager.Get<GameEvents>().OnDialogueEnd += () => canMove = true;
-
-        SingletonManager.Get<GameEvents>().OnSetMovement += x => canMove = x;
+        SingletonManager.Get<PlayerEvents>().OnSetPlayerMovement += value => canMove = value;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnDialogueStart -= () => canMove = false;
-        SingletonManager.Get<GameEvents>().OnDialogueEnd -= () => canMove = true;
-
-        SingletonManager.Get<GameEvents>().OnSetMovement -= x => canMove = x;
+        SingletonManager.Get<PlayerEvents>().OnSetPlayerMovement -= value => canMove = value;
     }
 
     // Start is called before the first frame update

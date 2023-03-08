@@ -7,6 +7,6 @@ public class MangoSeed : Item
 {
     protected override void ItemCollected()
     {
-        SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+        SingletonManager.Get<PlayerEvents>().PlayerCollectItem(id);
     }
 }

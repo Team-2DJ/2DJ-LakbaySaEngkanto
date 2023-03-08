@@ -41,12 +41,12 @@ public class RiddlesMiniGame : MiniGame
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += CheckAnswer;
+        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem += CheckAnswer;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= CheckAnswer;
+        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem -= CheckAnswer;
     }
 
     // Start is called before the first frame update

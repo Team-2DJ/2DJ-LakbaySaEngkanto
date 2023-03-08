@@ -15,13 +15,12 @@ public class HealthComponent : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged += TakeDamage;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= TakeDamage;
-        Debug.Log("Disable");
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged -= TakeDamage;
     }
 
     #region Initialization Functions
