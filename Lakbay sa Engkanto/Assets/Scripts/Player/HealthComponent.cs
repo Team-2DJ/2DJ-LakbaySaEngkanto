@@ -117,7 +117,10 @@ public class HealthComponent : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         // Restart Game
+        // To be Removed
         SingletonManager.Get<GameManager>().RestartGame();
+
+        // Respawn Player
     }
     #endregion
 }
