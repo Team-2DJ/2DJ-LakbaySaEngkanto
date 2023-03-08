@@ -545,6 +545,8 @@ Transform:
 --- !u!1 &346429676
 GameObject:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -1224,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af004698957a5ef49803d10091bf3952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  booksMiniGame: {fileID: 1022372451}
+  booksMiniGame: {fileID: 1022372453}
 --- !u!61 &631188379
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2407,6 +2409,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 346429678}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: SetMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1052612312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,6 +2668,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1172676788}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 346429678}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: SetMovement
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2922,6 +2948,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 346429678}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: SetMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1199369568
 MonoBehaviour:
@@ -4562,7 +4600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af004698957a5ef49803d10091bf3952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  booksMiniGame: {fileID: 916944913}
+  booksMiniGame: {fileID: 916944915}
 --- !u!61 &2057219205
 BoxCollider2D:
   m_ObjectHideFlags: 0

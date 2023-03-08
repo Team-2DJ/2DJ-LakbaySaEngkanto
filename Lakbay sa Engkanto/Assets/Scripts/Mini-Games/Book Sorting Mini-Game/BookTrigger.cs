@@ -2,21 +2,25 @@ using UnityEngine;
 
 public class BookTrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject booksMiniGame;
+    [SerializeField] private BooksMiniGame booksMiniGame;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (booksMiniGame.IsComplete) return;
+
         SingletonManager.Get<GameEvents>().AddActionListener(EnableBooksMiniGame);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (booksMiniGame.IsComplete) return;
+
         SingletonManager.Get<GameEvents>().RemoveActionListener(EnableBooksMiniGame);
-        booksMiniGame?.SetActive(false);
+        booksMiniGame?.gameObject.SetActive(false);
     }
 
     private void EnableBooksMiniGame()
     {
-        booksMiniGame?.SetActive(true);
+        booksMiniGame?.gameObject.SetActive(true);
     }
 }

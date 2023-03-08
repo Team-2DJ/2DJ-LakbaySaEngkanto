@@ -18,6 +18,8 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string> OnOpenDoor, OnCloseDoor;                                    // Called by Door Events
 
+    public event Action<bool> OnSetMovement;                                                // Player Movement
+
     public event Action<string, bool> OnSetCondition;                                       // An event that sets a boolean to those that will use it 
 
     public event Action<Action> OnAddActionListener, OnRemoveActionListener;                // Used to add listners to those who need it
@@ -71,6 +73,11 @@ public class GameEvents : MonoBehaviour
     public void PlayerPlacedItem(string id)
     {
         OnPlayerPlacedItem?.Invoke(id);
+    }
+
+    public void SetMovement(bool condition)
+    {
+        OnSetMovement?.Invoke(condition);
     }
 
     public void SetCondition(string id, bool condition)
