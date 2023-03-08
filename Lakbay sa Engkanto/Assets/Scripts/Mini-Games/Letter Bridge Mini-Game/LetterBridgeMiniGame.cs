@@ -13,7 +13,7 @@ public class LetterBridgeMiniGame : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private Transform startingPoint;
-    [SerializeField] private LetterTile letters;
+    [SerializeField] private BridgeTile letters;
     [SerializeField] private TextMeshProUGUI wordToDisplay;
     
     [Header("Properties")]
@@ -25,7 +25,7 @@ public class LetterBridgeMiniGame : MonoBehaviour
     [SerializeField] private int defaultPityAmount;
 
     private int pityCounter;
-    private List<LetterTile> letterList = new();
+    private List<BridgeTile> letterList = new();
     
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class LetterBridgeMiniGame : MonoBehaviour
             Vector2 position = new Vector2(startingPoint.position.x + (i * (spacing * (float)direction)), startingPoint.position.y);
 
             // Spawn the Letter Tile and Set Parent to this GameObject
-            LetterTile letterTile = Instantiate(letters.gameObject, position, Quaternion.identity).GetComponent<LetterTile>();
+            BridgeTile letterTile = Instantiate(letters.gameObject, position, Quaternion.identity).GetComponent<BridgeTile>();
             letterTile.transform.SetParent(transform);
 
             // Add Letter Tile to the List
@@ -57,7 +57,7 @@ public class LetterBridgeMiniGame : MonoBehaviour
 
     void SetProbability()
     {
-        foreach (LetterTile item in letterList)
+        foreach (BridgeTile item in letterList)
         {
             if (pityCounter-- <= 0)
             {
