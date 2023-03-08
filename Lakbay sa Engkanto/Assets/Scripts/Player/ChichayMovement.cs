@@ -23,12 +23,12 @@ public class ChichayMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += OnHurt;
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged += OnHurt;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= OnHurt;
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged -= OnHurt;
     }
 
     // Start is called before the first frame update

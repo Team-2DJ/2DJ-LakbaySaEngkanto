@@ -8,14 +8,14 @@ public class InteractionButton : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnAddActionListener += AddButtonListener;
-        SingletonManager.Get<GameEvents>().OnRemoveActionListener += RemoveButtonListener;
+        SingletonManager.Get<UIEvents>().OnAddButtonListener += AddButtonListener;
+        SingletonManager.Get<UIEvents>().OnRemoveButtonListener += RemoveButtonListener;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnAddActionListener -= AddButtonListener;
-        SingletonManager.Get<GameEvents>().OnRemoveActionListener -= RemoveButtonListener;
+        SingletonManager.Get<UIEvents>().OnAddButtonListener -= AddButtonListener;
+        SingletonManager.Get<UIEvents>().OnRemoveButtonListener -= RemoveButtonListener;
     }
 
     private void AddButtonListener(Action actionVoid)

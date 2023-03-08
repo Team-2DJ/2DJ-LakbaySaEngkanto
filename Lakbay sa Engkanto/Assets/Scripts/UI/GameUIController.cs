@@ -19,14 +19,14 @@ public class GameUIController : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnUpdateUI += UpdateHealth;
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += JournalButtonActivate;
+        // NOTE: MIGHT BE MOVED IN THE FUTURE
+        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem += JournalButtonActivate;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnUpdateUI -= UpdateHealth;
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= JournalButtonActivate;
+        // NOTE: MIGHT BE MOVED IN THE FUTURE
+        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem -= JournalButtonActivate;
     }
 
     void Start()

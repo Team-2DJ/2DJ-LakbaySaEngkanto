@@ -23,12 +23,12 @@ public class AnswerItem : MonoBehaviour
             if (isTrue)
             {
                 // If is true, invoke the event
-                SingletonManager.Get<GameEvents>().PlayerCollectItem(correctID);
+                SingletonManager.Get<PlayerEvents>().PlayerCollectItem(correctID);
             }
             else
             {
-                SingletonManager.Get<GameEvents>().PlayerCollectItem(wrongID);
-                SingletonManager.Get<GameEvents>().PlayerDamaged(1);
+                SingletonManager.Get<PlayerEvents>().PlayerCollectItem(wrongID);
+                SingletonManager.Get<PlayerEvents>().PlayerDamaged(1);
             }
         }
     }

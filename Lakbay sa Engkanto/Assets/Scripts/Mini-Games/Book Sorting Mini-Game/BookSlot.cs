@@ -20,13 +20,13 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerPlacedItem += CheckAnswer;
+        SingletonManager.Get<PlayerEvents>().OnPlayerPlacedItem += CheckAnswer;
         SingletonManager.Get<GameEvents>().OnSetCondition += ResetBookSlot;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerPlacedItem -= CheckAnswer;
+        SingletonManager.Get<PlayerEvents>().OnPlayerPlacedItem -= CheckAnswer;
         SingletonManager.Get<GameEvents>().OnSetCondition -= ResetBookSlot;
     }
 

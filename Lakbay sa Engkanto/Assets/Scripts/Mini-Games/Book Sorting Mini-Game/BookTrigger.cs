@@ -8,14 +8,14 @@ public class BookTrigger : MonoBehaviour
     {
         if (booksMiniGame.IsComplete) return;
 
-        SingletonManager.Get<GameEvents>().AddActionListener(EnableBooksMiniGame);
+        SingletonManager.Get<UIEvents>().AddButtonListener(EnableBooksMiniGame);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (booksMiniGame.IsComplete) return;
 
-        SingletonManager.Get<GameEvents>().RemoveActionListener(EnableBooksMiniGame);
+        SingletonManager.Get<UIEvents>().RemoveButtonListener(EnableBooksMiniGame);
         booksMiniGame?.gameObject.SetActive(false);
     }
 

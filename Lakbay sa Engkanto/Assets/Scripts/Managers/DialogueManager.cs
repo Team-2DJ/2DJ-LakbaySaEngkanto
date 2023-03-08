@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
     {
         // Set Sentence Text to Blank
         sentenceText.text = "";
-        
+
         // Implement Typing Behavior for the Sentence
         foreach (char s in dialogueData[currentDialogueIndex].Sentences[currentSentenceIndex])
         {
@@ -74,7 +74,7 @@ public class DialogueManager : MonoBehaviour
         if (currentDialogueIndex >= dialogueData.Length - 1)
         {
             // Enable Player Movement
-            SingletonManager.Get<GameEvents>().DialogueEnd();
+            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
 
             // Re-Open Game Panel
             SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
 
         // Increment Current Dialogue Index
         currentDialogueIndex++;
-        
+
         StartDialogue();
     }
 

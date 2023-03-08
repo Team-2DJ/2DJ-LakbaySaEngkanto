@@ -37,7 +37,7 @@ public class BooksMiniGame : MonoBehaviour
             gameObject.SetActive(false);
 
             // Turns back on PlayerMovement 
-            SingletonManager.Get<GameEvents>().SetMovement(true);
+            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
         }
         else
         {

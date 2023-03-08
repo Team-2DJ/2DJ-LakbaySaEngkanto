@@ -17,7 +17,7 @@ public class Page : Item
 
     protected override void ItemCollected()
     {
-        SingletonManager.Get<GameEvents>().PlayerCollectItem(id);
+        SingletonManager.Get<PlayerEvents>().PlayerCollectItem(id);
     }
 
     IEnumerator EnableCollider()

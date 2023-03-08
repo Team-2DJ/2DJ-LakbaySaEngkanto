@@ -5,6 +5,6 @@ public class Stick : Item
 {
     protected override void ItemCollected()
     {
-        SingletonManager.Get<GameEvents>().PlayerDamaged(1f);
+        SingletonManager.Get<PlayerEvents>().PlayerDamaged(1f);
     }
 }

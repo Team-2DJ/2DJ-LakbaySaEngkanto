@@ -19,12 +19,12 @@ public class DodgingMiniGame : MiniGame
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem += SeedCollected;
+        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem += SeedCollected;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerCollectItem -= SeedCollected;
+        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem -= SeedCollected;
         isSpawning = false;
     }
 
