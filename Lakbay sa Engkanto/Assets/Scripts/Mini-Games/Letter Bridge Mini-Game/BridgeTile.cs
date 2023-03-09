@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LetterTile : MonoBehaviour
+public class BridgeTile : MonoBehaviour
 {
     public bool IsCorrect { get; private set; }
     [SerializeField] private TextMeshProUGUI letterText;

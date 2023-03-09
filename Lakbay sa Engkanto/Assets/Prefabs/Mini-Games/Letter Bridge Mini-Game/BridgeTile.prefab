@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1162198202933103588}
   - component: {fileID: -4842831908432320282}
   m_Layer: 3
-  m_Name: LetterTile
+  m_Name: BridgeTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

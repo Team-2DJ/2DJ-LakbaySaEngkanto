@@ -34,7 +34,6 @@ public class ChichayMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         // Initialize Scale Values
         scale = transform.localScale;
 
@@ -132,7 +131,7 @@ public class ChichayMovement : MonoBehaviour
         Animator.SetBool("isHurt", false);
 
         // Check if Player is Still Alive
-        if (!player.GetComponent<HealthComponent>().IsAlive)
+        if (!player.HealthComponent.IsAlive)
         {
             // Trigger Death Animation
             Animator.SetTrigger("isDead");
