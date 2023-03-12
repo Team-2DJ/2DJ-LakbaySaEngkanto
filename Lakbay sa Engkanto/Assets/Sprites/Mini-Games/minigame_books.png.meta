@@ -168,7 +168,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      minigame_books_12: 101713460
       minigame_books_14: -720689017
       minigame_books_18: -130104232
       minigame_books_11: 1961929921
@@ -190,8 +189,9 @@ TextureImporter:
       minigame_books_23: -1938356538
       minigame_books_9: -1315823698
       minigame_books_0: -1078699491
-      minigame_books_8: -1109928824
+      minigame_books_12: 101713460
       minigame_books_2: 573458708
+      minigame_books_8: -1109928824
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
