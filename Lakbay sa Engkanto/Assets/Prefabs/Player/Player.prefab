@@ -76,7 +76,7 @@ MonoBehaviour:
   GroundMask:
     serializedVersion: 2
     m_Bits: 8
-  MultipleJumpAmount: 0
+  MultipleJumpAmount: 1
   MovementSpeed: 7.5
   CoyoteTime: 0.2
   JumpForce: 26
