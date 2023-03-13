@@ -3,7 +3,8 @@ using TMPro;
 
 public enum Type
 {
-    CORRECT, INCORRECT
+    CORRECT,
+    INCORRECT
 }
 
 public class PressurePlate : MonoBehaviour
