@@ -7,7 +7,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object ID
     [SerializeField] private Canvas canvas;                                 // Canvas Reference
-    [SerializeField] private Sprite front, side;                            // Image States 
+    [SerializeField] private Sprite frontSprite, sideSprite;                // Image States 
 
     [Header("Gameplay Settings")]
     [SerializeField] private string bookTitle;                              // Title of the Book
@@ -37,6 +37,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         image = GetComponent<Image>();
+
+        canvas ??= GetComponentInParent<Canvas>();
 
         // Sets the originalPositions values;
         originalPosition = (Vector2)rectTransform.anchoredPosition;
@@ -69,12 +71,12 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         if (eventData.pointerEnter?.GetComponent<BookSlot>())
         {
-            image.sprite = side;
+            image.sprite = sideSprite;
             rectTransform.sizeDelta = new Vector2(100, 300);
         }
         else
         {
-            image.sprite = front;
+            image.sprite = frontSprite;
             rectTransform.sizeDelta = new Vector2(215, 300);
         }
     }
@@ -117,8 +119,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         rectTransform.anchoredPosition = originalPosition;
         hasBeenDropped = false;
 
-        image.sprite = front;
+        image.sprite = frontSprite;
         rectTransform.sizeDelta = new Vector2(215, 300);
     }
-
 }

@@ -90,10 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047f63d6033d2614ca9843e71407ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
   id: BooksMiniGame1
-  front: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
-  side: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  canvas: {fileID: 0}
+  frontSprite: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  sideSprite: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
   bookTitle: RedTide
 --- !u!225 &509000390167231406
 CanvasGroup:
