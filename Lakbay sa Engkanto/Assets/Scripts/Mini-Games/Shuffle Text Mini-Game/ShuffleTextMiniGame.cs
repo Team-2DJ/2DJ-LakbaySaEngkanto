@@ -6,13 +6,6 @@ using TMPro;
 
 public class ShuffleTextMiniGame : MonoBehaviour
 {
-    [System.Serializable]
-    public struct ShuffleTextData
-    {
-        public Sprite AnswerImage;
-        public string AnswerString;
-    }
-
     [Header("References")]
     [SerializeField] private Image picture;                                         // Picture Reference
     [SerializeField] private Transform letterItemHolder;                            // Holds the Shuffle Letters to be Spawned
@@ -21,24 +14,24 @@ public class ShuffleTextMiniGame : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject shuffleLetterPrefab;                        // Prefab for the Shuffle Letter
     
-    [Header("Shuffle Text Word Data")]
-    [SerializeField] private ShuffleTextData[] shuffleWords;                        // Contains All ShuffleText Data
+    private ShuffleTextData shuffleWord;                                            // Contains All ShuffleText Data
 
     private string correctAnswer;                                                   // The Correct Answer
 
     private List<ShuffleLetter> shuffleLetterList = new();                          // Contains All Shuffle Letters
     private List<char> letters = new();                                             // Contains All Characters from the Correct Answer
-
+    private ShuffleTextTrigger shuffleTextTrigger;
     private bool isEvaluating;                                                      // Indicates if the Mini-Game is Undergoing Evaluation
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        Initialize();
+        SingletonManager.Register(this);
     }
 
-    public void Initialize()
+    public void Initialize(ShuffleTextData data, ShuffleTextTrigger reference)
     {
+        shuffleWord = data;
+        shuffleTextTrigger = reference;
         answerText.text = "";
         SetQuestion();
         SpawnShuffleLetters();
@@ -49,15 +42,12 @@ public class ShuffleTextMiniGame : MonoBehaviour
     /// </summary>
     void SetQuestion()
     {
-        // Get a Random Number from 0 to the Amount of Shuffle Word Data
-        int randomIndex = Random.Range(0, shuffleWords.Length);
-
         // Set Picture and Correct Answer
-        picture.sprite = shuffleWords[randomIndex].AnswerImage;
-        correctAnswer = shuffleWords[randomIndex].AnswerString;
+        picture.sprite = shuffleWord.AnswerImage;
+        correctAnswer = shuffleWord.AnswerString;
 
         // Add Every Letter from the Answer String to the Character List
-        foreach (char c in shuffleWords[randomIndex].AnswerString)
+        foreach (char c in shuffleWord.AnswerString)
             letters.Add(c);
 
         RandomizeShuffleLetterOrder();
@@ -104,6 +94,26 @@ public class ShuffleTextMiniGame : MonoBehaviour
     }
 
     /// <summary>
+    /// Cleans Up All Data so that this Panel can be Reused
+    /// </summary>
+    void ClearData()
+    {
+        // Clear Text
+        answerText.text = "";
+
+        // Clear ShuffleTextTrigger Reference
+        shuffleTextTrigger = null;
+
+        // Clear Shuffle Letter Holder
+        foreach (ShuffleLetter letter in shuffleLetterList)
+            Destroy(letter.gameObject);
+
+        // Clear All List Data
+        shuffleLetterList.Clear();
+        letters.Clear();
+    }
+
+    /// <summary>
     /// Types the Letter Pressed by the Player to the Answer Text
     /// </summary>
     /// <param name="s"></param>
@@ -135,7 +145,21 @@ public class ShuffleTextMiniGame : MonoBehaviour
             // Correct Answer
             Debug.Log("CORRECT");
 
+            answerText.text = "MAHUSAY!!!";
+
+            yield return new WaitForSeconds(1f);
+
             // Open Door
+
+            // Mark the Designated ShuffleTextTrigger as Complete
+            shuffleTextTrigger.Completed();
+
+            // Clear Data
+            ClearData();
+
+            // Enable Player Movement and Game Panel
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
         }
         else
         {
@@ -146,7 +170,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
             isEvaluating = false;
 
             // Reset All Buttons
-            Reset();
+            OnResetButtonClicked();
         }
     }
 
@@ -154,7 +178,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
     /// <summary>
     /// Randomizes ShuffleLetter Positions
     /// </summary>
-    public void Shuffle()
+    public void OnShuffleButtonClicked()
     {
         // Don't Execute if Mini-Game is Evaluating
         if (isEvaluating)
@@ -164,10 +188,17 @@ public class ShuffleTextMiniGame : MonoBehaviour
             item.transform.SetSiblingIndex(Random.Range(0, shuffleLetterList.Count));
     }
 
+    public void OnCloseButtonClicked()
+    {
+        ClearData();
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+    }
+
     /// <summary>
     /// Resets the Mini-Game
     /// </summary>
-    public void Reset()
+    public void OnResetButtonClicked()
     {
         // Don't Execute if Mini-Game is Evaluating
         if (isEvaluating)
