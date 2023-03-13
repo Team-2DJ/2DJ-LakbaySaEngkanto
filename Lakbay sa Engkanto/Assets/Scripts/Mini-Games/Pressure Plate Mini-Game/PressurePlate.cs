@@ -1,8 +1,10 @@
 using UnityEngine;
+using TMPro;
 
 public enum Type
 {
-    CORRECT, INCORRECT
+    CORRECT,
+    INCORRECT
 }
 
 public class PressurePlate : MonoBehaviour
@@ -10,11 +12,18 @@ public class PressurePlate : MonoBehaviour
 
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object ID
+    [SerializeField] private TextMeshProUGUI textBox;                       // TextBox GUI
 
     [Header("Gameplay Settings")]
     [SerializeField] private Type type;                                     // Pressure Plate Type  
+    [SerializeField] private string text;                                   // Pressure Plate Text 
 
     private bool isPressed;                                                 // isPressed Boolean
+
+    void Start()
+    {
+        textBox.text = text;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

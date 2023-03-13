@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [Header("Object Setup")]
     [SerializeField] private Canvas canvas;                                 // Canvas Reference
     [SerializeField] private string id;                                     // Object ID
+    [SerializeField] private Image[] imageStates;                           // Image States 
 
     [Header("Gameplay Settings")]
     [SerializeField] private string bookTitle;                              // Title of the Book
