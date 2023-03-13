@@ -110,11 +110,11 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     /// <summary>
     /// Resets the BookPiece back to its initial values
     /// </summary>
-    /// <param name="reset">conditional</param>
-    private void ResetBookPiece(string id, bool reset)
+    /// <param name="dontReset">conditional</param>
+    private void ResetBookPiece(string id, bool dontReset)
     {
         if (id != this.id) return;
-        if (!reset) return;
+        if (dontReset) return;
 
         rectTransform.anchoredPosition = originalPosition;
         hasBeenDropped = false;

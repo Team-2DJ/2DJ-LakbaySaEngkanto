@@ -7,6 +7,7 @@ using System;
 public class UIEvents : MonoBehaviour
 {
     public event Action<Action> OnAddButtonListener, OnRemoveButtonListener;          // Used to add listners programatically to buttons
+    public event Action<string> OnActivatePanel;
 
     void Awake()
     {
@@ -21,5 +22,10 @@ public class UIEvents : MonoBehaviour
     public void RemoveButtonListener(Action action)
     {
         OnRemoveButtonListener.Invoke(action);
+    }
+
+    public void ActivatePanel(string id)
+    {
+        OnActivatePanel.Invoke(id);
     }
 }

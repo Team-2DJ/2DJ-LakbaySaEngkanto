@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 
-public class BooksMiniGame : MonoBehaviour
+public class BookSortingMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
     [SerializeField] private string id;                              // Object's ID
@@ -41,8 +41,8 @@ public class BooksMiniGame : MonoBehaviour
             // Open the Door corresponding to this GameObjects ID.
             SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
 
-            // Invoke a false boolean that listeners will receive.
-            SingletonManager.Get<GameEvents>().SetCondition(id, false);
+            // Invoke a true boolean that listeners will receive.
+            SingletonManager.Get<GameEvents>().SetCondition(id, true);
 
             IsComplete = true;
 
@@ -54,8 +54,13 @@ public class BooksMiniGame : MonoBehaviour
         }
         else
         {
-            // Invoke a true boolean that listeners will receive. 
-            SingletonManager.Get<GameEvents>().SetCondition(id, true);
+            // Invoke a false boolean that listeners will receive. 
+            SingletonManager.Get<GameEvents>().SetCondition(id, false);
         }
+    }
+
+    public string GetID()
+    {
+        return id;
     }
 }
