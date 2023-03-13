@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class BooksMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
-    [SerializeField] string id;                                      // Object's ID
+    [SerializeField] private string id;                              // Object's ID
     [SerializeField] private GameObject bookSlotHolder;
 
 
     [Header("Gameplay Settings")]
-    [SerializeField] string doorToOpen;                              // Door To Open string
+    [SerializeField] private string doorToOpen;                      // Door To Open string
 
     private List<BookSlot> bookSlots = new();                        // BookSlots List 
 
