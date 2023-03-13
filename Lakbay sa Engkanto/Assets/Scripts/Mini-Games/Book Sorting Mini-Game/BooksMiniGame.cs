@@ -1,17 +1,30 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class BooksMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
-    [SerializeField] string id;                                     // Object's ID
-    [SerializeField] private BookSlot[] bookSlots;                  // BookSlots Array
+    [SerializeField] string id;                                      // Object's ID
+    [SerializeField] private GameObject bookSlotHolder;
 
 
     [Header("Gameplay Settings")]
     [SerializeField] string doorToOpen;                              // Door To Open string
 
+    private List<BookSlot> bookSlots = new();                        // BookSlots List 
+
     public bool IsComplete { get; private set; }                     // IsComplete boolean
+
+    void Start()
+    {
+        BookSlot[] temp = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
+
+        foreach (BookSlot bookSlot in temp)
+        {
+            bookSlots.Add(bookSlot);
+        }
+    }
 
     /// <summary>
     /// Checks bookslot order whether they are correct or not. 

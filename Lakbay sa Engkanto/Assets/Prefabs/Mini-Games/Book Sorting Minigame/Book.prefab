@@ -92,6 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   id: BooksMiniGame1
+  front: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  side: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
   bookTitle: RedTide
 --- !u!225 &509000390167231406
 CanvasGroup:
