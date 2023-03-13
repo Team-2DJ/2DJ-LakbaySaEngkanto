@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
-    {        
+    {
         if (!canMove)
         {
             playerSetup.Animator.SetFloat("velocityX", 0f);

@@ -5,18 +5,22 @@ using UnityEngine.UI;
 public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [Header("Object Setup")]
-    [SerializeField] private Canvas canvas;                                 // Canvas Reference
     [SerializeField] private string id;                                     // Object ID
-    [SerializeField] private Image[] imageStates;                           // Image States 
+    [SerializeField] private Canvas canvas;                                 // Canvas Reference
+    [SerializeField] private Sprite frontSprite, sideSprite;                // Image States 
 
     [Header("Gameplay Settings")]
     [SerializeField] private string bookTitle;                              // Title of the Book
 
+    #region private variables
     private RectTransform rectTransform;                                    // This objects rectTransform
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
     private Vector2 originalPosition;                                       // This objects OriginalPosition
 
+    private Image image;                                                    // This Object's image 
+
     private bool hasBeenDropped;                                            // Dropped Boolean
+    #endregion
 
     private void OnEnable()
     {
@@ -32,6 +36,9 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        image = GetComponent<Image>();
+
+        canvas ??= GetComponentInParent<Canvas>();
 
         // Sets the originalPositions values;
         originalPosition = (Vector2)rectTransform.anchoredPosition;
@@ -49,6 +56,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         // Allows for collision
         canvasGroup.blocksRaycasts = false;
+
     }
 
 
@@ -60,6 +68,17 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     {
         // Allows for object movement based on Mouse Position; 
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+
+        if (eventData.pointerEnter?.GetComponent<BookSlot>())
+        {
+            image.sprite = sideSprite;
+            rectTransform.sizeDelta = new Vector2(100, 300);
+        }
+        else
+        {
+            image.sprite = frontSprite;
+            rectTransform.sizeDelta = new Vector2(215, 300);
+        }
     }
 
     /// <summary>
@@ -99,6 +118,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         rectTransform.anchoredPosition = originalPosition;
         hasBeenDropped = false;
-    }
 
+        image.sprite = frontSprite;
+        rectTransform.sizeDelta = new Vector2(215, 300);
+    }
 }
