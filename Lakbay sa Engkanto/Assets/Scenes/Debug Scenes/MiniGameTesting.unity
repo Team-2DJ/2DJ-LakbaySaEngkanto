@@ -209,6 +209,110 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5883156059805258088, guid: f1a4a75c7259b2242bfa7f3c7b3f3884, type: 3}
   m_PrefabInstance: {fileID: 18835154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &124789228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124789229}
+  - component: {fileID: 124789233}
+  - component: {fileID: 124789232}
+  - component: {fileID: 124789231}
+  - component: {fileID: 124789230}
+  m_Layer: 5
+  m_Name: BookSlot (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &124789229
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124789228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 326402796}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -474, y: 71}
+  m_SizeDelta: {x: 100, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &124789230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124789228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158a4c9b1f04cce41a09efdf5740c8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  bookTitle: Tejada
+--- !u!225 &124789231
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124789228}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &124789232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124789228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3018868, g: 0.29448202, b: 0.29448202, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &124789233
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124789228}
+  m_CullTransparentMesh: 1
 --- !u!1 &160360261
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +383,113 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2fe1576bf0c9746b387c25c24a54e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &186136428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186136429}
+  - component: {fileID: 186136433}
+  - component: {fileID: 186136432}
+  - component: {fileID: 186136431}
+  - component: {fileID: 186136430}
+  m_Layer: 5
+  m_Name: Book (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &186136429
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186136428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 326402797}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -271, y: -248}
+  m_SizeDelta: {x: 215, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &186136430
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186136428}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &186136431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186136428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f63d6033d2614ca9843e71407ba93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: BooksMiniGame1
+  canvas: {fileID: 0}
+  frontSprite: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  sideSprite: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  bookTitle: 
+--- !u!114 &186136432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186136428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &186136433
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186136428}
+  m_CullTransparentMesh: 1
 --- !u!1 &223035301
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,11 +742,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookSortingMiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735653794589279229, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
+      propertyPath: bookTitle
+      value: Joshua
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
 --- !u!224 &326402794 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5683620663204404049, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
+  m_PrefabInstance: {fileID: 326402793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &326402795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5683620663204404048, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
+  m_PrefabInstance: {fileID: 326402793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89319b7b5aeeb15498de8bf6d3c05334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &326402796 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5683620663386536299, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
+  m_PrefabInstance: {fileID: 326402793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &326402797 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5683620663937678551, guid: 19fd7c89ddd3d8c43a7dad8c3964292e, type: 3}
   m_PrefabInstance: {fileID: 326402793}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &350365706
@@ -3022,7 +3262,7 @@ PrefabInstance:
     - target: {fileID: 486182912494660928, guid: 0610b6308d2f09e49a09e92bddb7ef57, type: 3}
       propertyPath: booksMiniGame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 326402795}
     - target: {fileID: 486182912494660929, guid: 0610b6308d2f09e49a09e92bddb7ef57, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3033,7 +3273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486182912494660931, guid: 0610b6308d2f09e49a09e92bddb7ef57, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 486182912494660942, guid: 0610b6308d2f09e49a09e92bddb7ef57, type: 3}
       propertyPath: m_RootOrder
