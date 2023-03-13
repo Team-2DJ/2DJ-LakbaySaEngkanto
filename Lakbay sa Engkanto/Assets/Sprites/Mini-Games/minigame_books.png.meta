@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: minigame_books_0
+      name: sorting-game_book_front
       rect:
         serializedVersion: 2
         x: 240
@@ -124,7 +124,7 @@ TextureImporter:
         width: 904
         height: 1226
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,7 +137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: minigame_books_6
+      name: sorting-game_book_side
       rect:
         serializedVersion: 2
         x: 1350
@@ -145,7 +145,7 @@ TextureImporter:
         width: 300
         height: 1170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      sorting-game_book_front: -1078699491
       minigame_books_14: -720689017
       minigame_books_18: -130104232
       minigame_books_11: 1961929921
@@ -176,8 +177,8 @@ TextureImporter:
       minigame_books_5: 1595311955
       minigame_books_22: -1999928917
       minigame_books_19: 1927063037
+      sorting-game_book_side: -876882890
       minigame_books_13: 213677832
-      minigame_books_6: -876882890
       minigame_books_15: 1872329044
       minigame_books_16: 179581777
       minigame_books_20: -320809328
@@ -188,10 +189,9 @@ TextureImporter:
       minigame_books_3: -723638006
       minigame_books_23: -1938356538
       minigame_books_9: -1315823698
-      minigame_books_0: -1078699491
+      minigame_books_8: -1109928824
       minigame_books_12: 101713460
       minigame_books_2: 573458708
-      minigame_books_8: -1109928824
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
