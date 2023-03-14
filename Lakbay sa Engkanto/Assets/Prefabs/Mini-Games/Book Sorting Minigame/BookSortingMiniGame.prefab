@@ -899,6 +899,10 @@ PrefabInstance:
       propertyPath: bookTitle
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 509000390167231405, guid: fac17c3bf504c4e44ab335ce8e514343, type: 3}
+      propertyPath: bookSortingMiniGame
+      value: 
+      objectReference: {fileID: 5683620663204404048}
     - target: {fileID: 509000390167231409, guid: fac17c3bf504c4e44ab335ce8e514343, type: 3}
       propertyPath: m_Name
       value: Book
@@ -1097,6 +1101,10 @@ PrefabInstance:
       propertyPath: bookTitle
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2718721468053445150, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
+      propertyPath: bookSortingMiniGame
+      value: 
+      objectReference: {fileID: 5683620663204404048}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
 --- !u!224 &9197207621737829267 stripped

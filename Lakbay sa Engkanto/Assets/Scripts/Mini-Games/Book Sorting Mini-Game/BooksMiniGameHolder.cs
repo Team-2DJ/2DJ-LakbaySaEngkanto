@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BooksMiniGameHolder : MonoBehaviour
 {
-    [SerializeField] private BookSortingMiniGame[] bookSortingMiniGames;
+    [SerializeField] private List<BookSortingMiniGame> bookSortingMiniGames = new();
     private Dictionary<string, BookSortingMiniGame> booksMiniGameDictionary = new();
 
     private void OnEnable()
@@ -39,6 +39,16 @@ public class BooksMiniGameHolder : MonoBehaviour
         foreach (BookSortingMiniGame miniGame in booksMiniGameDictionary.Values)
         {
             miniGame.gameObject.SetActive(false);
+        }
+    }
+
+    private void Reset()
+    {
+        BookSortingMiniGame[] temp = GetComponentsInChildren<BookSortingMiniGame>();
+
+        foreach (BookSortingMiniGame miniGame in temp)
+        {
+            bookSortingMiniGames.Add(miniGame);
         }
     }
 }
