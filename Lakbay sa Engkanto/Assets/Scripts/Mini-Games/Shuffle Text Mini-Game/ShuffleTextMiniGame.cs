@@ -20,7 +20,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
 
     private List<ShuffleLetter> shuffleLetterList = new();                          // Contains All Shuffle Letters
     private List<char> letters = new();                                             // Contains All Characters from the Correct Answer
-    private ShuffleTextTrigger shuffleTextTrigger;
+    private ShuffleTextTrigger shuffleTextTrigger;                                  // Stores the Assigned ShuffleText Trigger Instance
     private bool isEvaluating;                                                      // Indicates if the Mini-Game is Undergoing Evaluation
 
     private void Awake()
@@ -30,6 +30,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
 
     public void Initialize(ShuffleTextData data, ShuffleTextTrigger reference)
     {
+        // Clear Data Upon Start-Up
+        ClearData();
+
         shuffleWord = data;
         shuffleTextTrigger = reference;
         answerText.text = "";
@@ -165,6 +168,10 @@ public class ShuffleTextMiniGame : MonoBehaviour
         {
             // Wrong Answer
             Debug.Log("WRONG");
+
+            answerText.text = "MALI!!!";
+
+            yield return new WaitForSeconds(1f);
 
             // Evaluating Finished
             isEvaluating = false;
