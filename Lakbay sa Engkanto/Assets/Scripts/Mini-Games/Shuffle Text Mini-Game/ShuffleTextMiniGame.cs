@@ -30,6 +30,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
 
     public void Initialize(ShuffleTextData data, ShuffleTextTrigger reference)
     {
+        // Clear Data Upon Start-Up
+        ClearData();
+
         shuffleWord = data;
         shuffleTextTrigger = reference;
         answerText.text = "";
