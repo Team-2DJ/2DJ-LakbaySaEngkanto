@@ -102,5 +102,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158a4c9b1f04cce41a09efdf5740c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: BooksMiniGame1
-  bookTitle: RedTide
+  id: 
+  bookTitle: 
