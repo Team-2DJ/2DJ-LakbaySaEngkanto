@@ -79,11 +79,11 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     /// <summary>
     /// Resets the BookSlot back to its initial values
     /// </summary>
-    /// <param name="reset">conditional</param>
-    private void ResetBookSlot(string id, bool reset)
+    /// <param name="dontReset">conditional</param>
+    private void ResetBookSlot(string id, bool dontReset)
     {
         if (id != this.id) return;
-        if (!reset) return;
+        if (dontReset) return;
 
         isOccupied = false;
         IsRight = false;
