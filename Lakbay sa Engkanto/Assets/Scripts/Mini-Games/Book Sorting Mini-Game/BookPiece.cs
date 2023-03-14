@@ -6,6 +6,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 {
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object ID
+    [SerializeField] private BookSortingMiniGame bookSortingMiniGame;       // Minigame Reference
     [SerializeField] private Canvas canvas;                                 // Canvas Reference
     [SerializeField] private Sprite frontSprite, sideSprite;                // Image States 
 
@@ -39,6 +40,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         image = GetComponent<Image>();
 
         canvas ??= GetComponentInParent<Canvas>();
+
+        id = bookSortingMiniGame?.GetID();
 
         // Sets the originalPositions values;
         originalPosition = (Vector2)rectTransform.anchoredPosition;
