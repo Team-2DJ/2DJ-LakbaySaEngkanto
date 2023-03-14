@@ -3308,6 +3308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookSortingMiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 131815265}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f63e85b92808f60469dfa861357cac62, type: 3}
 --- !u!224 &1466669897 stripped
