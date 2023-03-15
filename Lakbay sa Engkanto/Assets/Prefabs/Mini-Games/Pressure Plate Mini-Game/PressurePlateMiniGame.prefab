@@ -180,12 +180,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d6cc5d5d260f746b03b6538799cb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionTextBox: {fileID: 0}
   id: 
-  pressurePlates:
-  - {fileID: 0}
-  - {fileID: 0}
+  questionTextBox: {fileID: 5773868344722013718}
+  pressurePlates: []
+  doorToOpen: 
   questionText: 
+  correctAnswer: 
+  wrongAnswers: []
 --- !u!1 &7948431587680227571
 GameObject:
   m_ObjectHideFlags: 0
