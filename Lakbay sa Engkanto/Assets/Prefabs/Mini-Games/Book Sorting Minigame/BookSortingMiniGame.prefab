@@ -478,9 +478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7a81e659830a742a5f0615d6a41eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: BookSortingMiniGame
+  id: 
   bookSlotHolder: {fileID: 5683620663386536296}
+  bookPieceHolder: {fileID: 5683620663937678548}
   doorToOpen: 
+  bookTitles: []
 --- !u!1 &5683620663233079264
 GameObject:
   m_ObjectHideFlags: 0

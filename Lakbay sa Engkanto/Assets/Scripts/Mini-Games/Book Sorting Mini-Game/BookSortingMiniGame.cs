@@ -6,23 +6,50 @@ public class BookSortingMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
     [SerializeField] private string id;                              // Object's ID
-    [SerializeField] private GameObject bookSlotHolder;
+    [SerializeField] private GameObject bookSlotHolder;              // GameObject that contains all BookSlots
+    [SerializeField] private GameObject bookPieceHolder;             // GameObject that contains all BookPieces
 
 
     [Header("Gameplay Settings")]
     [SerializeField] private string doorToOpen;                      // Door To Open string
+    [SerializeField] private List<string> bookTitles = new();        // Titles of the different books 
 
     private List<BookSlot> bookSlots = new();                        // BookSlots List 
+    private List<BookPiece> bookPieces = new();                      // BookSlots List 
 
     public bool IsComplete { get; private set; }                     // IsComplete boolean
 
     void Start()
     {
-        BookSlot[] temp = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
+        BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
+        BookPiece[] tempBookPieces = bookPieceHolder?.GetComponentsInChildren<BookPiece>() ?? new BookPiece[0];
 
-        foreach (BookSlot bookSlot in temp)
+        foreach (BookSlot bookSlot in tempBookSlots)
         {
             bookSlots.Add(bookSlot);
+        }
+
+        foreach (BookPiece bookPiece in tempBookPieces)
+        {
+            bookPieces.Add(bookPiece);
+        }
+
+        RandomizeBookOrder();
+    }
+
+    private void RandomizeBookOrder()
+    {
+        for (int i = 0; i < bookSlots.Count; i++)
+        {
+            bookSlots[i].Initialize(id, bookTitles[i]);
+        }
+
+        List<string> titlesToBeUsed = new(bookTitles);
+        for (int i = 0; i < bookPieces.Count; i++)
+        {
+            int index = Random.Range(0, titlesToBeUsed.Count);
+            bookPieces[i].Initialize(id, titlesToBeUsed[index]);
+            titlesToBeUsed.RemoveAt(index);
         }
     }
 
