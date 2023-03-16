@@ -12,6 +12,8 @@ public class InteractiveCutsceneManager : MonoBehaviour
     private int currentIndex;                                                           // Current Panel Index
     private Sprite[] panelSprites;                                                      // Panel Sprite Array
 
+    private bool isTransitioning;
+
     private void Awake()
     {
         SingletonManager.Register(this);
@@ -21,12 +23,16 @@ public class InteractiveCutsceneManager : MonoBehaviour
     {
         currentIndex = 0;
         panelSprites = panels;
+        isTransitioning = false;
 
         NextPanel();
     }
 
     public void NextPanel()
     {
+        if (isTransitioning)
+            return;
+        
         if (currentIndex > panelSprites.Length - 1)
         {
             currentIndex = panelSprites.Length - 1;
@@ -47,9 +53,10 @@ public class InteractiveCutsceneManager : MonoBehaviour
     {
         panelImage.sprite = panelSprites[index];
 
+        isTransitioning = true; 
         CanvasGroup canvas = panelImage.gameObject.GetComponent<CanvasGroup>();
 
         canvas.alpha = 0f;
-        canvas.DOFade(1, 1f);
+        canvas.DOFade(1, 1f).OnComplete(() => isTransitioning = false);
     }
 }
