@@ -3555,7 +3555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Pivot.x
@@ -3972,7 +3972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1596583085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4006,7 +4006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d606039e177c6cd4bb2f3d8c096e8896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelPrefab: {fileID: 6799148124011792471, guid: 3376a3feac16b924e9292a6263361074, type: 3}
   panelImage: {fileID: 1857783336}
 --- !u!114 &1596583087
 MonoBehaviour:
