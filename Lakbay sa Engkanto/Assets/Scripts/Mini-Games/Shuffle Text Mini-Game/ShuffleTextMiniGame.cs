@@ -197,6 +197,10 @@ public class ShuffleTextMiniGame : MonoBehaviour
 
     public void OnCloseButtonClicked()
     {
+        // Don't Execute if Mini-Game is Evaluating
+        if (isEvaluating)
+            return;
+
         ClearData();
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
