@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7985904493764640260}
   - component: {fileID: 7985904493764640261}
   m_Layer: 0
-  m_Name: InteractiveCutsceneTrigger
+  m_Name: CinematicCutsceneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

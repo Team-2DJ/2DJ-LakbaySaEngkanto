@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class InteractiveCutscene : Cutscenes
+public class CinematicCutscene : Cutscenes
 {
     [SerializeField] private Sprite[] panelSprites;
 
