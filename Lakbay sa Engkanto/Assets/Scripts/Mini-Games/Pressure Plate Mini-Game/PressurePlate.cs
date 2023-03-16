@@ -17,7 +17,7 @@ public class PressurePlate : MonoBehaviour
     [Header("Gameplay Settings")]
     [SerializeField] private string doorToOpen;                             // Door to Open
 
-    public Type type { get; private set; }                                  // Pressure Plate Type  
+    public Type PressurePlateType { get; private set; }                     // Pressure Plate Type  
     private bool isPressed;                                                 // isPressed Boolean
 
     private void OnEnable()
@@ -49,11 +49,11 @@ public class PressurePlate : MonoBehaviour
     public void Initialize(string _id, Type _type, string answerText)
     {
         // Assigns the Type value based on the parameter _type
-        type = _type;
+        PressurePlateType = _type;
 
         // If type == Type.CORRECT id = parameter _id
         // else id = null; 
-        doorToOpen = type == Type.CORRECT ? doorToOpen = _id : doorToOpen = null;
+        doorToOpen = PressurePlateType == Type.CORRECT ? doorToOpen = _id : doorToOpen = null;
 
         // Sets the textBox text based on the Answer Text; 
         textBox.text = answerText;
@@ -87,12 +87,18 @@ public class PressurePlate : MonoBehaviour
     /// </summary>
     private void OnPressed()
     {
-        switch (type)
+        switch (PressurePlateType)
         {
             case Type.CORRECT:
+                // Opens the door based from the doorToOpen value
                 SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+
+                // Sets all the pressurePlates that has the same ID as this pressurePlate's isPressed to true
                 SingletonManager.Get<GameEvents>().SetCondition(id, true);
+
+                // Changes the TextBox text if the type is correct
                 textBox.text = "TAMA!!!";
+
                 break;
             case Type.INCORRECT:
                 SingletonManager.Get<PlayerEvents>().PlayerDamaged(1f);

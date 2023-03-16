@@ -42,7 +42,7 @@ public class PressurePlateMiniGame : MonoBehaviour
         foreach (PressurePlate pressurePlate in pressurePlates)
         {
             // If the pressurePlate is correct iterate (skip) over it
-            if (pressurePlate.type == Type.CORRECT) continue;
+            if (pressurePlate.PressurePlateType == Type.CORRECT) continue;
 
             int index = Random.Range(0, wrongAnswers.Count);
 
