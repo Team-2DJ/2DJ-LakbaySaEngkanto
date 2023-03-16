@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
+[RequireComponent(typeof(RectTransform), typeof(CanvasGroup), typeof(Image))]
 public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object ID
-    [SerializeField] private BookSortingMiniGame bookSortingMiniGame;       // Minigame Reference
     [SerializeField] private Canvas canvas;                                 // Canvas Reference
     [SerializeField] private Sprite frontSprite, sideSprite;                // Image States 
+    [SerializeField] private TextMeshProUGUI frontText, sideText;           // Book's title box
 
     [Header("Gameplay Settings")]
     [SerializeField] private string bookTitle;                              // Title of the Book
@@ -17,7 +19,6 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private RectTransform rectTransform;                                    // This objects rectTransform
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
     private Vector2 originalPosition;                                       // This objects OriginalPosition
-
     private Image image;                                                    // This Object's image 
 
     private bool hasBeenDropped;                                            // Dropped Boolean
@@ -38,14 +39,23 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         image = GetComponent<Image>();
-
         canvas ??= GetComponentInParent<Canvas>();
 
-        id = bookSortingMiniGame?.GetID();
+        // Enables the FrontText GameObject
+        frontText.gameObject.SetActive(true);
 
         // Sets the originalPositions values;
         originalPosition = (Vector2)rectTransform.anchoredPosition;
 
+    }
+
+    public void Initialize(string _id, string _bookTitle)
+    {
+        id = _id;
+        bookTitle = _bookTitle;
+
+        frontText.text = frontText ? bookTitle : null;
+        sideText.text = sideText ? bookTitle : null;
     }
 
     /// <summary>
@@ -72,13 +82,21 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         // Allows for object movement based on Mouse Position; 
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
+        // If BookPiece is over BookSlot, face the book sideways
+        // else, face the book to the front; 
         if (eventData.pointerEnter?.GetComponent<BookSlot>())
         {
+            sideText.gameObject.SetActive(true);
+            frontText.gameObject.SetActive(false);
+
             image.sprite = sideSprite;
             rectTransform.sizeDelta = new Vector2(100, 300);
         }
         else
         {
+            frontText.gameObject.SetActive(true);
+            sideText.gameObject.SetActive(false);
+
             image.sprite = frontSprite;
             rectTransform.sizeDelta = new Vector2(215, 300);
         }

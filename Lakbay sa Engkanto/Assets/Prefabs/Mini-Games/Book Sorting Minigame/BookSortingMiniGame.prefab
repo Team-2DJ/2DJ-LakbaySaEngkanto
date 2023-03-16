@@ -478,9 +478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7a81e659830a742a5f0615d6a41eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: BookSortingMiniGame
+  id: 
   bookSlotHolder: {fileID: 5683620663386536296}
+  bookPieceHolder: {fileID: 5683620663937678548}
   doorToOpen: 
+  bookTitles: []
 --- !u!1 &5683620663233079264
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 509000390167231410, guid: fac17c3bf504c4e44ab335ce8e514343, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -604
+      value: -655
       objectReference: {fileID: 0}
     - target: {fileID: 509000390167231410, guid: fac17c3bf504c4e44ab335ce8e514343, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1009,7 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -656
+      value: -655
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
