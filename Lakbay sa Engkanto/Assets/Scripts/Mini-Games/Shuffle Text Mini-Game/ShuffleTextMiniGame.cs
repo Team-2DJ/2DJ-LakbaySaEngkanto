@@ -150,12 +150,12 @@ public class ShuffleTextMiniGame : MonoBehaviour
 
             answerText.text = "MAHUSAY!!!";
 
+            // Mark the Designated ShuffleTextTrigger as Complete
+            shuffleTextTrigger.Completed();
+
             yield return new WaitForSeconds(1f);
 
             // Open Door
-
-            // Mark the Designated ShuffleTextTrigger as Complete
-            shuffleTextTrigger.Completed();
 
             // Clear Data
             ClearData();

@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shuffleTextData:
     AnswerImage: {fileID: 0}
-    AnswerString: sibuyas
+    AnswerString: pinya
 --- !u!95 &883984750959479097
 Animator:
   serializedVersion: 4

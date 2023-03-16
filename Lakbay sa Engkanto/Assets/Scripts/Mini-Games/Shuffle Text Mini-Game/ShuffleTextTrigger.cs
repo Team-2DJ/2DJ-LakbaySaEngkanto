@@ -7,7 +7,13 @@ public class ShuffleTextTrigger : MonoBehaviour
     [SerializeField] private ShuffleTextData shuffleTextData;
     
     private bool isComplete;
-    
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isComplete) return;
@@ -32,5 +38,6 @@ public class ShuffleTextTrigger : MonoBehaviour
     public void Completed()
     {
         isComplete = true;
+        animator.SetBool("isComplete", isComplete);
     }
 }
