@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RectTransform), typeof(CanvasGroup), typeof(Image))]
 public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [Header("Object Setup")]
