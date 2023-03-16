@@ -12,12 +12,14 @@ public class InteractiveCutsceneManager : MonoBehaviour
     private int currentIndex;                                                           // Current Panel Index
     private Sprite[] panelSprites;                                                      // Panel Sprite Array
 
-    private bool isTransitioning;
+    private bool isTransitioning;                                                       // Indicates if Panel is Undergoing DoTween Animation
 
+    #region Singleton
     private void Awake()
     {
         SingletonManager.Register(this);
     }
+    #endregion
 
     public void Initialize(Sprite[] panels)
     {
@@ -25,17 +27,25 @@ public class InteractiveCutsceneManager : MonoBehaviour
         panelSprites = panels;
         isTransitioning = false;
 
+        // Start
         NextPanel();
     }
 
+    /// <summary>
+    /// Proceed to the Next Panel
+    /// </summary>
     public void NextPanel()
     {
         if (isTransitioning)
             return;
         
+        // If Current Index has Reached Maximum Amount of Panels
         if (currentIndex > panelSprites.Length - 1)
         {
+            // Clamp Current Index to the Max Length of Panel Sprites
             currentIndex = panelSprites.Length - 1;
+
+            // Return Back to Game Panel
             SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
 
             // Enable Player Movement
@@ -43,13 +53,19 @@ public class InteractiveCutsceneManager : MonoBehaviour
         }
         else
         {
-            ActivatePanel(currentIndex);
+            // Set Panel Image Based on Current Index
+            SetPanelImage(currentIndex);
+
+            // Increment Current Index After Activation
             currentIndex++;
         }
     }
 
-    
-    public void ActivatePanel(int index)
+    /// <summary>
+    /// Set Sprite of Panel Image
+    /// </summary>
+    /// <param name="index"></param>
+    public void SetPanelImage(int index)
     {
         panelImage.sprite = panelSprites[index];
 
