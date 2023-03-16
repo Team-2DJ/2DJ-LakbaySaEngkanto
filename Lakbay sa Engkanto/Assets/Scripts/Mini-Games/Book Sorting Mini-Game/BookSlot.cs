@@ -5,7 +5,6 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
 {
     [Header("Object Setup")]
     [SerializeField] string id;
-    [SerializeField] private BookSortingMiniGame bookSortingMiniGame;       // Minigame Reference
 
     [Header("Gameplay Settings")]
     [SerializeField] string bookTitle;
@@ -17,7 +16,12 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        id = bookSortingMiniGame?.GetID();
+    }
+
+    public void Initialize(string _id, string _bookTitle)
+    {
+        id = _id;
+        bookTitle = _bookTitle;
     }
 
     private void OnEnable()
