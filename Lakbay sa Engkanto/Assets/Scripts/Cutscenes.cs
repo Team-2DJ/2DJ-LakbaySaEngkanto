@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Cutscenes : MonoBehaviour
 {
     protected Collider2D playerCollider;
-    protected bool hasActivated;
+    private bool hasActivated;
 
     // Start is called before the first frame update
     void Start()
