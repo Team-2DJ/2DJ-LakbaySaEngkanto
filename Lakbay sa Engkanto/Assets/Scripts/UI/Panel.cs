@@ -6,10 +6,10 @@ using DG.Tweening;
 [RequireComponent(typeof(CanvasGroup))]
 public class Panel : MonoBehaviour
 {
-    [SerializeField] private float transitionDuration;
+    [SerializeField] private float transitionDuration;                      // Fade-In Duration
 
-    private CanvasGroup canvasGroup;
-    private Sequence mySequence;
+    private CanvasGroup canvasGroup;                                        // Canvas Group Component Reference
+    private Sequence sequence;                                              // DoTween Animation Holder
 
     private void OnEnable()
     {
@@ -19,7 +19,7 @@ public class Panel : MonoBehaviour
     private void OnDisable()
     {
         // Cancel Do-Tween Animation
-        mySequence.Kill();
+        sequence.Kill();
     }
 
     void Awake()
@@ -27,11 +27,19 @@ public class Panel : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    /// <summary>
+    /// Gives a Fade-In Animation to the Panel
+    /// </summary>
     public void FadeIn()
     {
+        // Set Panel to Transparent
         canvasGroup.alpha = 0f;
 
-        mySequence = DOTween.Sequence();
-        mySequence.Append(canvasGroup.DOFade(1f, transitionDuration));
+        // Initialize DoTween Sequence
+        sequence = DOTween.Sequence();
+
+        // Store Fade Animation in Sequence Holder,
+        // Then Execute Animation
+        sequence.Append(canvasGroup.DOFade(1f, transitionDuration));
     }
 }
