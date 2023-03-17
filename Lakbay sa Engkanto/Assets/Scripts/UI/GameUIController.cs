@@ -9,13 +9,8 @@ using TMPro;
 /// </summary>
 public class GameUIController : MonoBehaviour
 {
-    [SerializeField] private Image[] PlayerHearts;
-    [SerializeField] private Sprite FullHeartContainer;
-    [SerializeField] private Sprite EmptyHeartContainer;
     [SerializeField] private GameObject JournalButtonReference;
     [SerializeField] private string id;
-
-    private float playerHp;
 
     private void OnEnable()
     {
@@ -33,20 +28,6 @@ public class GameUIController : MonoBehaviour
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         JournalButtonReference.SetActive(false);
-    }
-
-    // Update Player Health Container
-    public void UpdateHealth()
-    {
-        playerHp = SingletonManager.Get<PlayerManager>().Player.GetComponent<HealthComponent>().CurrentHealth;
-
-        for (int i = 0; i < PlayerHearts.Length; i++)
-        {
-            if (i < playerHp)
-                PlayerHearts[i].sprite = FullHeartContainer;
-            else
-                PlayerHearts[i].sprite = EmptyHeartContainer;
-        }
     }
 
     // TO BE FIXED!!!
