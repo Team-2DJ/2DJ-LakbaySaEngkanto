@@ -161,7 +161,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
             ClearData();
 
             // Enable Player Movement and Game Panel
-            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
         }
         else
@@ -202,7 +202,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
             return;
 
         ClearData();
-        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }
 

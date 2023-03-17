@@ -31,7 +31,7 @@ public class GameUIController : MonoBehaviour
 
     void Start()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         JournalButtonReference.SetActive(false);
     }
 
@@ -52,19 +52,19 @@ public class GameUIController : MonoBehaviour
     // TO BE FIXED!!!
     public void OnJournalButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Journal Panel", 0f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Journal Panel");
         Time.timeScale = 0f;
     }
 
     public void OnPauseButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Pause Panel", 0f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Pause Panel");
         Time.timeScale = 0f;
     }
 
     public void OnResumeButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         Time.timeScale = 1f;
     }
 

@@ -46,7 +46,7 @@ public class InteractiveCutsceneManager : MonoBehaviour
             currentIndex = panelSprites.Length - 1;
 
             // Return Back to Game Panel
-            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
 
             // Enable Player Movement
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
