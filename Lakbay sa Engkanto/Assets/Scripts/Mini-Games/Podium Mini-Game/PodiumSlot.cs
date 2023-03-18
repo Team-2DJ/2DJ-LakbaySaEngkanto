@@ -5,10 +5,10 @@ using UnityEngine.EventSystems;
 public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
 {
     [Header("Object Setup")]
-    [SerializeField] string id;
+    [SerializeField] private string id;
 
     [Header("Gameplay Settings")]
-    [SerializeField] string bookTitle;
+    [SerializeField] private string bookTitle;
 
     private RectTransform rectTransform;
     public bool IsRight { get; private set; }
