@@ -41,7 +41,6 @@ public class ChichayMovement : MonoBehaviour
         currentSpeed = MovementSpeed;
 
         player = SingletonManager.Get<PlayerManager>().Player;
-
     }
 
     #region Update Functions

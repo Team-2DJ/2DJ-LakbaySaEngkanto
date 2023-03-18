@@ -2014,14 +2014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec569dd2db637c4eb577486d1e96562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  FullHeartContainer: {fileID: 21300000, guid: bf213f29bef47db4c96d59826474c9a4, type: 3}
-  EmptyHeartContainer: {fileID: 21300000, guid: dbe8a5062b5b7764ea7113dfeced9b83, type: 3}
   JournalButtonReference: {fileID: 1134161733}
   id: JournalPage
 --- !u!4 &987506050
@@ -2503,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1112906175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3366,6 +3358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShuffleTextMiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3449,6 +3445,10 @@ PrefabInstance:
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795085448258062, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}

@@ -37,5 +37,4 @@ public class GameEvents : MonoBehaviour
     {
         OnScoreChanged?.Invoke(id, currentPoints, winningPoints);
     }
-
 }
