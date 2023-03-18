@@ -141,6 +141,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         hasBeenDropped = false;
 
         image.sprite = frontSprite;
+        frontText.gameObject.SetActive(true);
+        sideText.gameObject.SetActive(false);
         rectTransform.sizeDelta = new Vector2(215, 300);
     }
 }
