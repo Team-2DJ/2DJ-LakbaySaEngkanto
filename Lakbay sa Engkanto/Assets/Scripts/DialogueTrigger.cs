@@ -30,7 +30,7 @@ public class DialogueTrigger : MonoBehaviour
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
 
             // Activate Dialogue Panel
-            SingletonManager.Get<PanelManager>().ActivatePanel("Dialogue Panel", 0f);
+            SingletonManager.Get<PanelManager>().ActivatePanel("Dialogue Panel");
 
             // Pass Dialogue Data on to the Dialogue Manager
             SingletonManager.Get<DialogueManager>().InitializeDialogues(dialogueData);

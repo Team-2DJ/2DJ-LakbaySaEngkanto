@@ -77,7 +77,7 @@ public class DialogueManager : MonoBehaviour
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
 
             // Re-Open Game Panel
-            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel", 0f);
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
             return;
         }
 
