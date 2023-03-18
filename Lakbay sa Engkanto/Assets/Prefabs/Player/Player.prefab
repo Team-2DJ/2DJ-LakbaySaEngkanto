@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 1765196721149191467}
+  chichayFollowPoint: {fileID: 1339825825956997644}
 --- !u!114 &1339825824698532270
 MonoBehaviour:
   m_ObjectHideFlags: 0
