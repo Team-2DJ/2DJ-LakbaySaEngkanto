@@ -24,6 +24,8 @@ public class BookSortingMiniGame : MonoBehaviour
         BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
         BookPiece[] tempBookPieces = bookPieceHolder?.GetComponentsInChildren<BookPiece>() ?? new BookPiece[0];
 
+        if (!bookTitles.Any()) Debug.LogError("NO BOOK TITLES PRESENT");
+
         foreach (BookSlot bookSlot in tempBookSlots)
         {
             bookSlots.Add(bookSlot);
@@ -102,6 +104,11 @@ public class BookSortingMiniGame : MonoBehaviour
             // Invoke a false boolean that listeners will receive. 
             SingletonManager.Get<GameEvents>().SetCondition(id, false);
         }
+    }
+
+    public void OnCloseButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
     }
 
     public string GetID()

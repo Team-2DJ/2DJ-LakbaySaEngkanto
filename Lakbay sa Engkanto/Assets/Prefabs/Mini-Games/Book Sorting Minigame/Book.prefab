@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  bookSortingMiniGame: {fileID: 0}
   canvas: {fileID: 0}
   frontSprite: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
   sideSprite: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
@@ -313,7 +312,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alamat ng Pinya
+  m_text: 'Book Title
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -9,6 +9,7 @@ public class BooksMiniGameHolder : MonoBehaviour
     private void OnEnable()
     {
         SingletonManager.Get<UIEvents>().OnActivatePanel += ActivateMiniGame;
+        Initialize();
     }
 
     private void OnDisable()
@@ -16,7 +17,7 @@ public class BooksMiniGameHolder : MonoBehaviour
         SingletonManager.Get<UIEvents>().OnActivatePanel -= ActivateMiniGame;
     }
 
-    private void Start()
+    private void Initialize()
     {
         foreach (BookSortingMiniGame bookMiniGame in bookSortingMiniGames)
         {
