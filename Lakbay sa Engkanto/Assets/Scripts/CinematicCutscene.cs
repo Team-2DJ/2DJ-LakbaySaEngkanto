@@ -16,7 +16,7 @@ public class CinematicCutscene : Cutscenes
     {
         base.ExecuteCutscene();
 
-        SingletonManager.Get<PanelManager>().ActivatePanel("Interactive Cutscene Panel", 0f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Interactive Cutscene Panel");
         SingletonManager.Get<InteractiveCutsceneManager>().Initialize(panelSprites);
     }
 }

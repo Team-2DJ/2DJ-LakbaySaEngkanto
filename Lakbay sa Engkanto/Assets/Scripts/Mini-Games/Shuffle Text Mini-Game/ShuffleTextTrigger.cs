@@ -31,7 +31,7 @@ public class ShuffleTextTrigger : MonoBehaviour
     private void EnableShuffleTextMiniGame()
     {
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
-        SingletonManager.Get<PanelManager>().ActivatePanel("Shuffle Text Panel", 1f);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Shuffle Text Panel");
         SingletonManager.Get<ShuffleTextMiniGame>().Initialize(shuffleTextData, this);
     }
 

@@ -1294,8 +1294,9 @@ GameObject:
   - component: {fileID: 830229212}
   - component: {fileID: 830229211}
   - component: {fileID: 830229213}
+  - component: {fileID: 830229214}
   m_Layer: 5
-  m_Name: InGamePanel
+  m_Name: GamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1374,6 +1375,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &830229214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830229209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36723d1312d224fac9b9ce709bee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 0
 --- !u!1 &895676479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1400,7 @@ GameObject:
   - component: {fileID: 895676482}
   - component: {fileID: 895676481}
   - component: {fileID: 895676483}
+  - component: {fileID: 895676484}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -1466,6 +1481,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &895676484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895676479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36723d1312d224fac9b9ce709bee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 0
 --- !u!1 &902231190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2496,7 @@ GameObject:
   - component: {fileID: 1112906176}
   - component: {fileID: 1112906179}
   - component: {fileID: 1112906180}
+  - component: {fileID: 1112906181}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -2591,6 +2620,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1112906181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112906174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36723d1312d224fac9b9ce709bee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 0
 --- !u!1 &1123383239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,10 +3366,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShuffleTextMiniGame
       objectReference: {fileID: 0}
-    - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3424,18 +3462,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
   m_PrefabInstance: {fileID: 1558050204}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &1558050207
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558050206}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1581108454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,6 +3763,7 @@ GameObject:
   - component: {fileID: 1596583087}
   - component: {fileID: 1596583089}
   - component: {fileID: 1596583090}
+  - component: {fileID: 1596583091}
   m_Layer: 5
   m_Name: InteractiveCutscenePanel
   m_TagString: Untagged
@@ -3857,6 +3884,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1596583091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596583084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36723d1312d224fac9b9ce709bee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 0
 --- !u!1 &1633018805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,6 +4440,7 @@ GameObject:
   - component: {fileID: 1816194290}
   - component: {fileID: 1816194289}
   - component: {fileID: 1816194292}
+  - component: {fileID: 1816194293}
   m_Layer: 5
   m_Name: JournalPanel
   m_TagString: Untagged
@@ -4494,6 +4535,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1816194293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816194287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36723d1312d224fac9b9ce709bee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 0
 --- !u!1 &1823999175
 GameObject:
   m_ObjectHideFlags: 0
