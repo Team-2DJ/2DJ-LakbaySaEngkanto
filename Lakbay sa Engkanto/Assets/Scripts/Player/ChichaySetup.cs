@@ -12,8 +12,8 @@ public class ChichaySetup : MonoBehaviour
     {
         Animator = GetComponentInChildren<Animator>();
         
-        //transform.SetParent(SingletonManager.Get<PlayerManager>().Player.transform);
-        //transform.SetParent(null);
+        transform.SetParent(SingletonManager.Get<PlayerManager>().Player.transform);
+        transform.SetParent(null);
     }
 
     /// <summary>
