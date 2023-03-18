@@ -3102,6 +3102,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1637686751}
     m_Modifications:
+    - target: {fileID: 5683620663204404048, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: id
+      value: BooksMiniGame1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404048, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: bookTitles.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404048, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: bookTitles.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5683620663204404049, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3732,6 +3744,8 @@ MonoBehaviour:
     PanelObject: {fileID: 1112906174}
   - Id: Shuffle Text Panel
     PanelObject: {fileID: 1558050206}
+  - Id: Book Sorting Panel
+    PanelObject: {fileID: 1637686750}
   - Id: Interactive Cutscene Panel
     PanelObject: {fileID: 1596583084}
 --- !u!4 &1595998901
@@ -4117,7 +4131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637686751}
+  - component: {fileID: 1637686753}
   - component: {fileID: 1637686752}
+  - component: {fileID: 1637686754}
   m_Layer: 5
   m_Name: BooksMiniGameHolder
   m_TagString: Untagged
@@ -4160,6 +4176,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookSortingMiniGames:
   - {fileID: 1466669898}
+--- !u!114 &1637686753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637686750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36723d1312d224fac9b9ce709bee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 1
+--- !u!225 &1637686754
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637686750}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1669173197
 GameObject:
   m_ObjectHideFlags: 0

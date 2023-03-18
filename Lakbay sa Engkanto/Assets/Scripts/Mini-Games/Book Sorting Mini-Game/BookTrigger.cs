@@ -1,10 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class BookTrigger : MonoBehaviour
 {
-    [SerializeField] private string panelToActivate;
+    [SerializeField] private string gameToActivate;
+    [SerializeField] private Sprite sorted, notSorted;
     private bool isGameComplete;
+    private SpriteRenderer spriteRenderer;
 
     private void OnEnable()
     {
@@ -14,6 +17,12 @@ public class BookTrigger : MonoBehaviour
     private void OnDisable()
     {
         SingletonManager.Get<GameEvents>().OnSetCondition -= GameCompleted;
+    }
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = notSorted;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -32,13 +41,15 @@ public class BookTrigger : MonoBehaviour
 
     private void EnableBooksMiniGame()
     {
-        SingletonManager.Get<UIEvents>().ActivatePanel(panelToActivate);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Book Sorting Panel");
+        SingletonManager.Get<UIEvents>().ActivatePanel(gameToActivate);
     }
 
     private void GameCompleted(string id, bool condition)
     {
-        if (id != panelToActivate) return;
-
+        if (id != gameToActivate) return;
         isGameComplete = condition;
+
+        spriteRenderer.sprite = isGameComplete ? sorted : notSorted;
     }
 }
