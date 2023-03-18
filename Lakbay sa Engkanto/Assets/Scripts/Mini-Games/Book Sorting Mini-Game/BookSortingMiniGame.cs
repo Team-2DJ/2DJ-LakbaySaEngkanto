@@ -98,6 +98,9 @@ public class BookSortingMiniGame : MonoBehaviour
 
             // Turns back on PlayerMovement 
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+
+            // Turns back on Game Panel
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         }
         else
         {
