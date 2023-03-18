@@ -104,8 +104,8 @@ public class HealthComponent : MonoBehaviour
         // Disable Movement
         playerSetup.PlayerMovement.enabled = false;
 
-        // Set Rigidbody2D Type to Static to Prevent Further Movement
-        playerSetup.Rb.bodyType = RigidbodyType2D.Static;
+        // Set Rigidbody2D Simulated to False to Prevent Further Movement
+        playerSetup.Rb.simulated = false;
 
         // Death VFX
         playerSetup.Animator.SetBool("isDead", true);
@@ -117,10 +117,7 @@ public class HealthComponent : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         // Restart Game
-        // To be Removed
         SingletonManager.Get<GameManager>().RestartGame();
-
-        // Respawn Player
     }
     #endregion
 }

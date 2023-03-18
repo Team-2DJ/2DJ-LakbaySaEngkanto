@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
     private void Awake()
     {
         SingletonManager.Register(this);
     }
+    #endregion
 
     private void Start()
     {
