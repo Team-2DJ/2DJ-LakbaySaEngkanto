@@ -11,17 +11,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SingletonManager.Get<PlayerManager>().PlayerSpawnPoint != (Vector2)transform.position)
-        {
-            // Deactivate Visually
-            isActivated = false;
-        }
-        else
-        {
-            // Activate Visually
-            isActivated = true;
-        }
-
+        isActivated = SingletonManager.Get<PlayerManager>().PlayerSpawnPoint != (Vector2)transform.position ? false : true;
         animator.SetBool("isActivated", isActivated);
     }
 
