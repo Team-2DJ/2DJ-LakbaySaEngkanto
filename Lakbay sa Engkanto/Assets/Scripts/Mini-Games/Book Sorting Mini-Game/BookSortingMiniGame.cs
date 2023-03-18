@@ -24,6 +24,8 @@ public class BookSortingMiniGame : MonoBehaviour
         BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
         BookPiece[] tempBookPieces = bookPieceHolder?.GetComponentsInChildren<BookPiece>() ?? new BookPiece[0];
 
+        if (!bookTitles.Any()) Debug.LogError("NO BOOK TITLES PRESENT");
+
         foreach (BookSlot bookSlot in tempBookSlots)
         {
             bookSlots.Add(bookSlot);
@@ -37,18 +39,36 @@ public class BookSortingMiniGame : MonoBehaviour
         RandomizeBookOrder();
     }
 
+    /// <summary>
+    /// Randomizes the game's BookOrder
+    /// </summary>
     private void RandomizeBookOrder()
     {
+        // For each Book Slot present in the bookSlot list
+        // set the bookTitle based on BookSlot[i]
+
+        // e.g. the first element present in the bookSlots list
+        // will have the first bookTitle present in the bookTitles list
         for (int i = 0; i < bookSlots.Count; i++)
         {
             bookSlots[i].Initialize(id, bookTitles[i]);
         }
 
+        // For each element present in the bookPieces list, 
+        // randomize the order of the titles and set it afterwards 
+
+        // Sets the value of the new list to the BookTitles list; 
         List<string> titlesToBeUsed = new(bookTitles);
+
         for (int i = 0; i < bookPieces.Count; i++)
         {
+            // Index to be used by the BookPiece based on a random value
             int index = Random.Range(0, titlesToBeUsed.Count);
+
+            // Initializes the bookPiece with the random value based on the index
             bookPieces[i].Initialize(id, titlesToBeUsed[index]);
+
+            // Remove the bookTitle from the list   
             titlesToBeUsed.RemoveAt(index);
         }
     }
@@ -78,12 +98,20 @@ public class BookSortingMiniGame : MonoBehaviour
 
             // Turns back on PlayerMovement 
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+
+            // Turns back on Game Panel
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         }
         else
         {
             // Invoke a false boolean that listeners will receive. 
             SingletonManager.Get<GameEvents>().SetCondition(id, false);
         }
+    }
+
+    public void OnCloseButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
     }
 
     public string GetID()

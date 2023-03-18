@@ -4,10 +4,10 @@ using UnityEngine.EventSystems;
 public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
 {
     [Header("Object Setup")]
-    [SerializeField] string id;
+    [SerializeField] private string id;
 
     [Header("Gameplay Settings")]
-    [SerializeField] string bookTitle;
+    [SerializeField] private string bookTitle;
 
     private bool isOccupied;
     public bool IsRight { get; private set; }
@@ -63,7 +63,8 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     {
         if (eventData.pointerDrag != null)
         {
-            ResetBookSlot(id, true);
+            isOccupied = false;
+            IsRight = false;
         }
     }
 
