@@ -11,6 +11,10 @@ public class PlayerManager : MonoBehaviour
 
     public Vector2 PlayerSpawnPoint { get; set; }        // Player Spawn Point Coordinates
 
+    public GameObject ChichayPrefab;
+
+    public bool HasMetChichay { get; set; }
+
     #region Singleton
     void Awake()
     {
@@ -18,4 +22,12 @@ public class PlayerManager : MonoBehaviour
         SingletonManager.Register(this);
     }
     #endregion
+
+    public void ResetProperties()
+    {
+        // Reset Player Spawn Point
+        PlayerSpawnPoint = Vector2.zero;
+
+        HasMetChichay = false;
+    }
 }

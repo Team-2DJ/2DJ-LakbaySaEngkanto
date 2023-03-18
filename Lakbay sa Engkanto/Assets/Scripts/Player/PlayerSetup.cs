@@ -12,6 +12,8 @@ public class PlayerSetup : MonoBehaviour
 
     public Animator Animator;                                                               // Animator Component Reference
 
+    [SerializeField] private Transform chichayFollowPoint;                                  // Point Where Chichay Needs to Go to
+
     // TO BE REMOVED
     private void OnEnable()
     {
@@ -37,5 +39,16 @@ public class PlayerSetup : MonoBehaviour
         // Set Position
         if (SingletonManager.Get<PlayerManager>().PlayerSpawnPoint != new Vector2(0f, 0f))
             transform.position = SingletonManager.Get<PlayerManager>().PlayerSpawnPoint;
+
+        if (SingletonManager.Get<PlayerManager>().HasMetChichay)
+        {
+            SpawnChichay();
+        }
+    }
+
+    public void SpawnChichay()
+    {
+        ChichaySetup ch = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity).GetComponent<ChichaySetup>();
+        ch.Initialize(chichayFollowPoint);
     }
 }
