@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterNameText;                     // Character Name Text Reference
     [SerializeField] private TextMeshProUGUI sentenceText;                          // Sentence Text Reference
     [SerializeField] private float typeSpeed;                                       // Speed for Text-Typing Behavior
+    [SerializeField] private Animator animator;
 
     private DialogueData[] dialogueData;                                            // Dialogue Data to be Shown
 
@@ -57,12 +58,18 @@ public class DialogueManager : MonoBehaviour
         // Set Sentence Text to Blank
         sentenceText.text = "";
 
+        // Disable Next Sentence Indicator
+        animator.SetBool("isFinished", false);
+
         // Implement Typing Behavior for the Sentence
         foreach (char s in dialogueData[currentDialogueIndex].Sentences[currentSentenceIndex])
         {
             sentenceText.text += s;
             yield return new WaitForSeconds(typeSpeed);
         }
+
+        // Enable Next Sentence Indicator
+        animator.SetBool("isFinished", true);
     }
 
     /// <summary>
