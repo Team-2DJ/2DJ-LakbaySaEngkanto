@@ -1,13 +1,35 @@
 using UnityEngine;
-using System;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-[Serializable]
-public class InventoryItem
+[RequireComponent(typeof(Image))]
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private ItemData itemData;
+    private ItemData itemData;
 
-    public InventoryItem(ItemData item)
+    private Image image;
+
+    public void InitializeItem(ItemData newItem)
     {
-        itemData = item;
+        image ??= GetComponent<Image>();
+
+        itemData = newItem;
+        image.sprite = itemData.GetIcon();
     }
+
+    public void OnBeginDrag(PointerEventData pointerEventData)
+    {
+
+    }
+
+    public void OnDrag(PointerEventData pointerEventData)
+    {
+
+    }
+
+    public void OnEndDrag(PointerEventData pointerEventData)
+    {
+
+    }
+
 }
