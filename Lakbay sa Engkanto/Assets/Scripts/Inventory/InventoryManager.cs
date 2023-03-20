@@ -1,12 +1,18 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private InventorySlot[] inventorySlots;
     [SerializeField] private GameObject inventoryItemPrefab;
+    private List<ItemData> itemsInInventory = new();
 
-    public void AddItem(ItemData itemData)
+    public bool AddItem(ItemData itemData)
     {
+        if (itemsInInventory.Contains(itemData)) return false;
+
+        itemsInInventory.Add(itemData);
+
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
@@ -15,9 +21,11 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(itemData, slot);
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
     private void SpawnNewItem(ItemData itemData, InventorySlot slot)
