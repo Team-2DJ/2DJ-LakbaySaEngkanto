@@ -51,7 +51,9 @@ public class PlayerSetup : MonoBehaviour
     /// </summary>
     public void SpawnChichay()
     {
-        ChichaySetup chichay = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity).GetComponent<ChichaySetup>();
+        ChichaySetup chichay = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity, this.transform).GetComponent<ChichaySetup>();
+        chichay.transform.SetParent(null);
+        chichay.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
         chichay.Initialize(chichayFollowPoint);
     }
 }

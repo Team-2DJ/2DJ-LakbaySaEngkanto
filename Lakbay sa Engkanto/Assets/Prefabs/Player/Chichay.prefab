@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b804b6149c561c54ca19e56543507e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Animator: {fileID: 2445268462930090141}
 --- !u!114 &485208372059924511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,9 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa6d29ed4cfd164aa0b3b4cfc0c13b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowPoint: {fileID: 0}
   MovementSpeed: 9
-  Animator: {fileID: 2445268462930090141}
 --- !u!1 &485208372323912811
 GameObject:
   m_ObjectHideFlags: 0
