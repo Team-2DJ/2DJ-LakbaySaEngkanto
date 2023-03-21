@@ -101,6 +101,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
     /// </summary>
     void ClearData()
     {
+        // Indicate Mini-Game No Longer Evaluating
+        isEvaluating = false;
+
         // Clear Text
         answerText.text = "";
 
