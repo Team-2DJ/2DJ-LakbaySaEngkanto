@@ -5491,6 +5491,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 131815266}
     m_Modifications:
+    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 252.47382
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 169.23691
+      objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Name
       value: ShuffleTextMiniGame

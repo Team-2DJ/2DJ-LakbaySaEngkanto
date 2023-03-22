@@ -28,7 +28,7 @@ public class BridgeTile : MonoBehaviour
         if (other.gameObject == player)
         {
             // Play Popping Sound
-            SingletonManager.Get<AudioManager>().Play("Popping");
+            SingletonManager.Get<AudioManager>().PlayOneShot("Crumble");
             
             // Spawn Popping VFX
             Transform effect = Instantiate(popEffect, transform.position, Quaternion.identity, this.transform).transform;
