@@ -29,10 +29,9 @@ public class BridgeTile : MonoBehaviour
         {
             // Play Popping Sound
             SingletonManager.Get<AudioManager>().PlayOneShot("Crumble");
-            
+
             // Spawn Popping VFX
-            Transform effect = Instantiate(popEffect, transform.position, Quaternion.identity, this.transform).transform;
-            effect.SetParent(null);
+            SingletonManager.Get<ObjectPooler>().SpawnFromPool("Crumble", transform.position, Quaternion.identity, this.transform);
             
             // Destroy this GameObject
             Destroy(gameObject);
