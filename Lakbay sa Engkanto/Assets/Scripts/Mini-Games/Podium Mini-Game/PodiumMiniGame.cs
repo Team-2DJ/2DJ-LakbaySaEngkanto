@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PodiumMiniGame : MonoBehaviour
 {
-    [SerializeField] private GameObject inventoryItemPrefab;
     [SerializeField] private GameObject inventorySlotHolder;
 
+    [SerializeField] private GameObject inventoryItemPrefab;
+    private Dictionary<ItemData, GameObject> itemDictionary = new();
     private List<InventorySlot> inventorySlots = new();
 
     private void Awake()
@@ -21,16 +22,34 @@ public class PodiumMiniGame : MonoBehaviour
 
     private void OnEnable()
     {
-        var inventory = SingletonManager.Get<PlayerManager>().PlayerInventory.GetItemDictionary();
+        var itemDataList = SingletonManager.Get<PlayerManager>().PlayerInventory.ItemDataList;
 
-        for (int i = 0; i < inventory.Count; i++)
+        foreach (ItemData itemData in itemDataList)
+        {
+            ShowItem(itemData);
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (var item in itemDictionary)
+        {
+            Destroy(item.Value);
+        }
+
+        itemDictionary.Clear();
+    }
+
+    private void ShowItem(ItemData itemData)
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
             if (itemInSlot == null)
             {
-                SpawnInventorySlot(inventory.Keys.ElementAt(i), slot);
+                SpawnInventorySlot(itemData, slot);
                 return;
             }
         }
@@ -41,5 +60,7 @@ public class PodiumMiniGame : MonoBehaviour
         GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItem.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(itemData);
+
+        itemDictionary.TryAdd(itemData, newItem);
     }
 }
