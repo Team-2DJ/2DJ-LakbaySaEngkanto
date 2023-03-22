@@ -41,6 +41,7 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
             RectTransform droppedObject = eventData.pointerDrag.GetComponent<RectTransform>();
 
             // sets droppedObject position == this objects position; 
+            droppedObject.sizeDelta = rectTransform.sizeDelta;
             droppedObject.anchoredPosition = rectTransform.anchoredPosition;
         }
     }
