@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class PodiumBook : MonoBehaviour

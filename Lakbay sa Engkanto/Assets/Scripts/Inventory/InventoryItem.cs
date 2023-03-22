@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour
 {
-    private ItemData itemData;
+    public ItemData ItemData { get; private set; }
 
     private Image image;
 
@@ -13,23 +12,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         image ??= GetComponent<Image>();
 
-        itemData = newItem;
-        image.sprite = itemData.GetIcon();
+        ItemData = newItem;
+        image.sprite = ItemData.GetIcon();
     }
-
-    public void OnBeginDrag(PointerEventData pointerEventData)
-    {
-
-    }
-
-    public void OnDrag(PointerEventData pointerEventData)
-    {
-
-    }
-
-    public void OnEndDrag(PointerEventData pointerEventData)
-    {
-
-    }
-
 }
