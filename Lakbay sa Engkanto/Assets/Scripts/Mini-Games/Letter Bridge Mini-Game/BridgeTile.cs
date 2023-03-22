@@ -6,7 +6,9 @@ using TMPro;
 public class BridgeTile : MonoBehaviour
 {
     public bool IsCorrect { get; private set; }
+    
     [SerializeField] private TextMeshProUGUI letterText;
+    [SerializeField] private GameObject popEffect;
 
     private GameObject player;
 
@@ -25,8 +27,17 @@ public class BridgeTile : MonoBehaviour
         
         if (other.gameObject == player)
         {
+            // Play Popping Sound
+            SingletonManager.Get<AudioManager>().Play("Popping");
+            
+            // Spawn Popping VFX
+            Transform effect = Instantiate(popEffect, transform.position, Quaternion.identity, this.transform).transform;
+            effect.SetParent(null);
+            
+            // Destroy this GameObject
             Destroy(gameObject);
         }
+            
     }
 
     public void SetChance(int value, string word)
