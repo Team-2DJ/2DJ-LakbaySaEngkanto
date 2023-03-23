@@ -1754,8 +1754,8 @@ MonoBehaviour:
   m_text: bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
     bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
+  m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2716,8 +2716,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -476.29077, y: 72}
-  m_SizeDelta: {x: 328.9185, y: 66.6835}
+  m_AnchoredPosition: {x: -320.38, y: 72}
+  m_SizeDelta: {x: 640.75, y: 66.6835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &904174655
 MonoBehaviour:
@@ -2741,8 +2741,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CHICHAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
+  m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3824,7 +3824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1112906175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5491,25 +5491,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 131815266}
     m_Modifications:
-    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 252.47382
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297795084389405347, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 169.23691
-      objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Name
       value: ShuffleTextMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Pivot.x
