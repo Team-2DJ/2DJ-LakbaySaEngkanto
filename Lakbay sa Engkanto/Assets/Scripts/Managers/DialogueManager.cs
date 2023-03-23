@@ -65,6 +65,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char s in dialogueData[currentDialogueIndex].Sentences[currentSentenceIndex])
         {
             sentenceText.text += s;
+            SingletonManager.Get<AudioManager>().Play(dialogueData[currentDialogueIndex].AudioID);
             yield return new WaitForSeconds(typeSpeed);
         }
 
