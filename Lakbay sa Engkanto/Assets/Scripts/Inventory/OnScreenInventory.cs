@@ -11,14 +11,14 @@ public class OnScreenInventory : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnAddItemToInventory += ShowItem;
-        SingletonManager.Get<GameEvents>().OnRemoveItemFromInventory += RemoveItem;
+        SingletonManager.Get<PlayerEvents>().OnAddItemToInventory += ShowItem;
+        SingletonManager.Get<PlayerEvents>().OnRemoveItemFromInventory += RemoveItem;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnAddItemToInventory -= ShowItem;
-        SingletonManager.Get<GameEvents>().OnRemoveItemFromInventory -= RemoveItem;
+        SingletonManager.Get<PlayerEvents>().OnAddItemToInventory -= ShowItem;
+        SingletonManager.Get<PlayerEvents>().OnRemoveItemFromInventory -= RemoveItem;
     }
 
     private void ShowItem(ItemData itemData)

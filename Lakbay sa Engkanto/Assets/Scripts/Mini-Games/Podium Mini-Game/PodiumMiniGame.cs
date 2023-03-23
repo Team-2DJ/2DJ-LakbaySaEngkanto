@@ -5,10 +5,12 @@ using UnityEngine;
 public class PodiumMiniGame : MonoBehaviour
 {
     [SerializeField] private GameObject inventorySlotHolder;
-
     [SerializeField] private GameObject inventoryItemPrefab;
+    [SerializeField] private PodiumSlot podiumSlot;
     private Dictionary<ItemData, GameObject> itemDictionary = new();
     private List<InventorySlot> inventorySlots = new();
+
+    public bool IsComplete { get; private set; }
 
     private void Awake()
     {
@@ -62,5 +64,19 @@ public class PodiumMiniGame : MonoBehaviour
         inventoryItem.InitializeItem(itemData);
 
         itemDictionary.TryAdd(itemData, newItem);
+    }
+
+    private void CheckOrder()
+    {
+        if (IsComplete) return;
+
+        if (podiumSlot.IsRight)
+        {
+            // Event that Corresponds to page being given; 
+
+            IsComplete = true;
+
+            gameObject.SetActive(false);
+        }
     }
 }

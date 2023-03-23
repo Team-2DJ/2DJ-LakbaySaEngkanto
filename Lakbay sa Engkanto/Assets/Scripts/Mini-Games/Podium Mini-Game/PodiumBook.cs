@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
-[RequireComponent(typeof(RectTransform), typeof(CanvasGroup), typeof(Image))]
+[RequireComponent(typeof(RectTransform))]
+[RequireComponent(typeof(CanvasGroup))]
+[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(InventoryItem))]
 public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [Header("Object Setup")]
@@ -16,9 +18,12 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     #region private variables
     private RectTransform rectTransform;                                    // This objects rectTransform
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
-    private Vector2 originalPosition;                                       // This objects OriginalPosition
     private Image image;                                                    // This Object's image 
     private Canvas canvas;                                                  // Canvas Reference
+    private Vector2 zeroVector;                                             // 
+    private InventoryItem inventoryItem;
+
+    private Transform parentTransform;                                      // Reference to Parent Transform; 
 
     private bool hasBeenDropped;                                            // Dropped Boolean
     #endregion
@@ -38,12 +43,13 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         image = GetComponent<Image>();
+        inventoryItem = GetComponent<InventoryItem>();
 
         canvas ??= GetComponentInParent<Canvas>(true);
 
         // Sets the originalPositions values;
-        originalPosition = (Vector2)rectTransform.anchoredPosition;
-
+        parentTransform = transform.parent;
+        zeroVector = Vector2.zero;
     }
 
     /// <summary>
@@ -93,12 +99,15 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
         // If the object is not dropped, bring it back to its original position
         // else, call PlayerPlacedItem from GameEvents, using this bookTitle as its parameter. 
-
         if (!hasBeenDropped)
-            rectTransform.anchoredPosition = originalPosition;
+        {
+            transform.SetParent(parentTransform);
+            rectTransform.anchoredPosition = zeroVector;
+        }
         else
         {
             SingletonManager.Get<PlayerEvents>().PlayerPlacedItem(bookTitle);
+            transform.SetParent(eventData.pointerEnter.transform);
         }
     }
 
@@ -111,7 +120,9 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         if (id != this.id) return;
         if (dontReset) return;
 
-        rectTransform.anchoredPosition = originalPosition;
+        transform.SetParent(parentTransform);
+        rectTransform.anchoredPosition = zeroVector;
+
         hasBeenDropped = false;
 
         image.sprite = closedBook;

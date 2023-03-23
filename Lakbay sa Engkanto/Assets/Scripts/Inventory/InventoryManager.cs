@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (ItemDataList.Contains(itemData)) return;
 
-        SingletonManager.Get<GameEvents>().AddItemToInventory(itemData);
+        SingletonManager.Get<PlayerEvents>().AddItemToInventory(itemData);
 
         ItemDataList.Add(itemData);
     }
@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (!ItemDataList.Contains(itemData)) return;
 
-        SingletonManager.Get<GameEvents>().RemoveItemFromInventory(itemData);
+        SingletonManager.Get<PlayerEvents>().RemoveItemFromInventory(itemData);
 
         ItemDataList.Remove(itemData);
     }

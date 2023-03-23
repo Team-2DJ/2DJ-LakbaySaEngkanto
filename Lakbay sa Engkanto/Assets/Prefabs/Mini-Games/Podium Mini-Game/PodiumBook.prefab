@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 110939246772043885}
   - component: {fileID: 7410191665357282526}
   - component: {fileID: 5774721544676516071}
-  - component: {fileID: 6620749336992874312}
-  - component: {fileID: 1778703675563901064}
   - component: {fileID: 3378179216535582523}
+  - component: {fileID: -8936883175134272476}
+  - component: {fileID: 7110398517138577964}
   m_Layer: 5
   m_Name: PodiumBook
   m_TagString: Untagged
@@ -106,34 +106,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6620749336992874312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627514356192863577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8bfe1ad9cc61e488b50ebe5341b8b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1778703675563901064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627514356192863577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7fcb8f495070714f8373392b94f64d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  closedBook: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
-  openedBook: {fileID: -540363011, guid: 86535fe58c938314a8cedd0f6351014d, type: 3}
-  bookTitle: 
 --- !u!225 &3378179216535582523
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -146,3 +118,31 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-8936883175134272476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627514356192863577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fcb8f495070714f8373392b94f64d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  closedBook: {fileID: -540363011, guid: 86535fe58c938314a8cedd0f6351014d, type: 3}
+  openedBook: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
+  bookTitle: 
+--- !u!114 &7110398517138577964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627514356192863577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8bfe1ad9cc61e488b50ebe5341b8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

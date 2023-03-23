@@ -12,21 +12,9 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string, int, int> OnScoreChanged;                                   // TO BE REMOVED
 
-    public event Action<ItemData> OnAddItemToInventory, OnRemoveItemFromInventory;
-
     void Awake()
     {
         SingletonManager.Register(this);
-    }
-
-    public void AddItemToInventory(ItemData itemData)
-    {
-        OnAddItemToInventory?.Invoke(itemData);
-    }
-
-    public void RemoveItemFromInventory(ItemData itemData)
-    {
-        OnRemoveItemFromInventory?.Invoke(itemData);
     }
 
     public void OpenDoor(string id)
