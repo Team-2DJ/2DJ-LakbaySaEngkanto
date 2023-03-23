@@ -6,8 +6,12 @@ public class Destructor : MonoBehaviour
 {
     [SerializeField] private float destructionTime;
     
-    // Start is called before the first frame update
-    IEnumerator Start()
+    void OnEnable()
+    {
+        StartCoroutine(StartCountdown());
+    }
+
+    IEnumerator StartCountdown()
     {
         yield return new WaitForSeconds(destructionTime);
 
