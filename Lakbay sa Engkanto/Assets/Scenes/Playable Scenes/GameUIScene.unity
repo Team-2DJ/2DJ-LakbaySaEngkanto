@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1123,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1304,7 +1304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1539,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2045,7 +2045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2539,7 +2539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3096,6 +3096,10 @@ PrefabInstance:
     - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Name
       value: BookSortingMiniGame (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
@@ -3824,7 +3828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1112906175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4304,7 +4308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4547,6 +4551,10 @@ PrefabInstance:
     - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Name
       value: BookSortingMiniGame (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
@@ -4905,7 +4913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5212,6 +5220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookSortingMiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
       value: 
@@ -5329,7 +5341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6113,7 +6125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6362,7 +6374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1637686751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6643,7 +6655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6744,7 +6756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7465,6 +7477,10 @@ PrefabInstance:
     - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Name
       value: BookSortingMiniGame (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
