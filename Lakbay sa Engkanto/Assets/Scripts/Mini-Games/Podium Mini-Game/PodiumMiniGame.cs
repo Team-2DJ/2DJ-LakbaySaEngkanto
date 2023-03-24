@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PodiumMiniGame : MonoBehaviour
 {
+    [Header("Object Setup")]
+    [SerializeField] private string id;
+    [SerializeField] private PodiumSlot podiumSlot;
     [SerializeField] private GameObject inventorySlotHolder;
     [SerializeField] private GameObject inventoryItemPrefab;
-    [SerializeField] private PodiumSlot podiumSlot;
+
+    [Header("Gameplay Settings")]
+    [SerializeField] private GameObject page;
+    [SerializeField] private ItemData itemData;
+
+
     private Dictionary<ItemData, GameObject> itemDictionary = new();
     private List<InventorySlot> inventorySlots = new();
 
@@ -42,6 +50,11 @@ public class PodiumMiniGame : MonoBehaviour
         itemDictionary.Clear();
     }
 
+    private void Start()
+    {
+        podiumSlot.Initialize(id, itemData);
+    }
+
     private void ShowItem(ItemData itemData)
     {
         for (int i = 0; i < inventorySlots.Count; i++)
@@ -66,7 +79,7 @@ public class PodiumMiniGame : MonoBehaviour
         itemDictionary.TryAdd(itemData, newItem);
     }
 
-    private void CheckOrder()
+    public void CheckOrder()
     {
         if (IsComplete) return;
 
@@ -75,6 +88,8 @@ public class PodiumMiniGame : MonoBehaviour
             // Event that Corresponds to page being given; 
 
             IsComplete = true;
+
+            SingletonManager.Get<PlayerManager>().PlayerInventory.RemoveItem(podiumSlot.GetItemData());
 
             gameObject.SetActive(false);
         }

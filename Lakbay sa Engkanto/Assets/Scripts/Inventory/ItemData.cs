@@ -12,9 +12,11 @@ public class ItemData : ScriptableObject
 {
     [SerializeField] private string displayName;
     [SerializeField] private ItemType typeOfItem;
-    [SerializeField] private Sprite icon;
+    [SerializeField] private Sprite closedIcon;
+    [SerializeField] private Sprite openedIcon;
 
-    public Sprite GetIcon() { return icon; }
+    public Sprite GetClosedIcon() { return closedIcon; }
+    public Sprite GetOpenedIcon() { return openedIcon; }
     public ItemType GetTypeOfItem() { return typeOfItem; }
     public string GetDisplayName() { return displayName; }
 }

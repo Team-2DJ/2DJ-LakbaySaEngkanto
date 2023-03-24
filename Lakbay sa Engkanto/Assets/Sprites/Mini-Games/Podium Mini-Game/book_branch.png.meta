@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9ebaa9c33787b142858c4aefeb4e0d9
+guid: 343ab3a533e47fb4ea1e79a17ad8c42a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bookopen-pink_0
+      name: book_branch_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 586
-        height: 294
+        x: 600
+        y: 420
+        width: 800
+        height: 1165
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b77c715365245d14e81c0108baf0868d
-      internalID: -1931884748
+      spriteID: 56dc3039e92405542aa7a521ac655327
+      internalID: 1463271063
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,45 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bookopen-pink_0: -1931884748
+      book_branch_8: -2140275431
+      book_branch_12: 1309165155
+      book_branch_17: 1695807709
+      book_branch_3: -1796401815
+      book_branch_30: 1401600140
+      book_branch_36: -79089758
+      book_branch_33: 618820924
+      book_branch_29: 223839458
+      book_branch_23: -1822657294
+      book_branch_27: -1795123545
+      book_branch_38: -1606133245
+      book_branch_16: -817832187
+      book_branch_32: 342529508
+      book_branch_35: 1417577890
+      book_branch_14: -263506889
+      book_branch_22: -711359440
+      book_branch_24: -272501433
+      book_branch_11: -716401463
+      book_branch_28: -1376807512
+      book_branch_37: -1156257608
+      book_branch_31: 926070845
+      book_branch_13: -55657200
+      book_branch_0: -993926548
+      book_branch_20: -644115377
+      book_branch_2: 1161688355
+      book_branch_7: 1373823242
+      book_branch_1: -1851205399
+      book_branch_21: -42405907
+      book_branch_10: -581483602
+      book_branch_9: -1890332413
+      book_branch_15: 333112584
+      book_branch_5: -1441093845
+      book_branch_25: -1301061610
+      book_branch_18: -1810203580
+      book_branch_34: 1894174047
+      book_branch_19: 833548656
+      book_branch_4: -440981737
+      book_branch_6: 1463271063
+      book_branch_26: 1662602872
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

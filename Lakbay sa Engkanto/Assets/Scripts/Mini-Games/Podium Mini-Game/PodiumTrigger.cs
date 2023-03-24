@@ -33,6 +33,7 @@ public class PodiumTrigger : MonoBehaviour
     private void EnableBooksMiniGame()
     {
         SingletonManager.Get<UIEvents>().ActivatePanel(panelToActivate);
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }
 
     private void GameCompleted(string id, bool condition)

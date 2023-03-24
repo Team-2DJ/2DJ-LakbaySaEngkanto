@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e3f9d0b3ea1a704f80e0df667d4eba9
+guid: 80e8d763a03dc5343a92a02750a681d3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bookOpen-Branch
+      name: book_mangga_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 586
-        height: 294
+        x: 600
+        y: 420
+        width: 800
+        height: 1165
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c133b710017a0a24b9d5922a874da395
-      internalID: -1915876077
+      spriteID: 91a41a96c1f3f4045ad5855bb763b124
+      internalID: -1180046885
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bookOpen-Branch: -1915876077
+      book_mangga_0: -1180046885
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

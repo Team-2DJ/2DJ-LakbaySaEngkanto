@@ -13,6 +13,6 @@ public class InventoryItem : MonoBehaviour
         image ??= GetComponent<Image>();
 
         ItemData = newItem;
-        image.sprite = ItemData.GetIcon();
+        image.sprite = ItemData.GetClosedIcon();
     }
 }

@@ -20,7 +20,6 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
     private Image image;                                                    // This Object's image 
     private Canvas canvas;                                                  // Canvas Reference
-    private Vector2 zeroVector;                                             // 
     private InventoryItem inventoryItem;
 
     private Transform parentTransform;                                      // Reference to Parent Transform; 
@@ -49,7 +48,9 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
         // Sets the originalPositions values;
         parentTransform = transform.parent;
-        zeroVector = Vector2.zero;
+
+        closedBook = inventoryItem.ItemData.GetClosedIcon();
+        openedBook = inventoryItem.ItemData.GetOpenedIcon();
     }
 
     /// <summary>
@@ -102,11 +103,11 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         if (!hasBeenDropped)
         {
             transform.SetParent(parentTransform);
-            rectTransform.anchoredPosition = zeroVector;
+            rectTransform.anchoredPosition = Vector2.zero;
         }
         else
         {
-            SingletonManager.Get<PlayerEvents>().PlayerPlacedItem(bookTitle);
+            eventData.pointerEnter.GetComponent<PodiumSlot>().CheckAnswer(inventoryItem.ItemData);
             transform.SetParent(eventData.pointerEnter.transform);
         }
     }
@@ -121,7 +122,7 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         if (dontReset) return;
 
         transform.SetParent(parentTransform);
-        rectTransform.anchoredPosition = zeroVector;
+        rectTransform.anchoredPosition = Vector2.zero;
 
         hasBeenDropped = false;
 

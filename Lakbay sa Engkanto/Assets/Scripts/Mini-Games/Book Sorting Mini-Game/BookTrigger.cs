@@ -43,6 +43,7 @@ public class BookTrigger : MonoBehaviour
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Book Sorting Panel");
         SingletonManager.Get<UIEvents>().ActivatePanel(gameToActivate);
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
     }
 
     private void GameCompleted(string id, bool condition)

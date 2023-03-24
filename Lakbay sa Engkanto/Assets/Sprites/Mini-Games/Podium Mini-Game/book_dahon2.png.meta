@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 86535fe58c938314a8cedd0f6351014d
+guid: 261212d831932394e9a5a58611197617
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bookopen-blue_0
+      name: book_dahon2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 586
-        height: 294
+        x: 600
+        y: 420
+        width: 800
+        height: 1165
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eec9a1fa71eafdb428b5a82beb881405
-      internalID: -540363011
+      spriteID: 9436d7bc3be76ce438f52927b9418ff3
+      internalID: 1755530738
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bookopen-blue_0: -540363011
+      book_dahon2_0: 1755530738
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
