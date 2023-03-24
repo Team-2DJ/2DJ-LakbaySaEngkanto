@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float HorizontalInput { get; set; }                                    // Checks Player Input
     public bool IsTesting;                                                        // For Debugging Purposes
 
-    private PlayerSetup playerSetup;                                              // Player Setup Class Reference
+    private Player playerSetup;                                              // Player Setup Class Reference
     private float coyoteTimer;                                                    // Coyote Time Counter
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         // Cache-In Variables
-        playerSetup = GetComponent<PlayerSetup>();
+        playerSetup = GetComponent<Player>();
         CurrentSpeed = MovementSpeed;
         currentJumpAmount = MultipleJumpAmount;
         scale = transform.localScale;

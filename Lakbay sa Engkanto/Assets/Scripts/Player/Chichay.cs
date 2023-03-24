@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChichaySetup : MonoBehaviour
+public class Chichay : MonoBehaviour
 {
     public Transform Target { get; private set; }               // Player Follow Target
     public Animator Animator;                                   // Animator Controller Component Reference
