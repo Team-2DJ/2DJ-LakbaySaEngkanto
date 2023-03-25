@@ -40,15 +40,20 @@ public class PlayerSetup : MonoBehaviour
         if (SingletonManager.Get<PlayerManager>().PlayerSpawnPoint != new Vector2(0f, 0f))
             transform.position = SingletonManager.Get<PlayerManager>().PlayerSpawnPoint;
 
+        // Check If Player Has Encountered Chichay.
+        // If so, Spawn Chichay Prefab on Start-Up
         if (SingletonManager.Get<PlayerManager>().HasMetChichay)
-        {
             SpawnChichay();
-        }
     }
 
+    /// <summary>
+    /// Spawns a Prefab of Chichay, Marian's (The Player) Companion
+    /// </summary>
     public void SpawnChichay()
     {
-        ChichaySetup ch = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity).GetComponent<ChichaySetup>();
-        ch.Initialize(chichayFollowPoint);
+        ChichaySetup chichay = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity, this.transform).GetComponent<ChichaySetup>();
+        chichay.transform.SetParent(null);
+        chichay.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        chichay.Initialize(chichayFollowPoint);
     }
 }

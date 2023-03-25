@@ -41,6 +41,9 @@ public class HealthComponent : MonoBehaviour
     #region HP System
     public void TakeDamage(float damage)
     {
+        if (!IsAlive)
+            return;
+        
         // Decrement HP based on Damage
         CurrentHealth -= damage;
 
