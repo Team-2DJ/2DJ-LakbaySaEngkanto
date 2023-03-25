@@ -36,7 +36,7 @@ public class PressurePlateMiniGame : MonoBehaviour
 
         // Gets the pressurePlate from the correctIndex int and
         // then initializes it to be correct
-        pressurePlates[correctIndex].Initialize(doorToOpen, Type.CORRECT, correctAnswer);
+        pressurePlates[correctIndex]?.Initialize(doorToOpen, Type.CORRECT, correctAnswer);
 
         // This code block is used by the pressure plates which are wrong
         foreach (PressurePlate pressurePlate in pressurePlates)

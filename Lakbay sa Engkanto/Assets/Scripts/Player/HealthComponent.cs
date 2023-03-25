@@ -9,7 +9,7 @@ public class HealthComponent : MonoBehaviour
     public bool IsAlive { get; private set; }                                 // Life Condition Indicator
 
     [SerializeField] private SpriteRenderer PlayerSprite;
-    private PlayerSetup playerSetup;
+    private Player playerSetup;
 
     private bool isHurt;
 
@@ -27,7 +27,7 @@ public class HealthComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSetup = GetComponent<PlayerSetup>();
+        playerSetup = GetComponent<Player>();
         Initialize();
     }
     #endregion

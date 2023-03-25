@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1123,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1304,7 +1304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1539,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1754,8 +1754,8 @@ MonoBehaviour:
   m_text: bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
     bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
+  m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2045,7 +2045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2539,7 +2539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2571,6 +2571,7 @@ GameObject:
   - component: {fileID: 902231195}
   - component: {fileID: 902231194}
   - component: {fileID: 902231192}
+  - component: {fileID: 902231196}
   m_Layer: 5
   m_Name: JumpButton
   m_TagString: Untagged
@@ -2681,6 +2682,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902231190}
   m_CullTransparentMesh: 1
+--- !u!114 &902231196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902231190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 902231194}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &904174653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,8 +2761,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -476.29077, y: 72}
-  m_SizeDelta: {x: 328.9185, y: 66.6835}
+  m_AnchoredPosition: {x: -320.38, y: 72}
+  m_SizeDelta: {x: 640.75, y: 66.6835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &904174655
 MonoBehaviour:
@@ -2741,8 +2786,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CHICHAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
+  m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3096,6 +3141,10 @@ PrefabInstance:
     - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Name
       value: BookSortingMiniGame (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
@@ -3824,7 +3873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1112906175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4304,7 +4353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4547,6 +4596,10 @@ PrefabInstance:
     - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Name
       value: BookSortingMiniGame (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
@@ -4905,7 +4958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5212,6 +5265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookSortingMiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas
       value: 
@@ -5329,7 +5386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5494,6 +5551,10 @@ PrefabInstance:
     - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Name
       value: ShuffleTextMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Pivot.x
@@ -5901,7 +5962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1596583085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6109,7 +6170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6639,7 +6700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6740,7 +6801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2718721468053445149, guid: 3a5a3e03fb9577440a2c0d7ec39a9ab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7461,6 +7522,10 @@ PrefabInstance:
     - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: m_Name
       value: BookSortingMiniGame (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683620663204404054, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125828564467244514, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: canvas

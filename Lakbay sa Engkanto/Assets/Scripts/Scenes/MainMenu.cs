@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     {
         SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex = level;
 
-        string[] scenes = { "GameScene", "Level" + level, "GameUIScene" };
+        string[] scenes = { "GameScene", "GameUIScene", "Level" + level  };
 
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }

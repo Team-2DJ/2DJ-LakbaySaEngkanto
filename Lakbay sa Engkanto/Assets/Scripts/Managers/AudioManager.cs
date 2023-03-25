@@ -50,19 +50,6 @@ public class AudioManager : MonoBehaviour
     /// <param name="id"></param>
     public void Play(string id)
     {
-        /* TO BE DELETED ONCE APPROVED
-        // Find Audio in Audio Collections
-        foreach (AudioData audioData in audioCollections)
-        {
-            // Audio Found
-            if (id == audioData.Id)
-            {
-                audioData.Source.Play();
-                return;
-            }
-        }
-        */
-
         // Audio Not Found
         if (!audioDictionary.ContainsKey(id))
         {
@@ -76,24 +63,29 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Play an instance of the audio
+    /// </summary>
+    /// <param name="id"></param>
+    public void PlayOneShot(string id)
+    {
+        // Audio Not Found
+        if (!audioDictionary.ContainsKey(id))
+        {
+            Debug.LogWarning("Audio " + id + " cannot be found!");
+            return;
+        }
+
+        // Finds the key (ID) inside the audioDictionary
+        // Afterwards, play an audio instance. 
+        audioDictionary[id].Source.PlayOneShot(audioDictionary[id].Source.clip);
+    }
+
+    /// <summary>
     /// Stop Audio
     /// </summary>
     /// <param name="id"></param>
     public void Stop(string id)
     {
-        /* TO BE DELETED ONCE APPROVED
-        // Find Audio in Audio Collections
-        foreach (AudioData audioData in audioCollections)
-        {
-            // Audio Found
-            if (id == audioData.Id)
-            {
-                audioData.Source.Stop();
-                return;
-            }
-        }
-        */
-
         // Audio Not Found
         if (!audioDictionary.ContainsKey(id))
         {
@@ -114,19 +106,6 @@ public class AudioManager : MonoBehaviour
     /// <param name="amount"></param>
     public void ModifyPitch(string id, float amount)
     {
-        /* TO BE DELETED ONCE APPROVED
-        // Find Audio in Audio Collections
-        foreach (AudioData audioData in audioCollections)
-        {
-            // Audio Found
-            if (id == audioData.Id)
-            {
-                audioData.Source.pitch = amount;
-                return;
-            }
-        }
-        */
-
         // Audio Not Found
         if (!audioDictionary.ContainsKey(id))
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 // Manages Everything Relating to the Player
 public class PlayerManager : MonoBehaviour
 {
-    public PlayerSetup Player;                           // Player Game Object Reference
+    public Player Player { get; set; }                   // Player Game Object Reference
 
     public PlayerData PlayerData;                        // Player Data Class Reference
 
