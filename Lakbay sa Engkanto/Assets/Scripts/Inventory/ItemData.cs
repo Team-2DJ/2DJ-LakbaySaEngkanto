@@ -7,6 +7,9 @@ public enum ItemType
     PodiumBook
 }
 
+/// <summary>
+/// Contains the Inventory Item Data
+/// </summary>
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory Item")]
 public class ItemData : ScriptableObject
 {

@@ -2,21 +2,25 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Includes all the Logic for the Podium Game 
+/// </summary> 
 public class PodiumMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
-    [SerializeField] private string id;
-    [SerializeField] private PodiumSlot podiumSlot;
-    [SerializeField] private GameObject inventorySlotHolder;
-    [SerializeField] private GameObject inventoryItemPrefab;
+    [SerializeField] private string id;                                 // Object ID
+    [SerializeField] private PodiumSlot podiumSlot;                     // Podium Slot Reference
+    [SerializeField] private GameObject inventorySlotHolder;            // Object that holds the Inventory Slots
+    [SerializeField] private GameObject inventoryItemPrefab;            // Item that will be instatiated by the Inventory Slots
+
 
     [Header("Gameplay Settings")]
-    [SerializeField] private GameObject page;
-    [SerializeField] private ItemData itemData;
+    [SerializeField] private GameObject page;                           // Journal Page
+    [SerializeField] private ItemData itemData;                         // itemData that will be used for checking
 
 
-    private Dictionary<ItemData, GameObject> itemDictionary = new();
-    private List<InventorySlot> inventorySlots = new();
+    private Dictionary<ItemData, GameObject> itemDictionary = new();    // player inventory reference
+    private List<InventorySlot> inventorySlots = new();                 // List of all inventorySlots
 
     public bool IsComplete { get; private set; }
 
@@ -32,6 +36,7 @@ public class PodiumMiniGame : MonoBehaviour
 
     private void OnEnable()
     {
+        // Temporary reference for all items present in the Players inventory
         var itemDataList = SingletonManager.Get<PlayerManager>().PlayerInventory.ItemDataList;
 
         foreach (ItemData itemData in itemDataList)
@@ -42,11 +47,13 @@ public class PodiumMiniGame : MonoBehaviour
 
     private void OnDisable()
     {
+        // Once object gets disabled, destroy all InventoryItem found within the scene
         foreach (var item in itemDictionary)
         {
             Destroy(item.Value);
         }
 
+        // Clears the ItemDictionary
         itemDictionary.Clear();
     }
 
@@ -55,6 +62,10 @@ public class PodiumMiniGame : MonoBehaviour
         podiumSlot.Initialize(id, itemData);
     }
 
+    /// <summary>
+    /// Shows Items in the inventory slots
+    /// </summary>
+    /// <param name = "itemData"> Used as a Key for the Dictionary </param> 
     private void ShowItem(ItemData itemData)
     {
         for (int i = 0; i < inventorySlots.Count; i++)
@@ -70,6 +81,11 @@ public class PodiumMiniGame : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns items in the Inventory Slot based on the inventoryItemPrefab
+    /// </summary>
+    /// <param name = "itemData"> Used for intialization and as a key in the Dictionary </param> 
+    /// <param name = "slot">  Will be used as a parent of an item being instantiated </param> 
     private void SpawnInventorySlot(ItemData itemData, InventorySlot slot)
     {
         GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
@@ -85,7 +101,7 @@ public class PodiumMiniGame : MonoBehaviour
 
         if (podiumSlot.IsRight)
         {
-            // Event that Corresponds to page being given; 
+            // ADD THE PAGE BEING INSTANTIATED; 
 
             IsComplete = true;
 

@@ -20,7 +20,7 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
     private Image image;                                                    // This Object's image 
     private Canvas canvas;                                                  // Canvas Reference
-    private InventoryItem inventoryItem;
+    private InventoryItem inventoryItem;                                    // This objects Inventory Item
 
     private Transform parentTransform;                                      // Reference to Parent Transform; 
 
@@ -29,12 +29,12 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnSetCondition += ResetBookPiece;
+        SingletonManager.Get<GameEvents>().OnSetCondition += ResetPodiumBook;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnSetCondition -= ResetBookPiece;
+        SingletonManager.Get<GameEvents>().OnSetCondition -= ResetPodiumBook;
     }
 
     private void Start()
@@ -46,7 +46,7 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
         canvas ??= GetComponentInParent<Canvas>(true);
 
-        // Sets the originalPositions values;
+        // sets the Objects original parent
         parentTransform = transform.parent;
 
         closedBook = inventoryItem.ItemData.GetClosedIcon();
@@ -78,7 +78,7 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         // Allows for object movement based on Mouse Position; 
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
-        // If BookPiece is over PodiumSlot, open the book
+        // If PodiumBook is over PodiumSlot, open the book
         // else, close the book;
         image.sprite = eventData.pointerEnter?.GetComponent<PodiumSlot>() ? openedBook : closedBook;
     }
@@ -98,8 +98,8 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         // Sets the Dropped boolean if target object is a PodiumSlot.
         hasBeenDropped = eventData.pointerEnter?.GetComponent<PodiumSlot>();
 
-        // If the object is not dropped, bring it back to its original position
-        // else, call PlayerPlacedItem from GameEvents, using this bookTitle as its parameter. 
+        // If the object is not dropped, bring it back to its original parent
+        // else, get the podium slot from pointerEnter and call check answer using the itemData as the parameter. 
         if (!hasBeenDropped)
         {
             transform.SetParent(parentTransform);
@@ -113,14 +113,15 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     }
 
     /// <summary>
-    /// Resets the BookPiece back to its initial values
+    /// Resets the PodiumBook back to its initial values
     /// </summary>
     /// <param name="dontReset">conditional</param>
-    private void ResetBookPiece(string id, bool dontReset)
+    private void ResetPodiumBook(string id, bool dontReset)
     {
         if (id != this.id) return;
         if (dontReset) return;
 
+        // Set the object back to its original parent; 
         transform.SetParent(parentTransform);
         rectTransform.anchoredPosition = Vector2.zero;
 

@@ -56,10 +56,10 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     /// <summary>
     /// Checks if the book currently placed in this gameObject is correct. 
     /// </summary>
-    /// <param name="bookTitle">The Title of the Book</param>
+    /// <param name="itemData">The Podiums ItemData</param>
     public void CheckAnswer(ItemData itemData)
     {
-        // if the title of the book doesn't correspond with this gameObject, then return; 
+        // if the itemData of the book doesn't correspond with this itemData, then return; 
         if (itemData != this.itemData) return;
 
         IsRight = true;
