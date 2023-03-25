@@ -43,8 +43,14 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     void StartDialogue()
     {
+        // End Dialogue Immediately if Dialogue Data has No Content
+        if (dialogueData.Length - 1 <= 0)
+        {
+            EndDialogue();
+            return;
+        }
+        
         // Set Character Image and Name
-        image.sprite = dialogueData[currentDialogueIndex].CharacterImage;
         characterNameText.text = dialogueData[currentDialogueIndex].Name;
 
         StopAllCoroutines();
@@ -58,14 +64,16 @@ public class DialogueManager : MonoBehaviour
         // Set Sentence Text to Blank
         sentenceText.text = "";
 
+        image.sprite = dialogueData[currentDialogueIndex].CharacterDialogues[currentSentenceIndex].Image;
+
         // Disable Next Sentence Indicator
         animator.SetBool("isFinished", false);
 
         // Implement Typing Behavior for the Sentence
-        foreach (char s in dialogueData[currentDialogueIndex].Sentences[currentSentenceIndex])
+        foreach (char s in dialogueData[currentDialogueIndex].CharacterDialogues[currentSentenceIndex].Sentences)
         {
             sentenceText.text += s;
-            SingletonManager.Get<AudioManager>().Play(dialogueData[currentDialogueIndex].AudioID);
+            SingletonManager.Get<AudioManager>().PlayOneShot(dialogueData[currentDialogueIndex].AudioID);
             yield return new WaitForSeconds(typeSpeed);
         }
 
@@ -81,11 +89,7 @@ public class DialogueManager : MonoBehaviour
         // End Dialogue if there Are No More Dialogues
         if (currentDialogueIndex >= dialogueData.Length - 1)
         {
-            // Enable Player Movement
-            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
-
-            // Re-Open Game Panel
-            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+            EndDialogue();
             return;
         }
 
@@ -100,7 +104,7 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void NextSentence()
     {
-        if (currentSentenceIndex >= dialogueData[currentDialogueIndex].Sentences.Length - 1)
+        if (currentSentenceIndex >= dialogueData[currentDialogueIndex].CharacterDialogues.Length - 1)
         {
             // Reset Current Sentence Index
             currentSentenceIndex = 0;
@@ -116,5 +120,14 @@ public class DialogueManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(Type());
+    }
+
+    void EndDialogue()
+    {
+        // Enable Player Movement
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+
+        // Re-Open Game Panel
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
     }
 }

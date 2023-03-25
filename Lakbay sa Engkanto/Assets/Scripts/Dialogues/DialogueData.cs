@@ -6,10 +6,17 @@ using UnityEngine.UI;
 [System.Serializable]
 public class DialogueData
 {
-    public Sprite CharacterImage;               // Image of the Character Soeaking
-    public string Name;                         // Character's Name
-    public string AudioID;                      // Character's Voice
+    public string Name;                                        // Character's Name
+    public string AudioID;                                     // Character's Voice
+    public CharacterDialogue[] CharacterDialogues;             // Character's Sentences and Designated Emotions
 
-    [TextArea(3, 10)]
-    public string[] Sentences;                  // Character's Sentences
+    [System.Serializable]
+    public struct CharacterDialogue
+    {
+        public Sprite Image;             // Image of the Character Speaking
+                                                  // to Indicate Current Emotion
+        
+        [TextArea(3, 10)]
+        public string Sentences;                  // Character's Sentences
+    }
 }
