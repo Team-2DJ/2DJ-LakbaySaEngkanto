@@ -33,7 +33,7 @@ public class ObjectPooler : MonoBehaviour
     }
 
     // Spawns an Object from the Pool
-    public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation, Transform parent)
     {
         if (!PoolDictionary.ContainsKey(id))
         {
@@ -64,11 +64,14 @@ public class ObjectPooler : MonoBehaviour
             if (objPool.Id == id)
             {
                 // Spawn object and add poolable component
-                GameObject newObject = Instantiate(objPool.Prefab);
+                GameObject newObject = Instantiate(objPool.Prefab, position, rotation, parent);
 
                 // Set Position and Rotation
-                newObject.transform.position = position;
-                newObject.transform.rotation = rotation;
+                //newObject.transform.position = position;
+                //newObject.transform.rotation = rotation;
+
+                //newObject.transform.parent = parent;
+                newObject.transform.parent = null;
 
                 // Add Gameobject to List
                 PoolDictionary[id].Add(newObject);

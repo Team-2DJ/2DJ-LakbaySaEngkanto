@@ -17,8 +17,8 @@ public class ChichayMovement : MonoBehaviour
     private States currentState;                                            // Current State
     private Vector3 scale;                                                  // Default Scale Reference
 
-    private PlayerSetup player;                                             // Player Reference
-    private ChichaySetup chichaySetup;                                      // ChichaySetup Class Reference
+    private Player player;                                             // Player Reference
+    private Chichay chichaySetup;                                      // ChichaySetup Class Reference
 
     private void OnEnable()
     {
@@ -39,7 +39,7 @@ public class ChichayMovement : MonoBehaviour
         // Initialize Current Speed
         currentSpeed = MovementSpeed;
 
-        chichaySetup = GetComponent<ChichaySetup>();
+        chichaySetup = GetComponent<Chichay>();
 
         player = SingletonManager.Get<PlayerManager>().Player;
     }

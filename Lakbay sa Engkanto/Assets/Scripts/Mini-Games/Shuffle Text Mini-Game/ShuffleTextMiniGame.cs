@@ -87,6 +87,10 @@ public class ShuffleTextMiniGame : MonoBehaviour
             // Place it in the Letter Item Holder
             shuffleLetterItem.transform.SetParent(letterItemHolder);
 
+            // Maintain Default Scale
+            float scaleValue = 1.5f;
+            shuffleLetterItem.transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
+
             // Add to the List and Set its Name
             shuffleLetterList.Add(shuffleLetterItem);
             shuffleLetterItem.name = c.ToString();

@@ -45,11 +45,10 @@ public class InteractiveCutsceneManager : MonoBehaviour
             // Clamp Current Index to the Max Length of Panel Sprites
             currentIndex = panelSprites.Length - 1;
 
-            // Return Back to Game Panel
-            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+            CanvasGroup canvas = panelImage.gameObject.GetComponent<CanvasGroup>();
 
-            // Enable Player Movement
-            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+            canvas.alpha = 1f;
+            canvas.DOFade(0, 1f).OnComplete(() => EndCutscene());
         }
         else
         {
@@ -74,5 +73,14 @@ public class InteractiveCutsceneManager : MonoBehaviour
 
         canvas.alpha = 0f;
         canvas.DOFade(1, 1f).OnComplete(() => isTransitioning = false);
+    }
+
+    void EndCutscene()
+    {
+        // Return Back to Game Panel
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+
+        // Enable Player Movement
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }
 }

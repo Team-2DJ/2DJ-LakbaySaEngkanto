@@ -72,7 +72,7 @@ public class DodgingMiniGame : MiniGame
                 Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
                 // Spawn GameObject From Pool
-                GameObject go = SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomIndex], randomPosition, randomRotation);
+                GameObject go = SingletonManager.Get<ObjectPooler>().SpawnFromPool(fallingItems[randomIndex], randomPosition, randomRotation, this.transform);
                 go.transform.SetParent(spawnArea.transform);
             }
 

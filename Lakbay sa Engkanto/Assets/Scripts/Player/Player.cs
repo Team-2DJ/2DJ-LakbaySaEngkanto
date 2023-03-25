@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Initializes All Player Properties
 [RequireComponent(typeof(HealthComponent), typeof(PlayerMovement))]
-public class PlayerSetup : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public Rigidbody2D Rb { get; private set; }                                             // Rigidbody2D Component Reference
     public HealthComponent HealthComponent { get; private set; }                            // HealthComponent Class Reference
@@ -14,13 +14,11 @@ public class PlayerSetup : MonoBehaviour
 
     [SerializeField] private Transform chichayFollowPoint;                                  // Point Where Chichay Needs to Go to
 
-    // TO BE REMOVED
     private void OnEnable()
     {
         SingletonManager.Get<PlayerManager>().Player = this;
     }
 
-    // TO BE REMOVED
     private void OnDisable()
     {
         SingletonManager.Get<PlayerManager>().Player = null;
@@ -51,7 +49,7 @@ public class PlayerSetup : MonoBehaviour
     /// </summary>
     public void SpawnChichay()
     {
-        ChichaySetup chichay = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity, this.transform).GetComponent<ChichaySetup>();
+        Chichay chichay = Instantiate(SingletonManager.Get<PlayerManager>().ChichayPrefab, transform.position, Quaternion.identity, this.transform).GetComponent<Chichay>();
         chichay.transform.SetParent(null);
         chichay.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
         chichay.Initialize(chichayFollowPoint);
