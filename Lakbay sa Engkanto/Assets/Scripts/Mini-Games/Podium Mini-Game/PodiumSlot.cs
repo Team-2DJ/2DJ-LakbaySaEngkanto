@@ -8,24 +8,20 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     [SerializeField] private string id;
 
     [Header("Gameplay Settings")]
-    [SerializeField] private string bookTitle;
+    [SerializeField] private ItemData itemData;
 
     private RectTransform rectTransform;
     public bool IsRight { get; private set; }
 
-    private void OnEnable()
-    {
-        SingletonManager.Get<PlayerEvents>().OnPlayerPlacedItem += CheckAnswer;
-    }
-
-    private void OnDisable()
-    {
-        SingletonManager.Get<PlayerEvents>().OnPlayerPlacedItem -= CheckAnswer;
-    }
-
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+    }
+
+    public void Initialize(string id, ItemData itemData)
+    {
+        this.id = id;
+        this.itemData = itemData;
     }
 
     /// <summary>
@@ -41,6 +37,7 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
             RectTransform droppedObject = eventData.pointerDrag.GetComponent<RectTransform>();
 
             // sets droppedObject position == this objects position; 
+            droppedObject.sizeDelta = rectTransform.sizeDelta;
             droppedObject.anchoredPosition = rectTransform.anchoredPosition;
         }
     }
@@ -59,12 +56,17 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     /// <summary>
     /// Checks if the book currently placed in this gameObject is correct. 
     /// </summary>
-    /// <param name="bookTitle">The Title of the Book</param>
-    private void CheckAnswer(string bookTitle)
+    /// <param name="itemData">The Podiums ItemData</param>
+    public void CheckAnswer(ItemData itemData)
     {
-        // if the title of the book doesn't correspond with this gameObject, then return; 
-        if (bookTitle != this.bookTitle) return;
+        // if the itemData of the book doesn't correspond with this itemData, then return; 
+        if (itemData != this.itemData) return;
 
         IsRight = true;
+    }
+
+    public ItemData GetItemData()
+    {
+        return itemData;
     }
 }

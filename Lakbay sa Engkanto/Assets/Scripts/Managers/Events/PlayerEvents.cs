@@ -10,6 +10,8 @@ public class PlayerEvents : MonoBehaviour
 
     public event Action<string> OnPlayerCollectItem, OnPlayerPlacedItem;                    // Called by player when collecting or placing an item
 
+    public event Action<ItemData> OnAddItemToInventory, OnRemoveItemFromInventory;
+
     public event Action<bool> OnSetPlayerMovement;                                          // Player Movement
 
     void Awake()
@@ -25,6 +27,15 @@ public class PlayerEvents : MonoBehaviour
     public void PlayerCollectItem(string id)
     {
         OnPlayerCollectItem?.Invoke(id);
+    }
+
+    public void AddItemToInventory(ItemData itemData)
+    {
+        OnAddItemToInventory?.Invoke(itemData);
+    }
+    public void RemoveItemFromInventory(ItemData itemData)
+    {
+        OnRemoveItemFromInventory?.Invoke(itemData);
     }
 
     public void PlayerPlacedItem(string id)
