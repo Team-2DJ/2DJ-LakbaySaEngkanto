@@ -11,6 +11,7 @@ public class InteractiveCutsceneManager : MonoBehaviour
 
     private int currentIndex;                                                           // Current Panel Index
     private Sprite[] panelSprites;                                                      // Panel Sprite Array
+    private CanvasGroup canvas;                                                         // PanelImage Canvas Group Component Reference
 
     private bool isTransitioning;                                                       // Indicates if Panel is Undergoing DoTween Animation
 
@@ -23,6 +24,9 @@ public class InteractiveCutsceneManager : MonoBehaviour
 
     public void Initialize(Sprite[] panels)
     {
+        if (canvas == null)
+            canvas = panelImage.gameObject.GetComponent<CanvasGroup>();
+
         currentIndex = 0;
         panelSprites = panels;
         isTransitioning = false;
@@ -45,7 +49,7 @@ public class InteractiveCutsceneManager : MonoBehaviour
             // Clamp Current Index to the Max Length of Panel Sprites
             currentIndex = panelSprites.Length - 1;
 
-            CanvasGroup canvas = panelImage.gameObject.GetComponent<CanvasGroup>();
+            isTransitioning = true;
 
             canvas.alpha = 1f;
             canvas.DOFade(0, 1f).OnComplete(() => EndCutscene());
@@ -68,8 +72,7 @@ public class InteractiveCutsceneManager : MonoBehaviour
     {
         panelImage.sprite = panelSprites[index];
 
-        isTransitioning = true; 
-        CanvasGroup canvas = panelImage.gameObject.GetComponent<CanvasGroup>();
+        isTransitioning = true;
 
         canvas.alpha = 0f;
         canvas.DOFade(1, 1f).OnComplete(() => isTransitioning = false);
@@ -77,6 +80,8 @@ public class InteractiveCutsceneManager : MonoBehaviour
 
     void EndCutscene()
     {
+        isTransitioning = false;
+
         // Return Back to Game Panel
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
 
