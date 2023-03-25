@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hurt1
   m_EditorClassIdentifier: 
   id: Hurt 1
-  clip: {fileID: 8300000, guid: 2240e0df9b079aa4fb775af89413be00, type: 3}
+  clip: {fileID: 8300000, guid: c590c0c446339c749bc9fecb9032f2f7, type: 3}
   type: 1
   priority: 0
   volume: 1
