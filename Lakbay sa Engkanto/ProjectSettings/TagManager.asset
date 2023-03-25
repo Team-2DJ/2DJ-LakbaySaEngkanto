@@ -47,11 +47,14 @@ TagManager:
   - name: BackEffect
     uniqueID: 4002932623
     locked: 0
-  - name: Ground
-    uniqueID: 547511089
-    locked: 0
   - name: Checkpoint
     uniqueID: 2495380691
+    locked: 0
+  - name: Item
+    uniqueID: 3423858661
+    locked: 0
+  - name: Ground
+    uniqueID: 547511089
     locked: 0
   - name: Enemy
     uniqueID: 789387049
@@ -61,7 +64,4 @@ TagManager:
     locked: 0
   - name: ForeEffect
     uniqueID: 3424368845
-    locked: 0
-  - name: Item
-    uniqueID: 3423858661
     locked: 0

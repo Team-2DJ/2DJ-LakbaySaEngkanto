@@ -627,7 +627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245aad2abcfaf544f89b319b08979510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   PlayerData: {fileID: 426985624}
   ChichayPrefab: {fileID: 485208372059924498, guid: c2c60faf102ecd64aa85c23c1378f47f, type: 3}
 --- !u!4 &913939662

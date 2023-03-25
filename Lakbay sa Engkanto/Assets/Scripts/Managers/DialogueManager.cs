@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
     void StartDialogue()
     {
         // End Dialogue Immediately if Dialogue Data has No Content
-        if (dialogueData.Length - 1 <= 0)
+        if (dialogueData.Length - 1 < 0)
         {
             EndDialogue();
             return;
@@ -122,6 +122,9 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(Type());
     }
 
+    /// <summary>
+    /// End the Dialogue
+    /// </summary>
     void EndDialogue()
     {
         // Enable Player Movement
