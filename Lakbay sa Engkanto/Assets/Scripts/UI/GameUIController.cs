@@ -9,32 +9,15 @@ using TMPro;
 /// </summary>
 public class GameUIController : MonoBehaviour
 {
-    [SerializeField] private GameObject JournalButtonReference;
-    [SerializeField] private string id;
-
-    private void OnEnable()
-    {
-        // NOTE: MIGHT BE MOVED IN THE FUTURE
-        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem += JournalButtonActivate;
-    }
-
-    private void OnDisable()
-    {
-        // NOTE: MIGHT BE MOVED IN THE FUTURE
-        SingletonManager.Get<PlayerEvents>().OnPlayerCollectItem -= JournalButtonActivate;
-    }
-
     void Start()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
-        //JournalButtonReference.SetActive(false);
     }
 
-    // TO BE FIXED!!!
     public void OnJournalButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Journal Panel");
-        
+        Time.timeScale = 0f;
     }
 
     public void OnPauseButtonClicked()
@@ -56,13 +39,5 @@ public class GameUIController : MonoBehaviour
         string[] scenes = { "MainMenuScene" };
 
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);
-    }
-
-    public void JournalButtonActivate(string id)
-    {
-        if (id != this.id)
-            return;
-
-        JournalButtonReference.SetActive(true);
     }
 }
