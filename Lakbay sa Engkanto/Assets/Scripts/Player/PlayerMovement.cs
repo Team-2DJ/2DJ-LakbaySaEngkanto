@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public float HorizontalInput { get; set; }                                    // Checks Player Input
     public bool IsTesting;                                                        // For Debugging Purposes
 
-    private Player playerSetup;                                              // Player Setup Class Reference
+    private Player playerSetup;                                                   // Player Setup Class Reference
     private float coyoteTimer;                                                    // Coyote Time Counter
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
-    private bool canMove;
+    private bool canMove;                                                         // Indicates if Player Can Move
 
     private void OnEnable()
     {

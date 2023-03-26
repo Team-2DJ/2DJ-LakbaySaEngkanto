@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ecf0b5a8e51db42985a14f7230db82, type: 3}
   m_Name: KapreVoice
   m_EditorClassIdentifier: 
-  id: 
-  clip: {fileID: 0}
-  type: 0
+  id: Kapre Voice
+  clip: {fileID: 8300000, guid: 33d14692205c53e4b95eaa5bef1dbf25, type: 3}
+  type: 1
   priority: 0
-  volume: 0
-  pitch: 0
+  volume: 1
+  pitch: 1
   playOnAwake: 0
   loop: 0
   spatialBlend: 0

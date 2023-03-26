@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private SpriteRenderer PlayerSprite;
+
+    [Header("Properties")]
     [SerializeField] private float DefaultHealth;                             // Default HP
+    [SerializeField] private string[] hurtIds;                                // Hurt ID Array
+
     public float CurrentHealth { get; private set; }                          // Current HP
     public bool IsAlive { get; private set; }                                 // Life Condition Indicator
 
-    [SerializeField] private SpriteRenderer PlayerSprite;
+    
     private Player playerSetup;
 
     private bool isHurt;
@@ -53,6 +59,11 @@ public class HealthComponent : MonoBehaviour
             // Clamp HP to 0
             // Prevents Negative HP
             CurrentHealth = 0f;
+
+            int randomNumber = Random.Range(0, hurtIds.Length);
+
+            // Play Sound
+            SingletonManager.Get<AudioManager>().Play(hurtIds[randomNumber]);
 
             // Call Death
             StartCoroutine(OnDeath());
