@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelNavigator : MonoBehaviour
+public class Journal : MonoBehaviour
 {
     public Transform PageHolder;
     public PageData[] Pages;
