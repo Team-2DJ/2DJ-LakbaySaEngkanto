@@ -12,9 +12,6 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     [SerializeField] private string id;                                     // Object ID
     [SerializeField] private Sprite closedBook, openedBook;                 // Image States 
 
-    [Header("Gameplay Settings")]
-    [SerializeField] private string bookTitle;                              // Title of the Book
-
     #region private variables
     private RectTransform rectTransform;                                    // This objects rectTransform
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
@@ -53,6 +50,11 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
         closedBook = inventoryItem.ItemData.GetClosedIcon();
         openedBook = inventoryItem.ItemData.GetOpenedIcon();
+    }
+
+    public void Initialize(string _id)
+    {
+        id = _id;
     }
 
     /// <summary>

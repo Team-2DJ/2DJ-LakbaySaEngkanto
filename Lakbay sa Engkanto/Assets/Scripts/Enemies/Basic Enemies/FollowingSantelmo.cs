@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum States
+enum States
 {
     IDLE,
     CHASE

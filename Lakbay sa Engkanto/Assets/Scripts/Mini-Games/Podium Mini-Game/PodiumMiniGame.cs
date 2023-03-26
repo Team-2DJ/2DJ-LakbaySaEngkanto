@@ -16,6 +16,7 @@ public class PodiumMiniGame : MonoBehaviour
 
 
     [Header("Gameplay Settings")]
+    [SerializeField] private string doorToOpen;                         // Door To Open string
     [TextArea(3, 10)]
     [SerializeField] private string question;                           // The Question that will be shown
     [SerializeField] private GameObject page;                           // Journal Page to Instatiate
@@ -96,6 +97,8 @@ public class PodiumMiniGame : MonoBehaviour
         InventoryItem inventoryItem = newItem.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(itemData);
 
+        newItem.GetComponent<PodiumBook>().Initialize(id);
+
         itemDictionary.TryAdd(itemData, newItem);
     }
 
@@ -107,12 +110,33 @@ public class PodiumMiniGame : MonoBehaviour
         {
             // ADD THE PAGE BEING INSTANTIATED; 
 
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+
+            SingletonManager.Get<GameEvents>().SetCondition(id, true);
+
             IsComplete = true;
+
+            gameObject.SetActive(false);
 
             SingletonManager.Get<PlayerManager>().PlayerInventory.RemoveItem(podiumSlot.GetItemData());
 
-            gameObject.SetActive(false);
+            // Turns back on PlayerMovement 
+            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+
+            // Turns back on Game Panel
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         }
+        else
+        {
+            // Invoke a false boolean that listeners will receive. 
+            SingletonManager.Get<GameEvents>().SetCondition(id, false);
+        }
+    }
+
+    public void OnCloseButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }
 
     public string GetID()
