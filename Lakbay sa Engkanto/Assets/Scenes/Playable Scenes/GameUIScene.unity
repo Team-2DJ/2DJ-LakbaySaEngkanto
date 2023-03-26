@@ -1311,6 +1311,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5398910520446537315, guid: 55484c51f2734bd4fa35d259cbd63864, type: 3}
   m_PrefabInstance: {fileID: 430174053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &430174055 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5398910520446537314, guid: 55484c51f2734bd4fa35d259cbd63864, type: 3}
+  m_PrefabInstance: {fileID: 430174053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed7dc89da33f6a4da443c4f8424b81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473283169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,6 +2176,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5398910520446537315, guid: 55484c51f2734bd4fa35d259cbd63864, type: 3}
   m_PrefabInstance: {fileID: 790317470}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &790317472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5398910520446537314, guid: 55484c51f2734bd4fa35d259cbd63864, type: 3}
+  m_PrefabInstance: {fileID: 790317470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed7dc89da33f6a4da443c4f8424b81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830229209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   podiumSortingMiniGames:
   - {fileID: 1906896890}
+  - {fileID: 790317472}
+  - {fileID: 430174055}
+  - {fileID: 1291455294}
 --- !u!225 &972994139
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4715,8 +4740,7 @@ PrefabInstance:
         ngunit kapag hinubad
         ang balat, parang mahinang bulaklak
 
-        Hindi tutumba kahit ako''y
-        itulak.
+        Hindi tutumba kahit ako''y itulak.
 
 '
       objectReference: {fileID: 0}
@@ -4815,6 +4839,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5398910520446537315, guid: 55484c51f2734bd4fa35d259cbd63864, type: 3}
   m_PrefabInstance: {fileID: 1291455292}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1291455294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5398910520446537314, guid: 55484c51f2734bd4fa35d259cbd63864, type: 3}
+  m_PrefabInstance: {fileID: 1291455292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed7dc89da33f6a4da443c4f8424b81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1373890530
 PrefabInstance:
   m_ObjectHideFlags: 0

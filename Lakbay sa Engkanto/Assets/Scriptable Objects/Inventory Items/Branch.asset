@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Book
   typeOfItem: 0
-  closedIcon: {fileID: -367239873, guid: eae5264b7e5654949babbb47db9028d2, type: 3}
-  openedIcon: {fileID: 1651729312, guid: 612026a6b62f9e3498e8d4290c8b6cb6, type: 3}
+  closedIcon: {fileID: 1463271063, guid: 343ab3a533e47fb4ea1e79a17ad8c42a, type: 3}
+  openedIcon: {fileID: -1915876077, guid: 8e3f9d0b3ea1a704f80e0df667d4eba9, type: 3}
