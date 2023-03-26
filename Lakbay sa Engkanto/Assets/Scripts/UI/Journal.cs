@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Journal : MonoBehaviour
 {
-    public Transform PageHolder;
-    public PageData[] Pages;
+    [SerializeField] private Transform pageHolder;
+    private PageData[] pages;
 
     private int currentPage;
+
+    public int Level;
 
     public struct PageData
     {
@@ -22,26 +24,30 @@ public class Journal : MonoBehaviour
         ActivatePage(currentPage);
     }
 
-    void Awake()
+    void Start()
     {
         // Initialize Page Holder
-        Pages = new PageData[PageHolder.childCount];
+        pages = new PageData[pageHolder.childCount];
 
-        for (int i = 0; i < PageHolder.childCount; i++)
+        for (int i = 0; i < pageHolder.childCount; i++)
         {
-            Pages[i].PageNumber = i;
-            Pages[i].PageObject = PageHolder.GetChild(i).gameObject;
+            pages[i].PageNumber = i;
+            pages[i].PageObject = pageHolder.GetChild(i).gameObject;
         }
     }
 
-    // Return Button
-    public void OnReturnButtonClicked()
+    /// <summary>
+    /// Close Button
+    /// </summary>
+    public void OnCloseButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         Time.timeScale = 1f;
     }
 
-    // Previous Button
+    /// <summary>
+    /// Previous Button
+    /// </summary>
     public void OnPreviousButtonClicked()
     {
         currentPage--;
@@ -54,25 +60,35 @@ public class Journal : MonoBehaviour
         ActivatePage(currentPage);
     }
 
-    // Next Button
+    /// <summary>
+    /// Next Button
+    /// </summary>
     public void OnNextButtonClicked()
     {
+        if (currentPage >= Level)
+        {
+            Debug.Log("Not yet unlocked");
+            return;
+        }
+            
+        
         currentPage++;
 
-        if (currentPage >= Pages.Length)
+        if (currentPage >= pages.Length)
         {
-            currentPage = Pages.Length - 1;
+            currentPage = pages.Length - 1;
         }
 
         ActivatePage(currentPage);
     }
 
-    // Activate Page Index
+    /// <summary>
+    /// Activate Page Index
+    /// </summary>
+    /// <param name="pageNumber"></param>
     public void ActivatePage(int pageNumber)
     {
-        for (int i = 0; i < Pages.Length; i++)
-        {
-            Pages[i].PageObject.SetActive(Pages[i].PageNumber == pageNumber);
-        }
+        for (int i = 0; i < pages.Length; i++)
+            pages[i].PageObject.SetActive(pages[i].PageNumber == pageNumber);
     }
 }
