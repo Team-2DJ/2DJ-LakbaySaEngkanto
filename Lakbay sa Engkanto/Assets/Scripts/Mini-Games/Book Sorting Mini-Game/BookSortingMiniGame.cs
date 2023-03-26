@@ -112,6 +112,7 @@ public class BookSortingMiniGame : MonoBehaviour
     public void OnCloseButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }
 
     public string GetID()
