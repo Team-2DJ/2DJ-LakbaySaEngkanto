@@ -1,4 +1,4 @@
-using System.Linq;
+using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,10 +12,14 @@ public class PodiumMiniGame : MonoBehaviour
     [SerializeField] private PodiumSlot podiumSlot;                     // Podium Slot Reference
     [SerializeField] private GameObject inventorySlotHolder;            // Object that holds the Inventory Slots
     [SerializeField] private GameObject inventoryItemPrefab;            // Item that will be instatiated by the Inventory Slots
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;           // TMPro reference
 
 
     [Header("Gameplay Settings")]
-    [SerializeField] private GameObject page;                           // Journal Page
+    [SerializeField] private string doorToOpen;                         // Door To Open string
+    [TextArea(3, 10)]
+    [SerializeField] private string question;                           // The Question that will be shown
+    [SerializeField] private GameObject page;                           // Journal Page to Instatiate
     [SerializeField] private ItemData itemData;                         // itemData that will be used for checking
 
 
@@ -59,6 +63,7 @@ public class PodiumMiniGame : MonoBehaviour
 
     private void Start()
     {
+        textMeshProUGUI.text = question;
         podiumSlot.Initialize(id, itemData);
     }
 
@@ -92,6 +97,8 @@ public class PodiumMiniGame : MonoBehaviour
         InventoryItem inventoryItem = newItem.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(itemData);
 
+        newItem.GetComponent<PodiumBook>().Initialize(id);
+
         itemDictionary.TryAdd(itemData, newItem);
     }
 
@@ -103,11 +110,37 @@ public class PodiumMiniGame : MonoBehaviour
         {
             // ADD THE PAGE BEING INSTANTIATED; 
 
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+
+            SingletonManager.Get<GameEvents>().SetCondition(id, true);
+
             IsComplete = true;
+
+            gameObject.SetActive(false);
 
             SingletonManager.Get<PlayerManager>().PlayerInventory.RemoveItem(podiumSlot.GetItemData());
 
-            gameObject.SetActive(false);
+            // Turns back on PlayerMovement 
+            SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+
+            // Turns back on Game Panel
+            SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         }
+        else
+        {
+            // Invoke a false boolean that listeners will receive. 
+            SingletonManager.Get<GameEvents>().SetCondition(id, false);
+        }
+    }
+
+    public void OnCloseButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+    }
+
+    public string GetID()
+    {
+        return id;
     }
 }
