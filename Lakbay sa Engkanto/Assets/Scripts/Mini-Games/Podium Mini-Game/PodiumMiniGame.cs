@@ -16,6 +16,7 @@ public class PodiumMiniGame : MonoBehaviour
 
 
     [Header("Gameplay Settings")]
+    [TextArea(3, 10)]
     [SerializeField] private string question;                           // The Question that will be shown
     [SerializeField] private GameObject page;                           // Journal Page to Instatiate
     [SerializeField] private ItemData itemData;                         // itemData that will be used for checking
@@ -112,5 +113,10 @@ public class PodiumMiniGame : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+    }
+
+    public string GetID()
+    {
+        return id;
     }
 }

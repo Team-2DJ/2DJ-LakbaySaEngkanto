@@ -71,8 +71,7 @@ MonoBehaviour:
     Meron akong kamay
     ngunit hindi ako makasulat.
 
-    Mapayat man ako pero kaya kong magbuhat ng
-    mabigat.'
+    Mapayat man ako pero kaya kong magbuhat ng mabigat.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
@@ -368,7 +367,7 @@ MonoBehaviour:
   podiumSlot: {fileID: 2452591340834895677}
   inventorySlotHolder: {fileID: 5398910520863681626}
   inventoryItemPrefab: {fileID: 4627514356192863577, guid: 8567ecdadb6fb3b43a3280c44aa16ed7, type: 3}
-  textMeshProUGUI: {fileID: 0}
+  textMeshProUGUI: {fileID: 9055154814705670070}
   question: 
   page: {fileID: 0}
   itemData: {fileID: 11400000, guid: 3649a7cfd4de9ff45a53089b19d2c43a, type: 2}
