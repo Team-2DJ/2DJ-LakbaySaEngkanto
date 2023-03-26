@@ -11,7 +11,18 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     [SerializeField] private ItemData itemData;
 
     private RectTransform rectTransform;
+    private bool isOccupied;
     public bool IsRight { get; private set; }
+
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnSetCondition += ResetBookSlot;
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnSetCondition -= ResetBookSlot;
+    }
 
     private void Start()
     {
@@ -33,6 +44,7 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
         // if an object is dropped, then pointerDrag != null
         if (eventData.pointerDrag != null)
         {
+            isOccupied = true;
 
             RectTransform droppedObject = eventData.pointerDrag.GetComponent<RectTransform>();
 
@@ -50,6 +62,8 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     {
         if (eventData.pointerDrag != null)
         {
+            isOccupied = false;
+            IsRight = false;
         }
     }
 
@@ -59,10 +73,25 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
     /// <param name="itemData">The Podiums ItemData</param>
     public void CheckAnswer(ItemData itemData)
     {
+        // if the bookSlot is currently not occupied, then return; 
+        if (!isOccupied) return;
         // if the itemData of the book doesn't correspond with this itemData, then return; 
         if (itemData != this.itemData) return;
 
         IsRight = true;
+    }
+
+    /// <summary>
+    /// Resets the BookSlot back to its initial values
+    /// </summary>
+    /// <param name="dontReset">conditional</param>
+    private void ResetBookSlot(string id, bool dontReset)
+    {
+        if (id != this.id) return;
+        if (dontReset) return;
+
+        isOccupied = false;
+        IsRight = false;
     }
 
     public ItemData GetItemData()
