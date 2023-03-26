@@ -1,4 +1,4 @@
-using System.Linq;
+using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,10 +12,12 @@ public class PodiumMiniGame : MonoBehaviour
     [SerializeField] private PodiumSlot podiumSlot;                     // Podium Slot Reference
     [SerializeField] private GameObject inventorySlotHolder;            // Object that holds the Inventory Slots
     [SerializeField] private GameObject inventoryItemPrefab;            // Item that will be instatiated by the Inventory Slots
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;           // TMPro reference
 
 
     [Header("Gameplay Settings")]
-    [SerializeField] private GameObject page;                           // Journal Page
+    [SerializeField] private string question;                           // The Question that will be shown
+    [SerializeField] private GameObject page;                           // Journal Page to Instatiate
     [SerializeField] private ItemData itemData;                         // itemData that will be used for checking
 
 
@@ -59,6 +61,7 @@ public class PodiumMiniGame : MonoBehaviour
 
     private void Start()
     {
+        textMeshProUGUI.text = question;
         podiumSlot.Initialize(id, itemData);
     }
 
