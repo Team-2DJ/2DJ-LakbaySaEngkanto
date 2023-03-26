@@ -15,12 +15,28 @@ public class OnScreenInventory : MonoBehaviour
 
     private void OnEnable()
     {
+        var itemDataList = SingletonManager.Get<PlayerManager>().PlayerInventory.ItemDataList;
+
+        foreach (ItemData itemData in itemDataList)
+        {
+            ShowItem(itemData);
+        }
+
         SingletonManager.Get<PlayerEvents>().OnAddItemToInventory += ShowItem;
         SingletonManager.Get<PlayerEvents>().OnRemoveItemFromInventory += RemoveItem;
     }
 
     private void OnDisable()
     {
+        // Once object gets disabled, destroy all InventoryItem found within the scene
+        foreach (var item in itemDictionary)
+        {
+            Destroy(item.Value);
+        }
+
+        // Clears the ItemDictionary
+        itemDictionary.Clear();
+
         SingletonManager.Get<PlayerEvents>().OnAddItemToInventory -= ShowItem;
         SingletonManager.Get<PlayerEvents>().OnRemoveItemFromInventory -= RemoveItem;
     }

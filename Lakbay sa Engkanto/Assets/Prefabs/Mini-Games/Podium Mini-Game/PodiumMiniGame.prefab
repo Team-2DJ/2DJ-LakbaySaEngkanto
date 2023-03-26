@@ -505,8 +505,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BookSortingMiniGame, Assembly-CSharp
+      - m_Target: {fileID: 5398910520446537314}
+        m_TargetAssemblyTypeName: PodiumMiniGame, Assembly-CSharp
         m_MethodName: OnCloseButtonClicked
         m_Mode: 1
         m_Arguments:
