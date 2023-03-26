@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: AnonymousVoice
   m_EditorClassIdentifier: 
   id: Anonymous Voice
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 60bdeaa14a1e07841a0f0141af62faba, type: 3}
   type: 1
   priority: 0
-  volume: 1
+  volume: 0.5
   pitch: 1
   playOnAwake: 0
   loop: 0

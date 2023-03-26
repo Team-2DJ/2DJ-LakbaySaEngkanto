@@ -27,14 +27,14 @@ public class GameUIController : MonoBehaviour
     void Start()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
-        JournalButtonReference.SetActive(false);
+        //JournalButtonReference.SetActive(false);
     }
 
     // TO BE FIXED!!!
     public void OnJournalButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Journal Panel");
-        Time.timeScale = 0f;
+        
     }
 
     public void OnPauseButtonClicked()
