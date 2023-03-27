@@ -10,6 +10,13 @@ public class CameraCutscene : Cutscenes
     [SerializeField] private CinemachineVirtualCamera defaultCamera;                        // Current Room Camera Reference
     [SerializeField] private CinemachineVirtualCamera[] virtualCameras;                     // Array of Virtual Cameras
 
+    private void OnEnable()
+    {
+        // Disable all Cameras in the Virtual Camera Array On Activation
+        for (int i = 0; i < virtualCameras.Length; i++)
+            virtualCameras[i].gameObject.SetActive(false);
+    }
+
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
