@@ -14,6 +14,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject shuffleLetterPrefab;                        // Prefab for the Shuffle Letter
     
+    [Header("Properties")]
+    [SerializeField] private string doorToOpen;                                     // Door To Open string
+
     private ShuffleTextData shuffleWord;                                            // Contains All ShuffleText Data
 
     private string correctAnswer;                                                   // The Correct Answer
@@ -163,6 +166,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             // Open Door
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
 
             // Clear Data
             ClearData();

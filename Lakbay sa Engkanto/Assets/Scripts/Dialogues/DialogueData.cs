@@ -13,7 +13,7 @@ public class DialogueData
     [System.Serializable]
     public struct CharacterDialogue
     {
-        public Sprite Image;             // Image of the Character Speaking
+        public Sprite Image;                      // Image of the Character Speaking
                                                   // to Indicate Current Emotion
         
         [TextArea(3, 10)]
