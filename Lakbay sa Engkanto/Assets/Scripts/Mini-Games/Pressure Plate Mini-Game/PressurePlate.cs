@@ -104,6 +104,7 @@ public class PressurePlate : MonoBehaviour
             case Type.INCORRECT:
                 SingletonManager.Get<PlayerEvents>().PlayerDamaged(1f);
                 isPressed = true;
+                GetComponent<SpriteRenderer>().sprite = pressedSprite;
                 break;
         }
     }
