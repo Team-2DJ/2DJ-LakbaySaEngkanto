@@ -24,10 +24,12 @@ public class Player : MonoBehaviour
         SingletonManager.Get<PlayerManager>().Player = null;
     }
 
-
     // Start is called before the first frame update
     void Awake()
     {
+        // TO BE REMOVED
+        SingletonManager.Get<AudioManager>().Play("Game BGM");
+
         // Cache-In All Variables
         Rb = GetComponent<Rigidbody2D>();
         HealthComponent = GetComponent<HealthComponent>();

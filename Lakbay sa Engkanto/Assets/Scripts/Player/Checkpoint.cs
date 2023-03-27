@@ -34,7 +34,7 @@ public class Checkpoint : MonoBehaviour
                 return;
 
             // Set This point as the Checkpoint
-            SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = transform.position;
+            SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = (Vector2)transform.position;
 
             isActivated = true;
             animator.SetBool("isActivated", isActivated);

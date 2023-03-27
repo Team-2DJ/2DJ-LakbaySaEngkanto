@@ -24,7 +24,7 @@ public class Journal : MonoBehaviour
         ActivatePage(currentPage);
     }
 
-    void Start()
+    private void Awake()
     {
         // Initialize Page Holder
         pages = new PageData[pageHolder.childCount];
@@ -34,6 +34,11 @@ public class Journal : MonoBehaviour
             pages[i].PageNumber = i;
             pages[i].PageObject = pageHolder.GetChild(i).gameObject;
         }
+    }
+
+    void Start()
+    {
+        
     }
 
     /// <summary>
@@ -89,6 +94,8 @@ public class Journal : MonoBehaviour
     public void ActivatePage(int pageNumber)
     {
         for (int i = 0; i < pages.Length; i++)
+        {
             pages[i].PageObject.SetActive(pages[i].PageNumber == pageNumber);
+        }
     }
 }

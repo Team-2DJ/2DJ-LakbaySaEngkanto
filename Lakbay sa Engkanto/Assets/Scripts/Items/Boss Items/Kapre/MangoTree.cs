@@ -9,12 +9,12 @@ public class MangoTree : MonoBehaviour
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnScoreChanged += GrowMangoTree;
+        
     }
 
     void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnScoreChanged -= GrowMangoTree;
+        
     }
 
     // Start is called before the first frame update
