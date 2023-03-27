@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   textBox: {fileID: 3690350653247850825}
-  type: 0
+  pressedSprite: {fileID: -517722482, guid: bfd44a1f6dc4acf48a07b6fb07d7ab46, type: 3}
+  doorToOpen: 
 --- !u!61 &7855427208460651576
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11.25}
+  m_AnchoredPosition: {x: 0, y: 5.5}
   m_SizeDelta: {x: 7.5, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5767766047303280323
@@ -295,10 +296,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test Word
+  m_text: Answer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
+  m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
