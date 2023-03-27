@@ -1,17 +1,20 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using TMPro;
 
 public class BookSortingMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object's ID
+    [SerializeField] private TextMeshProUGUI categoryTextGUI;               // Category Text GUI
     [SerializeField] private GameObject bookSlotHolder;                     // GameObject that contains all BookSlots
     [SerializeField] private GameObject bookPieceHolder;                    // GameObject that contains all BookPieces
 
 
     [Header("Gameplay Settings")]
     [SerializeField] private string doorToOpen;                             // Door To Open string
+    [SerializeField] private string bookCategory;                           // Sort Category
     [SerializeField] private List<string> correctBookTitles = new();        // Titles of the different books 
     [SerializeField] private List<string> wrongBookTitles = new();          // Titles of the different books 
 
@@ -26,6 +29,7 @@ public class BookSortingMiniGame : MonoBehaviour
     {
         BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
         BookPiece[] tempBookPieces = bookPieceHolder?.GetComponentsInChildren<BookPiece>() ?? new BookPiece[0];
+        categoryTextGUI.text = bookCategory;
 
         if (!correctBookTitles.Any()) Debug.LogError("NO BOOK TITLES PRESENT");
 
