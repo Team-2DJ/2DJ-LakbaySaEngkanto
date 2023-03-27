@@ -32,7 +32,7 @@ public class PressurePlateMiniGame : MonoBehaviour
     private void RandomizePressurePlateAnswers()
     {
         // Gets a random pressurePlate from the pressurePlate array;
-        int correctIndex = Random.Range(0, pressurePlates.Length);
+        int correctIndex = Random.Range(0, pressurePlates.Length - 1);
 
         // Gets the pressurePlate from the correctIndex int and
         // then initializes it to be correct
