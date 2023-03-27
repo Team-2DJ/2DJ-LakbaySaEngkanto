@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public int LevelIndex { get; set; }
+    // Get Access to all trigger gameonjects here
 }

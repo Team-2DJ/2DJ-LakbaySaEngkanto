@@ -13,17 +13,32 @@ public class MainMenu : MonoBehaviour
         SingletonManager.Get<PlayerManager>().ResetProperties();
     }
 
-    public void Play()
+    #region Button Functions
+    #region Main Menu
+    public void OnPlayButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Level Selection");
-    }
-
-    public void OnLevelSelected(int level)
-    {
-        SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex = level;
-
-        string[] scenes = { "GameScene", "GameUIScene", "Level" + level  };
+        string[] scenes = { "GameScene", "GameUIScene", "Level1" };
 
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
+
+    public void OnCreditsButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Credits");
+    }
+
+    public void OnQuitButtonClicked()
+    {
+        Application.Quit();
+        Debug.Log("You have quit the game!");
+    }
+    #endregion
+
+    #region Credits Menu
+    public void OnReturnButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+    }
+    #endregion
+    #endregion
 }

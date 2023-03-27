@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        string[] scenes = { "GameScene", "GameUIScene", "Level" + SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex.ToString() };
+        string[] scenes = { "GameScene", "GameUIScene", "Level1" };
         
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
