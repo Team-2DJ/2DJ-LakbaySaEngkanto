@@ -29,6 +29,7 @@ public class BookSortingMiniGame : MonoBehaviour
     {
         BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
         BookPiece[] tempBookPieces = bookPieceHolder?.GetComponentsInChildren<BookPiece>() ?? new BookPiece[0];
+        categoryTextGUI.text = bookCategory;
 
         if (!correctBookTitles.Any()) Debug.LogError("NO BOOK TITLES PRESENT");
 
