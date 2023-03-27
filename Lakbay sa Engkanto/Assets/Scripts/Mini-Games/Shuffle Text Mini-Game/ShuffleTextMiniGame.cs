@@ -13,14 +13,12 @@ public class ShuffleTextMiniGame : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject shuffleLetterPrefab;                        // Prefab for the Shuffle Letter
-    
-    [Header("Properties")]
-    [SerializeField] private string doorToOpen;                                     // Door To Open string
 
     private ShuffleTextData shuffleWord;                                            // Contains All ShuffleText Data
 
     private string correctAnswer;                                                   // The Correct Answer
 
+    private string doorToOpen;                                                      // Door To Open string
     private List<ShuffleLetter> shuffleLetterList = new();                          // Contains All Shuffle Letters
     private List<char> letters = new();                                             // Contains All Characters from the Correct Answer
     private ShuffleTextTrigger shuffleTextTrigger;                                  // Stores the Assigned ShuffleText Trigger Instance
@@ -31,7 +29,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
         SingletonManager.Register(this);
     }
 
-    public void Initialize(ShuffleTextData data, ShuffleTextTrigger reference)
+    public void Initialize(ShuffleTextData data, ShuffleTextTrigger reference, string doorId)
     {
         // Clear Data Upon Start-Up
         ClearData();
@@ -39,6 +37,7 @@ public class ShuffleTextMiniGame : MonoBehaviour
         shuffleWord = data;
         shuffleTextTrigger = reference;
         answerText.text = "";
+        doorToOpen = doorId;
         SetQuestion();
         SpawnShuffleLetters();
     }
