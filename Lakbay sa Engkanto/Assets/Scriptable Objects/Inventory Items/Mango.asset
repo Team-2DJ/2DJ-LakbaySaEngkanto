@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94df2b24a410207499e8464e875182e3, type: 3}
+  m_Name: Mango
+  m_EditorClassIdentifier: 
+  displayName: Book
+  typeOfItem: 0
+  closedIcon: {fileID: -1180046885, guid: 80e8d763a03dc5343a92a02750a681d3, type: 3}
+  openedIcon: {fileID: -540363011, guid: 86535fe58c938314a8cedd0f6351014d, type: 3}

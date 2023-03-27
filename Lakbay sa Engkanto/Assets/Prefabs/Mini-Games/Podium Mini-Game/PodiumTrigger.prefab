@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.67, y: 10.81}
+  m_Size: {x: 3.335, y: 5.405}
   m_EdgeRadius: 0
 --- !u!114 &4137244296084042295
 MonoBehaviour:
@@ -124,4 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302926e9ffc300649bc5dde1b625a31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelToActivate: 
+  gameToActivate: 
+  completed: {fileID: 0}
+  notCompleted: {fileID: -1442606492, guid: 0436b7b4145c6d74c826f33467475221, type: 3}

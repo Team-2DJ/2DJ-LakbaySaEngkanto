@@ -7,6 +7,10 @@ public class PlayerManager : MonoBehaviour
 {
     public Player Player { get; set; }                   // Player Game Object Reference
 
+    public PlayerData PlayerData;                        // Player Data Class Reference
+
+    public InventoryManager PlayerInventory;             // Player Inventory Data Reference
+
     public Vector2 PlayerSpawnPoint { get; set; }        // Player Spawn Point Coordinates
 
     public GameObject ChichayPrefab;

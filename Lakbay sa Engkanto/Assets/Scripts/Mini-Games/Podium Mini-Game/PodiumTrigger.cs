@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PodiumTrigger : MonoBehaviour
 {
-    [SerializeField] private string panelToActivate;
-    private bool hasRightBook;
+    [SerializeField] private string gameToActivate;
+    [SerializeField] private Sprite completed, notCompleted;
+    private bool isGameComplete;
+    private SpriteRenderer spriteRenderer;
 
     private void OnEnable()
     {
@@ -16,29 +18,38 @@ public class PodiumTrigger : MonoBehaviour
         SingletonManager.Get<GameEvents>().OnSetCondition -= GameCompleted;
     }
 
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = notCompleted;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (hasRightBook) return;
+        if (isGameComplete) return;
 
-        SingletonManager.Get<UIEvents>().AddButtonListener(EnableBooksMiniGame);
+        SingletonManager.Get<UIEvents>().AddButtonListener(EnablePodiumMiniGame);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (hasRightBook) return;
+        if (isGameComplete) return;
 
-        SingletonManager.Get<UIEvents>().RemoveButtonListener(EnableBooksMiniGame);
+        SingletonManager.Get<UIEvents>().RemoveButtonListener(EnablePodiumMiniGame);
     }
 
-    private void EnableBooksMiniGame()
+    private void EnablePodiumMiniGame()
     {
-        SingletonManager.Get<UIEvents>().ActivatePanel(panelToActivate);
+        SingletonManager.Get<PanelManager>().ActivatePanel("Podium Panel");
+        SingletonManager.Get<UIEvents>().ActivatePanel(gameToActivate);
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
     }
 
     private void GameCompleted(string id, bool condition)
     {
-        if (id != panelToActivate) return;
+        if (id != gameToActivate) return;
+        isGameComplete = condition;
 
-        hasRightBook = condition;
+        spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class Santelmo : Enemy
+public class RotatingSantelmo : Enemy
 {
     [Header("AI Setup")]
     private Transform rotationCenter;
