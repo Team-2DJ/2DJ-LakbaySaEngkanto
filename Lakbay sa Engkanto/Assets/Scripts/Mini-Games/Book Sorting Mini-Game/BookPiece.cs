@@ -8,7 +8,6 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 {
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object ID
-    [SerializeField] private Canvas canvas;                                 // Canvas Reference
     [SerializeField] private Sprite frontSprite, sideSprite;                // Image States 
     [SerializeField] private TextMeshProUGUI frontText, sideText;           // Book's title box
 
@@ -18,10 +17,12 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     #region private variables
     private RectTransform rectTransform;                                    // This objects rectTransform
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
-    private Vector2 originalPosition;                                       // This objects OriginalPosition
+    private Vector2 originalPosition, originalSize;                         // This objects OriginalPosition
     private Image image;                                                    // This Object's image 
+    private Canvas canvas;                                                  // Canvas Reference
 
     private bool hasBeenDropped;                                            // Dropped Boolean
+    public bool hasBeenInitialized { get; private set; }                    // Initialized Bool
     #endregion
 
     private void OnEnable()
@@ -39,18 +40,19 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         image = GetComponent<Image>();
-        canvas ??= GetComponentInParent<Canvas>();
+        canvas ??= GetComponentInParent<Canvas>(true);
 
         // Enables the FrontText GameObject
         frontText.gameObject.SetActive(true);
 
         // Sets the originalPositions values;
         originalPosition = (Vector2)rectTransform.anchoredPosition;
-
+        originalSize = (Vector2)rectTransform.sizeDelta;
     }
 
     public void Initialize(string _id, string _bookTitle)
     {
+        hasBeenInitialized = true;
         id = _id;
         bookTitle = _bookTitle;
 
@@ -98,7 +100,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             sideText.gameObject.SetActive(false);
 
             image.sprite = frontSprite;
-            rectTransform.sizeDelta = new Vector2(215, 300);
+            rectTransform.sizeDelta = originalSize;
         }
     }
 
@@ -143,6 +145,6 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         image.sprite = frontSprite;
         frontText.gameObject.SetActive(true);
         sideText.gameObject.SetActive(false);
-        rectTransform.sizeDelta = new Vector2(215, 300);
+        rectTransform.sizeDelta = originalSize;
     }
 }
