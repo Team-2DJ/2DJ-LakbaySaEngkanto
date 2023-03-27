@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  canvas: {fileID: 0}
   frontSprite: {fileID: -1078699491, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
   sideSprite: {fileID: -876882890, guid: f403812a0cf424e459a8e0dd420649ef, type: 3}
   frontText: {fileID: 3437050631688097353}
@@ -147,7 +146,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 15, y: -30}
-  m_SizeDelta: {x: 165, y: 164.4732}
+  m_SizeDelta: {x: 165, y: 165}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &657987974414684473
 CanvasRenderer:

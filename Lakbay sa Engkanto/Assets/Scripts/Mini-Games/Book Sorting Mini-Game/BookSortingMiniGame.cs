@@ -5,26 +5,29 @@ using System.Collections.Generic;
 public class BookSortingMiniGame : MonoBehaviour
 {
     [Header("Object Setup")]
-    [SerializeField] private string id;                              // Object's ID
-    [SerializeField] private GameObject bookSlotHolder;              // GameObject that contains all BookSlots
-    [SerializeField] private GameObject bookPieceHolder;             // GameObject that contains all BookPieces
+    [SerializeField] private string id;                                     // Object's ID
+    [SerializeField] private GameObject bookSlotHolder;                     // GameObject that contains all BookSlots
+    [SerializeField] private GameObject bookPieceHolder;                    // GameObject that contains all BookPieces
 
 
     [Header("Gameplay Settings")]
-    [SerializeField] private string doorToOpen;                      // Door To Open string
-    [SerializeField] private List<string> bookTitles = new();        // Titles of the different books 
+    [SerializeField] private string doorToOpen;                             // Door To Open string
+    [SerializeField] private List<string> correctBookTitles = new();        // Titles of the different books 
+    [SerializeField] private List<string> wrongBookTitles = new();          // Titles of the different books 
 
-    private List<BookSlot> bookSlots = new();                        // BookSlots List 
-    private List<BookPiece> bookPieces = new();                      // BookSlots List 
 
-    public bool IsComplete { get; private set; }                     // IsComplete boolean
+
+    private List<BookSlot> bookSlots = new();                               // BookSlots List 
+    private List<BookPiece> bookPieces = new();                             // BookSlots List 
+
+    public bool IsComplete { get; private set; }                            // IsComplete boolean
 
     void Start()
     {
         BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
         BookPiece[] tempBookPieces = bookPieceHolder?.GetComponentsInChildren<BookPiece>() ?? new BookPiece[0];
 
-        if (!bookTitles.Any()) Debug.LogError("NO BOOK TITLES PRESENT");
+        if (!correctBookTitles.Any()) Debug.LogError("NO BOOK TITLES PRESENT");
 
         foreach (BookSlot bookSlot in tempBookSlots)
         {
@@ -51,25 +54,48 @@ public class BookSortingMiniGame : MonoBehaviour
         // will have the first bookTitle present in the bookTitles list
         for (int i = 0; i < bookSlots.Count; i++)
         {
-            bookSlots[i].Initialize(id, bookTitles[i]);
+            bookSlots[i].Initialize(id, correctBookTitles[i]);
         }
 
         // For each element present in the bookPieces list, 
         // randomize the order of the titles and set it afterwards 
 
-        // Sets the value of the new list to the BookTitles list; 
-        List<string> titlesToBeUsed = new(bookTitles);
-
-        for (int i = 0; i < bookPieces.Count; i++)
+        for (int i = 0; i < correctBookTitles.Count; i++)
         {
-            // Index to be used by the BookPiece based on a random value
-            int index = Random.Range(0, titlesToBeUsed.Count);
+            for (int j = 0; j < bookPieces.Count; j++)
+            {
+                // Index to be used by the BookPiece based on a random value
+                int titleIndex = Random.Range(0, correctBookTitles.Count);
 
-            // Initializes the bookPiece with the random value based on the index
-            bookPieces[i].Initialize(id, titlesToBeUsed[index]);
+                // Index to be used by the BookPiece based on a random value
+                int bookIndex = Random.Range(0, bookPieces.Count);
 
-            // Remove the bookTitle from the list   
-            titlesToBeUsed.RemoveAt(index);
+                // Initializes the bookPiece with the random value based on the index
+                bookPieces[bookIndex].Initialize(id, correctBookTitles[titleIndex]);
+
+                // Remove the bookTitle from the list   
+                bookPieces.RemoveAt(bookIndex);
+                correctBookTitles.RemoveAt(titleIndex);
+            }
+        }
+
+        for (int i = 0; i < wrongBookTitles.Count; i++)
+        {
+            for (int j = 0; j <= bookPieces.Count; j++)
+            {
+                // Index to be used by the BookPiece based on a random value
+                int titleIndex = Random.Range(0, wrongBookTitles.Count);
+
+                // Index to be used by the BookPiece based on a random value
+                int bookIndex = Random.Range(0, bookPieces.Count);
+
+                // Initializes the bookPiece with the random value based on the index
+                bookPieces[bookIndex].Initialize(id, wrongBookTitles[titleIndex]);
+
+                // Remove the bookTitle from the list 
+                bookPieces.RemoveAt(bookIndex);
+                wrongBookTitles.RemoveAt(titleIndex);
+            }
         }
     }
 
