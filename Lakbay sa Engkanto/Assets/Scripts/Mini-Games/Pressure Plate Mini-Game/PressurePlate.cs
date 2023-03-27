@@ -13,6 +13,7 @@ public class PressurePlate : MonoBehaviour
     [Header("Object Setup")]
     [SerializeField] private string id;                                     // Object ID
     [SerializeField] private TextMeshProUGUI textBox;                       // TextBox GUI
+    [SerializeField] private Sprite pressedSprite;                          // Object Pressed Sprite
 
     [Header("Gameplay Settings")]
     [SerializeField] private string doorToOpen;                             // Door to Open
@@ -115,5 +116,6 @@ public class PressurePlate : MonoBehaviour
         if (id != this.id) return;
 
         isPressed = condition;
+        GetComponent<SpriteRenderer>().sprite = pressedSprite;
     }
 }
