@@ -849,6 +849,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7293729002461249395, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
+      propertyPath: audioCollections.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293729002461249395, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
+      propertyPath: audioCollections.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: eb1670929deea034bb38330d6ba8f6cc, type: 2}
     - target: {fileID: 7293729002461249396, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
       propertyPath: m_Name
       value: AudioManager

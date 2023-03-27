@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SingletonManager.Get<AudioManager>().Play("Main Menu BGM");
+
         // Activate Main Menu
         SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
 
