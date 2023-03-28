@@ -15,9 +15,10 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     [SerializeField] private string bookTitle;                              // Title of the Book
 
     #region private variables
+    private Transform parentTransform;
     private RectTransform rectTransform;                                    // This objects rectTransform
     private CanvasGroup canvasGroup;                                        // This objects canvasGroup
-    private Vector2 originalPosition, originalSize;                         // This objects OriginalPosition
+    private Vector2 originalSize;                                           // This objects OriginalPosition
     private Image image;                                                    // This Object's image 
     private Canvas canvas;                                                  // Canvas Reference
 
@@ -45,8 +46,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         // Enables the FrontText GameObject
         frontText.gameObject.SetActive(true);
 
-        // Sets the originalPositions values;
-        originalPosition = (Vector2)rectTransform.anchoredPosition;
+        parentTransform = transform.parent;
+
         originalSize = (Vector2)rectTransform.sizeDelta;
     }
 
@@ -72,6 +73,7 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         // Allows for collision
         canvasGroup.blocksRaycasts = false;
 
+        transform.SetParent(transform.root);
     }
 
 
@@ -123,10 +125,15 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         // else, call PlayerPlacedItem from GameEvents, using this bookTitle as its parameter. 
 
         if (!hasBeenDropped)
-            rectTransform.anchoredPosition = originalPosition;
+        {
+            transform.SetParent(parentTransform);
+            rectTransform.anchoredPosition = Vector2.zero;
+        }
         else
         {
             SingletonManager.Get<PlayerEvents>().PlayerPlacedItem(bookTitle);
+            transform.SetParent(eventData.pointerEnter.transform);
+            transform.position = transform.parent.position;
         }
     }
 
@@ -139,12 +146,14 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         if (id != this.id) return;
         if (dontReset) return;
 
-        rectTransform.anchoredPosition = originalPosition;
         hasBeenDropped = false;
 
         image.sprite = frontSprite;
         frontText.gameObject.SetActive(true);
         sideText.gameObject.SetActive(false);
+
+        transform.SetParent(parentTransform);
+        rectTransform.anchoredPosition = Vector2.zero;
         rectTransform.sizeDelta = originalSize;
     }
 }
