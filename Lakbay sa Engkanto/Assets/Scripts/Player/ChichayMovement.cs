@@ -60,6 +60,9 @@ public class ChichayMovement : MonoBehaviour
     /// </summary>
     void Flip()
     {
+        if (!player.HealthComponent.IsAlive)
+            return;
+        
         // Get Player Horizontal Input Reference from PlayerManager
         float horizontalDirection = SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput;
 
