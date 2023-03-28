@@ -36,6 +36,14 @@ public class PodiumMiniGame : MonoBehaviour
         {
             inventorySlots.Add(slot);
         }
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.PodiumDictionary.ContainsKey(gameObject.name))
+        {
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+            SingletonManager.Get<GameEvents>().SetCondition(id, true);
+            IsComplete = true;
+            return;
+        }
     }
 
     private void OnEnable()
@@ -119,6 +127,8 @@ public class PodiumMiniGame : MonoBehaviour
             gameObject.SetActive(false);
 
             SingletonManager.Get<PlayerManager>().PlayerInventory.RemoveItem(podiumSlot.GetItemData());
+
+            SingletonManager.Get<PlayerManager>().PlayerData.AddData(gameObject.name, this);
 
             // Turns back on PlayerMovement 
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
