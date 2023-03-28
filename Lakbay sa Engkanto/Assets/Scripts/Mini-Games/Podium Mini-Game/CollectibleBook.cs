@@ -4,9 +4,18 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class CollectibleBook : MonoBehaviour
 {
+
     [SerializeField] private ItemData itemData;                      // inventory item Data
     private Collider2D playerCollider;                               // player Collider
     private SpriteRenderer spriteRenderer;                           // this Sprite Renderer
+
+    void OnEnable()
+    {
+        if (SingletonManager.Get<PlayerManager>().PlayerData.CollectiblesDictionary.ContainsKey(gameObject.name))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     void Start()
     {
@@ -23,6 +32,8 @@ public class CollectibleBook : MonoBehaviour
         {
             // Adds the Item to the PlayerInventory using itemData as its parameter
             SingletonManager.Get<PlayerManager>().PlayerInventory.AddItem(itemData);
+
+            SingletonManager.Get<PlayerManager>().PlayerData.AddData(gameObject.name, this);
 
             Destroy(gameObject);
         }
