@@ -15,6 +15,9 @@ public class ShuffleTextTrigger : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        // Check if Mini-Game has been Completed by Player
+        SingletonManager.Get<GameEvents>().OpenDoor(doorId);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
