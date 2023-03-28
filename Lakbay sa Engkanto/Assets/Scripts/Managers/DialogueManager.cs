@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     private int currentDialogueIndex;                                               // Current Dialogue Index
     private int currentSentenceIndex;                                               // Current Sentence Index
+    private bool isTyping;                                                          // Indicator if a Sentence is Being Typed
 
     private void Awake()
     {
@@ -61,6 +62,8 @@ public class DialogueManager : MonoBehaviour
     // Put Sentence Here
     IEnumerator Type()
     {
+        isTyping = true;
+        
         // Set Sentence Text to Blank
         sentenceText.text = "";
 
@@ -77,8 +80,36 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
 
+        isTyping = false;
+
         // Enable Next Sentence Indicator
         animator.SetBool("isFinished", true);
+    }
+
+    /// <summary>
+    /// Skips Typing Sequence of Sentence and Shows the Entire Sentence Completely
+    /// </summary>
+    public void Skip()
+    {
+        // Skip Typing
+        if (isTyping)
+        {
+            // Stop Typing Coroutine
+            StopAllCoroutines();
+
+            // Set the Sentence Text
+            sentenceText.text = dialogueData[currentDialogueIndex].CharacterDialogues[currentSentenceIndex].Sentences;
+
+            // Enable Next Sentence Indicator
+            animator.SetBool("isFinished", true);
+
+            isTyping = false;
+        }
+        // Proceed to the Next Sentence
+        else
+        {
+            NextSentence();
+        }
     }
 
     /// <summary>
