@@ -112,6 +112,8 @@ public class HealthComponent : MonoBehaviour
     // Executes Death Functionality
     IEnumerator OnDeath()
     {
+        SingletonManager.Get<PanelManager>().ActivatePanel("");
+        
         // Indicate Player Death in Bool
         IsAlive = false;
 
