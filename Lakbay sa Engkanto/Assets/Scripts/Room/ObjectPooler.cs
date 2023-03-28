@@ -37,7 +37,7 @@ public class ObjectPooler : MonoBehaviour
     {
         if (!PoolDictionary.ContainsKey(id))
         {
-            Debug.LogWarning("Pool with tag " + id + " doesn't exist.");
+            Debug.LogWarning("Pool with ID " + id + " doesn't exist.");
             return null;
         }
 
