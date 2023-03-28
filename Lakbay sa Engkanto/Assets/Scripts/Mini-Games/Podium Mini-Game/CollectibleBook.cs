@@ -11,10 +11,12 @@ public class CollectibleBook : MonoBehaviour
 
     void OnEnable()
     {
+        /*
         if (SingletonManager.Get<PlayerManager>().PlayerData.CollectiblesDictionary.ContainsKey(gameObject.name))
         {
             Destroy(this.gameObject);
         }
+        */
     }
 
     void Start()
