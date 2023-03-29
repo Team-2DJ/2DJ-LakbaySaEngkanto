@@ -6,7 +6,14 @@ public class PlayerMobileController : MonoBehaviour
 {
     private void OnEnable()
     {
-        //SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput = 0f;
+        try
+        {
+            SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput = 0f;
+        }
+        catch
+        {
+            Debug.LogWarning("Error on Mobile Controller Caught");
+        }
     }
 
     public void Move(float value)
