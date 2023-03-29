@@ -29,6 +29,13 @@ public class BookTrigger : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = notSorted;
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
+        {
+            GameCompleted(id, true);
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -60,6 +67,7 @@ public class BookTrigger : MonoBehaviour
 
         if (!isGameComplete) return;
 
+        SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
         spriteRenderer.sprite = isGameComplete ? sorted : notSorted;
     }
 }
