@@ -54,19 +54,20 @@ public class BookSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
         }
     }
 
-
     /// <summary>
     /// Inherited from IPointerExitHandler, 
     /// checks if an overlapping object leaves this gameObject.
     /// </summary>
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null)
+        if (transform.childCount <= 0)
         {
             isOccupied = false;
             IsRight = false;
         }
     }
+
+
 
     /// <summary>
     /// Checks if the book currently placed in this gameObject is correct. 
