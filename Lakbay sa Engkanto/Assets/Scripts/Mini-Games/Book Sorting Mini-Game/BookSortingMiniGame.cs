@@ -46,17 +46,18 @@ public class BookSortingMiniGame : MonoBehaviour
         foreach (var number in correctBookTitles)
         {
             GameObject bookSlot = Instantiate(bookSlotPrefab, bookSlotHolder);
-            bookSlots.Add(bookSlot.GetComponent<BookSlot>());
         }
 
         int numberOfBooks = correctBookTitles.Count + wrongBookTitles.Count;
 
-        for (int i = 0; i < numberOfBooks - 1; i++)
+        for (int i = 0; i < numberOfBooks; i++)
         {
             GameObject bookPiece = Instantiate(bookPiecePrefab, bookPieceHolder);
-            bookPieces.Add(bookPiece.GetComponent<BookPiece>());
         }
 
+
+        PopulateBookPieces();
+        PopulateBookSlots();
         RandomizeBookOrder();
     }
 
@@ -125,73 +126,33 @@ public class BookSortingMiniGame : MonoBehaviour
 
         // For each element present in the bookPieces list, 
         // randomize the order of the titles and set it afterwards 
-
-        /*
-                for (int i = 0; i < correctBookTitles.Count; i++)
-                {
-                    for (int j = 0; j < bookPieces.Count; j++)
-                    {
-                        // Index to be used by the BookPiece based on a random value
-                        int titleIndex = Random.Range(0, correctBookTitles.Count);
-
-                        // Index to be used by the BookPiece based on a random value
-                        int bookIndex = Random.Range(0, bookPieces.Count);
-
-                        // Initializes the bookPiece with the random value based on the index
-                        bookPieces[bookIndex].Initialize(id, correctBookTitles[titleIndex]);
-
-                        // Remove the bookTitle from the list   
-                        bookPieces.RemoveAt(bookIndex);
-                        correctBookTitles.RemoveAt(titleIndex);
-                    }
-                }
-
-                for (int i = 0; i < wrongBookTitles.Count; i++)
-                {
-                    for (int j = 0; j < bookPieces.Count; j++)
-                    {
-                        // Index to be used by the BookPiece based on a random value
-                        int titleIndex = Random.Range(0, wrongBookTitles.Count);
-
-                        // Index to be used by the BookPiece based on a random value
-                        int bookIndex = Random.Range(0, bookPieces.Count);
-
-                        // Initializes the bookPiece with the random value based on the index
-                        bookPieces[bookIndex].Initialize(id, wrongBookTitles[titleIndex]);
-
-                        // Remove the bookTitle from the list 
-                        bookPieces.RemoveAt(bookIndex);
-                        wrongBookTitles.RemoveAt(titleIndex);
-                    }
-                }
-                */
-
         SetupBookTitles(correctBookTitles);
         SetupBookTitles(wrongBookTitles);
     }
 
     private void SetupBookTitles(List<string> bookTitles)
     {
-        List<BookPiece> tempBooks = new(bookPieces);
         List<string> tempTitles = new(bookTitles);
 
         for (int i = 0; i < tempTitles.Count; i++)
         {
-            for (int j = 0; j < tempBooks.Count; j++)
+            for (int j = 0; j < bookPieces.Count; j++)
             {
-                // Index to be used by the BookPiece based on a random value
                 int titleIndex = Random.Range(0, tempTitles.Count);
+                int bookIndex = Random.Range(0, bookPieces.Count);
 
-                // Index to be used by the BookPiece based on a random value
-                int bookIndex = Random.Range(0, tempBooks.Count);
+                while (bookPieces[bookIndex].hasBeenInitialized)
+                {
+                    bookIndex = Random.Range(0, bookPieces.Count);
+                }
 
-                // Initializes the bookPiece with the random value based on the index
                 bookPieces[bookIndex].Initialize(id, tempTitles[titleIndex]);
-
-                // Remove the bookTitle from the list 
-                tempBooks.RemoveAt(bookIndex);
                 tempTitles.RemoveAt(titleIndex);
+
+                if (!tempTitles.Any()) break;
             }
+
+            if (!tempTitles.Any()) break;
         }
     }
 
