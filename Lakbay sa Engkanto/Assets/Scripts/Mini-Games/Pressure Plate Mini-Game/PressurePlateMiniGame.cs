@@ -12,6 +12,7 @@ public class PressurePlateMiniGame : MonoBehaviour
     [Space]
     [Header("Gameplay Settings")]
     [SerializeField] private string doorToOpen;
+    [TextArea(3, 10)]
     [SerializeField] string questionText;
     [SerializeField] string correctAnswer;
     [SerializeField] private List<string> wrongAnswers = new();
