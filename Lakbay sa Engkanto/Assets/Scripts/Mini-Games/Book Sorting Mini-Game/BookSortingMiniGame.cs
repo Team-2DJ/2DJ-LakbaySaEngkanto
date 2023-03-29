@@ -134,26 +134,44 @@ public class BookSortingMiniGame : MonoBehaviour
     {
         List<string> tempTitles = new(bookTitles);
 
-        for (int i = 0; i < tempTitles.Count; i++)
+        for (int i = 0; i < bookPieces.Count; i++)
         {
-            for (int j = 0; j < bookPieces.Count; j++)
+            int titleIndex = Random.Range(0, tempTitles.Count);
+            int bookIndex = Random.Range(0, bookPieces.Count);
+
+            while (bookPieces[bookIndex].hasBeenInitialized)
             {
-                int titleIndex = Random.Range(0, tempTitles.Count);
-                int bookIndex = Random.Range(0, bookPieces.Count);
-
-                while (bookPieces[bookIndex].hasBeenInitialized)
-                {
-                    bookIndex = Random.Range(0, bookPieces.Count);
-                }
-
-                bookPieces[bookIndex].Initialize(id, tempTitles[titleIndex]);
-                tempTitles.RemoveAt(titleIndex);
-
-                if (!tempTitles.Any()) break;
+                bookIndex = Random.Range(0, bookPieces.Count);
             }
+
+            bookPieces[bookIndex].Initialize(id, tempTitles[titleIndex]);
+            tempTitles.RemoveAt(titleIndex);
 
             if (!tempTitles.Any()) break;
         }
+
+        /*
+                for (int i = 0; i < tempTitles.Count; i++)
+                {
+                    for (int j = 0; j < bookPieces.Count; j++)
+                    {
+                        int titleIndex = Random.Range(0, tempTitles.Count);
+                        int bookIndex = Random.Range(0, bookPieces.Count);
+
+                        while (bookPieces[bookIndex].hasBeenInitialized)
+                        {
+                            bookIndex = Random.Range(0, bookPieces.Count);
+                        }
+
+                        bookPieces[bookIndex].Initialize(id, tempTitles[titleIndex]);
+                        tempTitles.RemoveAt(titleIndex);
+
+                        if (!tempTitles.Any()) break;
+                    }
+
+                    if (!tempTitles.Any()) break;
+                }
+                */
     }
 
     /// <summary>

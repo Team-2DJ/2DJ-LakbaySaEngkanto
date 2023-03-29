@@ -153,7 +153,6 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         sideText.gameObject.SetActive(false);
 
         transform.SetParent(parentTransform);
-        rectTransform.anchoredPosition = Vector2.zero;
         rectTransform.sizeDelta = originalSize;
     }
 }
