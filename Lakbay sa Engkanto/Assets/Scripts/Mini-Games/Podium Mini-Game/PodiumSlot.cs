@@ -31,8 +31,18 @@ public class PodiumSlot : MonoBehaviour, IDropHandler, IPointerExitHandler
 
     public void Initialize(string id, ItemData itemData)
     {
+        ClearData();
+
         this.id = id;
         this.itemData = itemData;
+    }
+
+    private void ClearData()
+    {
+        isOccupied = false;
+        IsRight = false;
+        id = null;
+        itemData = null;
     }
 
     /// <summary>
