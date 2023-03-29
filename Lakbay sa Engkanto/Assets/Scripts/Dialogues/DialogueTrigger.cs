@@ -20,12 +20,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Ensure that this Dialogue Trigger will Only be Triggered Once
+        if (hasActivated)
+            return;
+
         if (other == playerCollider)
         {
-            // Ensure that this Dialogue Trigger will Only be Triggered Once
-            if (hasActivated)
-                return;
-
             // Disable Player Movement
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
 

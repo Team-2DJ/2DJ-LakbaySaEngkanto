@@ -49,6 +49,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -625003371954438643, guid: c874b6303e6ab404482a4e6c6fce4af7, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 1417644976196117692, guid: c874b6303e6ab404482a4e6c6fce4af7, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &5303973705853056855
@@ -97,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dedbdffd85fd46b94ab839d20a507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  director: {fileID: 0}
+  director: {fileID: 5653328356617662788}
 --- !u!61 &5303973705853056873
 BoxCollider2D:
   m_ObjectHideFlags: 0
