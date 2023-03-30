@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
         // Check If Player Has Encountered Chichay.
         // If so, Spawn Chichay Prefab on Start-Up
-        if (SingletonManager.Get<PlayerManager>().HasMetChichay)
+        if (SingletonManager.Get<PlayerManager>().PlayerData.HasMetChichay)
             SpawnChichay();
     }
 
