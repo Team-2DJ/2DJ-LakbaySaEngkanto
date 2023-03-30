@@ -8,10 +8,6 @@ public class PlayerData : MonoBehaviour
 
     public List<string> StringList { get; private set; } = new();
 
-    public List<string> ShuffleTriggerList { get; private set; } = new();
-
-    public List<string> KapreList { get; private set; } = new();
-
     public bool HasMetChichay { get; set; }
 
     public void AddString(string value)
@@ -31,7 +27,6 @@ public class PlayerData : MonoBehaviour
     public void ClearData()
     {
         StringList.Clear();
-        ShuffleTriggerList.Clear();
         HasMetChichay = false;
     }
 }

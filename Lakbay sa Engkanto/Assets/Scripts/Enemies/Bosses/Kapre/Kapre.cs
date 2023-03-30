@@ -36,7 +36,7 @@ public class Kapre : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (SingletonManager.Get<PlayerManager>().PlayerData.KapreList.Contains(id))
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
         {
             SetShaking(0f, 0f);
             Destroy(gameObject);
@@ -53,7 +53,7 @@ public class Kapre : MonoBehaviour
             Flip();
 
             // Add this Kapre to the KapreList
-            SingletonManager.Get<PlayerManager>().PlayerData.KapreList.Add(id);
+            SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
 
             // Trigger Walking Animation
             animator.SetTrigger("isWalking");
