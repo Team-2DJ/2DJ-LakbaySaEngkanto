@@ -1,13 +1,19 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class BookTrigger : MonoBehaviour
 {
-    [SerializeField] private string gameToActivate;
+    [SerializeField] private string id;
     [SerializeField] private Sprite sorted, notSorted;
     private bool isGameComplete;
     private SpriteRenderer spriteRenderer;
+
+    [Header("Gameplay Settings")]
+    [SerializeField] private string doorToOpen;                             // Door To Open string
+    [SerializeField] private string bookCategory;                           // Sort Category
+    [SerializeField] private List<string> correctTitles = new();        // Titles of the different books 
+    [SerializeField] private List<string> wrongTitles = new();          // Titles of the different books
 
     private void OnEnable()
     {
@@ -23,6 +29,13 @@ public class BookTrigger : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = notSorted;
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
+        {
+            GameCompleted(id, true);
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,15 +55,19 @@ public class BookTrigger : MonoBehaviour
     private void EnableBooksMiniGame()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Book Sorting Panel");
-        SingletonManager.Get<UIEvents>().ActivatePanel(gameToActivate);
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
+
+        SingletonManager.Get<BookSortingMiniGame>().Initialize(id, doorToOpen, bookCategory, correctTitles, wrongTitles);
     }
 
     private void GameCompleted(string id, bool condition)
     {
-        if (id != gameToActivate) return;
+        if (id != this.id) return;
         isGameComplete = condition;
 
+        if (!isGameComplete) return;
+
+        SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
         spriteRenderer.sprite = isGameComplete ? sorted : notSorted;
     }
 }
