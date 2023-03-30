@@ -13,13 +13,30 @@ public class ShuffleTextTrigger : MonoBehaviour
     private Animator animator;
     private Collider2D playerCollider;
 
-    private void Start()
+    private void OnEnable()
+    {
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(doorId))
+        {
+            isComplete = true;
+            animator.SetBool("isComplete", isComplete);
+        }
+    }
+
+    private void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
 
-        // Check if Mini-Game has been Completed by Player
-        //SingletonManager.Get<GameEvents>().OpenDoor(doorId);
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(doorId))
+        {
+            isComplete = true;
+            animator.SetBool("isComplete", isComplete);
+            SingletonManager.Get<GameEvents>().OpenDoor(doorId);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,6 +64,8 @@ public class ShuffleTextTrigger : MonoBehaviour
 
     public void Completed()
     {
+        SingletonManager.Get<PlayerManager>().PlayerData.AddString(doorId);
+        
         isComplete = true;
         animator.SetBool("isComplete", isComplete);
     }
