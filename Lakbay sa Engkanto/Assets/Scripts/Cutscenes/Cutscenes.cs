@@ -4,12 +4,19 @@ using UnityEngine;
 
 public abstract class Cutscenes : MonoBehaviour
 {
+    [SerializeField] protected string id;
     protected Collider2D playerCollider;
     private bool hasActivated;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
     }
 
@@ -23,7 +30,7 @@ public abstract class Cutscenes : MonoBehaviour
             // Disable Player Movement
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
 
-            Debug.Log("EXECUTE CUTSCENE");
+            SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
 
             // Trigger the Cutscene
             ExecuteCutscene();

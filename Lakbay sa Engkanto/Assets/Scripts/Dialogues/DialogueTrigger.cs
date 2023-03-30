@@ -6,6 +6,7 @@ using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [SerializeField] private string id;
     [SerializeField] private DialogueData[] dialogueData;                           // Contains all Dialogue for this Trigger
 
     private Collider2D playerCollider;                                              // Player Collider Component Reference
@@ -14,6 +15,12 @@ public class DialogueTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
         hasActivated = false;
     }
@@ -26,6 +33,8 @@ public class DialogueTrigger : MonoBehaviour
 
         if (other == playerCollider)
         {
+            SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
+
             // Disable Player Movement
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
 
