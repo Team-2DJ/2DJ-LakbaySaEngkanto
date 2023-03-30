@@ -17,9 +17,6 @@ public class BookSortingMiniGame : MonoBehaviour
     private string bookCategory;                           // Sort Category
     private List<string> correctBookTitles = new();        // Titles of the different books 
     private List<string> wrongBookTitles = new();          // Titles of the different books 
-
-
-
     private List<BookSlot> bookSlots = new();                               // BookSlots List 
     private List<BookPiece> bookPieces = new();                             // BookSlots List 
 
@@ -43,9 +40,12 @@ public class BookSortingMiniGame : MonoBehaviour
         correctBookTitles = tempCorrect;
         wrongBookTitles = tempWrong;
 
+        categoryTextGUI.text = bookCategory;
+
         foreach (var number in correctBookTitles)
         {
             GameObject bookSlot = Instantiate(bookSlotPrefab, bookSlotHolder);
+            bookSlots.Add(bookSlot.GetComponent<BookSlot>());
         }
 
         int numberOfBooks = correctBookTitles.Count + wrongBookTitles.Count;
@@ -53,18 +53,15 @@ public class BookSortingMiniGame : MonoBehaviour
         for (int i = 0; i < numberOfBooks; i++)
         {
             GameObject bookPiece = Instantiate(bookPiecePrefab, bookPieceHolder);
+            bookPieces.Add(bookPiece.GetComponent<BookPiece>());
         }
 
-
-        PopulateBookPieces();
-        PopulateBookSlots();
         RandomizeBookOrder();
     }
 
     private void PopulateBookSlots()
     {
         BookSlot[] tempBookSlots = bookSlotHolder?.GetComponentsInChildren<BookSlot>() ?? new BookSlot[0];
-        categoryTextGUI.text = bookCategory;
 
         foreach (BookSlot bookSlot in tempBookSlots)
         {
@@ -82,18 +79,12 @@ public class BookSortingMiniGame : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        ClearData();
-    }
-
     public void ClearData()
     {
         id = null;
         doorToOpen = null;
         bookCategory = null;
-        correctBookTitles = null;
-        wrongBookTitles = null;
+        IsComplete = false;
 
         foreach (var bookSlot in bookSlots)
         {
@@ -105,6 +96,8 @@ public class BookSortingMiniGame : MonoBehaviour
             Destroy(bookPiece.gameObject);
         }
 
+        correctBookTitles.Clear();
+        wrongBookTitles.Clear();
         bookSlots.Clear();
         bookPieces.Clear();
     }
@@ -180,7 +173,13 @@ public class BookSortingMiniGame : MonoBehaviour
     public void CheckOrder()
     {
         // If the game is complete then return; 
-        if (IsComplete) return;
+        if (IsComplete)
+        {
+            Debug.Log("GAME IS COMPLETE");
+            return;
+        }
+
+        Debug.Log(bookSlots.All(bookSlot => bookSlot.IsRight));
 
         // if all bookSlot in the bookSlots array have the right books, 
         // then call the first statement, else if false 
@@ -202,6 +201,8 @@ public class BookSortingMiniGame : MonoBehaviour
 
             // Turns back on Game Panel
             SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+
+            ClearData();
         }
         else
         {
@@ -214,6 +215,7 @@ public class BookSortingMiniGame : MonoBehaviour
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
+        ClearData();
     }
 
     public string GetID()

@@ -43,6 +43,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         image = GetComponent<Image>();
         canvas ??= GetComponentInParent<Canvas>(true);
 
+        image.color = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0.3f, 0.6f), Random.Range(0.7f, 1f));
+
         // Enables the FrontText GameObject
         frontText.gameObject.SetActive(true);
 
