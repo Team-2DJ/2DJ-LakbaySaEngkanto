@@ -11,20 +11,25 @@ public class ChichayTrigger : MonoBehaviour
     void Start()
     {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.HasMetChichay)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == playerCollider)
         {
-            if (SingletonManager.Get<PlayerManager>().HasMetChichay)
+            if (SingletonManager.Get<PlayerManager>().PlayerData.HasMetChichay)
                 return;
 
             // Spawn Chichay
             SingletonManager.Get<PlayerManager>().Player.SpawnChichay();
 
             // Indicate Player Has Encountered Chichay
-            SingletonManager.Get<PlayerManager>().HasMetChichay = true;
+            SingletonManager.Get<PlayerManager>().PlayerData.HasMetChichay = true;
         }
     }
 }
