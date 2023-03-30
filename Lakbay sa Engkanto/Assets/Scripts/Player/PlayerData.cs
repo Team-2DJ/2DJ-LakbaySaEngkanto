@@ -8,6 +8,10 @@ public class PlayerData : MonoBehaviour
 
     public List<string> StringList { get; private set; } = new();
 
+    public List<string> ShuffleTriggerList { get; private set; } = new();
+
+    public bool HasMetChichay { get; set; }
+
     public void AddString(string value)
     {
         if (StringList.Contains(value)) return;
@@ -20,5 +24,12 @@ public class PlayerData : MonoBehaviour
         if (!StringList.Contains(value)) return;
 
         StringList.Remove(value);
+    }
+
+    public void ClearData()
+    {
+        StringList.Clear();
+        ShuffleTriggerList.Clear();
+        HasMetChichay = false;
     }
 }

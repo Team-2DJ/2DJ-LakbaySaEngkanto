@@ -5,6 +5,8 @@ using UnityEngine;
 // Manages Everything Relating to the Player
 public class PlayerManager : MonoBehaviour
 {
+    public bool IsTesting;                               // For Debugging Purposes
+    
     public Player Player { get; set; }                   // Player Game Object Reference
 
     public PlayerData PlayerData;                        // Player Data Class Reference
@@ -15,7 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject ChichayPrefab;
 
-    public bool HasMetChichay { get; set; }
+    
 
     #region Singleton
     void Awake()
@@ -27,9 +29,9 @@ public class PlayerManager : MonoBehaviour
 
     public void ResetProperties()
     {
+        PlayerData.ClearData();
+        
         // Reset Player Spawn Point
         PlayerSpawnPoint = Vector2.zero;
-
-        HasMetChichay = false;
     }
 }
