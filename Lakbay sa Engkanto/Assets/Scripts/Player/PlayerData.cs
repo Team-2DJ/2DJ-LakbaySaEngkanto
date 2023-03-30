@@ -10,6 +10,8 @@ public class PlayerData : MonoBehaviour
 
     public List<string> ShuffleTriggerList { get; private set; } = new();
 
+    public List<string> KapreList { get; private set; } = new();
+
     public bool HasMetChichay { get; set; }
 
     public void AddString(string value)

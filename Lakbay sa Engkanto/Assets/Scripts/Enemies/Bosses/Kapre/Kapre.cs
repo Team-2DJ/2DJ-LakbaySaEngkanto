@@ -20,6 +20,7 @@ public class Kapre : MonoBehaviour
     [SerializeField] private float frequency;                                                   // Frequency Value
 
     [Header("Properties")]
+    [SerializeField] private string id;
     [SerializeField] private Direction direction;                                               // Direction Assigner
     [SerializeField] private float xOffset;                                                     // Amount of Offset for the X-Axis
     [SerializeField] private float movementDuration;                                            // Dictates how long the Kapre will Move to the
@@ -35,6 +36,13 @@ public class Kapre : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        if (SingletonManager.Get<PlayerManager>().PlayerData.KapreList.Contains(id))
+        {
+            SetShaking(0f, 0f);
+            Destroy(gameObject);
+            return;
+        }
+
         SetShaking(amplitude, frequency);
     }
 
@@ -43,7 +51,10 @@ public class Kapre : MonoBehaviour
         if (other == playerCollider)
         {
             Flip();
-            
+
+            // Add this Kapre to the KapreList
+            SingletonManager.Get<PlayerManager>().PlayerData.KapreList.Add(id);
+
             // Trigger Walking Animation
             animator.SetTrigger("isWalking");
             
