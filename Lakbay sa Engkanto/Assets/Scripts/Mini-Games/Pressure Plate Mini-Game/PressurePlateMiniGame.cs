@@ -19,6 +19,11 @@ public class PressurePlateMiniGame : MonoBehaviour
 
     private void Start()
     {
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
+        {
+            SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+        }
+
         questionTextBox.text = questionText;
 
         foreach (var pressurePlate in pressurePlates)
