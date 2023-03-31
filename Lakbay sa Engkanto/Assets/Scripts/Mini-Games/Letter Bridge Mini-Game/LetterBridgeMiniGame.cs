@@ -15,7 +15,7 @@ public class LetterBridgeMiniGame : MonoBehaviour
     [SerializeField] private Transform startingPoint;
     [SerializeField] private BridgeTile letters;
     [SerializeField] private TextMeshProUGUI wordToDisplay;
-    
+
     [Header("Properties")]
     [SerializeField] private Direction direction;
     [SerializeField] private string wordAnswer;
