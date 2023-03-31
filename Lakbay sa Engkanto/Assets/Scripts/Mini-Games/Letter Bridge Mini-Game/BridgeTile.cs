@@ -16,11 +16,13 @@ public class BridgeTile : MonoBehaviour
     private string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        yield return null;
+
         player = SingletonManager.Get<PlayerManager>().Player.gameObject;
 
-        if (Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), layerMask).CompareTag("LetterBridgeGround"))
+        if (Physics2D.OverlapBox(transform.position, new Vector2(0.2f, 0.2f), layerMask).CompareTag("LetterBridgeGround"))
         {
             Debug.Log("Destroy this");
             Destroy(gameObject);
