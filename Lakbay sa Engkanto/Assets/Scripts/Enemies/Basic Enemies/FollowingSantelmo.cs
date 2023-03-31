@@ -40,6 +40,7 @@ public class FollowingSantelmo : Enemy
                 break;
             case States.CHASE:
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+                SpriteFlip();
                 break;
         }
     }
@@ -87,4 +88,15 @@ public class FollowingSantelmo : Enemy
             Gizmos.DrawSphere((Vector2)transform.position + acquisitionRadiusOffset, acquisitionRadius);
         }
     }
+
+    private void SpriteFlip()
+    {
+        Vector3 scale = transform.localScale;
+
+        scale.x = target.position.x > transform.position.x ? Mathf.Abs(scale.x) * -1 : Mathf.Abs(scale.x);
+
+        transform.localScale = scale;
+    }
+
+
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public bool IsTesting;                               // For Debugging Purposes
-    
+
     public Player Player { get; set; }                   // Player Game Object Reference
 
     public PlayerData PlayerData;                        // Player Data Class Reference
@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject ChichayPrefab;
 
-    
+
 
     #region Singleton
     void Awake()
@@ -30,7 +30,8 @@ public class PlayerManager : MonoBehaviour
     public void ResetProperties()
     {
         PlayerData.ClearData();
-        
+        PlayerInventory.ClearPlayerInventory();
+
         // Reset Player Spawn Point
         PlayerSpawnPoint = Vector2.zero;
     }
