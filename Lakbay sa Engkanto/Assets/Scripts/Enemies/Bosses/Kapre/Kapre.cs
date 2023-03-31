@@ -26,6 +26,7 @@ public class Kapre : MonoBehaviour
     [SerializeField] private float movementDuration;                                            // Dictates how long the Kapre will Move to the
                                                                                                 // Assigned Destination
 
+    private bool isTriggered;                                                                   // Indicates if Player has Collided with This Kapre
     private SpriteRenderer spriteRenderer;                                                      // Sprite Renderer Component Reference
     private Collider2D playerCollider;                                                          // Player Collider2D Reference
     private Animator animator;                                                                  // Aniamtor Component Reference
@@ -48,9 +49,14 @@ public class Kapre : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isTriggered)
+            return;
+        
         if (other == playerCollider)
         {
             Flip();
+
+            isTriggered = true;
 
             // Add this Kapre to the KapreList
             SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
