@@ -8,6 +8,8 @@ public class PlayerData : MonoBehaviour
 
     public List<string> StringList { get; private set; } = new();
 
+    public List<ItemData> ItemDataList { get; private set; } = new();
+
     public bool HasMetChichay { get; set; }
 
     public void AddString(string value)
@@ -24,9 +26,24 @@ public class PlayerData : MonoBehaviour
         StringList.Remove(value);
     }
 
+    public void AddItemData(ItemData value)
+    {
+        if (ItemDataList.Contains(value)) return;
+
+        ItemDataList.Add(value);
+    }
+
+    public void RemoveItemData(ItemData value)
+    {
+        if (!ItemDataList.Contains(value)) return;
+
+        ItemDataList.Remove(value);
+    }
+
     public void ClearData()
     {
         StringList.Clear();
+        ItemDataList.Clear();
         HasMetChichay = false;
     }
 }

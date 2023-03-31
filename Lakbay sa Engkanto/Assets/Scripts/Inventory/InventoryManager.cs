@@ -36,4 +36,9 @@ public class InventoryManager : MonoBehaviour
 
         ItemDataList.Remove(itemData);
     }
+
+    public void ClearPlayerInventory()
+    {
+        ItemDataList.Clear();
+    }
 }
