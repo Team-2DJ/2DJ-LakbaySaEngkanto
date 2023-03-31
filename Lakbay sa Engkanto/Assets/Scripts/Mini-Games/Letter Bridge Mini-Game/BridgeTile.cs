@@ -40,7 +40,7 @@ public class BridgeTile : MonoBehaviour
             SingletonManager.Get<AudioManager>().PlayOneShot("Crumble");
 
             // Spawn Popping VFX
-            SingletonManager.Get<ObjectPooler>().SpawnFromPool("Crumble", transform.position, Quaternion.identity, Vector3.one, this.transform);
+            SingletonManager.Get<ObjectPooler>().SpawnFromPool("Crumble", transform.position, Quaternion.identity, new Vector3(2f, 2f, 2f), this.transform);
 
             // Destroy this GameObject
             Destroy(gameObject);

@@ -33,6 +33,9 @@ public class Checkpoint : MonoBehaviour
             if (isActivated)
                 return;
 
+            // Play SFX
+            SingletonManager.Get<AudioManager>().Play("Computer");
+
             // Set This point as the Checkpoint
             SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = (Vector2)transform.position;
 

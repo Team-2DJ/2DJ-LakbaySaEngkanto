@@ -162,6 +162,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
             // Mark the Designated ShuffleTextTrigger as Complete
             shuffleTextTrigger.Completed();
 
+            // Play Correct SFX
+            SingletonManager.Get<AudioManager>().Play("Shuffle Correct");
+
             yield return new WaitForSeconds(1f);
 
             // Open Door
@@ -178,6 +181,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
         {
             // Wrong Answer
             Debug.Log("WRONG");
+
+            // Play Incorrect SFX
+            SingletonManager.Get<AudioManager>().Play("Shuffle Incorrect");
 
             answerText.text = "MALI!!!";
 
@@ -201,6 +207,10 @@ public class ShuffleTextMiniGame : MonoBehaviour
         if (isEvaluating)
             return;
 
+        // Play Shuffle SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Shuffle");
+
+        // Put All Shuffle Letters in Random Positions
         foreach (ShuffleLetter item in shuffleLetterList)
             item.transform.SetSiblingIndex(Random.Range(0, shuffleLetterList.Count));
     }
