@@ -116,6 +116,7 @@ public class PressurePlate : MonoBehaviour
     {
         if (id != this.id) return;
 
+        SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
         isPressed = condition;
         GetComponent<SpriteRenderer>().sprite = pressedSprite;
     }
