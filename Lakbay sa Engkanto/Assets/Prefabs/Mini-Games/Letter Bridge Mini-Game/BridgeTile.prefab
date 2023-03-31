@@ -74,7 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterText: {fileID: 1162198204358842014}
-  popEffect: {fileID: 4291521492979827782, guid: 990f0451e6eab7a41ac3010f37585082, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1162198203885444531
 GameObject:
   m_ObjectHideFlags: 0

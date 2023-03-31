@@ -7,24 +7,33 @@ public class BridgeTile : MonoBehaviour
 {
     public bool IsCorrect { get; private set; }
     
+    [Header("References")]
     [SerializeField] private TextMeshProUGUI letterText;
-    [SerializeField] private GameObject popEffect;
+    [SerializeField] private LayerMask layerMask;
 
     private GameObject player;
 
     private string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        yield return null;
+
         player = SingletonManager.Get<PlayerManager>().Player.gameObject;
+
+        if (Physics2D.OverlapBox(transform.position, new Vector2(0.2f, 0.2f), layerMask).CompareTag("LetterBridgeGround"))
+        {
+            Debug.Log("Destroy this");
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (IsCorrect)
             return;
-        
+
         if (other.gameObject == player)
         {
             // Play Popping Sound
@@ -32,11 +41,10 @@ public class BridgeTile : MonoBehaviour
 
             // Spawn Popping VFX
             SingletonManager.Get<ObjectPooler>().SpawnFromPool("Crumble", transform.position, Quaternion.identity, this.transform);
-            
+
             // Destroy this GameObject
             Destroy(gameObject);
         }
-            
     }
 
     public void SetChance(int value, string word)

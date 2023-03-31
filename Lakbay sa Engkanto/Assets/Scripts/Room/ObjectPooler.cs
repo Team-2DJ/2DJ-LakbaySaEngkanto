@@ -32,7 +32,14 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    // Spawns an Object from the Pool
+    /// <summary>
+    /// Spawns an Object from the Pool
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="position"></param>
+    /// <param name="rotation"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
     public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation, Transform parent)
     {
         if (!PoolDictionary.ContainsKey(id))
@@ -88,7 +95,10 @@ public class ObjectPooler : MonoBehaviour
         return null;
     }
 
-    // Returns the Poolable GameObject Back to the Pool
+    /// <summary>
+    /// Returns the Poolable GameObject Back to the Pool
+    /// </summary>
+    /// <param name="go"></param>
     public void ReturnToPool(GameObject go)
     {
         go.transform.SetParent(transform);
