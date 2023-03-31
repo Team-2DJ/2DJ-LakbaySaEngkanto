@@ -8,6 +8,7 @@ public class CinematicCutsceneManager : MonoBehaviour
 {
     [Header("References")]    
     [SerializeField] private Image panelImage;                                          // Panel Image Reference
+    [SerializeField] private Animator arrowAnimator;
 
     private int currentIndex;                                                           // Current Panel Index
     private Sprite[] panelSprites;                                                      // Panel Sprite Array
@@ -70,12 +71,24 @@ public class CinematicCutsceneManager : MonoBehaviour
     /// <param name="index"></param>
     public void SetPanelImage(int index)
     {
+        arrowAnimator.SetBool("isFinished", false);
+
         panelImage.sprite = panelSprites[index];
 
         isTransitioning = true;
 
         canvas.alpha = 0f;
-        canvas.DOFade(1, 1f).OnComplete(() => isTransitioning = false);
+        canvas.DOFade(1, 1f).OnComplete(OnPanelComplete);
+    }
+
+    /// <summary>
+    /// Indicates if Panel has Finished Transition and Has been Set
+    /// </summary>
+    void OnPanelComplete()
+    {
+        isTransitioning = false;
+
+        arrowAnimator.SetBool("isFinished", true);
     }
 
     void EndCutscene()

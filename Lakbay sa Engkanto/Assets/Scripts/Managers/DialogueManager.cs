@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterNameText;                     // Character Name Text Reference
     [SerializeField] private TextMeshProUGUI sentenceText;                          // Sentence Text Reference
     [SerializeField] private float typeSpeed;                                       // Speed for Text-Typing Behavior
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator arrowAnimator;
 
     private DialogueData[] dialogueData;                                            // Dialogue Data to be Shown
 
@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
         image.sprite = dialogueData[currentDialogueIndex].CharacterDialogues[currentSentenceIndex].Image;
 
         // Disable Next Sentence Indicator
-        animator.SetBool("isFinished", false);
+        arrowAnimator.SetBool("isFinished", false);
 
         // Implement Typing Behavior for the Sentence
         foreach (char s in dialogueData[currentDialogueIndex].CharacterDialogues[currentSentenceIndex].Sentences)
@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
 
         // Enable Next Sentence Indicator
-        animator.SetBool("isFinished", true);
+        arrowAnimator.SetBool("isFinished", true);
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
             sentenceText.text = dialogueData[currentDialogueIndex].CharacterDialogues[currentSentenceIndex].Sentences;
 
             // Enable Next Sentence Indicator
-            animator.SetBool("isFinished", true);
+            arrowAnimator.SetBool("isFinished", true);
 
             isTyping = false;
         }
