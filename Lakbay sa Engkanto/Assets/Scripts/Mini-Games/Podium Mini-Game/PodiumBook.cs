@@ -102,6 +102,8 @@ public class PodiumBook : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         // Sets the Dropped boolean if target object is a PodiumSlot.
         hasBeenDropped = eventData.pointerEnter?.GetComponent<PodiumSlot>();
 
+        SingletonManager.Get<AudioManager>().PlayOneShot("Place Book");
+
         // If the object is not dropped, bring it back to its original parent
         // else, get the podium slot from pointerEnter and call check answer using the itemData as the parameter. 
         if (!hasBeenDropped)

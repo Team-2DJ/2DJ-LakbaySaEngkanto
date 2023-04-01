@@ -58,6 +58,8 @@ public class Journal : MonoBehaviour
     /// </summary>
     public void OnPreviousButtonClicked()
     {
+        SingletonManager.Get<AudioManager>().PlayOneShot("Journal Page Flip");
+
         currentPage--;
 
         if (currentPage < 0)
@@ -73,12 +75,13 @@ public class Journal : MonoBehaviour
     /// </summary>
     public void OnNextButtonClicked()
     {
+        SingletonManager.Get<AudioManager>().PlayOneShot("Journal Page Flip");
+
         if (currentPage >= Level)
         {
             Debug.Log("Not yet unlocked");
             return;
         }
-
 
         currentPage++;
 
