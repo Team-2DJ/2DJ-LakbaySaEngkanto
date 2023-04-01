@@ -5,7 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]   // Requires the Box Collider to Function Correctly; 
 public class MangoSeed : MonoBehaviour
 {
+    [SerializeField] private string effectId;
+    [SerializeField] private string soundId;
+    
     private Collider2D playerCollider;
+
 
     private void Start()
     {
@@ -16,6 +20,12 @@ public class MangoSeed : MonoBehaviour
     {
         if (other == playerCollider)
         {
+            // Play Sound
+            SingletonManager.Get<AudioManager>().PlayOneShot(soundId);
+
+            // Spawn VFX
+            SingletonManager.Get<ObjectPooler>().SpawnFromPool(effectId, transform.position, Quaternion.identity, Vector3.one, this.transform);
+
             Destroy(gameObject);
         }
     }
