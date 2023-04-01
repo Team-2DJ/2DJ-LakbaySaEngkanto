@@ -1738,10 +1738,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 376735636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a115e8882f7f042993d69f34cd8b1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 16b6acf39bb328645ba62885c456f8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1134161735}
+  journalButton: {fileID: 1134161735}
   enableAtStart: 0
 --- !u!4 &376735638
 Transform:

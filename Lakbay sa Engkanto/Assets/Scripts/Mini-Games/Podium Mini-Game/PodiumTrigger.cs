@@ -35,7 +35,6 @@ public class PodiumTrigger : MonoBehaviour
         if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
         {
             isGameComplete = true;
-            SingletonManager.Get<UIEvents>().ActivateButton(true);
             SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
             spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
             return;

@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class EnableButton : MonoBehaviour
+public class EnableJournal : MonoBehaviour
 {
-    [SerializeField] private Button button;
+    [SerializeField] private Button journalButton;
     [SerializeField] private bool enableAtStart;
 
     private void OnEnable()
@@ -22,8 +22,13 @@ public class EnableButton : MonoBehaviour
         SetButton(enableAtStart);
     }
 
+    private void Start()
+    {
+        SetButton(SingletonManager.Get<PlayerManager>().PlayerData.JournalActivated);
+    }
+
     private void SetButton(bool condition)
     {
-        button.gameObject.SetActive(condition);
+        journalButton.gameObject.SetActive(condition);
     }
 }
