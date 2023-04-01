@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;                                                    // Coyote Time Counter
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
-    private bool canMove;                                                         // Indicates if Player Can Move
+    public bool canMove { get; private set; }                                     // Indicates if Player Can Move
 
     private void OnEnable()
     {

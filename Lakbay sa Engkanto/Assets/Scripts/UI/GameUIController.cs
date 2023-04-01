@@ -32,10 +32,10 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void OnInteractButtonClicked()
+    public void OnDebugModeButtonClicked()
     {
-        // Play Interact SFX
-        SingletonManager.Get<AudioManager>().PlayOneShot("Interact");
+        SingletonManager.Get<PanelManager>().ActivatePanel("Debug Panel");
+        Time.timeScale = 1f;
     }
 
     public void OnMainMenuButtonClicked()
