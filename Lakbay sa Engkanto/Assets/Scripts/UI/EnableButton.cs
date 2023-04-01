@@ -17,7 +17,7 @@ public class EnableButton : MonoBehaviour
         SingletonManager.Get<UIEvents>().OnActivateButton -= SetButton;
     }
 
-    private void Start()
+    private void Awake()
     {
         SetButton(enableAtStart);
     }

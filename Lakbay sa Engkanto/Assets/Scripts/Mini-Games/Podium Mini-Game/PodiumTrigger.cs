@@ -32,7 +32,7 @@ public class PodiumTrigger : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = notCompleted;
 
-        if (SingletonManager.Get<PlayerManager>().PlayerData.ItemDataList.Contains(itemData))
+        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
         {
             isGameComplete = true;
             SingletonManager.Get<UIEvents>().ActivateButton(true);
