@@ -118,4 +118,15 @@ public class Kapre : MonoBehaviour
         // Destroy this gameObject
         Destroy(gameObject);
     }
+
+    /// <summary>
+    /// Indicates Calm Actions from the Kapre
+    /// </summary>
+    void TriggerCalm()
+    {
+        // Neutralize Shaking Values
+        SetShaking(0f, 0f);
+
+        animator.SetTrigger("isIdle");
+    }
 }
