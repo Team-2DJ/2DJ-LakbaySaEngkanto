@@ -127,6 +127,9 @@ public class PodiumMiniGame : MonoBehaviour
 
         if (podiumSlot.IsRight)
         {
+            // Play Correct SFX
+            SingletonManager.Get<AudioManager>().PlayOneShot("Correct");
+
             Debug.Log("CORRECT");
 
             SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
@@ -147,6 +150,9 @@ public class PodiumMiniGame : MonoBehaviour
         }
         else
         {
+            // Play Incorrect SFX
+            SingletonManager.Get<AudioManager>().PlayOneShot("Incorrect");
+
             // Invoke a false boolean that listeners will receive. 
             SingletonManager.Get<GameEvents>().SetCondition(id, false);
         }
@@ -154,6 +160,9 @@ public class PodiumMiniGame : MonoBehaviour
 
     public void OnCloseButtonClicked()
     {
+        // Play Close SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Close");
+
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }

@@ -185,6 +185,9 @@ public class BookSortingMiniGame : MonoBehaviour
         // then call the first statement, else if false 
         if (bookSlots.All(bookSlot => bookSlot.IsRight))
         {
+            // Play Correct SFX
+            SingletonManager.Get<AudioManager>().PlayOneShot("Correct");
+
             // Open the Door corresponding to this GameObjects ID.
             SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
 
@@ -206,6 +209,9 @@ public class BookSortingMiniGame : MonoBehaviour
         }
         else
         {
+            // Play Incorrect SFX
+            SingletonManager.Get<AudioManager>().PlayOneShot("Incorrect");
+
             // Invoke a false boolean that listeners will receive. 
             SingletonManager.Get<GameEvents>().SetCondition(id, false);
         }
@@ -213,6 +219,9 @@ public class BookSortingMiniGame : MonoBehaviour
 
     public void OnCloseButtonClicked()
     {
+        // Play Close SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Close");
+
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
         ClearData();

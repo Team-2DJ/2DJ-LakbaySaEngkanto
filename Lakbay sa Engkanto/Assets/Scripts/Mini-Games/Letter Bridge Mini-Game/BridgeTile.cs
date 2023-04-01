@@ -22,7 +22,7 @@ public class BridgeTile : MonoBehaviour
 
         player = SingletonManager.Get<PlayerManager>().Player.gameObject;
 
-        if (Physics2D.OverlapBox(transform.position, new Vector2(0.2f, 0.2f), layerMask).CompareTag("LetterBridgeGround"))
+        if (Physics2D.OverlapBox(transform.position, new Vector2(1f, 1f), layerMask).CompareTag("LetterBridgeGround"))
         {
             Debug.Log("Destroy this");
             Destroy(gameObject);
@@ -40,7 +40,7 @@ public class BridgeTile : MonoBehaviour
             SingletonManager.Get<AudioManager>().PlayOneShot("Crumble");
 
             // Spawn Popping VFX
-            SingletonManager.Get<ObjectPooler>().SpawnFromPool("Crumble", transform.position, Quaternion.identity, this.transform);
+            SingletonManager.Get<ObjectPooler>().SpawnFromPool("Crumble", transform.position, Quaternion.identity, new Vector3(2f, 2f, 2f), this.transform);
 
             // Destroy this GameObject
             Destroy(gameObject);
@@ -64,7 +64,7 @@ public class BridgeTile : MonoBehaviour
         {
             IsCorrect = false;
 
-            gameObject.layer = LayerMask.NameToLayer("Default");
+            //gameObject.layer = LayerMask.NameToLayer("Default");
 
             // Remove all letters in the alphabet that are associated with the word
             foreach (char l in word)

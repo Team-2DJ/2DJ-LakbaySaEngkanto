@@ -131,6 +131,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
     /// <param name="s"></param>
     public void TypeLetter(char s)
     {
+        // Play Button Pressed SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Button Pressed");
+
         // Type the Givern Letter to the Answer Text
         answerText.text += s.ToString();
 
@@ -162,6 +165,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
             // Mark the Designated ShuffleTextTrigger as Complete
             shuffleTextTrigger.Completed();
 
+            // Play Correct SFX
+            SingletonManager.Get<AudioManager>().PlayOneShot("Correct");
+
             yield return new WaitForSeconds(1f);
 
             // Open Door
@@ -178,6 +184,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
         {
             // Wrong Answer
             Debug.Log("WRONG");
+
+            // Play Incorrect SFX
+            SingletonManager.Get<AudioManager>().PlayOneShot("Incorrect");
 
             answerText.text = "MALI!!!";
 
@@ -201,6 +210,10 @@ public class ShuffleTextMiniGame : MonoBehaviour
         if (isEvaluating)
             return;
 
+        // Play Shuffle SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Shuffle");
+
+        // Put All Shuffle Letters in Random Positions
         foreach (ShuffleLetter item in shuffleLetterList)
             item.transform.SetSiblingIndex(Random.Range(0, shuffleLetterList.Count));
     }
@@ -210,6 +223,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
         // Don't Execute if Mini-Game is Evaluating
         if (isEvaluating)
             return;
+
+        // Play Close SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Close");
 
         ClearData();
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
@@ -224,6 +240,9 @@ public class ShuffleTextMiniGame : MonoBehaviour
         // Don't Execute if Mini-Game is Evaluating
         if (isEvaluating)
             return;
+
+        // Play Reset SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Reset");
 
         // Reset Answer Text
         answerText.text = "";

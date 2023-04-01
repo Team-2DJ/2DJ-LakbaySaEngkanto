@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6ecf0b5a8e51db42985a14f7230db82, type: 3}
-  m_Name: InGameBGM
+  m_Name: Reset
   m_EditorClassIdentifier: 
-  id: Game BGM
-  clip: {fileID: 8300000, guid: 01799ed3a18fea2488b257911ec1e22a, type: 3}
-  type: 0
+  id: Reset
+  clip: {fileID: 8300000, guid: 9a021dda333666247be818d28b56c4c4, type: 3}
+  type: 1
   priority: 0
-  volume: 0.5
+  volume: 1
   pitch: 1
   playOnAwake: 0
-  loop: 1
+  loop: 0
   spatialBlend: 0

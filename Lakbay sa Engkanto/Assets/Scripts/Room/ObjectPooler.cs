@@ -40,7 +40,7 @@ public class ObjectPooler : MonoBehaviour
     /// <param name="rotation"></param>
     /// <param name="parent"></param>
     /// <returns></returns>
-    public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation, Transform parent)
+    public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation, Vector3 scale, Transform parent)
     {
         if (!PoolDictionary.ContainsKey(id))
         {
@@ -60,6 +60,7 @@ public class ObjectPooler : MonoBehaviour
                 recycledObject.transform.SetParent(null);
                 recycledObject.transform.position = position;
                 recycledObject.transform.rotation = rotation;
+                recycledObject.transform.localScale = scale;
 
                 return recycledObject;
             }
@@ -71,19 +72,17 @@ public class ObjectPooler : MonoBehaviour
             if (objPool.Id == id)
             {
                 // Spawn object and add poolable component
+                // Set Position and Rotation
                 GameObject newObject = Instantiate(objPool.Prefab, position, rotation, parent);
 
-                // Set Position and Rotation
-                //newObject.transform.position = position;
-                //newObject.transform.rotation = rotation;
+                // Nullify Transform
+                newObject.transform.SetParent(null);
 
-                //newObject.transform.parent = parent;
-                newObject.transform.parent = null;
+                // Set Scale
+                newObject.transform.localScale = scale;
 
                 // Add Gameobject to List
                 PoolDictionary[id].Add(newObject);
-
-                newObject.transform.parent = null;
 
                 // Initialize Name
                 newObject.transform.name = newObject.transform.name + PoolDictionary[id].Count.ToString();
