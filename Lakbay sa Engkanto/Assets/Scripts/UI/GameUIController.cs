@@ -38,6 +38,12 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void OnInteractButtonClicked()
+    {
+        // Play Interact SFX
+        SingletonManager.Get<AudioManager>().PlayOneShot("Interact");
+    }
+
     public void OnMainMenuButtonClicked()
     {
         Time.timeScale = 1f;
