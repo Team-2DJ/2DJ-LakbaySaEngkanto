@@ -32,6 +32,12 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void OnDebugModeButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Debug Panel");
+        Time.timeScale = 1f;
+    }
+
     public void OnMainMenuButtonClicked()
     {
         Time.timeScale = 1f;
