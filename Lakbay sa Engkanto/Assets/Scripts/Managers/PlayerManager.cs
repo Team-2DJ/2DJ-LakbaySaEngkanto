@@ -32,6 +32,8 @@ public class PlayerManager : MonoBehaviour
         PlayerData.ClearData();
         PlayerInventory.ClearPlayerInventory();
 
+        SingletonManager.Get<DebugEvents>().ResetData();
+
         // Reset Player Spawn Point
         PlayerSpawnPoint = Vector2.zero;
     }
