@@ -32,10 +32,12 @@ public class PodiumTrigger : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = notCompleted;
 
-        if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
+        if (SingletonManager.Get<PlayerManager>().PlayerData.ItemDataList.Contains(itemData))
         {
-            GameCompleted(id, true);
+            isGameComplete = true;
+            SingletonManager.Get<UIEvents>().ActivateButton(true);
             SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+            spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
             return;
         }
     }
@@ -70,6 +72,9 @@ public class PodiumTrigger : MonoBehaviour
         if (!isGameComplete) return;
 
         SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
+        SingletonManager.Get<PlayerManager>().PlayerData.AddPagesCollected(1);
+        SingletonManager.Get<UIEvents>().ActivateButton(true);
+
         spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
 
     }

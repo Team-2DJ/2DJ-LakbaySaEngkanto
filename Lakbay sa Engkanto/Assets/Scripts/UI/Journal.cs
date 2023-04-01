@@ -9,7 +9,7 @@ public class Journal : MonoBehaviour
 
     private int currentPage;
 
-    public int Level;
+    public int Level { get; private set; }
 
     public struct PageData
     {
@@ -19,6 +19,9 @@ public class Journal : MonoBehaviour
 
     void OnEnable()
     {
+        int pagesCollected = SingletonManager.Get<PlayerManager>().PlayerData.PagesCollected;
+        Level = pagesCollected;
+
         // Reset to First Page
         currentPage = 0;
         ActivatePage(currentPage);
@@ -38,7 +41,7 @@ public class Journal : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class Journal : MonoBehaviour
             Debug.Log("Not yet unlocked");
             return;
         }
-            
-        
+
+
         currentPage++;
 
         if (currentPage >= pages.Length)
