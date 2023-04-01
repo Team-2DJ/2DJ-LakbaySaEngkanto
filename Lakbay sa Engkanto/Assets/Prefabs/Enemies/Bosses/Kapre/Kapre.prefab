@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 789387049
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2b1270baa703e054cb52217c5df1f4d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,9 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cd9b21315fc3b4db298ab1d746dd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinemachineBasicMultiChannelPerlin: {fileID: 0}
-  amplitude: 1
-  frequency: 1
+  cinemachineVirtualCamera: {fileID: 0}
+  amplitude: 1.5
+  frequency: 3
+  id: 
+  direction: 0
   xOffset: 15
   movementDuration: 6
 --- !u!95 &5533575951658659114
