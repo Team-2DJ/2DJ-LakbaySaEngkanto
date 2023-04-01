@@ -91,6 +91,10 @@ public class PressurePlate : MonoBehaviour
         switch (PressurePlateType)
         {
             case Type.CORRECT:
+
+                // Play Correct SFX
+                SingletonManager.Get<AudioManager>().PlayOneShot("Correct");
+
                 // Opens the door based from the doorToOpen value
                 SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
 
@@ -101,7 +105,13 @@ public class PressurePlate : MonoBehaviour
                 textBox.text = "TAMA!!!";
 
                 break;
+
             case Type.INCORRECT:
+                
+                // Play Incorrect SFX
+                SingletonManager.Get<AudioManager>().PlayOneShot("Incorrect");
+
+
                 SingletonManager.Get<PlayerEvents>().PlayerDamaged(1f);
                 isPressed = true;
                 GetComponent<SpriteRenderer>().sprite = pressedSprite;
