@@ -68,7 +68,7 @@ public class Kapre : MonoBehaviour
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
             
             // Tween Kapre to Designated Direction
-            transform.DOMoveX((transform.position.x + xOffset) * (float)direction, movementDuration).OnComplete(Deactivate);
+            transform.DOMoveX(transform.position.x + (xOffset * (float)direction), movementDuration).OnComplete(Deactivate);
         }
     }
 
