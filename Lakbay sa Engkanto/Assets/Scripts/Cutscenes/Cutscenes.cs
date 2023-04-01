@@ -8,6 +8,22 @@ public abstract class Cutscenes : MonoBehaviour
     protected Collider2D playerCollider;
     private bool hasActivated;
 
+    private void OnEnable()
+    {
+        SingletonManager.Get<DebugEvents>().OnEnableCutscene += x => hasActivated = !x;
+
+        if (!SingletonManager.Get<DebugEvents>().IsCutsceneEnabled && !hasActivated)
+        {
+            hasActivated = true;
+            return;
+        }
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<DebugEvents>().OnEnableCutscene -= x => hasActivated = !x;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +42,7 @@ public abstract class Cutscenes : MonoBehaviour
         {
             if (hasActivated)
                 return;
-            
+
             // Disable Player Movement
             SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
 

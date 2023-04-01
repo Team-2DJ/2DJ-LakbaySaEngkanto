@@ -30,7 +30,7 @@ public class DebugMode : MonoBehaviour
 
         if (currentPage >= pages.Length)
         {
-            currentPage = pages.Length - 1;
+            currentPage = 0;
         }
 
         ActivatePage(currentPage);
@@ -42,7 +42,7 @@ public class DebugMode : MonoBehaviour
 
         if (currentPage < 0)
         {
-            currentPage = 0;
+            currentPage = pages.Length - 1;
         }
 
         ActivatePage(currentPage);
@@ -67,6 +67,28 @@ public class DebugMode : MonoBehaviour
         textBoxGUI.text = playerCanMove ? "ENABLED" : "DISABLED";
 
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(playerCanMove);
+    }
+
+    public void EnableDialogue()
+    {
+        if (!SingletonManager.Get<DebugEvents>()) return;
+
+        bool condition = !SingletonManager.Get<DebugEvents>().IsDialogueEnabled;
+
+        textBoxGUI.text = condition ? "ENABLED" : "DISABLED";
+
+        SingletonManager.Get<DebugEvents>().EnableDialogue(condition);
+    }
+
+    public void EnableCutscene()
+    {
+        if (!SingletonManager.Get<DebugEvents>()) return;
+
+        bool condition = !SingletonManager.Get<DebugEvents>().IsCutsceneEnabled;
+
+        textBoxGUI.text = condition ? "ENABLED" : "DISABLED";
+
+        SingletonManager.Get<DebugEvents>().EnableCutscene(condition);
     }
 
     public void AddRemoveBook(ItemData itemData)
