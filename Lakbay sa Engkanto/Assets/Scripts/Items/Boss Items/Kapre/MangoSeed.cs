@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]   // Requires the Box Collider to Function Correctly; 
-public class MangoSeed : Item
+public class MangoSeed : MonoBehaviour
 {
-    protected override void ItemCollected()
+    private Collider2D playerCollider;
+
+    private void Start()
     {
-        SingletonManager.Get<PlayerEvents>().PlayerCollectItem(id);
+        playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == playerCollider)
+        {
+            Destroy(gameObject);
+        }
     }
 }
