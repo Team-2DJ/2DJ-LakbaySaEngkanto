@@ -7,16 +7,6 @@ public class MangoTree : MonoBehaviour
     private Animator animator;
     [SerializeField] string id;
 
-    private void OnEnable()
-    {
-        
-    }
-
-    void OnDisable()
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start()
     {
