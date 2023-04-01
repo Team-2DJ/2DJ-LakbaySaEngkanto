@@ -24,7 +24,6 @@ public class PlayerData : MonoBehaviour
     public void AddPagesCollected(int value)
     {
         PagesCollected += value;
-
         JournalActivated = PagesCollected >= 0;
     }
 
