@@ -123,6 +123,8 @@ public class BookPiece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         // Sets the Dropped boolean if target object is a BookSlot.
         hasBeenDropped = eventData.pointerEnter?.GetComponent<BookSlot>();
 
+        SingletonManager.Get<AudioManager>().PlayOneShot("Place Book");
+
         // If the object is not dropped, bring it back to its original position
         // else, call PlayerPlacedItem from GameEvents, using this bookTitle as its parameter. 
 

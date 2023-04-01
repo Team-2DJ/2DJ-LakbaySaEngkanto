@@ -34,8 +34,9 @@ public class PodiumTrigger : MonoBehaviour
 
         if (SingletonManager.Get<PlayerManager>().PlayerData.StringList.Contains(id))
         {
-            GameCompleted(id, true);
+            isGameComplete = true;
             SingletonManager.Get<GameEvents>().OpenDoor(doorToOpen);
+            spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
             return;
         }
     }
@@ -70,6 +71,9 @@ public class PodiumTrigger : MonoBehaviour
         if (!isGameComplete) return;
 
         SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
+        SingletonManager.Get<PlayerManager>().PlayerData.AddPagesCollected(1);
+        SingletonManager.Get<UIEvents>().ActivateButton(true);
+
         spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
 
     }

@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293729002461249395, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
       propertyPath: audioCollections.Array.size
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7293729002461249395, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
       propertyPath: audioCollections.Array.data[0]
@@ -250,6 +250,14 @@ PrefabInstance:
       propertyPath: audioCollections.Array.data[17]
       value: 
       objectReference: {fileID: 11400000, guid: 5218396e7464aa3449c2e0cc017feea0, type: 2}
+    - target: {fileID: 7293729002461249395, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
+      propertyPath: audioCollections.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: ef6282f70ff6d9a47bef21802d5edd6d, type: 2}
+    - target: {fileID: 7293729002461249395, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
+      propertyPath: audioCollections.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c76e4a7130856343befd9e80b8dca45, type: 2}
     - target: {fileID: 7293729002461249396, guid: c3240eb814e6ce3428963f29220a9033, type: 3}
       propertyPath: m_Name
       value: AudioManager
