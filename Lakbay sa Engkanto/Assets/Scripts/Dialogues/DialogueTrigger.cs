@@ -12,6 +12,23 @@ public class DialogueTrigger : MonoBehaviour
     private Collider2D playerCollider;                                              // Player Collider Component Reference
     private bool hasActivated;                                                      // Checks if Player has Collided with this Trigger
 
+
+    private void OnEnable()
+    {
+        SingletonManager.Get<DebugEvents>().OnEnableDialogue += x => hasActivated = !x;
+
+        if (!SingletonManager.Get<DebugEvents>().IsDialogueEnabled && !hasActivated)
+        {
+            hasActivated = true;
+            return;
+        }
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<DebugEvents>().OnEnableDialogue -= x => hasActivated = !x;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
