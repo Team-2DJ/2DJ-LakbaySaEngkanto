@@ -98,6 +98,9 @@ public class GameEnding : MonoBehaviour
     /// </summary>
     void EndCutscene()
     {
+        // Declare Game as Finished
+        SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished = true;
+
         string[] scenes = { "MainMenuScene" };
 
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);

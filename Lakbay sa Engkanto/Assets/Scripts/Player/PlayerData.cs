@@ -14,6 +14,7 @@ public class PlayerData : MonoBehaviour
 
     public bool JournalActivated { get; private set; }
 
+    public bool GameIsFinished { get; set; }
     public bool HasMetChichay { get; set; }
 
     void Start()

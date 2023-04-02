@@ -107,7 +107,7 @@ public class MangoTree : MonoBehaviour
         // Fade to White
         SingletonManager.Get<PanelManager>().ActivatePanel("White Panel");
 
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(3f);
 
         // End the Game
         SingletonManager.Get<GameManager>().EndGame();
