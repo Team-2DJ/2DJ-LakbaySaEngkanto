@@ -10,7 +10,22 @@ public class PlayerData : MonoBehaviour
 
     public List<ItemData> ItemDataList { get; private set; } = new();
 
+    public int PagesCollected { get; private set; }
+
+    public bool JournalActivated { get; private set; }
+
     public bool HasMetChichay { get; set; }
+
+    void Start()
+    {
+        ClearData();
+    }
+
+    public void AddPagesCollected(int value)
+    {
+        PagesCollected += value;
+        JournalActivated = PagesCollected >= 0;
+    }
 
     public void AddString(string value)
     {
@@ -44,6 +59,8 @@ public class PlayerData : MonoBehaviour
     {
         StringList.Clear();
         ItemDataList.Clear();
+        PagesCollected = -1;
+        JournalActivated = false;
         HasMetChichay = false;
     }
 }

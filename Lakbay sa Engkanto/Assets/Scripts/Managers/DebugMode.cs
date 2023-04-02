@@ -96,15 +96,18 @@ public class DebugMode : MonoBehaviour
         if (!SingletonManager.Get<PlayerManager>()?.PlayerInventory) return;
 
         InventoryManager inventory = SingletonManager.Get<PlayerManager>().PlayerInventory;
+        PlayerData playerData = SingletonManager.Get<PlayerManager>().PlayerData;
 
         if (!SingletonManager.Get<PlayerManager>().PlayerInventory.ItemDataList.Contains(itemData))
         {
             inventory.AddItem(itemData);
+            playerData.AddItemData(itemData);
             textBoxGUI.text = "REMOVE";
         }
         else
         {
             inventory.RemoveItem(itemData);
+            playerData.RemoveItemData(itemData);
             textBoxGUI.text = "ADD";
         }
     }
