@@ -33,7 +33,7 @@ public class TutorialScreen : MonoBehaviour
     public void OnExitButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
-        Time.timeScale = 1f;
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
         ClearData();
     }
 

@@ -70,11 +70,11 @@ public class PodiumTrigger : MonoBehaviour
 
         if (!isGameComplete) return;
 
+        SingletonManager.Get<PlayerManager>().PlayerData.JournalIsUpdated = true;
         SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
         SingletonManager.Get<PlayerManager>().PlayerData.AddPagesCollected(1);
         SingletonManager.Get<UIEvents>().ActivateButton("EnableJournal", true);
 
         spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
-
     }
 }
