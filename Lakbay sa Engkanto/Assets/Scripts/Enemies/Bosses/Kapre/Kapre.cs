@@ -119,6 +119,8 @@ public class Kapre : MonoBehaviour
     /// </summary>
     void Deactivate()
     {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+
         // Enable Player Movement
         SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
         

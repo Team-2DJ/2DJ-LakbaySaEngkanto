@@ -39,17 +39,13 @@ public class Journal : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-
-    }
-
     /// <summary>
     /// Close Button
     /// </summary>
     public void OnCloseButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Game Panel");
+
         Time.timeScale = 1f;
     }
 
@@ -58,14 +54,15 @@ public class Journal : MonoBehaviour
     /// </summary>
     public void OnPreviousButtonClicked()
     {
-        SingletonManager.Get<AudioManager>().PlayOneShot("Journal Page Flip");
-
         currentPage--;
 
         if (currentPage < 0)
         {
             currentPage = 0;
+            return;
         }
+
+        SingletonManager.Get<AudioManager>().PlayOneShot("Journal Page Flip");
 
         ActivatePage(currentPage);
     }
@@ -75,13 +72,13 @@ public class Journal : MonoBehaviour
     /// </summary>
     public void OnNextButtonClicked()
     {
-        SingletonManager.Get<AudioManager>().PlayOneShot("Journal Page Flip");
-
         if (currentPage >= Level)
         {
             Debug.Log("Not yet unlocked");
             return;
         }
+
+        SingletonManager.Get<AudioManager>().PlayOneShot("Journal Page Flip");
 
         currentPage++;
 
