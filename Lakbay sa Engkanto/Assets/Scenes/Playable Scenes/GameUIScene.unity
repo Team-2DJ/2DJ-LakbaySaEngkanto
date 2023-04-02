@@ -3693,12 +3693,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1378375362}
+  m_Father: {fileID: 830229210}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -519, y: 866.26953}
+  m_AnchoredPosition: {x: -519, y: -113.7305}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649465725
@@ -3757,7 +3757,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1378375365}
+      - m_Target: {fileID: 830229215}
         m_TargetAssemblyTypeName: TutorialButton, Assembly-CSharp
         m_MethodName: OnButtonPressed
         m_Mode: 1
@@ -4661,6 +4661,7 @@ GameObject:
   - component: {fileID: 830229211}
   - component: {fileID: 830229213}
   - component: {fileID: 830229214}
+  - component: {fileID: 830229215}
   m_Layer: 5
   m_Name: GamePanel
   m_TagString: Untagged
@@ -4683,6 +4684,7 @@ RectTransform:
   - {fileID: 1137611277}
   - {fileID: 1134161734}
   - {fileID: 1669173198}
+  - {fileID: 649465724}
   - {fileID: 1378375362}
   m_Father: {fileID: 131815266}
   m_RootOrder: 0
@@ -4755,6 +4757,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionDuration: 0
+--- !u!114 &830229215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830229209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee6d4cc8cf47ca46a7a5f40c30ed221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 649465725}
 --- !u!1 &851870733
 GameObject:
   m_ObjectHideFlags: 0
@@ -7399,7 +7414,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1378375362}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -9304,7 +9319,6 @@ GameObject:
   - component: {fileID: 1378375362}
   - component: {fileID: 1378375363}
   - component: {fileID: 1378375364}
-  - component: {fileID: 1378375365}
   m_Layer: 5
   m_Name: PlayerController
   m_TagString: Untagged
@@ -9327,10 +9341,9 @@ RectTransform:
   - {fileID: 1581108455}
   - {fileID: 286418121}
   - {fileID: 902231191}
-  - {fileID: 649465724}
   - {fileID: 1109992618}
   m_Father: {fileID: 830229210}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -9362,19 +9375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1109992622}
---- !u!114 &1378375365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378375361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee6d4cc8cf47ca46a7a5f40c30ed221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 649465725}
 --- !u!1 &1433189640
 GameObject:
   m_ObjectHideFlags: 0
