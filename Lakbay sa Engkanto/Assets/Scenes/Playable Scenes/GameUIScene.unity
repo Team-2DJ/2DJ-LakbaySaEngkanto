@@ -836,10 +836,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 830229210}
+  - {fileID: 694098309}
   - {fileID: 1816194288}
   - {fileID: 895676480}
   - {fileID: 957456945}
-  - {fileID: 694098309}
   - {fileID: 1112906175}
   - {fileID: 1596583085}
   - {fileID: 1466669897}
@@ -4170,7 +4170,7 @@ GameObject:
   - component: {fileID: 694098310}
   - component: {fileID: 694098314}
   m_Layer: 5
-  m_Name: TutorialPanel
+  m_Name: TutorialPanel (DO NOT TURN OFF)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4194,7 +4194,7 @@ RectTransform:
   - {fileID: 998455734}
   - {fileID: 1825825096}
   m_Father: {fileID: 131815266}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5074,7 +5074,7 @@ RectTransform:
   - {fileID: 1761579639}
   - {fileID: 657093085}
   m_Father: {fileID: 131815266}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5801,7 +5801,7 @@ RectTransform:
   - {fileID: 1157517334}
   - {fileID: 1211047225}
   m_Father: {fileID: 131815266}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12545,7 +12545,7 @@ RectTransform:
   - {fileID: 473283170}
   - {fileID: 1886542697}
   m_Father: {fileID: 131815266}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
