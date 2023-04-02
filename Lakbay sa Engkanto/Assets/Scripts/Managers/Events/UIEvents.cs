@@ -6,6 +6,7 @@ using System;
 /// </summary>
 public class UIEvents : MonoBehaviour
 {
+    // Interact Button Events
     public event Action<Action> OnAddButtonListener, OnRemoveButtonListener;          // Used to add listners programatically to buttons
     public event Action<string> OnActivatePanel;
 
