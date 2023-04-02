@@ -26,6 +26,12 @@ public class MangoSeed : MonoBehaviour
             // Spawn VFX
             SingletonManager.Get<ObjectPooler>().SpawnFromPool(effectId, transform.position, Quaternion.identity, Vector3.one, this.transform);
 
+            SingletonManager.Get<AudioManager>().Stop("Boss BGM");
+
+            // Call Seed Collected Event
+            SingletonManager.Get<GameEvents>().SeedCollected();
+
+            // Destroy this GameObject
             Destroy(gameObject);
         }
     }

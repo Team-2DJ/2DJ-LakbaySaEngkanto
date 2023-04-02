@@ -14,7 +14,10 @@ public class PlayerData : MonoBehaviour
 
     public bool JournalActivated { get; private set; }
 
+    public bool GameIsFinished { get; set; }
     public bool HasMetChichay { get; set; }
+
+    public string GameMusicID { get; set; }
 
     void Start()
     {
@@ -62,5 +65,6 @@ public class PlayerData : MonoBehaviour
         PagesCollected = -1;
         JournalActivated = false;
         HasMetChichay = false;
+        GameMusicID = "Game BGM";
     }
 }

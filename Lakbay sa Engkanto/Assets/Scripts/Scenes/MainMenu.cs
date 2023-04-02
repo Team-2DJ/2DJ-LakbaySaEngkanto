@@ -10,7 +10,16 @@ public class MainMenu : MonoBehaviour
         SingletonManager.Get<AudioManager>().Play("Main Menu BGM");
 
         // Activate Main Menu
-        SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished)
+        {
+            SingletonManager.Get<PanelManager>().ActivatePanel("Credits");
+        }
+        else
+        {
+            SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+        }
+        
 
         SingletonManager.Get<PlayerManager>().ResetProperties();
     }
@@ -40,6 +49,9 @@ public class MainMenu : MonoBehaviour
     public void OnReturnButtonClicked()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished)
+            SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished = false;
     }
     #endregion
     #endregion
