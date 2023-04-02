@@ -49,8 +49,6 @@ public class ShuffleTextTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (isComplete) return;
-
         if (other == playerCollider)
             SingletonManager.Get<UIEvents>().RemoveButtonListener(EnableShuffleTextMiniGame);
     }
@@ -65,7 +63,7 @@ public class ShuffleTextTrigger : MonoBehaviour
     public void Completed()
     {
         SingletonManager.Get<PlayerManager>().PlayerData.AddString(doorId);
-        
+
         isComplete = true;
         animator.SetBool("isComplete", isComplete);
     }
