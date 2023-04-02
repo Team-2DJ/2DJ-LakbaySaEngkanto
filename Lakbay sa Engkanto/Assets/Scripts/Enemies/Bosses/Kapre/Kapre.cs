@@ -68,7 +68,7 @@ public class Kapre : MonoBehaviour
 
             isTriggered = true;
 
-            // Add this Kapre to the KapreList
+            // Add this Kapre to the StringList
             SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
 
             // Trigger Walking Animation

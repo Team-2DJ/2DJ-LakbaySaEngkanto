@@ -468,6 +468,9 @@ MonoBehaviour:
   panelImage: {fileID: 1800110379}
   arrowAnimator: {fileID: 2010377688}
   panelSprites:
+  - {fileID: 21300000, guid: 8e31aa8cba34fcb478833aa87476fe77, type: 3}
+  - {fileID: 21300000, guid: 79c2e53add837e04eba396147b33ce2e, type: 3}
+  - {fileID: 21300000, guid: 3333db87ff0223a45803a4b0f13693d8, type: 3}
   - {fileID: 21300000, guid: 4f30174b6e680004a837b324c972df92, type: 3}
   - {fileID: 21300000, guid: 343073d265d38ab4591e5b22fa899ff5, type: 3}
   - {fileID: 21300000, guid: e3a373fc628420a4596e90ef0c219bc6, type: 3}
