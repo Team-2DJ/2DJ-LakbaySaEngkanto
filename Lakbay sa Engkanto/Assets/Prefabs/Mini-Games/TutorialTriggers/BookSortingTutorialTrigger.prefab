@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8236731555383649073
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[0].Description
+      value: Hilahin ang mga libro sa tamang lugar.
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[1].Description
+      value: 'Dapat mong hanapin ang mga libro na kasama sa kategorya na nakasulat
+        sa itaas. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[2].Description
+      value: 'Pagkatapos, ayusin ang mga ito ayon sa alpabeto. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[3].Description
+      value: "Dito sa halimbawang ito, mali ang ayos ng libro dahil ang mga nakalagay
+        na libro ay hindi kasama sa kategorya ng \u201CAnyong Lupa\u201D "
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[4].Description
+      value: "Ngunit tama na ang mga librong nakalagay dito ay kabilang sa \u201CAnyong
+        Lupa\u201D, hindi naman sila naka ayos ayun sa alpabeto. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[5].Description
+      value: "Tama itong halimbawa na ito dahil kabilang sa kategoryang \u201CAnyong
+        Lupa\u201D ang mga libro at sila ay naka ayos ayun sa alpabeto. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[0].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ffe4d663c49413459a92364e201b783, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[1].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ffe4d663c49413459a92364e201b783, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[2].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ffe4d663c49413459a92364e201b783, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[3].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: b608a2429eb4b2e41b388be2cbedee31, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[4].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e65e22eeeb888947a80bbe6e073afa1, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[5].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 7073d14ddf0af0e459aab9c614512717, type: 3}
+    - target: {fileID: 900697006736401980, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_Name
+      value: TutorialTrigger Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73848b07955c1934998a9aa1219d749e, type: 3}

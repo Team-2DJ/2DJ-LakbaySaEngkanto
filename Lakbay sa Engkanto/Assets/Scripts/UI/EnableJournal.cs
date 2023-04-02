@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnableJournal : MonoBehaviour
 {
+    private string id = "EnableJournal";
     [SerializeField] private Button journalButton;
     [SerializeField] private bool enableAtStart;
 
@@ -19,16 +20,17 @@ public class EnableJournal : MonoBehaviour
 
     private void Awake()
     {
-        SetButton(enableAtStart);
+        SetButton(id, enableAtStart);
     }
 
     private void Start()
     {
-        SetButton(SingletonManager.Get<PlayerManager>().PlayerData.JournalActivated);
+        SetButton(id, SingletonManager.Get<PlayerManager>().PlayerData.JournalActivated);
     }
 
-    private void SetButton(bool condition)
+    private void SetButton(string id, bool condition)
     {
+        if (id != this.id) return;
         journalButton.gameObject.SetActive(condition);
     }
 }
