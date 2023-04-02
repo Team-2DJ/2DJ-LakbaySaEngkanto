@@ -12,7 +12,8 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string, bool> OnSetCondition;                                       // An event that sets a boolean to those that will use it
 
-    public event Action OnSeedCollected;
+    public event Action OnSeedCollected;                                                    // Gets Called when Player Finally Collects the Seed
+                                                                                            // at the End
 
     void Awake()
     {

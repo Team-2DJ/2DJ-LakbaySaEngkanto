@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    public void EndGame()
     {
-        
+        string[] scenes = { "EndingScene" };
+
+        SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
 
     public void RestartGame()
