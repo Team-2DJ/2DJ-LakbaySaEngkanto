@@ -4,22 +4,50 @@ using UnityEngine;
 
 public class MangoTree : MonoBehaviour
 {
-    private Animator animator;
-    [SerializeField] string id;
+    public Animator Animator { get; private set; }
+    private Collider2D playerCollider;
+
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnSeedCollected += StartGrowing;
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnSeedCollected -= StartGrowing;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
+        playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
     }
 
-
-    // Set Mango Tree Animation based on Current Score and Winning Score Ratio
-    void GrowMangoTree(string id, int currentScore, int winningScore)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (id != this.id)
-            return;
+        if (other == playerCollider)
+        {
+            Debug.Log("End Game");
+        }
+    }
 
-        animator.SetFloat("growth", (float)currentScore / (float)winningScore);
+    void StartGrowing()
+    {
+        StartCoroutine(Grow());
+    }
+
+    IEnumerator Grow()
+    {
+        // Trigger Growing Animation
+        Animator.SetTrigger("isGrowing");
+
+        // Disable Player Movement
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
+
+        yield return new WaitForSeconds(3f);
+
+        // Enable Player Movement
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(true);
     }
 }

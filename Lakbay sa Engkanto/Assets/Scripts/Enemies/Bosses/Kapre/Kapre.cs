@@ -31,6 +31,16 @@ public class Kapre : MonoBehaviour
     private Collider2D playerCollider;                                                          // Player Collider2D Reference
     private Animator animator;                                                                  // Aniamtor Component Reference
 
+    private void OnEnable()
+    {
+        SingletonManager.Get<GameEvents>().OnSeedCollected += TriggerCalm;
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<GameEvents>().OnSeedCollected -= TriggerCalm;
+    }
+
     private void Start()
     {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();

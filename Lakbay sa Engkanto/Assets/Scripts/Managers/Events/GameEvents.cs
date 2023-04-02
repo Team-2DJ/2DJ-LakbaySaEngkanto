@@ -12,6 +12,8 @@ public class GameEvents : MonoBehaviour
 
     public event Action<string, bool> OnSetCondition;                                       // An event that sets a boolean to those that will use it
 
+    public event Action OnSeedCollected;
+
     void Awake()
     {
         SingletonManager.Register(this);
@@ -30,5 +32,10 @@ public class GameEvents : MonoBehaviour
     public void SetCondition(string id, bool condition)
     {
         OnSetCondition?.Invoke(id, condition);
+    }
+
+    public void SeedCollected()
+    {
+        OnSeedCollected?.Invoke();
     }
 }
