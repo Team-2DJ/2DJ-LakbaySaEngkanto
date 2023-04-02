@@ -7,13 +7,15 @@ public class MangoSeed : MonoBehaviour
 {
     [SerializeField] private string effectId;
     [SerializeField] private string soundId;
-    
+    [SerializeField] private GameObject wall;
+
     private Collider2D playerCollider;
 
 
     private void Start()
     {
         playerCollider = SingletonManager.Get<PlayerManager>().Player.GetComponent<Collider2D>();
+        wall.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +27,8 @@ public class MangoSeed : MonoBehaviour
 
             // Spawn VFX
             SingletonManager.Get<ObjectPooler>().SpawnFromPool(effectId, transform.position, Quaternion.identity, Vector3.one, this.transform);
+
+            wall.SetActive(true);
 
             SingletonManager.Get<AudioManager>().Stop("Boss BGM");
 
