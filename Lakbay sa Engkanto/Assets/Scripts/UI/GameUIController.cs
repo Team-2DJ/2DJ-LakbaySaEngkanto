@@ -16,6 +16,7 @@ public class GameUIController : MonoBehaviour
 
     public void OnJournalButtonClicked()
     {
+        SingletonManager.Get<PlayerManager>().PlayerData.JournalIsUpdated = false;
         SingletonManager.Get<PanelManager>().ActivatePanel("Journal Panel");
         Time.timeScale = 0f;
     }

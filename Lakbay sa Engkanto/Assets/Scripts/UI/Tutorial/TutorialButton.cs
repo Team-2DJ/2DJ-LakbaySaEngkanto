@@ -19,6 +19,7 @@ public class TutorialButton : MonoBehaviour
     public void OnButtonPressed()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Tutorial Panel");
+        SingletonManager.Get<PlayerEvents>().SetPlayerMovement(false);
     }
 
     private void EnableButton(string value, bool condition)
