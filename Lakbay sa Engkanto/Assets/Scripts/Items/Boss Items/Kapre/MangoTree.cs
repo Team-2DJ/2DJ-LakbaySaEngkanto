@@ -72,6 +72,8 @@ public class MangoTree : MonoBehaviour
         // Show Sparkles
         sparkles.SetActive(true);
 
+        SingletonManager.Get<AudioManager>().PlayOneShot("Sparkles");
+
         yield return new WaitForSeconds(3f);
 
         // Hide Sparkles
@@ -98,6 +100,8 @@ public class MangoTree : MonoBehaviour
 
         // Show Light Rain Effect
         lightRain.SetActive(true);
+
+        SingletonManager.Get<AudioManager>().PlayOneShot("Earthquake");
 
         // Deactivate All Panels
         SingletonManager.Get<PanelManager>().ActivatePanel("");

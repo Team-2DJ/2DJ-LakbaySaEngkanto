@@ -21,6 +21,7 @@ public class GameEnding : MonoBehaviour
     void Start()
     {
         SingletonManager.Get<PanelManager>().ActivatePanel("Ending Cutscene");
+        SingletonManager.Get<AudioManager>().Play("Ending BGM");
 
         Initialize(panelSprites);
     }
