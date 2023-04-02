@@ -72,7 +72,7 @@ public class PodiumTrigger : MonoBehaviour
 
         SingletonManager.Get<PlayerManager>().PlayerData.AddString(id);
         SingletonManager.Get<PlayerManager>().PlayerData.AddPagesCollected(1);
-        SingletonManager.Get<UIEvents>().ActivateButton(true);
+        SingletonManager.Get<UIEvents>().ActivateButton("EnableJournal", true);
 
         spriteRenderer.sprite = isGameComplete ? completed : notCompleted;
 

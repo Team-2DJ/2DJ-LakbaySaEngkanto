@@ -9,17 +9,16 @@ public class UIEvents : MonoBehaviour
     // Interact Button Events
     public event Action<Action> OnAddButtonListener, OnRemoveButtonListener;          // Used to add listners programatically to buttons
     public event Action<string> OnActivatePanel;
-
-    public event Action<bool> OnActivateButton;
+    public event Action<string, bool> OnActivateButton;
 
     void Awake()
     {
         SingletonManager.Register(this);
     }
 
-    public void ActivateButton(bool condition)
+    public void ActivateButton(string id, bool condition)
     {
-        OnActivateButton?.Invoke(condition);
+        OnActivateButton?.Invoke(id, condition);
     }
 
     public void AddButtonListener(Action action)
