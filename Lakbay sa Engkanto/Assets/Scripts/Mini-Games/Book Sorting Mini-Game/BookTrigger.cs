@@ -47,8 +47,6 @@ public class BookTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (isGameComplete) return;
-
         SingletonManager.Get<UIEvents>().RemoveButtonListener(EnableBooksMiniGame);
     }
 
