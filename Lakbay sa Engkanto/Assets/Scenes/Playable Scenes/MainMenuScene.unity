@@ -1006,7 +1006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1083569234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1732,10 +1732,10 @@ RectTransform:
   m_Father: {fileID: 2030638669}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -350}
-  m_SizeDelta: {x: 633, y: 265.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 132.31125}
+  m_SizeDelta: {x: 582.979, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459716144
 MonoBehaviour:
@@ -2075,10 +2075,10 @@ RectTransform:
   m_Father: {fileID: 2030638669}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -18.05}
-  m_SizeDelta: {x: 0, y: 631.1794}
+  m_AnchorMin: {x: 0, y: 0.26885188}
+  m_AnchorMax: {x: 1, y: 0.9545927}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.00012207}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1578726648
 MonoBehaviour:
@@ -2100,25 +2100,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Created By:
+  m_text: '<b>Created By:</b>
 
-    Gutierrez, David
+    Gutierrez, David Andrew
 
     de Mesa, Ysabelle
+    Marie
 
-    Mayo, Drake
+    Mayo, Drake Axel
 
-    Tejada,
-    Joshua
+    Tejada, Joshua Seth Matthew
 
-    Cabangon, Gabriel
+    Cabangon, Juan
+    Gabriel
 
 
     CAPSTN 1 ADVISER: Mr. Jebbrich Lim
 
 
-    Music
-    and Sounds from: OpenGameArt & FreeSounds.org'
+    Music and Sounds from:
+    OpenGameArt.org & FreeSound.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
   m_sharedMaterial: {fileID: -8944653195128668012, guid: 7992750dbf79b6a41b728cac3b0d71b7, type: 2}
@@ -2145,7 +2146,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.4
+  m_fontSize: 53.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2181,7 +2182,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.84973145}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2280,12 +2281,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 91.5
+  m_fontSizeBase: 90
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 14.5
-  m_fontSizeMax: 125.1
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 91.5
+  m_fontSizeMax: 91.5
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2559,7 +2560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030638669
 RectTransform:
   m_ObjectHideFlags: 0
