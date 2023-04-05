@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Journal Page Flip
   m_EditorClassIdentifier: 
   id: Journal Page Flip
-  clip: {fileID: 8300000, guid: 9ad74a60790e27d4b99cd0e9895b49cb, type: 3}
+  clip: {fileID: 8300000, guid: 7f23e0620a533a942a1cb2f5a1bd3ea5, type: 3}
   type: 1
   priority: 0
   volume: 1
