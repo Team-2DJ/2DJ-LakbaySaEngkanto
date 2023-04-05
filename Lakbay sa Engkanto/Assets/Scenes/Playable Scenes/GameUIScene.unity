@@ -9196,7 +9196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 110.4962, y: 107.5}
+  m_AnchoredPosition: {x: 110.49609, y: 107.5}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358276192
@@ -9799,6 +9799,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 131815266}
     m_Modifications:
+    - target: {fileID: 2996727610546843293, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996727610546843293, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996727610546843293, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996727610546843293, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321418752631586073, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321418752631586073, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321418752631586073, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321418752631586073, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.9558957
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.8552041
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.047625013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.7571503
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.00012207
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -7.555
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365165150499186640, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.880005
+      objectReference: {fileID: 0}
     - target: {fileID: 5683620663204404048, guid: f63e85b92808f60469dfa861357cac62, type: 3}
       propertyPath: id
       value: BooksMiniGame1
@@ -9988,6 +10052,26 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1466669901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5683620663233079264, guid: f63e85b92808f60469dfa861357cac62, type: 3}
+  m_PrefabInstance: {fileID: 1466669896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1466669902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466669901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1483118007
 GameObject:
   m_ObjectHideFlags: 0
@@ -10483,6 +10567,10 @@ PrefabInstance:
     - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Name
       value: ShuffleTextMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297795085114188838, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3297795085114188839, guid: 1232897d0529c334f85bd95edf02d7ea, type: 3}
       propertyPath: m_Pivot.x
