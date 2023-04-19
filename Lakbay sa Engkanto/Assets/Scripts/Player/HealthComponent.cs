@@ -4,31 +4,36 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private SpriteRenderer PlayerSprite;
+
+    [Header("Properties")]
     [SerializeField] private float DefaultHealth;                             // Default HP
+    [SerializeField] private string[] hurtIds;                                // Hurt ID Array
+
     public float CurrentHealth { get; private set; }                          // Current HP
     public bool IsAlive { get; private set; }                                 // Life Condition Indicator
 
-    [SerializeField] private SpriteRenderer PlayerSprite;
-    private PlayerSetup playerSetup;
+    
+    private Player playerSetup;
 
     private bool isHurt;
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += TakeDamage;
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged += TakeDamage;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= TakeDamage;
-        Debug.Log("Disable");
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged -= TakeDamage;
     }
 
     #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
-        playerSetup = GetComponent<PlayerSetup>();
+        playerSetup = GetComponent<Player>();
         Initialize();
     }
     #endregion
@@ -42,6 +47,9 @@ public class HealthComponent : MonoBehaviour
     #region HP System
     public void TakeDamage(float damage)
     {
+        if (!IsAlive)
+            return;
+        
         // Decrement HP based on Damage
         CurrentHealth -= damage;
 
@@ -51,6 +59,11 @@ public class HealthComponent : MonoBehaviour
             // Clamp HP to 0
             // Prevents Negative HP
             CurrentHealth = 0f;
+
+            int randomNumber = Random.Range(0, hurtIds.Length);
+
+            // Play Sound
+            SingletonManager.Get<AudioManager>().Play(hurtIds[randomNumber]);
 
             // Call Death
             StartCoroutine(OnDeath());
@@ -99,14 +112,16 @@ public class HealthComponent : MonoBehaviour
     // Executes Death Functionality
     IEnumerator OnDeath()
     {
+        SingletonManager.Get<PanelManager>().ActivatePanel("");
+        
         // Indicate Player Death in Bool
         IsAlive = false;
 
         // Disable Movement
         playerSetup.PlayerMovement.enabled = false;
 
-        // Set Rigidbody2D Type to Static to Prevent Further Movement
-        playerSetup.Rb.bodyType = RigidbodyType2D.Static;
+        // Set Rigidbody2D Simulated to False to Prevent Further Movement
+        playerSetup.Rb.simulated = false;
 
         // Death VFX
         playerSetup.Animator.SetBool("isDead", true);

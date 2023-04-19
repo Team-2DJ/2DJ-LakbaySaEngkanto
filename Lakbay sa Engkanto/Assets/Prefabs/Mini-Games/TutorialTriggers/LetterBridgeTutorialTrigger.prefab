@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &578599578195539672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[0].Description
+      value: 'Kailangan mong tumalon sa mga letrang kabilang sa pisara. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[1].Description
+      value: Kung tumalon ka sa tamang letra, hindi ka mahuhulog.
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[2].Description
+      value: 'Kung ikaw naman ay tumalon sa isang letrang hindi kasama sa pisara,
+        mahuhulog ka at uulitin muli ang laro. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[0].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3369ae6e70f3004438c76a210852547e, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[1].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 02e61f182e8e1194a801ed8c8769e805, type: 3}
+    - target: {fileID: 900697006736401970, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: tutorialDatas.Array.data[2].ReferenceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 2b388545ec2797747b1f0d89fe8d09d1, type: 3}
+    - target: {fileID: 900697006736401980, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_Name
+      value: LetterBridgeTutorialTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900697006736401982, guid: 73848b07955c1934998a9aa1219d749e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73848b07955c1934998a9aa1219d749e, type: 3}

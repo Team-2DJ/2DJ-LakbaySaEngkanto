@@ -10,36 +10,36 @@ public class ChichayMovement : MonoBehaviour
         IDLE,
         FLYING,
     };
-
-    [SerializeField] private Transform FollowPoint;                         // Point Where Chichay Needs to Go to
+                
     [SerializeField] private float MovementSpeed;                           // Default Movement Speed
-    [SerializeField] private Animator Animator;                             // Animator Controller Component Reference
-
+    
     private float currentSpeed;                                             // Current Movement Speed
     private States currentState;                                            // Current State
     private Vector3 scale;                                                  // Default Scale Reference
 
-    private PlayerSetup player;
+    private Player player;                                             // Player Reference
+    private Chichay chichaySetup;                                      // ChichaySetup Class Reference
 
     private void OnEnable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged += x => OnHurt();
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged += OnHurt;
     }
 
     private void OnDisable()
     {
-        SingletonManager.Get<GameEvents>().OnPlayerDamaged -= x => OnHurt();
+        SingletonManager.Get<PlayerEvents>().OnPlayerDamaged -= OnHurt;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
         // Initialize Scale Values
         scale = transform.localScale;
 
         // Initialize Current Speed
         currentSpeed = MovementSpeed;
+
+        chichaySetup = GetComponent<Chichay>();
 
         player = SingletonManager.Get<PlayerManager>().Player;
     }
@@ -60,6 +60,9 @@ public class ChichayMovement : MonoBehaviour
     /// </summary>
     void Flip()
     {
+        if (!player.HealthComponent.IsAlive)
+            return;
+        
         // Get Player Horizontal Input Reference from PlayerManager
         float horizontalDirection = SingletonManager.Get<PlayerManager>().Player.PlayerMovement.HorizontalInput;
 
@@ -75,7 +78,7 @@ public class ChichayMovement : MonoBehaviour
     void FollowPlayer()
     {
         // If Chichay Reaches the FollowPoint
-        if (Vector2.Distance(transform.position, FollowPoint.position) < 0.01f)
+        if (Vector2.Distance(transform.position, chichaySetup.Target.position) < 0.01f)
         {
             // Set State to Idle
             currentState = States.IDLE;
@@ -87,7 +90,7 @@ public class ChichayMovement : MonoBehaviour
             currentState = States.FLYING;
 
             // Move Towards Target Position
-            transform.position = Vector2.MoveTowards(transform.position, FollowPoint.position, currentSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, chichaySetup.Target.position, currentSpeed * Time.deltaTime);
         }
     }
     #endregion
@@ -102,11 +105,11 @@ public class ChichayMovement : MonoBehaviour
         switch (currentState)
         {
             case States.IDLE:
-                Animator.SetBool("isFlying", false);
+                chichaySetup.Animator.SetBool("isFlying", false);
                 break;
 
             case States.FLYING:
-                Animator.SetBool("isFlying", true);
+                chichaySetup.Animator.SetBool("isFlying", true);
                 break;
         }
     }
@@ -114,7 +117,7 @@ public class ChichayMovement : MonoBehaviour
     /// <summary>
     /// Triggers Hurt Animation
     /// </summary>
-    void OnHurt()
+    void OnHurt(float value)
     {
         StartCoroutine(ChichayHurt());
     }
@@ -122,20 +125,18 @@ public class ChichayMovement : MonoBehaviour
     IEnumerator ChichayHurt()
     {
         // Enable Hurt Animation
-        Animator.SetBool("isHurt", true);
+        chichaySetup.Animator.SetBool("isHurt", true);
 
         // Exit Time Delay
         yield return new WaitForSeconds(0.75f);
 
         // Disable Hurt Animation
-        Animator.SetBool("isHurt", false);
+        chichaySetup.Animator.SetBool("isHurt", false);
 
-        // Check if Player is Still Alive
-        if (!player.GetComponent<HealthComponent>().IsAlive)
-        {
-            // Trigger Death Animation
-            Animator.SetTrigger("isDead");
-        }
+        // Check if Player is Still Alive.
+        // If No, Trigger Death Animation
+        if (!player.HealthComponent.IsAlive)
+            chichaySetup.Animator.SetTrigger("isDead");
     }
     #endregion
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94df2b24a410207499e8464e875182e3, type: 3}
+  m_Name: Leaf
+  m_EditorClassIdentifier: 
+  displayName: Book
+  typeOfItem: 0
+  closedIcon: {fileID: 1755530738, guid: 261212d831932394e9a5a58611197617, type: 3}
+  openedIcon: {fileID: -1931884748, guid: f9ebaa9c33787b142858c4aefeb4e0d9, type: 3}

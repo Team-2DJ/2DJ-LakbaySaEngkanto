@@ -19,8 +19,6 @@ public class PanelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private PanelData[] panels;
 
-    private string currentPanelId;
-
     #region Singleton
     void Awake()
     {
@@ -32,21 +30,12 @@ public class PanelManager : MonoBehaviour
     /// Activates Selected Panel Based on ID Input
     /// </summary>
     /// <param name="id"></param>
-    public void ActivatePanel(string id, float transitionDuration)
+    public void ActivatePanel(string id)
     {
         // Enable Chosen Panel and disable the rest
         for (int i = 0; i < panels.Length; i++)
         {
             panels[i].PanelObject.SetActive(panels[i].Id == id);
-
-            if (panels[i].Id == id)
-            {
-                CanvasGroup canvas = panels[i].PanelObject.GetComponent<CanvasGroup>();
-
-                // Trigger Fade-In Animation
-                canvas.alpha = 0f;
-                canvas.DOFade(1, transitionDuration);
-            }
         }
     }
 }

@@ -7,24 +7,52 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SingletonManager.Get<AudioManager>().Play("Main Menu BGM");
+
         // Activate Main Menu
-        SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu", 0f);
 
-        // Reset Player Spawn Point
-        SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = new Vector2(0f, 0f);
+        if (SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished)
+        {
+            SingletonManager.Get<PanelManager>().ActivatePanel("Credits");
+        }
+        else
+        {
+            SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+        }
+        
+
+        SingletonManager.Get<PlayerManager>().ResetProperties();
     }
 
-    public void Play()
+    #region Button Functions
+    #region Main Menu
+    public void OnPlayButtonClicked()
     {
-        SingletonManager.Get<PanelManager>().ActivatePanel("Level Selection", 1f);
-    }
-
-    public void OnLevelSelected(int level)
-    {
-        SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex = level;
-
-        string[] scenes = { "GameScene", "Level" + level, "GameUIScene" };
+        string[] scenes = { "GameScene", "GameUIScene", "Level1" };
 
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
+
+    public void OnCreditsButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Credits");
+    }
+
+    public void OnQuitButtonClicked()
+    {
+        Application.Quit();
+        Debug.Log("You have quit the game!");
+    }
+    #endregion
+
+    #region Credits Menu
+    public void OnReturnButtonClicked()
+    {
+        SingletonManager.Get<PanelManager>().ActivatePanel("Main Menu");
+
+        if (SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished)
+            SingletonManager.Get<PlayerManager>().PlayerData.GameIsFinished = false;
+    }
+    #endregion
+    #endregion
 }

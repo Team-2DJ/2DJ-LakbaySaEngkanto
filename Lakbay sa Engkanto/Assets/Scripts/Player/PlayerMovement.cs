@@ -13,29 +13,44 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float GroundCheckRadius;                             // Radius of the Ground Checker
     [SerializeField] private float CurrentSpeed { get; set; }                     // Current Movement Speed of the Player
     public float HorizontalInput { get; set; }                                    // Checks Player Input
-    public bool IsTesting;                                                        // For Debugging Purposes
 
-
-    private PlayerSetup playerSetup;                                              // Player Setup Class Reference
+    private Player playerSetup;                                                   // Player Setup Class Reference
     private float coyoteTimer;                                                    // Coyote Time Counter
     private int currentJumpAmount;                                                // Air Jump Amount Tracker
     private Vector3 scale;                                                        // Player Scale Reference
+    public bool canMove { get; private set; }                                     // Indicates if Player Can Move
 
-    #region Initialization Functions
+    private void OnEnable()
+    {
+        SingletonManager.Get<PlayerEvents>().OnSetPlayerMovement += value => canMove = value;
+    }
+
+    private void OnDisable()
+    {
+        SingletonManager.Get<PlayerEvents>().OnSetPlayerMovement -= value => canMove = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         // Cache-In Variables
-        playerSetup = GetComponent<PlayerSetup>();
+        playerSetup = GetComponent<Player>();
         CurrentSpeed = MovementSpeed;
         currentJumpAmount = MultipleJumpAmount;
         scale = transform.localScale;
+        canMove = true;
     }
-    #endregion
 
-    #region Update Functions
     void Update()
     {
+        if (!canMove)
+        {
+            playerSetup.Animator.SetFloat("velocityX", 0f);
+            playerSetup.Animator.SetFloat("velocityY", playerSetup.Rb.velocity.y);
+            playerSetup.Animator.SetBool("isJumping", !IsGrounded());
+            return;
+        }
+
         TestingMode();
         ControlAnimation();
         GroundChecking();
@@ -44,10 +59,15 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!canMove)
+        {
+            playerSetup.Rb.velocity = new Vector2(0f, playerSetup.Rb.velocity.y);
+            return;
+        }
+
         // Move the Player based on Input
         playerSetup.Rb.velocity = new Vector2(HorizontalInput * CurrentSpeed, playerSetup.Rb.velocity.y);
     }
-    #endregion
 
     #region Animation Callbacks
     /// <summary>
@@ -104,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void TestingMode()
     {
-        if (IsTesting)
+        if (SingletonManager.Get<PlayerManager>().IsTesting)
         {
             // Horizontal Movement based on Current Input
             HorizontalInput = Input.GetAxisRaw("Horizontal");
@@ -147,7 +167,6 @@ public class PlayerMovement : MonoBehaviour
             // Flip Player Based on Horizontal Input
             transform.localScale = new Vector3(scale.x * HorizontalInput, scale.y, scale.z);
     }
-
 
     #region Conditional Functions
     /// <summary>

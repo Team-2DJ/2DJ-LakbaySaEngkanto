@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1339825824698532260}
   - component: {fileID: 1339825824698532266}
   - component: {fileID: 1339825824698532264}
-  - component: {fileID: 1339825824698532265}
   - component: {fileID: 1339825824698532270}
-  - component: {fileID: 5166932919806761786}
   - component: {fileID: 1954673214}
+  - component: {fileID: 7727611851439323641}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -77,25 +76,11 @@ MonoBehaviour:
   GroundMask:
     serializedVersion: 2
     m_Bits: 8
-  MultipleJumpAmount: 1
+  MultipleJumpAmount: 0
   MovementSpeed: 7.5
   CoyoteTime: 0.2
   JumpForce: 26
   GroundCheckRadius: 0.4
-  IsTesting: 0
---- !u!114 &1339825824698532265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339825824698532271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24cc9a20c0df5ad458ee74177d206128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 1765196721149191467}
 --- !u!114 &1339825824698532270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,20 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d13e62a5f197d14e9c2608c6e86ab95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultHealth: 5
   PlayerSprite: {fileID: 7965120496834044372}
---- !u!114 &5166932919806761786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339825824698532271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d874cdd130904e14693791cb5ab9081e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  DefaultHealth: 1
+  hurtIds:
+  - Hurt 1
+  - Hurt 2
 --- !u!70 &1954673214
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,6 +114,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0.05, y: 0.21}
   m_Size: {x: 0.82, y: 1.92}
   m_Direction: 0
+--- !u!114 &7727611851439323641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339825824698532271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b5a29dbe2f1874488b89c88b3f01e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1765196721149191467}
+  chichayFollowPoint: {fileID: 1339825825956997644}
 --- !u!1 &1339825825755755627
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +294,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 69825465
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 80d2f858d77ee9144b75f5fb793ff41b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

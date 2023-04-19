@@ -39,11 +39,28 @@ public static class SingletonManager
     }
 
     /// <summary>
+    /// Checks if the Singelton instance exists in the Dictionary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static bool Contains<T>() where T : MonoBehaviour
+    {
+        MonoBehaviour obj = null;
+
+        if (singletons.TryGetValue(typeof(T), out obj))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Registers the object as a singleton reference.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="obj">The singleton component</param>
-	public static void Register<T>(T obj) where T : MonoBehaviour
+    public static void Register<T>(T obj) where T : MonoBehaviour
     {
         Assert.IsNull(Get<T>(), typeof(T).Name + " singleton already exists");
         singletons[typeof(T)] = obj;

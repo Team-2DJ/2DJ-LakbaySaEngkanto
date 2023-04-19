@@ -106,7 +106,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 789387049
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b8923eb775cc76648be8113381ab43e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d786cbcf310b29f4e881fa4a903749fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRadius: 1
+  rotationRadius: 2.5
   angularSpeed: 2.5
   isClockwise: 0
 --- !u!58 &239741110004743149
@@ -147,9 +147,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: -2}
+  m_Offset: {x: -1.5, y: -2.5}
   serializedVersion: 2
-  m_Radius: 4.5
+  m_Radius: 3
 --- !u!95 &3269619261530026173
 Animator:
   serializedVersion: 4

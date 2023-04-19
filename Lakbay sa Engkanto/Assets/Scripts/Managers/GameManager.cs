@@ -5,29 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private List<GameObject> PagesCollected = new List<GameObject>();
-
+    #region Singleton
     private void Awake()
     {
         SingletonManager.Register(this);
     }
-
-    private void Start()
-    {
-        
-    }
+    #endregion
 
     public void EndGame()
     {
-        // Reset Player Spawn point Coordinates
-        SingletonManager.Get<PlayerManager>().PlayerSpawnPoint = new Vector2(0f, 0f);
+        string[] scenes = { "EndingScene" };
 
-        // Load Next Level
+        SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
 
     public void RestartGame()
     {
-        string[] scenes = { "GameScene", "Level" + SingletonManager.Get<PlayerManager>().PlayerData.LevelIndex.ToString(), "GameUIScene" };
+        string[] scenes = { "GameScene", "GameUIScene", "Level1" };
         
         SingletonManager.Get<SceneLoader>().LoadScene(scenes);
     }
